@@ -16,35 +16,11 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-      
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      
-      - name: Install dependencies
-        run: npm install || echo "No package.json found, skipping npm install"
-      
-      - name: Build site
-        run: |
-          echo "Building WatchTheFall v4.2.3..."
-          echo "Verifying file structure..."
-          ls -la
-      
-      - name: Printify Sync (optional)
-        if: ${{ secrets.PRINTIFY_API_KEY != '' }}
-        env:
-          PRINTIFY_API_KEY: ${{ secrets.PRINTIFY_API_KEY }}
-          PRINTIFY_SHOP_ID: ${{ secrets.PRINTIFY_SHOP_ID }}
-        run: |
-          echo "Running Printify sync..."
-          node scripts/printify_sync.js || echo "Printify sync fallback - using cached data"
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
