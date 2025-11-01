@@ -1,5 +1,6 @@
 // =====================================================================
-// WatchTheFall v4.1 - Printify Integration & Product Sync (Enhanced)
+// WatchTheFall v4.2 - Printify Integration & Product Sync (Enhanced)
+// Features: Retry logic, error handling, offline fallback
 // =====================================================================
 
 (function() {
@@ -7,14 +8,18 @@
     
     // Printify API configuration
     const PRINTIFY_API_URL = 'https://api.printify.com/v1';
+    const MAX_RETRIES = 3;
+    const RETRY_DELAY = 1000; // 1 second
+    
+    let retryCount = 0;
     
     async function loadPrintifyProducts() {
         const grid = document.getElementById('products-grid') || document.getElementById('printify-preview');
         if (!grid) return;
         
         try {
-            // Load from synced data
-            const response = await fetch('data/brands.json');
+            // Load from synced data with retry
+            const response = await fetchWithRetry('data/brands.json');
             
             if (response.ok) {
                 const data = await response.json();
@@ -24,17 +29,42 @@
                     displayProducts(products, grid);
                     displayBrandLinks(data.brandLinks || []);
                     console.log(`✅ Loaded ${products.length} Printify products`);
+                    console.log('Printify Sync OK');
                     return;
                 }
             }
             
             // If no products, show placeholder
+            console.warn('⚠️ No products found, using offline catalog');
             showPlaceholderProducts(grid);
             
         } catch (error) {
             console.error('❌ Error loading products:', error);
+            console.log('⚠️ Falling back to offline_catalog mode');
             showPlaceholderProducts(grid);
         }
+    }
+    
+    async function fetchWithRetry(url, options = {}) {
+        for (let i = 0; i < MAX_RETRIES; i++) {
+            try {
+                const response = await fetch(url, options);
+                if (response.ok) return response;
+                
+                console.warn(`⚠️ Fetch attempt ${i + 1} failed, retrying...`);
+                await sleep(RETRY_DELAY * (i + 1)); // Exponential backoff
+                
+            } catch (error) {
+                if (i === MAX_RETRIES - 1) throw error;
+                console.warn(`⚠️ Fetch error on attempt ${i + 1}:`, error.message);
+                await sleep(RETRY_DELAY * (i + 1));
+            }
+        }
+        throw new Error('Max retries reached');
+    }
+    
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
     }
     
     function displayProducts(products, container) {

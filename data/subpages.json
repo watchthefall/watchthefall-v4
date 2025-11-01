@@ -1,0 +1,76 @@
+{
+  "version": "4.2.0",
+  "last_updated": "2025-11-01",
+  "regions": [
+    {
+      "id": "scotland",
+      "name": "Scotland WTF",
+      "slug": "scotland",
+      "theme": "scotland_colors.css",
+      "path": "regional/pages/scotland.html",
+      "logo": "assets/logos/scotland-wtf-logo.png",
+      "description": "Alba Gu Bràth - Documenting the fall in Scotland",
+      "active": true,
+      "stats": {
+        "creators": 247,
+        "total_reach": 1200000,
+        "weekly_content": 340
+      },
+      "top_creators": [
+        {
+          "handle": "@ScotlandFalls",
+          "followers": 850000,
+          "location": "Edinburgh"
+        },
+        {
+          "handle": "@GlasgowWatch",
+          "followers": 620000,
+          "location": "Glasgow"
+        },
+        {
+          "handle": "@HighlandsTruth",
+          "followers": 380000,
+          "location": "Inverness"
+        }
+      ]
+    }
+  ],
+  "planned_regions": [
+    {
+      "id": "england",
+      "name": "England WTF",
+      "status": "planned",
+      "priority": "high"
+    },
+    {
+      "id": "wales",
+      "name": "Wales WTF",
+      "status": "planned",
+      "priority": "medium"
+    },
+    {
+      "id": "ireland",
+      "name": "Ireland WTF",
+      "status": "planned",
+      "priority": "medium"
+    },
+    {
+      "id": "usa",
+      "name": "USA WTF",
+      "status": "planned",
+      "priority": "high"
+    },
+    {
+      "id": "canada",
+      "name": "Canada WTF",
+      "status": "planned",
+      "priority": "medium"
+    },
+    {
+      "id": "australia",
+      "name": "Australia WTF",
+      "status": "planned",
+      "priority": "medium"
+    }
+  ]
+}
