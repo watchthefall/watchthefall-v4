@@ -1,4 +1,4 @@
-name: Auto Deploy (Qoder)
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -7,16 +7,17 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
       - name: Checkout repository
@@ -32,7 +33,7 @@ jobs:
       
       - name: Build site
         run: |
-          echo "Building WatchTheFall v4.2.1..."
+          echo "Building WatchTheFall v4.2.3..."
           echo "Verifying file structure..."
           ls -la
       
