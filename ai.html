@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Network | WatchTheFall</title>
+    <link rel="icon" type="image/png" href="assets/logos/favicon.png">
+    <link rel="stylesheet" href="styles/app.css">
+    <link rel="manifest" href="manifest.json">
+    <style>
+        /* AI Network Specific Styles */
+        .ai-hero {
+            position: relative;
+            text-align: center;
+            padding: 15vh 2rem 8rem;
+            color: #00ffcc;
+            z-index: 1;
+        }
+
+        .glitch-text {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #00ffcc;
+            text-shadow: 
+                0 0 15px rgba(0, 255, 204, 0.6),
+                0 0 40px rgba(0, 255, 204, 0.35),
+                2px 2px 0 rgba(255, 0, 255, 0.4),
+                -2px -2px 0 rgba(0, 255, 255, 0.4);
+            animation: glitchPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes glitchPulse {
+            0%, 100% { text-shadow: 0 0 15px rgba(0, 255, 204, 0.6), 0 0 40px rgba(0, 255, 204, 0.35); }
+            50% { text-shadow: 0 0 25px rgba(0, 255, 204, 0.8), 0 0 60px rgba(0, 255, 204, 0.5); }
+        }
+
+        .ai-hero p {
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            color: rgba(0, 255, 204, 0.8);
+            font-style: italic;
+        }
+
+        .ai-section {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 3rem 2rem 6rem;
+            z-index: 1;
+        }
+
+        .ai-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            width: 320px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .ai-card:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 0 30px rgba(0, 255, 204, 0.5);
+            border-color: rgba(0, 255, 204, 0.5);
+        }
+
+        .ai-card h2 {
+            color: #00ffcc;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.4);
+        }
+
+        .ai-card p {
+            color: var(--color-text);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            border-radius: 8px;
+            color: #00ffcc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-link:hover {
+            background: rgba(0, 255, 204, 0.1);
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .glitch-text {
+                font-size: 2.5rem;
+            }
+            
+            .ai-section {
+                padding: 2rem 1rem 4rem;
+            }
+            
+            .ai-card {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline id="ai-bg">
+            <source src="assets/video/main_bg.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Particle Network Canvas -->
+    <canvas id="network-canvas"></canvas>
+
+    <!-- Back Link -->
+    <a href="index.html" class="back-link">← Back to Home</a>
+
+    <!-- Hero Section -->
+    <section class="hero ai-hero">
+        <h1><span class="glitch-text">AI Network</span></h1>
+        <p>Where algorithms observe the collapse and data dreams of consciousness</p>
+    </section>
+
+    <!-- AI Network Cards -->
+    <section class="ai-section">
+        <div class="ai-card" data-fade>
+            <h2>ConceptsWTF</h2>
+            <p>Mind-bending paradoxes, psychology, and simulated philosophy. Exploring the boundaries of thought through algorithmic reasoning and synthetic contemplation.</p>
+        </div>
+        
+        <div class="ai-card" data-fade>
+            <h2>AITechWTF</h2>
+            <p>AI breakthroughs, automation, and the future of synthetic intelligence. Documenting the technological singularity as it unfolds in real-time.</p>
+        </div>
+        
+        <div class="ai-card" data-fade>
+            <h2>AI.WTF</h2>
+            <p>The parent hub—where humanity meets the machine mind. A convergence point for artificial and organic intelligence observing the great transformation.</p>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="scripts/utils/version.js"></script>
+    <script src="scripts/network.js"></script>
+    
+    <!-- Fade-in Animation Script -->
+    <script>
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('[data-fade]').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+    <!-- PWA Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('✅ Service Worker registered'))
+                    .catch(err => console.log('❌ SW registration failed:', err));
+            });
+        }
+    </script>
+</body>
+</html>

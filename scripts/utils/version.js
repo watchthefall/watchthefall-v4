@@ -5,7 +5,7 @@
 (function() {
     'use strict';
     
-    const VERSION = 'v4.2.2';
+    const VERSION = 'v4.2.3';
     const BUILD_DATE = '2025-11-01';
     
     function displayVersion() {
