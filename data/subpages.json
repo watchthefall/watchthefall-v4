@@ -1,5 +1,5 @@
 {
-  "version": "4.2.0",
+  "version": "4.2.1",
   "last_updated": "2025-11-01",
   "regions": [
     {
@@ -8,8 +8,11 @@
       "slug": "scotland",
       "theme": "scotland_colors.css",
       "path": "regional/pages/scotland.html",
+      "url": "https://watchthefall.wtf/regional/pages/scotland.html",
       "logo": "assets/logos/scotland-wtf-logo.png",
       "description": "Alba Gu Bràth - Documenting the fall in Scotland",
+      "published": true,
+      "lastUpdate": "2025-11-01",
       "active": true,
       "stats": {
         "creators": 247,

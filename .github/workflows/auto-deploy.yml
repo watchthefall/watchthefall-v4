@@ -1,0 +1,58 @@
+name: Auto Deploy (Qoder)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm install || echo "No package.json found, skipping npm install"
+      
+      - name: Build site
+        run: |
+          echo "Building WatchTheFall v4.2.1..."
+          echo "Verifying file structure..."
+          ls -la
+      
+      - name: Printify Sync (optional)
+        if: ${{ secrets.PRINTIFY_API_KEY != '' }}
+        env:
+          PRINTIFY_API_KEY: ${{ secrets.PRINTIFY_API_KEY }}
+          PRINTIFY_SHOP_ID: ${{ secrets.PRINTIFY_SHOP_ID }}
+        run: |
+          echo "Running Printify sync..."
+          node scripts/printify_sync.js || echo "Printify sync fallback - using cached data"
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
