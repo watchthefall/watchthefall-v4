@@ -1,0 +1,577 @@
+/* =====================================================================
+   WatchTheFall v4 - Cinematic Dystopian Stylesheet
+   Theme: Dark backgrounds, antique gold (#d4af37) accents, smooth animations
+   ===================================================================== */
+
+/* === ROOT VARIABLES === */
+:root {
+    --color-bg: #0a0a0a;
+    --color-text: #f3e7d3;
+    --color-gold: #d4af37;
+    --color-glow: rgba(212, 175, 55, 0.25);
+    --color-card: rgba(10, 10, 10, 0.6);
+    --color-overlay: rgba(0, 0, 0, 0.7);
+    
+    --font-primary: 'Archivo Black', sans-serif;
+    --font-secondary: 'Inter', sans-serif;
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* === GLOBAL RESET === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-secondary);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* === VIDEO BACKGROUND (z-index: -1000) === */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1000;
+    overflow: hidden;
+}
+
+#background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, 
+        rgba(10, 10, 10, 0.8) 0%, 
+        rgba(10, 10, 10, 0.4) 50%, 
+        rgba(10, 10, 10, 0.9) 100%);
+    pointer-events: none;
+}
+
+/* === PARTICLE NETWORK CANVAS (z-index: -999) === */
+#network-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -999;
+    pointer-events: none;
+}
+
+/* === NAVIGATION === */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-gold);
+    z-index: 1000;
+    transition: var(--transition-smooth);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--color-gold);
+    font-family: var(--font-primary);
+    font-size: 1.25rem;
+    transition: var(--transition-smooth);
+}
+
+.nav-logo img {
+    height: 40px;
+    filter: drop-shadow(0 0 8px var(--color-glow));
+}
+
+.nav-logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-gold);
+    transition: var(--transition-smooth);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--color-gold);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* === HERO SECTION === */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 8rem 2rem 4rem;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 900px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-title {
+    font-family: var(--font-primary);
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: var(--color-gold);
+    text-shadow: 0 0 30px var(--color-glow), 0 0 60px var(--color-glow);
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.hero-tagline {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: var(--color-text);
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* === BUTTONS === */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: var(--color-gold);
+    color: var(--color-bg);
+    box-shadow: 0 0 20px var(--color-glow);
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: var(--color-gold);
+    border-color: var(--color-gold);
+    box-shadow: 0 0 30px var(--color-glow);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--color-gold);
+    border-color: var(--color-gold);
+}
+
+.btn-secondary:hover {
+    background: var(--color-gold);
+    color: var(--color-bg);
+    box-shadow: 0 0 20px var(--color-glow);
+    transform: translateY(-2px);
+}
+
+/* === SCROLL INDICATOR === */
+.scroll-indicator {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator span {
+    display: block;
+    color: var(--color-gold);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.scroll-arrow {
+    font-size: 1.5rem;
+    color: var(--color-gold);
+}
+
+/* === SECTIONS === */
+.section {
+    padding: 6rem 2rem;
+    position: relative;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: var(--font-primary);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    color: var(--color-gold);
+    text-align: center;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px var(--color-glow);
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--color-text);
+    opacity: 0.8;
+    margin-bottom: 3rem;
+}
+
+.page-title {
+    font-family: var(--font-primary);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px var(--color-glow);
+}
+
+.page-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+}
+
+.page-description {
+    font-size: 1rem;
+    opacity: 0.7;
+}
+
+/* === CARDS === */
+.card {
+    background: var(--color-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: var(--transition-smooth);
+}
+
+.card:hover {
+    border-color: var(--color-gold);
+    box-shadow: 0 8px 30px var(--color-glow);
+    transform: translateY(-5px);
+}
+
+/* === TIKTOK GRID === */
+.tiktok-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.tiktok-embed {
+    background: var(--color-card);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.tiktok-embed:hover {
+    border-color: var(--color-gold);
+    box-shadow: 0 8px 30px var(--color-glow);
+}
+
+/* === LEADERBOARD === */
+.leaderboard {
+    background: var(--color-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.leaderboard-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 150px 150px;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    transition: var(--transition-smooth);
+}
+
+.leaderboard-row:hover {
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.rank {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    color: var(--color-gold);
+}
+
+/* === PRODUCT GRID === */
+.products-grid,
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background: var(--color-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.product-card:hover {
+    border-color: var(--color-gold);
+    box-shadow: 0 8px 30px var(--color-glow);
+    transform: translateY(-5px);
+}
+
+.product-image {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.product-title {
+    font-weight: 600;
+    color: var(--color-gold);
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+/* === REGION CARDS === */
+.region-grid,
+.regions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.region-card,
+.region-card-large {
+    background: var(--color-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    padding: 2.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--color-text);
+    transition: var(--transition-smooth);
+}
+
+.region-card:hover,
+.region-card-large:hover {
+    border-color: var(--color-gold);
+    box-shadow: 0 8px 30px var(--color-glow);
+    transform: translateY(-8px);
+}
+
+.region-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.region-card h3,
+.region-card-large h2 {
+    font-family: var(--font-primary);
+    color: var(--color-gold);
+    margin-bottom: 0.75rem;
+}
+
+.region-stats {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+
+/* === FOOTER === */
+.main-footer {
+    background: rgba(10, 10, 10, 0.95);
+    border-top: 1px solid var(--color-gold);
+    padding: 3rem 2rem 1.5rem;
+    margin-top: 6rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.footer-brand img {
+    height: 50px;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 8px var(--color-glow));
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+.footer-links a:hover {
+    color: var(--color-gold);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+    opacity: 0.7;
+}
+
+/* === LOADING & ERROR STATES === */
+.loading-state,
+.error-state {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(212, 175, 55, 0.2);
+    border-top-color: var(--color-gold);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 1rem;
+        font-size: 0.875rem;
+    }
+    
+    .hero {
+        padding: 6rem 1rem 3rem;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+    }
+    
+    .section {
+        padding: 4rem 1rem;
+    }
+    
+    .leaderboard-row {
+        grid-template-columns: 60px 1fr 100px;
+        font-size: 0.875rem;
+    }
+}

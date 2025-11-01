@@ -1,0 +1,1438 @@
+[
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:37:29.173Z",
+    "old_points": 1000,
+    "new_points": 1009,
+    "delta_points": 9
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:36:29.173Z",
+    "old_points": 1000,
+    "new_points": 1000,
+    "delta_points": 0
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:35:29.173Z",
+    "old_points": 1000,
+    "new_points": 1001,
+    "delta_points": 1
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:34:29.173Z",
+    "old_points": 1000,
+    "new_points": 1002,
+    "delta_points": 2
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:33:29.173Z",
+    "old_points": 1000,
+    "new_points": 1003,
+    "delta_points": 3
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:32:29.173Z",
+    "old_points": 1000,
+    "new_points": 1004,
+    "delta_points": 4
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:31:29.173Z",
+    "old_points": 1000,
+    "new_points": 1005,
+    "delta_points": 5
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:30:29.173Z",
+    "old_points": 1000,
+    "new_points": 1006,
+    "delta_points": 6
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:29:29.173Z",
+    "old_points": 1000,
+    "new_points": 1007,
+    "delta_points": 7
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:28:29.173Z",
+    "old_points": 1000,
+    "new_points": 1008,
+    "delta_points": 8
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:27:29.173Z",
+    "old_points": 1000,
+    "new_points": 1009,
+    "delta_points": 9
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:26:29.173Z",
+    "old_points": 1000,
+    "new_points": 1000,
+    "delta_points": 0
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:25:29.173Z",
+    "old_points": 1000,
+    "new_points": 1001,
+    "delta_points": 1
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:24:29.173Z",
+    "old_points": 1000,
+    "new_points": 1002,
+    "delta_points": 2
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:23:29.173Z",
+    "old_points": 1000,
+    "new_points": 1003,
+    "delta_points": 3
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:22:29.173Z",
+    "old_points": 1000,
+    "new_points": 1004,
+    "delta_points": 4
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:21:29.173Z",
+    "old_points": 1000,
+    "new_points": 1005,
+    "delta_points": 5
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:20:29.173Z",
+    "old_points": 1000,
+    "new_points": 1006,
+    "delta_points": 6
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:19:29.173Z",
+    "old_points": 1000,
+    "new_points": 1007,
+    "delta_points": 7
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:18:29.173Z",
+    "old_points": 1000,
+    "new_points": 1008,
+    "delta_points": 8
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:17:29.173Z",
+    "old_points": 1000,
+    "new_points": 1009,
+    "delta_points": 9
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:16:29.173Z",
+    "old_points": 1000,
+    "new_points": 1000,
+    "delta_points": 0
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:15:29.173Z",
+    "old_points": 1000,
+    "new_points": 1001,
+    "delta_points": 1
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:14:29.173Z",
+    "old_points": 1000,
+    "new_points": 1002,
+    "delta_points": 2
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:13:29.173Z",
+    "old_points": 1000,
+    "new_points": 1003,
+    "delta_points": 3
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:12:29.173Z",
+    "old_points": 1000,
+    "new_points": 1004,
+    "delta_points": 4
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:11:29.173Z",
+    "old_points": 1000,
+    "new_points": 1005,
+    "delta_points": 5
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:10:29.173Z",
+    "old_points": 1000,
+    "new_points": 1006,
+    "delta_points": 6
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:09:29.173Z",
+    "old_points": 1000,
+    "new_points": 1007,
+    "delta_points": 7
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:08:29.173Z",
+    "old_points": 1000,
+    "new_points": 1008,
+    "delta_points": 8
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:07:29.173Z",
+    "old_points": 1000,
+    "new_points": 1009,
+    "delta_points": 9
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:06:29.173Z",
+    "old_points": 1000,
+    "new_points": 1000,
+    "delta_points": 0
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:05:29.173Z",
+    "old_points": 1000,
+    "new_points": 1001,
+    "delta_points": 1
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:04:29.173Z",
+    "old_points": 1000,
+    "new_points": 1002,
+    "delta_points": 2
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:03:29.173Z",
+    "old_points": 1000,
+    "new_points": 1003,
+    "delta_points": 3
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:02:29.173Z",
+    "old_points": 1000,
+    "new_points": 1004,
+    "delta_points": 4
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:01:29.173Z",
+    "old_points": 1000,
+    "new_points": 1005,
+    "delta_points": 5
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T13:00:29.173Z",
+    "old_points": 1000,
+    "new_points": 1006,
+    "delta_points": 6
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:59:29.173Z",
+    "old_points": 1000,
+    "new_points": 1007,
+    "delta_points": 7
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:58:29.173Z",
+    "old_points": 1000,
+    "new_points": 1008,
+    "delta_points": 8
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:57:29.173Z",
+    "old_points": 1000,
+    "new_points": 1009,
+    "delta_points": 9
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:56:29.173Z",
+    "old_points": 1000,
+    "new_points": 1000,
+    "delta_points": 0
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:55:29.173Z",
+    "old_points": 1000,
+    "new_points": 1001,
+    "delta_points": 1
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:54:29.173Z",
+    "old_points": 1000,
+    "new_points": 1002,
+    "delta_points": 2
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:53:29.173Z",
+    "old_points": 1000,
+    "new_points": 1003,
+    "delta_points": 3
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:52:29.173Z",
+    "old_points": 1000,
+    "new_points": 1004,
+    "delta_points": 4
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:51:29.173Z",
+    "old_points": 1000,
+    "new_points": 1005,
+    "delta_points": 5
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:50:29.173Z",
+    "old_points": 1000,
+    "new_points": 1006,
+    "delta_points": 6
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:49:29.173Z",
+    "old_points": 1000,
+    "new_points": 1007,
+    "delta_points": 7
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:48:29.173Z",
+    "old_points": 1000,
+    "new_points": 1008,
+    "delta_points": 8
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:47:29.173Z",
+    "old_points": 1000,
+    "new_points": 1009,
+    "delta_points": 9
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:46:29.173Z",
+    "old_points": 1000,
+    "new_points": 1000,
+    "delta_points": 0
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:45:29.173Z",
+    "old_points": 1000,
+    "new_points": 1001,
+    "delta_points": 1
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:44:29.173Z",
+    "old_points": 1000,
+    "new_points": 1002,
+    "delta_points": 2
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:43:29.173Z",
+    "old_points": 1000,
+    "new_points": 1003,
+    "delta_points": 3
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:42:29.173Z",
+    "old_points": 1000,
+    "new_points": 1004,
+    "delta_points": 4
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:41:29.173Z",
+    "old_points": 1000,
+    "new_points": 1005,
+    "delta_points": 5
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:40:29.173Z",
+    "old_points": 1000,
+    "new_points": 1006,
+    "delta_points": 6
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:39:29.173Z",
+    "old_points": 1000,
+    "new_points": 1007,
+    "delta_points": 7
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:38:29.173Z",
+    "old_points": 1000,
+    "new_points": 1008,
+    "delta_points": 8
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:37:29.173Z",
+    "old_points": 1000,
+    "new_points": 1009,
+    "delta_points": 9
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:36:29.173Z",
+    "old_points": 1000,
+    "new_points": 1000,
+    "delta_points": 0
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:35:29.173Z",
+    "old_points": 1000,
+    "new_points": 1001,
+    "delta_points": 1
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:34:29.173Z",
+    "old_points": 1000,
+    "new_points": 1002,
+    "delta_points": 2
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:33:29.173Z",
+    "old_points": 1000,
+    "new_points": 1003,
+    "delta_points": 3
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:32:29.173Z",
+    "old_points": 1000,
+    "new_points": 1004,
+    "delta_points": 4
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:31:29.173Z",
+    "old_points": 1000,
+    "new_points": 1005,
+    "delta_points": 5
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:30:29.173Z",
+    "old_points": 1000,
+    "new_points": 1006,
+    "delta_points": 6
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:29:29.173Z",
+    "old_points": 1000,
+    "new_points": 1007,
+    "delta_points": 7
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:28:29.173Z",
+    "old_points": 1000,
+    "new_points": 1008,
+    "delta_points": 8
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:27:29.173Z",
+    "old_points": 1000,
+    "new_points": 1009,
+    "delta_points": 9
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:26:29.173Z",
+    "old_points": 1000,
+    "new_points": 1000,
+    "delta_points": 0
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:25:29.173Z",
+    "old_points": 1000,
+    "new_points": 1001,
+    "delta_points": 1
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:24:29.173Z",
+    "old_points": 1000,
+    "new_points": 1002,
+    "delta_points": 2
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:23:29.173Z",
+    "old_points": 1000,
+    "new_points": 1003,
+    "delta_points": 3
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:22:29.173Z",
+    "old_points": 1000,
+    "new_points": 1004,
+    "delta_points": 4
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:21:29.173Z",
+    "old_points": 1000,
+    "new_points": 1005,
+    "delta_points": 5
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:20:29.173Z",
+    "old_points": 1000,
+    "new_points": 1006,
+    "delta_points": 6
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:19:29.173Z",
+    "old_points": 1000,
+    "new_points": 1007,
+    "delta_points": 7
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:18:29.173Z",
+    "old_points": 1000,
+    "new_points": 1008,
+    "delta_points": 8
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:17:29.173Z",
+    "old_points": 1000,
+    "new_points": 1009,
+    "delta_points": 9
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:16:29.173Z",
+    "old_points": 1000,
+    "new_points": 1000,
+    "delta_points": 0
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:15:29.173Z",
+    "old_points": 1000,
+    "new_points": 1001,
+    "delta_points": 1
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:14:29.173Z",
+    "old_points": 1000,
+    "new_points": 1002,
+    "delta_points": 2
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:13:29.173Z",
+    "old_points": 1000,
+    "new_points": 1003,
+    "delta_points": 3
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:12:29.173Z",
+    "old_points": 1000,
+    "new_points": 1004,
+    "delta_points": 4
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:11:29.173Z",
+    "old_points": 1000,
+    "new_points": 1005,
+    "delta_points": 5
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:10:29.173Z",
+    "old_points": 1000,
+    "new_points": 1006,
+    "delta_points": 6
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:09:29.173Z",
+    "old_points": 1000,
+    "new_points": 1007,
+    "delta_points": 7
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:08:29.173Z",
+    "old_points": 1000,
+    "new_points": 1008,
+    "delta_points": 8
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:07:29.173Z",
+    "old_points": 1000,
+    "new_points": 1009,
+    "delta_points": 9
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:06:29.173Z",
+    "old_points": 1000,
+    "new_points": 1000,
+    "delta_points": 0
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:05:29.173Z",
+    "old_points": 1000,
+    "new_points": 1001,
+    "delta_points": 1
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:04:29.173Z",
+    "old_points": 1000,
+    "new_points": 1002,
+    "delta_points": 2
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:03:29.173Z",
+    "old_points": 1000,
+    "new_points": 1003,
+    "delta_points": 3
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:02:29.173Z",
+    "old_points": 1000,
+    "new_points": 1004,
+    "delta_points": 4
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:01:29.173Z",
+    "old_points": 1000,
+    "new_points": 1005,
+    "delta_points": 5
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T12:00:29.173Z",
+    "old_points": 1000,
+    "new_points": 1006,
+    "delta_points": 6
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:59:29.173Z",
+    "old_points": 1000,
+    "new_points": 1007,
+    "delta_points": 7
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:58:29.173Z",
+    "old_points": 1000,
+    "new_points": 1008,
+    "delta_points": 8
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:57:29.173Z",
+    "old_points": 1000,
+    "new_points": 1009,
+    "delta_points": 9
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:56:29.173Z",
+    "old_points": 1000,
+    "new_points": 1000,
+    "delta_points": 0
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:55:29.173Z",
+    "old_points": 1000,
+    "new_points": 1001,
+    "delta_points": 1
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:54:29.173Z",
+    "old_points": 1000,
+    "new_points": 1002,
+    "delta_points": 2
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:53:29.173Z",
+    "old_points": 1000,
+    "new_points": 1003,
+    "delta_points": 3
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:52:29.173Z",
+    "old_points": 1000,
+    "new_points": 1004,
+    "delta_points": 4
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:51:29.173Z",
+    "old_points": 1000,
+    "new_points": 1005,
+    "delta_points": 5
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:50:29.173Z",
+    "old_points": 1000,
+    "new_points": 1006,
+    "delta_points": 6
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:49:29.173Z",
+    "old_points": 1000,
+    "new_points": 1007,
+    "delta_points": 7
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:48:29.173Z",
+    "old_points": 1000,
+    "new_points": 1008,
+    "delta_points": 8
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:47:29.173Z",
+    "old_points": 1000,
+    "new_points": 1009,
+    "delta_points": 9
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:46:29.173Z",
+    "old_points": 1000,
+    "new_points": 1000,
+    "delta_points": 0
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:45:29.173Z",
+    "old_points": 1000,
+    "new_points": 1001,
+    "delta_points": 1
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:44:29.173Z",
+    "old_points": 1000,
+    "new_points": 1002,
+    "delta_points": 2
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:43:29.173Z",
+    "old_points": 1000,
+    "new_points": 1003,
+    "delta_points": 3
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:42:29.174Z",
+    "old_points": 1000,
+    "new_points": 1004,
+    "delta_points": 4
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:41:29.174Z",
+    "old_points": 1000,
+    "new_points": 1005,
+    "delta_points": 5
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:40:29.174Z",
+    "old_points": 1000,
+    "new_points": 1006,
+    "delta_points": 6
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:39:29.174Z",
+    "old_points": 1000,
+    "new_points": 1007,
+    "delta_points": 7
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:38:29.174Z",
+    "old_points": 1000,
+    "new_points": 1008,
+    "delta_points": 8
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:37:29.174Z",
+    "old_points": 1000,
+    "new_points": 1009,
+    "delta_points": 9
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:36:29.174Z",
+    "old_points": 1000,
+    "new_points": 1000,
+    "delta_points": 0
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:35:29.174Z",
+    "old_points": 1000,
+    "new_points": 1001,
+    "delta_points": 1
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:34:29.174Z",
+    "old_points": 1000,
+    "new_points": 1002,
+    "delta_points": 2
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:33:29.174Z",
+    "old_points": 1000,
+    "new_points": 1003,
+    "delta_points": 3
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:32:29.174Z",
+    "old_points": 1000,
+    "new_points": 1004,
+    "delta_points": 4
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:31:29.174Z",
+    "old_points": 1000,
+    "new_points": 1005,
+    "delta_points": 5
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:30:29.174Z",
+    "old_points": 1000,
+    "new_points": 1006,
+    "delta_points": 6
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:29:29.174Z",
+    "old_points": 1000,
+    "new_points": 1007,
+    "delta_points": 7
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:28:29.174Z",
+    "old_points": 1000,
+    "new_points": 1008,
+    "delta_points": 8
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:27:29.174Z",
+    "old_points": 1000,
+    "new_points": 1009,
+    "delta_points": 9
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:26:29.174Z",
+    "old_points": 1000,
+    "new_points": 1000,
+    "delta_points": 0
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:25:29.174Z",
+    "old_points": 1000,
+    "new_points": 1001,
+    "delta_points": 1
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:24:29.174Z",
+    "old_points": 1000,
+    "new_points": 1002,
+    "delta_points": 2
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:23:29.174Z",
+    "old_points": 1000,
+    "new_points": 1003,
+    "delta_points": 3
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:22:29.174Z",
+    "old_points": 1000,
+    "new_points": 1004,
+    "delta_points": 4
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:21:29.174Z",
+    "old_points": 1000,
+    "new_points": 1005,
+    "delta_points": 5
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:20:29.174Z",
+    "old_points": 1000,
+    "new_points": 1006,
+    "delta_points": 6
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:19:29.174Z",
+    "old_points": 1000,
+    "new_points": 1007,
+    "delta_points": 7
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:18:29.174Z",
+    "old_points": 1000,
+    "new_points": 1008,
+    "delta_points": 8
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:17:29.174Z",
+    "old_points": 1000,
+    "new_points": 1009,
+    "delta_points": 9
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:16:29.174Z",
+    "old_points": 1000,
+    "new_points": 1000,
+    "delta_points": 0
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:15:29.174Z",
+    "old_points": 1000,
+    "new_points": 1001,
+    "delta_points": 1
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:14:29.174Z",
+    "old_points": 1000,
+    "new_points": 1002,
+    "delta_points": 2
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:13:29.174Z",
+    "old_points": 1000,
+    "new_points": 1003,
+    "delta_points": 3
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:12:29.174Z",
+    "old_points": 1000,
+    "new_points": 1004,
+    "delta_points": 4
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:11:29.174Z",
+    "old_points": 1000,
+    "new_points": 1005,
+    "delta_points": 5
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:10:29.174Z",
+    "old_points": 1000,
+    "new_points": 1006,
+    "delta_points": 6
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:09:29.174Z",
+    "old_points": 1000,
+    "new_points": 1007,
+    "delta_points": 7
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:08:29.174Z",
+    "old_points": 1000,
+    "new_points": 1008,
+    "delta_points": 8
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:07:29.174Z",
+    "old_points": 1000,
+    "new_points": 1009,
+    "delta_points": 9
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:06:29.174Z",
+    "old_points": 1000,
+    "new_points": 1000,
+    "delta_points": 0
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:05:29.174Z",
+    "old_points": 1000,
+    "new_points": 1001,
+    "delta_points": 1
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:04:29.174Z",
+    "old_points": 1000,
+    "new_points": 1002,
+    "delta_points": 2
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:03:29.174Z",
+    "old_points": 1000,
+    "new_points": 1003,
+    "delta_points": 3
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:02:29.174Z",
+    "old_points": 1000,
+    "new_points": 1004,
+    "delta_points": 4
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:01:29.174Z",
+    "old_points": 1000,
+    "new_points": 1005,
+    "delta_points": 5
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T11:00:29.174Z",
+    "old_points": 1000,
+    "new_points": 1006,
+    "delta_points": 6
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:59:29.174Z",
+    "old_points": 1000,
+    "new_points": 1007,
+    "delta_points": 7
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:58:29.174Z",
+    "old_points": 1000,
+    "new_points": 1008,
+    "delta_points": 8
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:57:29.174Z",
+    "old_points": 1000,
+    "new_points": 1009,
+    "delta_points": 9
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:56:29.174Z",
+    "old_points": 1000,
+    "new_points": 1000,
+    "delta_points": 0
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:55:29.174Z",
+    "old_points": 1000,
+    "new_points": 1001,
+    "delta_points": 1
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:54:29.174Z",
+    "old_points": 1000,
+    "new_points": 1002,
+    "delta_points": 2
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:53:29.174Z",
+    "old_points": 1000,
+    "new_points": 1003,
+    "delta_points": 3
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:52:29.174Z",
+    "old_points": 1000,
+    "new_points": 1004,
+    "delta_points": 4
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:51:29.174Z",
+    "old_points": 1000,
+    "new_points": 1005,
+    "delta_points": 5
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:50:29.174Z",
+    "old_points": 1000,
+    "new_points": 1006,
+    "delta_points": 6
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:49:29.174Z",
+    "old_points": 1000,
+    "new_points": 1007,
+    "delta_points": 7
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:48:29.174Z",
+    "old_points": 1000,
+    "new_points": 1008,
+    "delta_points": 8
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:47:29.174Z",
+    "old_points": 1000,
+    "new_points": 1009,
+    "delta_points": 9
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:46:29.174Z",
+    "old_points": 1000,
+    "new_points": 1000,
+    "delta_points": 0
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:45:29.174Z",
+    "old_points": 1000,
+    "new_points": 1001,
+    "delta_points": 1
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:44:29.174Z",
+    "old_points": 1000,
+    "new_points": 1002,
+    "delta_points": 2
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:43:29.174Z",
+    "old_points": 1000,
+    "new_points": 1003,
+    "delta_points": 3
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:42:29.174Z",
+    "old_points": 1000,
+    "new_points": 1004,
+    "delta_points": 4
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:41:29.174Z",
+    "old_points": 1000,
+    "new_points": 1005,
+    "delta_points": 5
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:40:29.174Z",
+    "old_points": 1000,
+    "new_points": 1006,
+    "delta_points": 6
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:39:29.174Z",
+    "old_points": 1000,
+    "new_points": 1007,
+    "delta_points": 7
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:38:29.174Z",
+    "old_points": 1000,
+    "new_points": 1008,
+    "delta_points": 8
+  },
+  {
+    "region": "test-region",
+    "timestamp": "2025-10-29T10:37:29.174Z",
+    "old_points": 1000,
+    "new_points": 1009,
+    "delta_points": 9
+  },
+  {
+    "region": "usawtf",
+    "timestamp": "2025-10-29T14:46:59.705Z",
+    "old_points": 4680,
+    "new_points": 5140,
+    "delta_points": 460
+  },
+  {
+    "region": "usawtf",
+    "timestamp": "2025-10-29T14:52:18.457Z",
+    "old_points": 5140,
+    "new_points": 7150,
+    "delta_points": 2010,
+    "type": "surge",
+    "percentage_change": 39.10505836575876
+  },
+  {
+    "region": "europewtf",
+    "timestamp": "2025-10-29T14:52:32.725Z",
+    "old_points": 4879,
+    "new_points": 5820,
+    "delta_points": 941,
+    "type": "surge",
+    "percentage_change": 19.286739085878253
+  },
+  {
+    "region": "aiwtf",
+    "timestamp": "2025-10-29T14:52:45.468Z",
+    "old_points": 4675,
+    "new_points": 2350,
+    "delta_points": -2325,
+    "type": "drop",
+    "percentage_change": -49.73262032085562
+  },
+  {
+    "region": "usawtf",
+    "timestamp": "2025-10-29T15:56:59.978Z",
+    "old_points": 7150,
+    "new_points": 4767,
+    "delta_points": -2383,
+    "type": "drop",
+    "percentage_change": -33.32867132867133
+  },
+  {
+    "region": "europewtf",
+    "timestamp": "2025-10-29T15:56:59.980Z",
+    "old_points": 5820,
+    "new_points": 3880,
+    "delta_points": -1940,
+    "type": "drop",
+    "percentage_change": -33.33333333333333
+  },
+  {
+    "region": "aiwtf",
+    "timestamp": "2025-10-29T15:56:59.982Z",
+    "old_points": 2350,
+    "new_points": 1567,
+    "delta_points": -783,
+    "type": "drop",
+    "percentage_change": -33.319148936170215
+  },
+  {
+    "region": "usawtf",
+    "timestamp": "2025-10-29T19:06:39.044Z",
+    "old_points": 1700,
+    "new_points": 4767,
+    "delta_points": 3067,
+    "type": "surge",
+    "percentage_change": 180.41176470588235
+  },
+  {
+    "region": "europewtf",
+    "timestamp": "2025-10-29T19:06:39.046Z",
+    "old_points": 1380,
+    "new_points": 3880,
+    "delta_points": 2500,
+    "type": "surge",
+    "percentage_change": 181.15942028985506
+  },
+  {
+    "region": "aiwtf",
+    "timestamp": "2025-10-29T19:06:39.047Z",
+    "old_points": 560,
+    "new_points": 1567,
+    "delta_points": 1007,
+    "type": "surge",
+    "percentage_change": 179.82142857142858
+  },
+  {
+    "region": "usawtf",
+    "timestamp": "2025-10-29T19:08:03.535Z",
+    "old_points": 1700,
+    "new_points": 4767,
+    "delta_points": 3067,
+    "type": "surge",
+    "percentage_change": 180.41176470588235
+  },
+  {
+    "region": "europewtf",
+    "timestamp": "2025-10-29T19:08:03.537Z",
+    "old_points": 1380,
+    "new_points": 3880,
+    "delta_points": 2500,
+    "type": "surge",
+    "percentage_change": 181.15942028985506
+  },
+  {
+    "region": "aiwtf",
+    "timestamp": "2025-10-29T19:08:03.539Z",
+    "old_points": 560,
+    "new_points": 1567,
+    "delta_points": 1007,
+    "type": "surge",
+    "percentage_change": 179.82142857142858
+  },
+  {
+    "region": "usawtf",
+    "timestamp": "2025-10-29T19:09:18.841Z",
+    "old_points": 1700,
+    "new_points": 4767,
+    "delta_points": 3067,
+    "type": "surge",
+    "percentage_change": 180.41176470588235
+  },
+  {
+    "region": "europewtf",
+    "timestamp": "2025-10-29T19:09:18.844Z",
+    "old_points": 1380,
+    "new_points": 3880,
+    "delta_points": 2500,
+    "type": "surge",
+    "percentage_change": 181.15942028985506
+  },
+  {
+    "region": "aiwtf",
+    "timestamp": "2025-10-29T19:09:18.845Z",
+    "old_points": 560,
+    "new_points": 1567,
+    "delta_points": 1007,
+    "type": "surge",
+    "percentage_change": 179.82142857142858
+  },
+  {
+    "region": "usawtf",
+    "timestamp": "2025-10-29T19:58:13.871Z",
+    "old_points": 1700,
+    "new_points": 4767,
+    "delta_points": 3067,
+    "type": "surge",
+    "percentage_change": 180.41176470588235
+  },
+  {
+    "region": "europewtf",
+    "timestamp": "2025-10-29T19:58:13.876Z",
+    "old_points": 1380,
+    "new_points": 3880,
+    "delta_points": 2500,
+    "type": "surge",
+    "percentage_change": 181.15942028985506
+  },
+  {
+    "region": "aiwtf",
+    "timestamp": "2025-10-29T19:58:13.877Z",
+    "old_points": 560,
+    "new_points": 1567,
+    "delta_points": 1007,
+    "type": "surge",
+    "percentage_change": 179.82142857142858
+  }
+]

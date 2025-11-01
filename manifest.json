@@ -1,0 +1,43 @@
+{
+  "name": "WatchTheFall",
+  "short_name": "WTF",
+  "description": "A network documenting the collapse of civilization through the lens of social media analytics.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#d4af37",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/logos/wtf-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/logos/wtf-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["news", "social", "entertainment"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "TikTok 5-Pack",
+      "url": "/#tiktok",
+      "description": "Latest viral content"
+    },
+    {
+      "name": "World Cup",
+      "url": "/#worldcup",
+      "description": "Global leaderboard"
+    },
+    {
+      "name": "WTF Creations",
+      "url": "/watchthefallrecords.html",
+      "description": "Shop merchandise"
+    }
+  ]
+}

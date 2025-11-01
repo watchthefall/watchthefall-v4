@@ -1,0 +1,165 @@
+{
+  "timestamp": "2025-10-31T10:30:00Z",
+  "repository": "WatchTheFall Web App",
+  "phase_1_file_enumeration": {
+    "main_directories": [
+      "index.html",
+      "styles/app.css",
+      "scripts/",
+      "data/",
+      "assets/"
+    ],
+    "key_scripts": [
+      "scripts/network.js",
+      "scripts/worldcup.js",
+      "scripts/app.js",
+      "scripts/theme_panel.js",
+      "scripts/linktree_overlay.js",
+      "scripts/update_daily_summary.js",
+      "scripts/update_worldcup_data.js",
+      "scripts/social_feed.js",
+      "scripts/live_pulse_widget.js",
+      "scripts/display_sales.js"
+    ],
+    "data_files": [
+      "data/worldcup.json",
+      "data/leaderboard.json",
+      "data/followers.json",
+      "data/social_feed.json",
+      "data/brands.json",
+      "data/printify_sales.json",
+      "public/data/live_pulse.json",
+      "public/data/daily_summary.txt"
+    ],
+    "assets": {
+      "video": [
+        "assets/video/bg_video.mp4",
+        "assets/video/network_bg.mp4",
+        "assets/video/network_intro.mp4",
+        "assets/video/wtf_bg.mp4"
+      ]
+    }
+  },
+  "phase_2_code_intention_discovery": [
+    {
+      "found_code": "worldcup.js",
+      "probable_purpose": "Unified animated World Cup display with cascading fade-in, hover interactivity, and click navigation",
+      "potential_restoration": "Already fully functional with animated leaderboard table from worldcup.json"
+    },
+    {
+      "found_code": "network.js",
+      "probable_purpose": "Gold particle background animation with canvas mesh and connection lines",
+      "potential_restoration": "Already functional with 100 nodes creating interactive particle system"
+    },
+    {
+      "found_code": "theme_panel.js",
+      "probable_purpose": "Handles real-time UI theme swaps with multiple theme options",
+      "potential_restoration": "Could unify all country themes via shared JSON rather than per-file class injection"
+    },
+    {
+      "found_code": "linktree_overlay.js",
+      "probable_purpose": "Renders social link popup overlay functionality",
+      "potential_restoration": "Integrate into 'Join the Network' modal for global coherence"
+    },
+    {
+      "found_code": "update_worldcup_data.js",
+      "probable_purpose": "Node.js backend script that calculates World Cup points from followers.json and leaderboard.json",
+      "potential_restoration": "Replace with client-side async loader using Fetch to avoid require"
+    },
+    {
+      "found_code": "update_daily_summary.js",
+      "probable_purpose": "Local Node automation script that generates daily summaries from live pulse data",
+      "potential_restoration": "Replace with client-side async loader using Fetch to avoid require"
+    },
+    {
+      "found_code": "social_feed.js",
+      "probable_purpose": "Client-side script for rendering social feed from social_feed.json",
+      "potential_restoration": "Already functional with post filtering and rendering"
+    },
+    {
+      "found_code": "live_pulse_widget.js",
+      "probable_purpose": "Live pulse widget that displays real-time movements from live_pulse.json",
+      "potential_restoration": "Already functional with auto-refresh every 60 seconds"
+    },
+    {
+      "found_code": "display_sales.js",
+      "probable_purpose": "Printify sales display that shows latest sales from printify_sales.json",
+      "potential_restoration": "Already functional with latest 5 sales display"
+    }
+  ],
+  "phase_3_structure_map": {
+    "index.html": {
+      "cinematic_layer": [
+        "video_background",
+        "particles_overlay"
+      ],
+      "hero_section": [
+        "glitch_logo",
+        "site_title",
+        "tagline",
+        "social_bar",
+        "hero_controls"
+      ],
+      "world_cup_table": [
+        "linked_to_data/worldcup.json"
+      ],
+      "footer": [
+        "socials",
+        "wtf_creations"
+      ],
+      "theme_controller": [
+        "scripts/theme_panel.js",
+        "localStorage_themeName"
+      ]
+    }
+  },
+  "phase_4_logical_diagnostics": [
+    {
+      "issue": "addEventListener being called on null element",
+      "description": "Several scripts check for element existence before adding event listeners, but some may fail silently if elements are renamed",
+      "recommendation": "Add more robust error handling and logging for missing DOM elements"
+    },
+    {
+      "issue": "require usage in front-end scripts",
+      "description": "update_worldcup_data.js and update_daily_summary.js use Node.js require statements",
+      "recommendation": "Replace with client-side fetch or convert to ES6 modules for browser compatibility"
+    },
+    {
+      "issue": "Missing worldcup_display.js file",
+      "description": "Referenced in index.html comments but file is empty",
+      "recommendation": "Restore from backup or consolidate functionality into worldcup.js"
+    },
+    {
+      "issue": "Multiple DOMContentLoaded handlers competing",
+      "description": "Several scripts use DOMContentLoaded which could cause race conditions",
+      "recommendation": "Consolidate to single loader or use event delegation"
+    }
+  ],
+  "phase_5_recommendations": [
+    {
+      "finding": "Found legacy code for live follower feed (social_feed.js)",
+      "description": "It could display real-time TikTok/Instagram stats under World Cup",
+      "reactivation": "Reactivation requires only re-enabling fetch to followers.json"
+    },
+    {
+      "finding": "CSS includes hidden transition animations for .theme-fade class",
+      "description": "Could be reused to smooth video fade-in during cinematic load",
+      "reactivation": "Apply theme-fade class to video elements during initialization"
+    },
+    {
+      "finding": "network.js has dormant code for parallax motion tied to cursor movement",
+      "description": "Can be re-enabled with low CPU cost for visual depth",
+      "reactivation": "Add mousemove event listener to adjust particle positions based on cursor"
+    },
+    {
+      "finding": "Found code for cinematic background restoration",
+      "description": "Multiple versions of cinematic background implementation in CSS",
+      "reactivation": "Consolidate #network-bg-wrapper implementations and ensure proper z-index layering"
+    },
+    {
+      "finding": "Banner toggle functionality exists but is underutilized",
+      "description": "Stats banners can be toggled but are hidden by default",
+      "reactivation": "Make banner toggle more prominent and add animation effects"
+    }
+  ]
+}

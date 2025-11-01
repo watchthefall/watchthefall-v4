@@ -1,0 +1,72 @@
+[
+  {
+    "id": "fake_1761860688003_0",
+    "product_name": "Fall Forecast Poster",
+    "region": "europewtf",
+    "amount": 33.55,
+    "timestamp": "2025-10-28T07:32:56.918Z"
+  },
+  {
+    "id": "fake_1761860688003_1",
+    "product_name": "Collapse Chronicles T-Shirt",
+    "region": "aiwtf",
+    "amount": 18.66,
+    "timestamp": "2025-10-24T01:56:46.776Z"
+  },
+  {
+    "id": "fake_1761860688003_2",
+    "product_name": "Chaos Theory Cap",
+    "region": "usamericawtf",
+    "amount": 22.94,
+    "timestamp": "2025-10-27T20:36:26.458Z"
+  },
+  {
+    "id": "fake_1761860688003_3",
+    "product_name": "Collapse Chronicles T-Shirt",
+    "region": "usamericawtf",
+    "amount": 33.99,
+    "timestamp": "2025-10-26T11:00:23.417Z"
+  },
+  {
+    "id": "fake_1761860688003_4",
+    "product_name": "WTF Hoodie (Scotland Edition)",
+    "region": "canadawtf",
+    "amount": 42.93,
+    "timestamp": "2025-10-24T19:53:36.305Z"
+  },
+  {
+    "id": "fake_1761860673142_0",
+    "product_name": "Dystopian Dreams Mug",
+    "region": "italywtf",
+    "amount": 22.64,
+    "timestamp": "2025-10-29T08:03:28.176Z"
+  },
+  {
+    "id": "fake_1761860673142_1",
+    "product_name": "Fall Forecast Poster",
+    "region": "scotlandwtf",
+    "amount": 26.16,
+    "timestamp": "2025-10-25T17:16:30.804Z"
+  },
+  {
+    "id": "fake_1761860673142_2",
+    "product_name": "Ruin Report Zine",
+    "region": "francewtf",
+    "amount": 36.81,
+    "timestamp": "2025-10-27T07:18:10.054Z"
+  },
+  {
+    "id": "fake_1761860673142_3",
+    "product_name": "Dystopian Dreams Mug",
+    "region": "europewtf",
+    "amount": 17.3,
+    "timestamp": "2025-10-30T15:08:34.880Z"
+  },
+  {
+    "id": "fake_1761860673142_4",
+    "product_name": "WTF Hoodie (Scotland Edition)",
+    "region": "canadawtf",
+    "amount": 32.86,
+    "timestamp": "2025-10-27T12:58:18.912Z"
+  }
+]

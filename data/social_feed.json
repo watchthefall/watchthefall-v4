@@ -1,0 +1,72 @@
+[
+  {
+    "platform": "tiktok",
+    "region": "ScotlandWTF",
+    "post_url": "https://www.tiktok.com/@scotland.wtf/video/123456",
+    "thumbnail": "https://example.com/thumbnails/scotland1.jpg",
+    "caption": "Tracking the collapse of modern Scotland through the lens of urban decay and social fragmentation."
+  },
+  {
+    "platform": "instagram",
+    "region": "EuropeWTF",
+    "post_url": "https://www.instagram.com/europewtf/p/789012",
+    "thumbnail": "https://example.com/thumbnails/europe1.jpg",
+    "caption": "The crumbling infrastructure of European cities tells a story of economic decline and political instability."
+  },
+  {
+    "platform": "x",
+    "region": "AIWTF",
+    "post_url": "https://x.com/AIWTF/status/345678",
+    "thumbnail": "https://example.com/thumbnails/ai1.jpg",
+    "caption": "How artificial intelligence is accelerating the fall through surveillance capitalism and data extraction."
+  },
+  {
+    "platform": "tiktok",
+    "region": "USAmericaWTF",
+    "post_url": "https://www.tiktok.com/@usa_wtf/video/901234",
+    "thumbnail": "https://example.com/thumbnails/usa1.jpg",
+    "caption": "Documenting the social unrest and political polarization tearing apart the American experiment."
+  },
+  {
+    "platform": "instagram",
+    "region": "BritainWTF",
+    "post_url": "https://www.instagram.com/britainwtf/p/567890",
+    "thumbnail": "https://example.com/thumbnails/britain1.jpg",
+    "caption": "The NHS crisis and housing shortages reveal the brittleness of British social institutions."
+  },
+  {
+    "platform": "x",
+    "region": "GermanyWTF",
+    "post_url": "https://x.com/GermanyWTF/status/234567",
+    "thumbnail": "https://example.com/thumbnails/germany1.jpg",
+    "caption": "Energy dependence and industrial decline signal the end of German economic dominance."
+  },
+  {
+    "platform": "tiktok",
+    "region": "FranceWTF",
+    "post_url": "https://www.tiktok.com/@france.wtf/video/890123",
+    "thumbnail": "https://example.com/thumbnails/france1.jpg",
+    "caption": "Riots in the banlieues and pension reform protests show the fractures in French society."
+  },
+  {
+    "platform": "instagram",
+    "region": "CanadaWTF",
+    "post_url": "https://www.instagram.com/canadawtf_/p/456789",
+    "thumbnail": "https://example.com/thumbnails/canada1.jpg",
+    "caption": "Pipeline conflicts and housing crises expose the contradictions of Canadian multiculturalism."
+  },
+  {
+    "platform": "x",
+    "region": "AustraliaWTF",
+    "post_url": "https://x.com/AustraliaWTF/status/123456",
+    "thumbnail": "https://example.com/thumbnails/australia1.jpg",
+    "caption": "Climate disasters and indigenous rights struggles reveal the fragility of the Australian dream."
+  },
+  {
+    "platform": "tiktok",
+    "region": "WatchTheFallWTF",
+    "post_url": "https://www.tiktok.com/@watchthefall_wtf/video/789012",
+    "thumbnail": "https://example.com/thumbnails/wtf1.jpg",
+    "caption": "Welcome to the network. This is where we document the fall in real time across all regions."
+  }
+]

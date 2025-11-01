@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regional Directory | WatchTheFall.wtf</title>
+    <meta name="description" content="Explore WatchTheFall regional hubs and creator networks around the world.">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#d4af37">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="assets/logos/wtf-logo.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles/app.css">
+</head>
+<body class="page-directory">
+    <!-- Cinematic Video Background -->
+    <div class="video-background">
+        <video id="background-video" autoplay muted loop playsinline>
+            <source src="assets/video/bg_video.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- Particle Network Canvas -->
+    <canvas id="network-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/logos/wtf-logo.png" alt="WatchTheFall">
+                <span>WatchTheFall</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#tiktok">TikTok 5-Pack</a></li>
+                <li><a href="index.html#worldcup">World Cup</a></li>
+                <li><a href="watchthefallrecords.html">WTF Creations</a></li>
+                <li><a href="feed.html" class="active">Directory</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="directory-hero">
+        <div class="container">
+            <h1 class="page-title">Regional Directory</h1>
+            <p class="page-subtitle">Explore WatchTheFall hubs and creator networks around the world</p>
+        </div>
+    </section>
+
+    <!-- Regional Grid -->
+    <section class="section regions-section">
+        <div class="container">
+            <div class="regions-grid">
+                <a href="regional/pages/north-america.html" class="region-card-large">
+                    <div class="region-header">
+                        <div class="region-icon">🌎</div>
+                        <h2>North America</h2>
+                    </div>
+                    <p class="region-description">United States, Canada, Mexico</p>
+                    <div class="region-stats">
+                        <span class="stat">🎬 1.2M Followers</span>
+                        <span class="stat">📊 Daily Updates</span>
+                    </div>
+                </a>
+
+                <a href="regional/pages/europe.html" class="region-card-large">
+                    <div class="region-header">
+                        <div class="region-icon">🌍</div>
+                        <h2>Europe</h2>
+                    </div>
+                    <p class="region-description">United Kingdom, EU, Eastern Europe</p>
+                    <div class="region-stats">
+                        <span class="stat">🎬 850K Followers</span>
+                        <span class="stat">📊 Daily Updates</span>
+                    </div>
+                </a>
+
+                <a href="regional/pages/asia.html" class="region-card-large">
+                    <div class="region-header">
+                        <div class="region-icon">🌏</div>
+                        <h2>Asia-Pacific</h2>
+                    </div>
+                    <p class="region-description">Asia, Australia, Oceania</p>
+                    <div class="region-stats">
+                        <span class="stat">🎬 600K Followers</span>
+                        <span class="stat">📊 Daily Updates</span>
+                    </div>
+                </a>
+
+                <a href="regional/pages/global.html" class="region-card-large">
+                    <div class="region-header">
+                        <div class="region-icon">🌐</div>
+                        <h2>Global South</h2>
+                    </div>
+                    <p class="region-description">South America, Africa, Middle East</p>
+                    <div class="region-stats">
+                        <span class="stat">🎬 450K Followers</span>
+                        <span class="stat">📊 Daily Updates</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/logos/wtf-logo.png" alt="WatchTheFall">
+                    <p>Documenting the fall, one post at a time.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="watchthefallrecords.html">Shop</a></li>
+                        <li><a href="feed.html">Directory</a></li>
+                    </ul>
+                </div>
+                <div class="footer-info">
+                    <h4>WatchTheFall v4</h4>
+                    <p id="version-info">Loading...</p>
+                    <p>Built with ❤️ and dystopian energy</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 WatchTheFall.wtf - MIT License</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/utils/version.js"></script>
+    <script src="scripts/network.js"></script>
+</body>
+</html>

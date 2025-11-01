@@ -1,0 +1,37 @@
+name: Printify Product Sync
+
+on:
+  schedule:
+    # Run daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Sync Printify Products
+        env:
+          PRINTIFY_API_KEY: ${{ secrets.PRINTIFY_API_KEY }}
+          PRINTIFY_SHOP_ID: ${{ secrets.PRINTIFY_SHOP_ID }}
+        run: |
+          echo "🔄 Syncing Printify products..."
+          # Future: Add Node.js script to fetch Printify API and update data/brands.json
+          echo "ℹ️ Manual sync required - add script to fetch from Printify API"
+      
+      - name: Commit and Push
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/brands.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "🔄 Auto-sync Printify products"
+          git push
+        continue-on-error: true

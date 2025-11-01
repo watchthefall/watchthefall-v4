@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "title": "WTF Classic Tee",
+      "price": "24.99",
+      "category": "apparel",
+      "image": "assets/logos/wtf-logo.png",
+      "url": "https://printify.com/app/products"
+    },
+    {
+      "title": "Dystopian Hoodie",
+      "price": "49.99",
+      "category": "apparel",
+      "image": "assets/logos/wtf-logo.png",
+      "url": "https://printify.com/app/products"
+    },
+    {
+      "title": "Fall Observer Cap",
+      "price": "19.99",
+      "category": "accessories",
+      "image": "assets/logos/wtf-logo.png",
+      "url": "https://printify.com/app/products"
+    },
+    {
+      "title": "Collapse Mug",
+      "price": "14.99",
+      "category": "home",
+      "image": "assets/logos/wtf-logo.png",
+      "url": "https://printify.com/app/products"
+    },
+    {
+      "title": "WTF Poster",
+      "price": "29.99",
+      "category": "home",
+      "image": "assets/logos/wtf-logo.png",
+      "url": "https://printify.com/app/products"
+    },
+    {
+      "title": "Society Watch Tote",
+      "price": "18.99",
+      "category": "accessories",
+      "image": "assets/logos/wtf-logo.png",
+      "url": "https://printify.com/app/products"
+    }
+  ],
+  "brandLinks": [
+    {
+      "name": "Visit Printify Store",
+      "url": "https://printify.com"
+    }
+  ]
+}

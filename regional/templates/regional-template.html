@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{REGION_NAME}} | WatchTheFall Regional Hub</title>
+    <meta name="description" content="WatchTheFall {{REGION_NAME}} regional hub - local creators documenting the fall.">
+    
+    <meta name="theme-color" content="#d4af37">
+    <link rel="manifest" href="../../manifest.json">
+    <link rel="icon" type="image/png" href="../../assets/logos/wtf-logo.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../styles/app.css">
+</head>
+<body class="page-regional">
+    <div class="video-background">
+        <video id="background-video" autoplay muted loop playsinline>
+            <source src="../../assets/video/bg_video.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <canvas id="network-canvas"></canvas>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">
+                <img src="../../assets/logos/wtf-logo.png" alt="WatchTheFall">
+                <span>WatchTheFall</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../index.html#tiktok">TikTok 5-Pack</a></li>
+                <li><a href="../../index.html#worldcup">World Cup</a></li>
+                <li><a href="../../watchthefallrecords.html">WTF Creations</a></li>
+                <li><a href="../../feed.html">Directory</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="regional-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../../feed.html">Directory</a> / <span>{{REGION_NAME}}</span>
+            </div>
+            <h1 class="page-title">{{REGION_ICON}} {{REGION_NAME}}</h1>
+            <p class="page-subtitle">{{REGION_DESCRIPTION}}</p>
+        </div>
+    </section>
+
+    <section class="section regional-content">
+        <div class="container">
+            <h2>Regional Creators</h2>
+            <p>Coming soon - Local WatchTheFall creators and content specific to {{REGION_NAME}}</p>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="../../assets/logos/wtf-logo.png" alt="WatchTheFall">
+                    <p>Documenting the fall, one post at a time.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../../watchthefallrecords.html">Shop</a></li>
+                        <li><a href="../../feed.html">Directory</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 WatchTheFall.wtf - MIT License</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../scripts/utils/version.js"></script>
+    <script src="../../scripts/network.js"></script>
+</body>
+</html>
