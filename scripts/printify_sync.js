@@ -1,11 +1,11 @@
 // =====================================================================
-// WatchTheFall v4 - Printify Integration & Product Sync
+// WatchTheFall v4.1 - Printify Integration & Product Sync (Enhanced)
 // =====================================================================
 
 (function() {
     'use strict';
     
-    // Printify API configuration (requires .env setup)
+    // Printify API configuration
     const PRINTIFY_API_URL = 'https://api.printify.com/v1';
     
     async function loadPrintifyProducts() {
@@ -13,17 +13,22 @@
         if (!grid) return;
         
         try {
-            // Try to load from cached data first
+            // Load from synced data
             const response = await fetch('data/brands.json');
             
             if (response.ok) {
                 const data = await response.json();
-                displayProducts(data.products || [], grid);
-                displayBrandLinks(data.brandLinks || []);
-                return;
+                const products = data.products || [];
+                
+                if (products.length > 0) {
+                    displayProducts(products, grid);
+                    displayBrandLinks(data.brandLinks || []);
+                    console.log(`✅ Loaded ${products.length} Printify products`);
+                    return;
+                }
             }
             
-            // If no cache, show placeholder
+            // If no products, show placeholder
             showPlaceholderProducts(grid);
             
         } catch (error) {

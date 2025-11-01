@@ -12,11 +12,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
       
       - name: Sync Printify Products
         env:
@@ -25,13 +27,14 @@ jobs:
         run: |
           echo "🔄 Syncing Printify products..."
           # Future: Add Node.js script to fetch Printify API and update data/brands.json
-          echo "ℹ️ Manual sync required - add script to fetch from Printify API"
+          # For now, manual updates required
+          echo "ℹ️ Manual sync required - add Printify API integration script"
       
       - name: Commit and Push
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add data/brands.json
-          git diff --quiet && git diff --staged --quiet || git commit -m "🔄 Auto-sync Printify products"
-          git push
+          git add data/brands.json || true
+          git diff --quiet && git diff --staged --quiet || git commit -m "🔄 Auto-sync Printify products [$(date +%Y-%m-%d)]"
+          git push || echo "No changes to push"
         continue-on-error: true
