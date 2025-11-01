@@ -15,8 +15,8 @@
             
             const data = await response.json();
             
-            // Sort by score descending
-            const sorted = data.sort((a, b) => b.score - a.score);
+            // Sort by points descending
+            const sorted = data.sort((a, b) => b.points - a.points);
             
             // Display top 10
             const top10 = sorted.slice(0, 10);
@@ -24,19 +24,24 @@
             container.innerHTML = `
                 <div class="leaderboard-header leaderboard-row">
                     <div class="rank"><strong>Rank</strong></div>
-                    <div><strong>Creator</strong></div>
-                    <div><strong>Followers</strong></div>
-                    <div><strong>Score</strong></div>
+                    <div><strong>Hub</strong></div>
+                    <div><strong>Points</strong></div>
+                    <div><strong>Change</strong></div>
                 </div>
                 ${top10.map((entry, index) => `
                     <div class="leaderboard-row">
                         <div class="rank">${getRankEmoji(index + 1)} ${index + 1}</div>
                         <div>
-                            <strong>${entry.name}</strong>
-                            <div style="font-size: 0.875rem; opacity: 0.7;">${entry.region || 'Global'}</div>
+                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                <img src="${entry.logo}" alt="${entry.name}" style="width: 32px; height: 32px; border-radius: 4px; object-fit: cover;" onerror="this.style.display='none'">
+                                <div>
+                                    <strong>${entry.name}</strong>
+                                    <div style="font-size: 0.875rem; opacity: 0.7;">${entry.tagline}</div>
+                                </div>
+                            </div>
                         </div>
-                        <div>${formatNumber(entry.followers)}</div>
-                        <div style="color: var(--color-gold); font-weight: 600;">${formatNumber(entry.score)}</div>
+                        <div style="color: var(--color-gold); font-weight: 600;">${entry.points}</div>
+                        <div>${getDeltaDisplay(entry.delta)}</div>
                     </div>
                 `).join('')}
             `;
@@ -48,8 +53,19 @@
             container.innerHTML = `
                 <div class="error-state">
                     <p>Unable to load leaderboard data</p>
+                    <p style="font-size: 0.875rem; opacity: 0.7; margin-top: 0.5rem;">Please try refreshing the page</p>
                 </div>
             `;
+        }
+    }
+    
+    function getDeltaDisplay(delta) {
+        if (delta > 0) {
+            return `<span style="color: #4ade80;">▲ ${delta}</span>`;
+        } else if (delta < 0) {
+            return `<span style="color: #f87171;">▼ ${Math.abs(delta)}</span>`;
+        } else {
+            return `<span style="opacity: 0.5;">—</span>`;
         }
     }
     
