@@ -10,9 +10,21 @@
     <link rel="manifest" href="../../manifest.json">
     <link rel="icon" type="image/png" href="../../assets/logos/scotland-wtf-logo.png">
     
+    <!-- Preload critical assets -->
+    <link rel="preload" href="../../styles/app.css" as="style">
+    <link rel="preload" href="../templates/scotland_colors.css" as="style">
+    <link rel="preload" href="../../assets/logos/wtf-logo.png" as="image">
+    <link rel="preload" href="../../assets/logos/scotland-wtf-logo.png" as="image">
+    
+    <!-- DNS prefetch for external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.instagram.com">
+    <link rel="dns-prefetch" href="https://www.tiktok.com">
+    
+    <!-- Load fonts with display=swap for faster rendering -->
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"></noscript>
     
     <link rel="stylesheet" href="../../styles/app.css">
     <link rel="stylesheet" href="../templates/scotland_colors.css">
@@ -20,7 +32,7 @@
 <body class="page-regional page-scotland">
     <!-- Cinematic Video Background -->
     <div class="video-background">
-        <video id="background-video" autoplay muted loop playsinline>
+        <video id="background-video" autoplay muted loop playsinline preload="auto" poster="../../assets/logos/scotland-wtf-logo.png">
             <source src="../../assets/video/bg_video_scotland.mp4" type="video/mp4">
             <source src="../../assets/video/main_bg.mp4" type="video/mp4">
         </video>
@@ -34,7 +46,7 @@
     <nav class="main-nav">
         <div class="nav-container">
             <a href="../../index.html" class="nav-logo">
-                <img src="../../assets/logos/scotland-wtf-logo.png" alt="Scotland WTF">
+                <img src="../../assets/logos/scotland-wtf-logo.png" alt="Scotland WTF" loading="eager">
                 <span>Scotland WTF</span>
             </a>
             <ul class="nav-links">
@@ -53,10 +65,10 @@
             <div class="breadcrumb">
                 <a href="../../feed.html">Directory</a> / <span>Scotland</span>
             </div>
-            <img src="../../assets/logos/wtf-logo.png" alt="WatchTheFall" class="hero-wtf-logo" />
+            <img src="../../assets/logos/wtf-logo.png" alt="WatchTheFall" class="hero-wtf-logo" loading="eager" />
             <h1 class="page-title scotland-title">
                 <span class="scotland-text">
-                    <img src="../../assets/logos/scotland-wtf-logo.png" alt="Scotland" class="scotland-flag-logo" />
+                    <img src="../../assets/logos/scotland-wtf-logo.png" alt="Scotland" class="scotland-flag-logo" loading="eager" />
                     Scotland
                 </span>
                 <span class="wtf-text">WatchTheFall</span>
@@ -77,7 +89,7 @@
                         <p class="anthem-subtitle">Official theme by WTF Records</p>
                     </div>
                 </div>
-                <audio id="scotland-anthem" controls preload="metadata">
+                <audio id="scotland-anthem" controls preload="none">
                     <source src="../../assets/brand_anthems/Scotland WTF Anthem.m4a" type="audio/mp4">
                     <source src="../../assets/brand_anthems/Scotland WTF Anthem.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
@@ -162,7 +174,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="../../assets/logos/scotland-wtf-logo.png" alt="Scotland WTF">
+                    <img src="../../assets/logos/scotland-wtf-logo.png" alt="Scotland WTF" loading="lazy">
                     <p>Documenting the fall in Alba</p>
                 </div>
                 <div class="footer-links">
@@ -185,12 +197,12 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="../../scripts/utils/version.js"></script>
-    <script src="../../scripts/network.js"></script>
-    <script src="../../scripts/content_console.js"></script>
+    <!-- Scripts (deferred for better performance) -->
+    <script src="../../scripts/utils/version.js" defer></script>
+    <script src="../../scripts/network.js" defer></script>
+    <script src="../../scripts/content_console.js" defer></script>
     
-    <!-- Scotland Stats Dynamic Loading -->
+    <!-- Scotland Stats Dynamic Loading (inline for immediate execution) -->
     <script>
         // Load Scotland stats from World Cup data
         async function loadScotlandStats() {
