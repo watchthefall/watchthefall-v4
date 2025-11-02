@@ -12,10 +12,37 @@
   const DEFAULT_METRIC = 'points';
   const METRIC_LABELS = {
     points: 'Points',
+    followers: 'Followers',
     tiktok: 'TikTok',
     instagram: 'Instagram',
     youtube: 'YouTube',
     x: 'X (Twitter)'
+  };
+
+  const HUB_LINKS = {
+    ScotlandWTF: 'regional/pages/scotland.html',
+    BritainWTF: 'feed.html#britain',
+    WatchTheFallWTF: 'index.html',
+    EuropeWTF: 'feed.html#europe',
+    TheWestWTF: 'feed.html#west',
+    TheWest: 'feed.html#west',
+    AustraliaWTF: 'feed.html#australia',
+    CanadaWTF: 'feed.html#canada',
+    IrelandWTF: 'feed.html#ireland',
+    FranceWTF: 'feed.html#france',
+    GermanyWTF: 'feed.html#germany',
+    PolandWTF: 'feed.html#poland',
+    NetherlandsWTF: 'feed.html#netherlands',
+    ItalyWTF: 'feed.html#italy',
+    WalesWTF: 'feed.html#wales',
+    NorthernIrelandWTF: 'feed.html#northern-ireland',
+    EnglandWTF: 'feed.html#england',
+    AIWTF: 'ai.html',
+    AITechWTF: 'ai.html',
+    GadgetsWTF: 'feed.html#gadgets',
+    ComedyWTF: 'feed.html#comedy',
+    DarkHumourWTF: 'feed.html#dark-humour',
+    ConceptsWTF: 'feed.html#concepts'
   };
 
   const LOGO_MAP = {
@@ -72,11 +99,28 @@
 
   function isMetricAllZeros(metric) {
     if (metric === 'points') return false;
+    if (metric === 'followers') {
+      return worldCupData.every((e) => {
+        const total = Number(e.followers?.tiktok || 0) + 
+                     Number(e.followers?.instagram || 0) + 
+                     Number(e.followers?.youtube || 0) + 
+                     Number(e.followers?.x || 0);
+        return total === 0;
+      });
+    }
     return worldCupData.every((e) => Number(e.followers?.[metric] || 0) === 0);
   }
 
   function getDisplayValue(entry, metric) {
     if (metric === 'points') return Number(entry.points || 0);
+    if (metric === 'followers') {
+      // Sum all platform followers
+      const tik = Number(entry.followers?.tiktok || 0);
+      const ig = Number(entry.followers?.instagram || 0);
+      const yt = Number(entry.followers?.youtube || 0);
+      const tw = Number(entry.followers?.x || 0);
+      return tik + ig + yt + tw;
+    }
     return Number(entry.followers?.[metric] || 0);
   }
 
@@ -85,6 +129,10 @@
       const prevTik = Number(entry.previous?.tiktok || 0);
       const prevPoints = prevTik * 0.4;
       return Number(entry.points || 0) - prevPoints;
+    } else if (metric === 'followers') {
+      const currTotal = Number(entry.followers?.tiktok || 0) + Number(entry.followers?.instagram || 0) + Number(entry.followers?.youtube || 0) + Number(entry.followers?.x || 0);
+      const prevTotal = Number(entry.previous?.tiktok || 0) + Number(entry.previous?.instagram || 0) + Number(entry.previous?.youtube || 0) + Number(entry.previous?.x || 0);
+      return currTotal - prevTotal;
     } else {
       const curr = Number(entry.followers?.[metric] || 0);
       const prev = Number(entry.previous?.[metric] || 0);
@@ -132,8 +180,8 @@
 
     const effectiveMetric = isMetricAllZeros(metric) ? 'points' : metric;
     const sorted = sortData(effectiveMetric);
-    const headerMetricLabel = effectiveMetric === 'points' ? 'Points' : 'Followers';
-    const headerChangeLabel = effectiveMetric === 'points' ? 'Change' : 'Change vs Previous';
+    const headerMetricLabel = (effectiveMetric === 'points') ? 'Points' : 'Followers';
+    const headerChangeLabel = (effectiveMetric === 'points') ? 'Change' : 'Change vs Previous';
 
     const tableHtml = `
       <div class="wc-header">
@@ -141,6 +189,7 @@
         <div class="wc-controls">
           <select id="metric-select" class="wc-select">
             <option value="points"${effectiveMetric === 'points' ? ' selected' : ''}>Points</option>
+            <option value="followers"${effectiveMetric === 'followers' ? ' selected' : ''}>Followers</option>
             <option value="tiktok"${effectiveMetric === 'tiktok' ? ' selected' : ''}>TikTok</option>
             <option value="instagram"${effectiveMetric === 'instagram' ? ' selected' : ''}>Instagram</option>
             <option value="youtube"${effectiveMetric === 'youtube' ? ' selected' : ''}>YouTube</option>
@@ -170,6 +219,8 @@
               const tagline =
                 entry.tagline ||
                 'Global hub of the WTF Network.';
+              const hubLink = HUB_LINKS[entry.region] || '#';
+              const isClickable = HUB_LINKS[entry.region] ? true : false;
 
               return `
               <div class="wc-row wc-body wc-animate">
@@ -178,7 +229,12 @@
                   <div class="wc-hub">
                     <img class="wc-logo" src="${logo}" alt="${entry.region}" onerror="this.style.display='none'"/>
                     <div class="wc-meta">
-                      <div class="wc-name"><strong>${entry.region}</strong></div>
+                      <div class="wc-name">
+                        ${isClickable 
+                          ? `<a href="${hubLink}" class="wc-hub-link"><strong>${entry.region}</strong></a>` 
+                          : `<strong>${entry.region}</strong>`
+                        }
+                      </div>
                       <div class="wc-tag">${tagline}</div>
                     </div>
                   </div>
@@ -241,6 +297,17 @@
       .wc-hub { display: flex; align-items: center; gap: 0.75rem; }
       .wc-logo { width: 42px; height: 42px; border-radius: 6px; object-fit: cover; }
       .wc-name { color: var(--color-text); }
+      .wc-hub-link { 
+        color: var(--color-gold); 
+        text-decoration: none; 
+        transition: all 0.2s ease;
+        display: inline-block;
+      }
+      .wc-hub-link:hover { 
+        color: #f4d03f; 
+        text-shadow: 0 0 8px rgba(212,175,55,0.4);
+        transform: translateX(2px);
+      }
       .wc-tag { font-size: 0.85rem; opacity: 0.7; }
       .wc-value { color: var(--color-gold); font-weight: 700; }
       .wc-change { font-weight: 600; }
