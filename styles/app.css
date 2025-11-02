@@ -1230,6 +1230,82 @@ body {
     text-align: center;
 }
 
+/* === ANTHEM PLAYER === */
+.anthem-section {
+    padding: 2rem 0;
+}
+
+.anthem-player {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    background: rgba(15, 15, 15, 0.6);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    backdrop-filter: blur(8px);
+    transition: var(--transition-smooth);
+}
+
+.anthem-player:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.2);
+}
+
+.anthem-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.anthem-icon {
+    font-size: 2.5rem;
+    opacity: 0.8;
+}
+
+.anthem-text h3 {
+    color: var(--color-gold);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+    font-family: var(--font-primary);
+}
+
+.anthem-subtitle {
+    color: var(--color-text);
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin: 0;
+}
+
+audio {
+    width: 100%;
+    max-width: 400px;
+    height: 40px;
+    border-radius: 8px;
+    filter: grayscale(20%) brightness(1.1);
+}
+
+audio::-webkit-media-controls-panel {
+    background: rgba(212, 175, 55, 0.1);
+}
+
+@media (max-width: 768px) {
+    .anthem-player {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .anthem-info {
+        flex-direction: column;
+    }
+    
+    audio {
+        max-width: 100%;
+    }
+}
+
 .action-buttons {
     display: flex;
     justify-content: center;
