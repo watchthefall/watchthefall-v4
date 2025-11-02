@@ -198,11 +198,14 @@
                 const data = await response.json();
                 
                 // Find ScotlandWTF in the data
-                const scotlandHub = data.creators.find(c => c.hub === 'ScotlandWTF');
+                const scotlandHub = data.regions.find(c => c.region === 'ScotlandWTF');
                 
                 if (scotlandHub) {
-                    // Update Total Followers
-                    const totalFollowers = scotlandHub.tiktok_followers || 0;
+                    // Update Total Followers (TikTok + Instagram combined)
+                    const tiktokFollowers = scotlandHub.followers.tiktok || 0;
+                    const instagramFollowers = scotlandHub.followers.instagram || 0;
+                    const totalFollowers = tiktokFollowers + instagramFollowers;
+                    
                     document.getElementById('total-followers-stat').textContent = 
                         totalFollowers >= 1000000 ? (totalFollowers / 1000000).toFixed(1) + 'M' :
                         totalFollowers >= 1000 ? (totalFollowers / 1000).toFixed(1) + 'K' :
@@ -228,7 +231,7 @@
             } catch (error) {
                 console.error('Failed to load Scotland stats:', error);
                 // Fallback values
-                document.getElementById('total-followers-stat').textContent = '1.2M';
+                document.getElementById('total-followers-stat').textContent = '17.7K';
             }
         }
         
