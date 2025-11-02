@@ -1,192 +1,278 @@
-// =====================================================================
-// WatchTheFall v4.2 - World Cup Interactive Leaderboard
-// Full-featured leaderboard with filtering, sorting, and stats
-// =====================================================================
+// ================================================================
+// WatchTheFall World Cup v4.3.0 - Interactive Leaderboard
+// Developed via Qoder (Integrity Guardian Compliant)
+// ================================================================
 
-(function() {
-    'use strict';
-    
-    let worldCupData = [];
-    let currentFilter = 'all';
-    let currentSort = 'score';
-    
-    async function initWorldCup() {
-        try {
-            const response = await fetch('data/worldcup.json');
-            if (!response.ok) throw new Error('Failed to load World Cup data');
-            
-            worldCupData = await response.json();
-            
-            displayLeaderboard();
-            setupFilters();
-            updateStats();
-            
-            console.log('✅ World Cup initialized:', worldCupData.length, 'creators');
-            
-        } catch (error) {
-            console.error('❌ World Cup initialization failed:', error);
-            showError();
-        }
+(function () {
+  'use strict';
+
+  const DATA_URL = 'data/worldcup.json';
+  const CONTAINER_ID = 'worldcup-leaderboard';
+  const TABLE_ID = 'worldcup-table';
+  const DEFAULT_METRIC = 'points';
+  const METRIC_LABELS = {
+    points: 'Points',
+    tiktok: 'TikTok',
+    instagram: 'Instagram',
+    youtube: 'YouTube',
+    x: 'X (Twitter)'
+  };
+
+  const LOGO_MAP = {
+    ScotlandWTF: 'assets/logos/scotland-wtf-logo.png',
+    AustraliaWTF: 'assets/logos/australia-wtf-logo.png',
+    WatchTheFallWTF: 'assets/watermark/wtfman.png',
+    BritainWTF: 'assets/logos/britain-wtf-logo.png',
+    EuropeWTF: 'assets/logos/europe-wtf-logo.jpg',
+    TheWestWTF: 'assets/logos/the-west-wtf.jpg',
+    IrelandWTF: 'assets/logos/ireland-wtf-logo.png',
+    AIWTF: 'assets/logos/ai-wtf-logo.webp',
+    AITechWTF: 'assets/logos/ai-tech-wtf-logo.jpg',
+    FranceWTF: 'assets/logos/france-wtf-logo.png',
+    WalesWTF: 'assets/logos/wales-wtf-logo.webp',
+    NorthernIrelandWTF: 'assets/logos/northern-ireland-wtf-logo.png',
+    TheWest: 'assets/logos/the-west-wtf.jpg',
+    ItalyWTF: 'assets/logos/italy-wtf-logo.png',
+    PolandWTF: 'assets/logos/poland-wtf-logo.png',
+    NetherlandsWTF: 'assets/logos/netherlands-wtf-logo.png',
+    GermanyWTF: 'assets/logos/germany-wtf-logo.jpg',
+    CanadaWTF: 'assets/logos/canada-wtf-logo.png',
+    GadgetsWTF: 'assets/logos/gadgets-wtf-logo.jpg',
+    ComedyWTF: 'assets/logos/c0medy-wtf-logo.jpg',
+    DarkHumourWTF: 'assets/logos/dark-humour-wtf-logo.jpg',
+    ConceptsWTF: 'assets/logos/concepts-wtf-logo.webp'
+  };
+
+  let worldCupData = [];
+  let lastUpdated = '';
+  let currentMetric = DEFAULT_METRIC;
+
+  function safeGetArray(input) {
+    if (Array.isArray(input)) return input;
+    if (input && Array.isArray(input.regions)) return input.regions;
+    return [];
+  }
+
+  async function loadWorldCupData() {
+    try {
+      const res = await fetch(DATA_URL, { cache: 'no-store' });
+      const json = await res.json();
+      worldCupData = safeGetArray(json);
+      lastUpdated = json.last_updated || '';
+      worldCupData = worldCupData.map((e) => {
+        const tik = Number(e.followers?.tiktok || 0);
+        const points = typeof e.points === 'number' ? e.points : tik * 0.4;
+        return { ...e, points };
+      });
+    } catch (err) {
+      console.error('❌ Failed to load World Cup data:', err);
+      worldCupData = [];
     }
-    
-    function displayLeaderboard() {
-        const container = document.getElementById('worldcup-leaderboard');
-        if (!container) return;
-        
-        let filteredData = filterData(worldCupData);
-        filteredData = sortData(filteredData);
-        
-        container.innerHTML = `
-            <div class="leaderboard-header">
-                <div class="leaderboard-controls">
-                    <select id="region-filter" class="filter-select">
-                        <option value="all">All Regions</option>
-                        <option value="Global">Global</option>
-                        <option value="North America">North America</option>
-                        <option value="Europe">Europe</option>
-                        <option value="Asia-Pacific">Asia-Pacific</option>
-                        <option value="Global South">Global South</option>
-                    </select>
-                    <select id="sort-select" class="filter-select">
-                        <option value="score">Sort by Score</option>
-                        <option value="followers">Sort by Followers</option>
-                        <option value="name">Sort by Name</option>
-                    </select>
-                </div>
-            </div>
-            <div class="leaderboard-table">
-                <div class="leaderboard-row leaderboard-row-header">
-                    <div class="rank"><strong>Rank</strong></div>
-                    <div><strong>Creator</strong></div>
-                    <div><strong>Followers</strong></div>
-                    <div><strong>Score</strong></div>
-                </div>
-                ${filteredData.map((entry, index) => `
-                    <div class="leaderboard-row" data-rank="${index + 1}">
-                        <div class="rank">${getRankBadge(index + 1)} ${index + 1}</div>
-                        <div class="creator-info">
-                            <strong>${entry.name}</strong>
-                            <div class="creator-meta">
-                                <span class="region-badge">${entry.region || 'Global'}</span>
-                                <span class="platform-badge">${entry.platform || 'TikTok'}</span>
-                            </div>
-                        </div>
-                        <div class="followers">${formatNumber(entry.followers)}</div>
-                        <div class="score">${formatNumber(entry.score)}</div>
-                    </div>
-                `).join('')}
-            </div>
-        `;
-    }
-    
-    function setupFilters() {
-        const regionFilter = document.getElementById('region-filter');
-        const sortSelect = document.getElementById('sort-select');
-        
-        if (regionFilter) {
-            regionFilter.value = currentFilter;
-            regionFilter.addEventListener('change', (e) => {
-                currentFilter = e.target.value;
-                displayLeaderboard();
-            });
-        }
-        
-        if (sortSelect) {
-            sortSelect.value = currentSort;
-            sortSelect.addEventListener('change', (e) => {
-                currentSort = e.target.value;
-                displayLeaderboard();
-            });
-        }
-    }
-    
-    function filterData(data) {
-        if (currentFilter === 'all') return data;
-        return data.filter(entry => entry.region === currentFilter);
-    }
-    
-    function sortData(data) {
-        const sorted = [...data];
-        
-        switch(currentSort) {
-            case 'score':
-                sorted.sort((a, b) => b.score - a.score);
-                break;
-            case 'followers':
-                sorted.sort((a, b) => b.followers - a.followers);
-                break;
-            case 'name':
-                sorted.sort((a, b) => a.name.localeCompare(b.name));
-                break;
-        }
-        
-        return sorted;
-    }
-    
-    function updateStats() {
-        const statsContainer = document.getElementById('worldcup-stats');
-        if (!statsContainer || worldCupData.length === 0) return;
-        
-        const totalCreators = worldCupData.length;
-        const totalFollowers = worldCupData.reduce((sum, entry) => sum + entry.followers, 0);
-        const avgScore = worldCupData.reduce((sum, entry) => sum + entry.score, 0) / totalCreators;
-        
-        statsContainer.innerHTML = `
-            <div class="stat-card card">
-                <h3>Total Creators</h3>
-                <div class="stat-value">${totalCreators}</div>
-            </div>
-            <div class="stat-card card">
-                <h3>Combined Reach</h3>
-                <div class="stat-value">${formatNumber(totalFollowers)}</div>
-            </div>
-            <div class="stat-card card">
-                <h3>Average Score</h3>
-                <div class="stat-value">${Math.round(avgScore)}</div>
-            </div>
-        `;
-    }
-    
-    function getRankBadge(rank) {
-        if (rank === 1) return '🥇';
-        if (rank === 2) return '🥈';
-        if (rank === 3) return '🥉';
-        if (rank <= 10) return '⭐';
-        return '';
-    }
-    
-    function formatNumber(num) {
-        if (num >= 1000000) {
-            return (num / 1000000).toFixed(1) + 'M';
-        }
-        if (num >= 1000) {
-            return (num / 1000).toFixed(1) + 'K';
-        }
-        return num.toString();
-    }
-    
-    function showError() {
-        const container = document.getElementById('worldcup-leaderboard');
-        if (!container) return;
-        
-        container.innerHTML = `
-            <div class="error-state">
-                <p>Unable to load World Cup leaderboard</p>
-                <button class="btn btn-primary" onclick="location.reload()">Retry</button>
-            </div>
-        `;
-    }
-    
-    // Expose globally for external use
-    window.WTF_WorldCup = {
-        init: initWorldCup,
-        refresh: displayLeaderboard
-    };
-    
-    // Auto-initialize when DOM is ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initWorldCup);
+  }
+
+  function isMetricAllZeros(metric) {
+    if (metric === 'points') return false;
+    return worldCupData.every((e) => Number(e.followers?.[metric] || 0) === 0);
+  }
+
+  function getDisplayValue(entry, metric) {
+    if (metric === 'points') return Number(entry.points || 0);
+    return Number(entry.followers?.[metric] || 0);
+  }
+
+  function calculateChange(entry, metric) {
+    if (metric === 'points') {
+      const prevTik = Number(entry.previous?.tiktok || 0);
+      const prevPoints = prevTik * 0.4;
+      return Number(entry.points || 0) - prevPoints;
     } else {
-        initWorldCup();
+      const curr = Number(entry.followers?.[metric] || 0);
+      const prev = Number(entry.previous?.[metric] || 0);
+      return curr - prev;
     }
+  }
+
+  function sortData(metric) {
+    const dataCopy = [...worldCupData];
+    dataCopy.sort((a, b) => {
+      const av = getDisplayValue(a, metric);
+      const bv = getDisplayValue(b, metric);
+      return bv - av;
+    });
+    return dataCopy;
+  }
+
+  function rankBadge(rank) {
+    if (rank === 1) return '🥇';
+    if (rank === 2) return '🥈';
+    if (rank === 3) return '🥉';
+    return '';
+  }
+
+  function formatNumber(n) {
+    const v = Number(n || 0);
+    if (v >= 1000000) return (v / 1000000).toFixed(1) + 'M';
+    if (v >= 1000) return (v / 1000).toFixed(1) + 'K';
+    return v.toString();
+  }
+
+  function fadeSwap(el, html) {
+    el.classList.add('wc-fade-out');
+    setTimeout(() => {
+      el.innerHTML = html;
+      el.classList.remove('wc-fade-out');
+      el.classList.add('wc-fade-in');
+      setTimeout(() => el.classList.remove('wc-fade-in'), 250);
+    }, 150);
+  }
+
+  function renderLeaderboard(metric) {
+    const container = document.getElementById(CONTAINER_ID);
+    if (!container) return;
+
+    const effectiveMetric = isMetricAllZeros(metric) ? 'points' : metric;
+    const sorted = sortData(effectiveMetric);
+    const headerMetricLabel = effectiveMetric === 'points' ? 'Points' : 'Followers';
+    const headerChangeLabel = effectiveMetric === 'points' ? 'Change' : 'Change vs Previous';
+
+    const tableHtml = `
+      <div class="wc-header">
+        <div class="wc-title">World Cup Leaderboard</div>
+        <div class="wc-controls">
+          <select id="metric-select" class="wc-select">
+            <option value="points"${effectiveMetric === 'points' ? ' selected' : ''}>Points</option>
+            <option value="tiktok"${effectiveMetric === 'tiktok' ? ' selected' : ''}>TikTok</option>
+            <option value="instagram"${effectiveMetric === 'instagram' ? ' selected' : ''}>Instagram</option>
+            <option value="youtube"${effectiveMetric === 'youtube' ? ' selected' : ''}>YouTube</option>
+            <option value="x"${effectiveMetric === 'x' ? ' selected' : ''}>X (Twitter)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="wc-table-wrapper">
+        <div id="${TABLE_ID}" class="wc-table">
+          <div class="wc-row wc-head">
+            <div class="wc-col rank">Rank</div>
+            <div class="wc-col hub">Hub</div>
+            <div class="wc-col metric">${headerMetricLabel}</div>
+            <div class="wc-col change">${headerChangeLabel}</div>
+          </div>
+          ${sorted
+            .map((entry, idx) => {
+              const rank = idx + 1;
+              const value = getDisplayValue(entry, effectiveMetric);
+              const change = calculateChange(entry, effectiveMetric);
+              const changeSign = change > 0 ? '▲' : change < 0 ? '▼' : '—';
+              const changeClass =
+                change > 0 ? 'wc-up' : change < 0 ? 'wc-down' : 'wc-flat';
+              const logo =
+                entry.logo || LOGO_MAP[entry.region] || 'assets/watermark/wtfman.png';
+              const tagline =
+                entry.tagline ||
+                'Global hub of the WTF Network.';
+
+              return `
+              <div class="wc-row wc-body wc-animate">
+                <div class="wc-col rank">${rankBadge(rank)} ${rank}</div>
+                <div class="wc-col hub">
+                  <div class="wc-hub">
+                    <img class="wc-logo" src="${logo}" alt="${entry.region}" onerror="this.style.display='none'"/>
+                    <div class="wc-meta">
+                      <div class="wc-name"><strong>${entry.region}</strong></div>
+                      <div class="wc-tag">${tagline}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="wc-col metric">
+                  <div class="wc-value">${formatNumber(value)}</div>
+                </div>
+                <div class="wc-col change">
+                  <div class="wc-change ${changeClass}">
+                    ${changeSign} ${formatNumber(Math.abs(change))}
+                  </div>
+                </div>
+              </div>`;
+            })
+            .join('')}
+        </div>
+      </div>
+
+      <div class="wc-footer">
+        <div class="wc-updated">📈 Updated manually${lastUpdated ? ` • ${lastUpdated}` : ''}</div>
+      </div>
+    `;
+
+    fadeSwap(container, tableHtml);
+
+    const select = container.querySelector('#metric-select');
+    if (select) {
+      select.addEventListener('change', (e) => {
+        currentMetric = e.target.value;
+        renderLeaderboard(currentMetric);
+      });
+    }
+
+    console.log(
+      `✅ World Cup v4.3 loaded | Metric: ${METRIC_LABELS[effectiveMetric]} | Regions: ${sorted.length}`
+    );
+  }
+
+  function injectStyles() {
+    const css = `
+      .wc-header {
+        display: flex; align-items: center; justify-content: space-between;
+        margin-bottom: 1rem;
+      }
+      .wc-title { font-size: 1.25rem; font-weight: 700; color: var(--color-gold); }
+      .wc-select {
+        background: rgba(0,0,0,0.6); color: var(--color-text);
+        border: 1px solid rgba(212,175,55,0.4);
+        padding: 0.35rem 0.5rem; border-radius: 8px; outline: none;
+      }
+      .wc-table-wrapper { width: 100%; }
+      .wc-table { display: grid; gap: 0.5rem; }
+      .wc-row { display: grid; grid-template-columns: 80px 1fr 160px 140px; align-items: center; }
+      .wc-head { font-weight: 700; opacity: 0.85; }
+      .wc-body {
+        background: rgba(0,0,0,0.35); border: 1px solid rgba(212,175,55,0.25);
+        border-radius: 12px; padding: 0.75rem; transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .wc-body:hover { transform: translateY(-2px); box-shadow: 0 0 18px rgba(212,175,55,0.15); }
+      .wc-hub { display: flex; align-items: center; gap: 0.75rem; }
+      .wc-logo { width: 42px; height: 42px; border-radius: 6px; object-fit: cover; }
+      .wc-name { color: var(--color-text); }
+      .wc-tag { font-size: 0.85rem; opacity: 0.7; }
+      .wc-value { color: var(--color-gold); font-weight: 700; }
+      .wc-change { font-weight: 600; }
+      .wc-up { color: #4ade80; } .wc-down { color: #f87171; } .wc-flat { opacity: 0.6; }
+      .wc-footer { display: flex; justify-content: flex-end; margin-top: 0.75rem; }
+      .wc-updated { font-size: 0.85rem; opacity: 0.7; }
+
+      .wc-animate { transition: transform 0.25s ease, opacity 0.25s ease; }
+      .wc-fade-out { opacity: 0; }
+      .wc-fade-in { opacity: 1; }
+
+      @media (max-width: 480px) {
+        .wc-row { grid-template-columns: 60px 1fr; grid-row-gap: 0.5rem; }
+        .wc-col.metric, .wc-col.change { grid-column: 1 / span 2; }
+        .wc-logo { width: 36px; height: 36px; }
+      }
+    `;
+    const style = document.createElement('style');
+    style.id = 'wc-styles-v43';
+    style.textContent = css;
+    document.head.appendChild(style);
+  }
+
+  async function init() {
+    injectStyles();
+    await loadWorldCupData();
+    renderLeaderboard(currentMetric);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();

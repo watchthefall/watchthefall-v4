@@ -1,202 +1,27 @@
-[
-  {
-    "id": "scotlandwtf",
-    "name": "ScotlandWTF",
-    "tagline": "Documenting the fall of Scotland.",
-    "logo": "assets/logos/scotland-wtf-logo.png",
-    "delta": 2,
-    "points": 1739
-  },
-  {
-    "id": "englandwtf",
-    "name": "EnglandWTF",
-    "tagline": "Tracking the chaos across England.",
-    "logo": "assets/logos/england-wtf-logo.png",
-    "delta": -1,
-    "points": 5
-  },
-  {
-    "id": "waleswtf",
-    "name": "WalesWTF",
-    "tagline": "Witnessing the decay of Wales.",
-    "logo": "assets/logos/wales-wtf-logo.webp",
-    "delta": 0,
-    "points": 3
-  },
-  {
-    "id": "northernirelandwtf",
-    "name": "NorthernIrelandWTF",
-    "tagline": "Following Northern Ireland's decline.",
-    "logo": "assets/logos/northern-ireland-wtf-logo.png",
-    "delta": 1,
-    "points": 3
-  },
-  {
-    "id": "irelandwtf",
-    "name": "IrelandWTF",
-    "tagline": "Tracking Ireland's unraveling.",
-    "logo": "assets/logos/ireland-wtf-logo.png",
-    "delta": 3,
-    "points": 14
-  },
-  {
-    "id": "europewtf",
-    "name": "EuropeWTF",
-    "tagline": "Tracking the fall across Europe.",
-    "logo": "assets/logos/europe-wtf-logo.jpg",
-    "delta": 5,
-    "points": 26
-  },
-  {
-    "id": "thewestwtf",
-    "name": "TheWestWTF",
-    "tagline": "Tracking the Western decline.",
-    "logo": "assets/logos/the-west-wtf.jpg",
-    "delta": -2,
-    "points": 55
-  },
-  {
-    "id": "britainwtf",
-    "name": "BritainWTF",
-    "tagline": "Documenting Britain's cultural unravelling.",
-    "logo": "assets/logos/britain-wtf-logo.png",
-    "delta": 0,
-    "points": 57
-  },
-  {
-    "id": "usamericawtf",
-    "name": "USAmericaWTF",
-    "tagline": "Tracking the collapse of the American experiment.",
-    "logo": "assets/logos/usa-wtf-logo.jpg",
-    "delta": 0,
-    "points": 82
-  },
-  {
-    "id": "canadawtf",
-    "name": "CanadaWTF",
-    "tagline": "Following Canada's social decay.",
-    "logo": "assets/logos/canada-wtf-logo.png",
-    "delta": 1,
-    "points": 3
-  },
-  {
-    "id": "australiawtf",
-    "name": "AustraliaWTF",
-    "tagline": "Watching Australia's unraveling.",
-    "logo": "assets/logos/australia-wtf-logo.png",
-    "delta": -1,
-    "points": 144
-  },
-  {
-    "id": "polandwtf",
-    "name": "PolandWTF",
-    "tagline": "Tracking Poland's transformation.",
-    "logo": "assets/logos/poland-wtf-logo.png",
-    "delta": 0,
-    "points": 3
-  },
-  {
-    "id": "francewtf",
-    "name": "FranceWTF",
-    "tagline": "Observing France's ongoing crisis.",
-    "logo": "assets/logos/france-wtf-logo.png",
-    "delta": 0,
-    "points": 5
-  },
-  {
-    "id": "germanywtf",
-    "name": "GermanyWTF",
-    "tagline": "Monitoring the collapse of German stability.",
-    "logo": "assets/logos/germany-wtf-logo.jpg",
-    "delta": -1,
-    "points": 7
-  },
-  {
-    "id": "swedenwtf",
-    "name": "SwedenWTF",
-    "tagline": "Documenting Sweden's identity crisis.",
-    "logo": "assets/logos/sweden-wtf-logo.jpg",
-    "delta": 0,
-    "points": 3
-  },
-  {
-    "id": "spainwtf",
-    "name": "SpainWTF",
-    "tagline": "Tracking Spain's social unraveling.",
-    "logo": "assets/logos/spain-wtf-logo.png",
-    "delta": 1,
-    "points": 3
-  },
-  {
-    "id": "italywtf",
-    "name": "ItalyWTF",
-    "tagline": "Recording Italy's decline.",
-    "logo": "assets/logos/italy-wtf-logo.png",
-    "delta": 0,
-    "points": 3
-  },
-  {
-    "id": "netherlandswtf",
-    "name": "NetherlandsWTF",
-    "tagline": "Following the fall of Dutch sanity.",
-    "logo": "assets/logos/netherlands-wtf-logo.png",
-    "delta": 0,
-    "points": 3
-  },
-  {
-    "id": "aiwtf",
-    "name": "AIWTF",
-    "tagline": "Monitoring the rise of artificial intelligence.",
-    "logo": "assets/logos/ai-wtf-logo.webp",
-    "delta": -1,
-    "points": 60
-  },
-  {
-    "id": "aitechwtf",
-    "name": "AITechWTF",
-    "tagline": "Documenting the evolution of technology.",
-    "logo": "assets/logos/ai-tech-wtf-logo.jpg",
-    "delta": 0,
-    "points": 4
-  },
-  {
-    "id": "conceptswtf",
-    "name": "ConceptsWTF",
-    "tagline": "Exploring paradoxes, illusions, and the mind.",
-    "logo": "assets/logos/concepts-wtf-logo.webp",
-    "delta": 2,
-    "points": 4
-  },
-  {
-    "id": "gadgetswtf",
-    "name": "GadgetsWTF",
-    "tagline": "Covering absurd, luxurious tech gadgets.",
-    "logo": "assets/logos/gadgets-wtf-logo.jpg",
-    "delta": 0,
-    "points": 3
-  },
-  {
-    "id": "comedywtf",
-    "name": "ComedyWTF",
-    "tagline": "Humor in the age of collapse.",
-    "logo": "assets/logos/c0medy-wtf-logo.jpg",
-    "delta": 1,
-    "points": 2
-  },
-  {
-    "id": "darkhumourwtf",
-    "name": "DarkHumourWTF",
-    "tagline": "Dark laughter in dystopia.",
-    "logo": "assets/logos/dark-humour-wtf-logo.jpg",
-    "delta": -2,
-    "points": 2
-  },
-  {
-    "id": "watchthefall.wtf",
-    "name": "WatchTheFallWTF",
-    "tagline": "The global hub of the WTF Network.",
-    "logo": "assets/watermark/wtfman.png",
-    "delta": 0,
-    "points": 189
-  }
-]
+{
+  "last_updated": "2025-11-02T00:00:00Z",
+  "regions": [
+    {"region":"ScotlandWTF","followers":{"tiktok":3594,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":1437.6,"tagline":"Documenting the fall of Scotland.","logo":"assets/logos/scotland-wtf-logo.png"},
+    {"region":"AustraliaWTF","followers":{"tiktok":744,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":297.6,"tagline":"Watching Australia's unraveling.","logo":"assets/logos/australia-wtf-logo.png"},
+    {"region":"WatchTheFallWTF","followers":{"tiktok":569,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":227.6,"tagline":"The global hub of the WTF Network.","logo":"assets/watermark/wtfman.png"},
+    {"region":"BritainWTF","followers":{"tiktok":571,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":228.4,"tagline":"Documenting Britain's cultural unravelling.","logo":"assets/logos/britain-wtf-logo.png"},
+    {"region":"EuropeWTF","followers":{"tiktok":209,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":83.6,"tagline":"Tracking the fall across Europe.","logo":"assets/logos/europe-wtf-logo.jpg"},
+    {"region":"TheWestWTF","followers":{"tiktok":26,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":10.4,"tagline":"Tracking the Western decline.","logo":"assets/logos/the-west-wtf.jpg"},
+    {"region":"IrelandWTF","followers":{"tiktok":76,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":30.4,"tagline":"Tracking Ireland's unraveling.","logo":"assets/logos/ireland-wtf-logo.png"},
+    {"region":"AIWTF","followers":{"tiktok":23,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":9.2,"tagline":"Monitoring the rise of artificial intelligence.","logo":"assets/logos/ai-wtf-logo.webp"},
+    {"region":"AITechWTF","followers":{"tiktok":12,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":4.8,"tagline":"Documenting the evolution of technology.","logo":"assets/logos/ai-tech-wtf-logo.jpg"},
+    {"region":"FranceWTF","followers":{"tiktok":14,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":5.6,"tagline":"Observing France's ongoing crisis.","logo":"assets/logos/france-wtf-logo.png"},
+    {"region":"WalesWTF","followers":{"tiktok":28,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":11.2,"tagline":"Witnessing the decay of Wales.","logo":"assets/logos/wales-wtf-logo.webp"},
+    {"region":"NorthernIrelandWTF","followers":{"tiktok":31,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":12.4,"tagline":"Following Northern Ireland's decline.","logo":"assets/logos/northern-ireland-wtf-logo.png"},
+    {"region":"TheWest","followers":{"tiktok":520,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":208.0,"tagline":"Tracking the Western decline.","logo":"assets/logos/the-west-wtf.jpg"},
+    {"region":"ItalyWTF","followers":{"tiktok":27,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":10.8,"tagline":"Recording Italy's decline.","logo":"assets/logos/italy-wtf-logo.png"},
+    {"region":"PolandWTF","followers":{"tiktok":31,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":12.4,"tagline":"Tracking Poland's transformation.","logo":"assets/logos/poland-wtf-logo.png"},
+    {"region":"NetherlandsWTF","followers":{"tiktok":27,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":10.8,"tagline":"Following the fall of Dutch sanity.","logo":"assets/logos/netherlands-wtf-logo.png"},
+    {"region":"GermanyWTF","followers":{"tiktok":70,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":28.0,"tagline":"Monitoring the collapse of German stability.","logo":"assets/logos/germany-wtf-logo.jpg"},
+    {"region":"CanadaWTF","followers":{"tiktok":28,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":11.2,"tagline":"Following Canada's social decay.","logo":"assets/logos/canada-wtf-logo.png"},
+    {"region":"GadgetsWTF","followers":{"tiktok":26,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":10.4,"tagline":"Covering absurd, luxurious tech gadgets.","logo":"assets/logos/gadgets-wtf-logo.jpg"},
+    {"region":"ComedyWTF","followers":{"tiktok":15,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":6.0,"tagline":"Humor in the age of collapse.","logo":"assets/logos/c0medy-wtf-logo.jpg"},
+    {"region":"DarkHumourWTF","followers":{"tiktok":15,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":6.0,"tagline":"Dark laughter in dystopia.","logo":"assets/logos/dark-humour-wtf-logo.jpg"},
+    {"region":"ConceptsWTF","followers":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0},"points":0.0,"tagline":"Exploring paradoxes, illusions, and the mind.","logo":"assets/logos/concepts-wtf-logo.webp"}
+  ]
+}
