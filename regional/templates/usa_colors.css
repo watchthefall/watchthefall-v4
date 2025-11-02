@@ -1,28 +1,28 @@
 /* =====================================================================
    USA WTF - Regional Color Theme
-   Base: Antique Gold (#d4af37) + USA Colors (#0065BD)
+   Old Glory Red (#B22234)
    ===================================================================== */
 
 :root {
-    --color-usa-blue: #0065BD;
-    --color-usa-blue-dark: #003D82;
-    --color-usa-blue-light: #4D9DE0;
+    --color-usa-red: #B22234;
+    --color-usa-red-dark: #8B1A2A;
+    --color-usa-red-light: #D94452;
     --color-usa-gold: #d4af37;
-    --color-usa-glow: rgba(0, 101, 189, 0.3);
+    --color-usa-glow: rgba(178, 34, 52, 0.4);
 }
 
 /* usa-specific overlays */
 .usa-overlay {
     background: linear-gradient(180deg, 
-        rgba(0, 101, 189, 0.15) 0%, 
+        rgba(178, 34, 52, 0.2) 0%, 
         rgba(10, 10, 10, 0.7) 50%, 
-        rgba(0, 61, 130, 0.15) 100%);
+        rgba(139, 26, 42, 0.15) 100%);
 }
 
 /* usa hero styling */
 .usa-hero {
     background: linear-gradient(135deg, 
-        rgba(0, 101, 189, 0.1) 0%, 
+        rgba(178, 34, 52, 0.15) 0%, 
         transparent 100%);
     padding-top: 8rem;
     min-height: 100vh;
@@ -60,9 +60,9 @@
 .usa-text {
     font-family: 'Archivo Black', var(--font-primary), sans-serif;
     font-size: clamp(2.5rem, 6vw, 4.5rem);
-    color: var(--color-usa-blue-light);
-    text-shadow: 0 0 30px rgba(0, 101, 189, 0.6), 
-                 0 0 60px rgba(0, 101, 189, 0.4);
+    color: var(--color-usa-red-light);
+    text-shadow: 0 0 30px var(--color-usa-glow), 
+                 0 0 60px rgba(178, 34, 52, 0.3);
     letter-spacing: 1px;
     display: flex;
     align-items: center;
@@ -73,14 +73,14 @@
 .usa-flag-logo {
     width: clamp(50px, 8vw, 90px);
     height: auto;
-    filter: drop-shadow(0 0 15px rgba(0, 101, 189, 0.5));
+    filter: drop-shadow(0 0 15px var(--color-usa-glow));
     transition: var(--transition-smooth);
     background: transparent;
     border: none;
 }
 
 .usa-flag-logo:hover {
-    filter: drop-shadow(0 0 25px rgba(0, 101, 189, 0.7));
+    filter: drop-shadow(0 0 25px rgba(178, 34, 52, 0.6));
 }
 
 .wtf-text {
@@ -118,7 +118,7 @@
     font-weight: 600;
     color: var(--color-text);
     margin-bottom: 1rem;
-    text-shadow: 0 0 12px rgba(0, 101, 189, 0.3);
+    text-shadow: 0 0 12px var(--color-usa-glow);
     letter-spacing: 0.5px;
 }
 
@@ -135,47 +135,47 @@
 
 /* usa accent colors */
 .page-usa .btn-primary {
-    background: var(--color-usa-blue);
-    border-color: var(--color-usa-blue);
+    background: var(--color-usa-red);
+    border-color: var(--color-usa-red);
 }
 
 .page-usa .btn-primary:hover {
-    background: var(--color-usa-blue-light);
+    background: var(--color-usa-red-light);
     box-shadow: 0 0 20px var(--color-usa-glow);
 }
 
 .page-usa .btn-secondary {
-    border-color: var(--color-usa-blue);
-    color: var(--color-usa-blue-light);
+    border-color: var(--color-usa-red);
+    color: var(--color-usa-red-light);
 }
 
 .page-usa .btn-secondary:hover {
-    background: var(--color-usa-blue);
+    background: var(--color-usa-red);
     color: white;
     box-shadow: 0 0 20px var(--color-usa-glow);
 }
 
 /* usa cards */
 .page-usa .card {
-    border-color: rgba(0, 101, 189, 0.3);
+    border-color: rgba(178, 34, 52, 0.3);
 }
 
 .page-usa .card:hover {
-    border-color: var(--color-usa-blue);
+    border-color: var(--color-usa-red);
     box-shadow: 0 8px 30px var(--color-usa-glow);
 }
 
 /* usa stats */
 .usa-stats .stat-card {
     background: linear-gradient(135deg, 
-        rgba(0, 101, 189, 0.1) 0%, 
+        rgba(178, 34, 52, 0.1) 0%, 
         rgba(10, 10, 10, 0.8) 100%);
 }
 
 .usa-stats .stat-value {
     font-family: var(--font-primary);
     font-size: 2.5rem;
-    color: var(--color-usa-blue-light);
+    color: var(--color-usa-red-light);
     text-shadow: 0 0 15px var(--color-usa-glow);
 }
 
@@ -201,7 +201,7 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: var(--color-usa-blue);
+    background: var(--color-usa-red);
     color: white;
     width: 40px;
     height: 40px;
@@ -214,7 +214,7 @@
 }
 
 .creator-card h3 {
-    color: var(--color-usa-blue-light);
+    color: var(--color-usa-red-light);
     margin: 1rem 0 0.5rem;
 }
 
@@ -236,7 +236,7 @@
 }
 
 .content-card h3 {
-    color: var(--color-usa-blue-light);
+    color: var(--color-usa-red-light);
     margin-bottom: 1rem;
 }
 
