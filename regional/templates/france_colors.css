@@ -1,28 +1,28 @@
 /* =====================================================================
    FRANCE WTF - Regional Color Theme
-   Base: Antique Gold (#d4af37) + France Colors (#0065BD)
+   Base: Antique Gold (#d4af37) + France Colors (#0055A4)
    ===================================================================== */
 
 :root {
-    --color-france-blue: #0065BD;
-    --color-france-blue-dark: #003D82;
-    --color-france-blue-light: #4D9DE0;
+    --color-france-blue: #0055A4;
+    --color-france-blue-dark: #003D7A;
+    --color-france-blue-light: #3377BB;
     --color-france-gold: #d4af37;
-    --color-france-glow: rgba(0, 101, 189, 0.3);
+    --color-france-glow: rgba(0, 85, 164, 0.3);
 }
 
 /* france-specific overlays */
 .france-overlay {
     background: linear-gradient(180deg, 
-        rgba(0, 101, 189, 0.15) 0%, 
+        rgba(0, 85, 164, 0.15) 0%, 
         rgba(10, 10, 10, 0.7) 50%, 
-        rgba(0, 61, 130, 0.15) 100%);
+        rgba(0, 61, 122, 0.15) 100%);
 }
 
 /* france hero styling */
 .france-hero {
     background: linear-gradient(135deg, 
-        rgba(0, 101, 189, 0.1) 0%, 
+        rgba(0, 85, 164, 0.1) 0%, 
         transparent 100%);
     padding-top: 8rem;
     min-height: 100vh;
@@ -61,8 +61,8 @@
     font-family: 'Archivo Black', var(--font-primary), sans-serif;
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     color: var(--color-france-blue-light);
-    text-shadow: 0 0 30px rgba(0, 101, 189, 0.6), 
-                 0 0 60px rgba(0, 101, 189, 0.4);
+    text-shadow: 0 0 30px rgba(0, 85, 164, 0.6), 
+                 0 0 60px rgba(0, 85, 164, 0.4);
     letter-spacing: 1px;
     display: flex;
     align-items: center;
@@ -73,14 +73,14 @@
 .france-flag-logo {
     width: clamp(50px, 8vw, 90px);
     height: auto;
-    filter: drop-shadow(0 0 15px rgba(0, 101, 189, 0.5));
+    filter: drop-shadow(0 0 15px rgba(0, 85, 164, 0.5));
     transition: var(--transition-smooth);
     background: transparent;
     border: none;
 }
 
 .france-flag-logo:hover {
-    filter: drop-shadow(0 0 25px rgba(0, 101, 189, 0.7));
+    filter: drop-shadow(0 0 25px rgba(0, 85, 164, 0.7));
 }
 
 .wtf-text {
@@ -118,7 +118,7 @@
     font-weight: 600;
     color: var(--color-text);
     margin-bottom: 1rem;
-    text-shadow: 0 0 12px rgba(0, 101, 189, 0.3);
+    text-shadow: 0 0 12px rgba(0, 85, 164, 0.3);
     letter-spacing: 0.5px;
 }
 
@@ -157,7 +157,7 @@
 
 /* france cards */
 .page-france .card {
-    border-color: rgba(0, 101, 189, 0.3);
+    border-color: rgba(0, 85, 164, 0.3);
 }
 
 .page-france .card:hover {
@@ -168,7 +168,7 @@
 /* france stats */
 .france-stats .stat-card {
     background: linear-gradient(135deg, 
-        rgba(0, 101, 189, 0.1) 0%, 
+        rgba(0, 85, 164, 0.1) 0%, 
         rgba(10, 10, 10, 0.8) 100%);
 }
 

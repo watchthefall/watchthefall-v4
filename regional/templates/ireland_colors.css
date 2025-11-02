@@ -1,28 +1,28 @@
 /* =====================================================================
    IRELAND WTF - Regional Color Theme
-   Base: Antique Gold (#d4af37) + Ireland Colors (#0065BD)
+   Base: Antique Gold (#d4af37) + Ireland Colors (#169B62)
    ===================================================================== */
 
 :root {
-    --color-ireland-blue: #0065BD;
-    --color-ireland-blue-dark: #003D82;
-    --color-ireland-blue-light: #4D9DE0;
+    --color-ireland-green: #169B62;
+    --color-ireland-green-dark: #0F7A4D;
+    --color-ireland-green-light: #3DB87A;
     --color-ireland-gold: #d4af37;
-    --color-ireland-glow: rgba(0, 101, 189, 0.3);
+    --color-ireland-glow: rgba(22, 155, 98, 0.3);
 }
 
 /* ireland-specific overlays */
 .ireland-overlay {
     background: linear-gradient(180deg, 
-        rgba(0, 101, 189, 0.15) 0%, 
+        rgba(22, 155, 98, 0.15) 0%, 
         rgba(10, 10, 10, 0.7) 50%, 
-        rgba(0, 61, 130, 0.15) 100%);
+        rgba(15, 122, 77, 0.15) 100%);
 }
 
 /* ireland hero styling */
 .ireland-hero {
     background: linear-gradient(135deg, 
-        rgba(0, 101, 189, 0.1) 0%, 
+        rgba(22, 155, 98, 0.1) 0%, 
         transparent 100%);
     padding-top: 8rem;
     min-height: 100vh;
@@ -60,9 +60,9 @@
 .ireland-text {
     font-family: 'Archivo Black', var(--font-primary), sans-serif;
     font-size: clamp(2.5rem, 6vw, 4.5rem);
-    color: var(--color-ireland-blue-light);
-    text-shadow: 0 0 30px rgba(0, 101, 189, 0.6), 
-                 0 0 60px rgba(0, 101, 189, 0.4);
+    color: var(--color-ireland-green-light);
+    text-shadow: 0 0 30px rgba(22, 155, 98, 0.6), 
+                 0 0 60px rgba(22, 155, 98, 0.4);
     letter-spacing: 1px;
     display: flex;
     align-items: center;
@@ -73,14 +73,14 @@
 .ireland-flag-logo {
     width: clamp(50px, 8vw, 90px);
     height: auto;
-    filter: drop-shadow(0 0 15px rgba(0, 101, 189, 0.5));
+    filter: drop-shadow(0 0 15px rgba(22, 155, 98, 0.5));
     transition: var(--transition-smooth);
     background: transparent;
     border: none;
 }
 
 .ireland-flag-logo:hover {
-    filter: drop-shadow(0 0 25px rgba(0, 101, 189, 0.7));
+    filter: drop-shadow(0 0 25px rgba(22, 155, 98, 0.7));
 }
 
 .wtf-text {
@@ -118,7 +118,7 @@
     font-weight: 600;
     color: var(--color-text);
     margin-bottom: 1rem;
-    text-shadow: 0 0 12px rgba(0, 101, 189, 0.3);
+    text-shadow: 0 0 12px rgba(22, 155, 98, 0.3);
     letter-spacing: 0.5px;
 }
 
@@ -135,47 +135,47 @@
 
 /* ireland accent colors */
 .page-ireland .btn-primary {
-    background: var(--color-ireland-blue);
-    border-color: var(--color-ireland-blue);
+    background: var(--color-ireland-green);
+    border-color: var(--color-ireland-green);
 }
 
 .page-ireland .btn-primary:hover {
-    background: var(--color-ireland-blue-light);
+    background: var(--color-ireland-green-light);
     box-shadow: 0 0 20px var(--color-ireland-glow);
 }
 
 .page-ireland .btn-secondary {
-    border-color: var(--color-ireland-blue);
-    color: var(--color-ireland-blue-light);
+    border-color: var(--color-ireland-green);
+    color: var(--color-ireland-green-light);
 }
 
 .page-ireland .btn-secondary:hover {
-    background: var(--color-ireland-blue);
+    background: var(--color-ireland-green);
     color: white;
     box-shadow: 0 0 20px var(--color-ireland-glow);
 }
 
 /* ireland cards */
 .page-ireland .card {
-    border-color: rgba(0, 101, 189, 0.3);
+    border-color: rgba(22, 155, 98, 0.3);
 }
 
 .page-ireland .card:hover {
-    border-color: var(--color-ireland-blue);
+    border-color: var(--color-ireland-green);
     box-shadow: 0 8px 30px var(--color-ireland-glow);
 }
 
 /* ireland stats */
 .ireland-stats .stat-card {
     background: linear-gradient(135deg, 
-        rgba(0, 101, 189, 0.1) 0%, 
+        rgba(22, 155, 98, 0.1) 0%, 
         rgba(10, 10, 10, 0.8) 100%);
 }
 
 .ireland-stats .stat-value {
     font-family: var(--font-primary);
     font-size: 2.5rem;
-    color: var(--color-ireland-blue-light);
+    color: var(--color-ireland-green-light);
     text-shadow: 0 0 15px var(--color-ireland-glow);
 }
 
@@ -201,7 +201,7 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: var(--color-ireland-blue);
+    background: var(--color-ireland-green);
     color: white;
     width: 40px;
     height: 40px;
@@ -214,7 +214,7 @@
 }
 
 .creator-card h3 {
-    color: var(--color-ireland-blue-light);
+    color: var(--color-ireland-green-light);
     margin: 1rem 0 0.5rem;
 }
 
@@ -236,7 +236,7 @@
 }
 
 .content-card h3 {
-    color: var(--color-ireland-blue-light);
+    color: var(--color-ireland-green-light);
     margin-bottom: 1rem;
 }
 
@@ -260,16 +260,16 @@
 
 /* Navigation accent */
 .page-ireland .nav-logo {
-    color: var(--color-ireland-blue-light);
+    color: var(--color-ireland-green-light);
 }
 
 .page-ireland .nav-links a:hover,
 .page-ireland .nav-links a.active {
-    color: var(--color-ireland-blue-light);
+    color: var(--color-ireland-green-light);
 }
 
 .page-ireland .nav-links a::after {
-    background: var(--color-ireland-blue);
+    background: var(--color-ireland-green);
 }
 
 /* Breadcrumb */
@@ -280,7 +280,7 @@
 }
 
 .breadcrumb a {
-    color: var(--color-ireland-blue-light);
+    color: var(--color-ireland-green-light);
     text-decoration: none;
     transition: var(--transition-smooth);
 }

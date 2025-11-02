@@ -1,28 +1,28 @@
-﻿/* =====================================================================
+/* =====================================================================
    SWEDEN WTF - Regional Color Theme
-   Base: Antique Gold (#d4af37) + Sweden Colors (#0065BD)
+   Base: Antique Gold (#d4af37) + Sweden Colors (#006AA7)
    ===================================================================== */
 
 :root {
-    --color-sweden-blue: #0065BD;
-    --color-sweden-blue-dark: #003D82;
-    --color-sweden-blue-light: #4D9DE0;
+    --color-sweden-blue: #006AA7;
+    --color-sweden-blue-dark: #004A78;
+    --color-sweden-blue-light: #3388BB;
     --color-sweden-gold: #d4af37;
-    --color-sweden-glow: rgba(0, 101, 189, 0.3);
+    --color-sweden-glow: rgba(0, 106, 167, 0.3);
 }
 
 /* sweden-specific overlays */
 .sweden-overlay {
     background: linear-gradient(180deg, 
-        rgba(0, 101, 189, 0.15) 0%, 
+        rgba(0, 106, 167, 0.15) 0%, 
         rgba(10, 10, 10, 0.7) 50%, 
-        rgba(0, 61, 130, 0.15) 100%);
+        rgba(0, 74, 120, 0.15) 100%);
 }
 
 /* sweden hero styling */
 .sweden-hero {
     background: linear-gradient(135deg, 
-        rgba(0, 101, 189, 0.1) 0%, 
+        rgba(0, 106, 167, 0.1) 0%, 
         transparent 100%);
     padding-top: 8rem;
     min-height: 100vh;
@@ -61,8 +61,8 @@
     font-family: 'Archivo Black', var(--font-primary), sans-serif;
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     color: var(--color-sweden-blue-light);
-    text-shadow: 0 0 30px rgba(0, 101, 189, 0.6), 
-                 0 0 60px rgba(0, 101, 189, 0.4);
+    text-shadow: 0 0 30px rgba(0, 106, 167, 0.6), 
+                 0 0 60px rgba(0, 106, 167, 0.4);
     letter-spacing: 1px;
     display: flex;
     align-items: center;
@@ -73,14 +73,14 @@
 .sweden-flag-logo {
     width: clamp(50px, 8vw, 90px);
     height: auto;
-    filter: drop-shadow(0 0 15px rgba(0, 101, 189, 0.5));
+    filter: drop-shadow(0 0 15px rgba(0, 106, 167, 0.5));
     transition: var(--transition-smooth);
     background: transparent;
     border: none;
 }
 
 .sweden-flag-logo:hover {
-    filter: drop-shadow(0 0 25px rgba(0, 101, 189, 0.7));
+    filter: drop-shadow(0 0 25px rgba(0, 106, 167, 0.7));
 }
 
 .wtf-text {
@@ -118,7 +118,7 @@
     font-weight: 600;
     color: var(--color-text);
     margin-bottom: 1rem;
-    text-shadow: 0 0 12px rgba(0, 101, 189, 0.3);
+    text-shadow: 0 0 12px rgba(0, 106, 167, 0.3);
     letter-spacing: 0.5px;
 }
 
@@ -157,7 +157,7 @@
 
 /* sweden cards */
 .page-sweden .card {
-    border-color: rgba(0, 101, 189, 0.3);
+    border-color: rgba(0, 106, 167, 0.3);
 }
 
 .page-sweden .card:hover {
@@ -168,7 +168,7 @@
 /* sweden stats */
 .sweden-stats .stat-card {
     background: linear-gradient(135deg, 
-        rgba(0, 101, 189, 0.1) 0%, 
+        rgba(0, 106, 167, 0.1) 0%, 
         rgba(10, 10, 10, 0.8) 100%);
 }
 

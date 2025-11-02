@@ -1,28 +1,28 @@
-﻿/* =====================================================================
+/* =====================================================================
    CANADA WTF - Regional Color Theme
-   Base: Antique Gold (#d4af37) + Canada Colors (#0065BD)
+   Base: Antique Gold (#d4af37) + Canada Colors (#FF0000)
    ===================================================================== */
 
 :root {
-    --color-canada-blue: #0065BD;
-    --color-canada-blue-dark: #003D82;
-    --color-canada-blue-light: #4D9DE0;
+    --color-canada-red: #FF0000;
+    --color-canada-red-dark: #CC0000;
+    --color-canada-red-light: #FF3333;
     --color-canada-gold: #d4af37;
-    --color-canada-glow: rgba(0, 101, 189, 0.3);
+    --color-canada-glow: rgba(255, 0, 0, 0.3);
 }
 
 /* canada-specific overlays */
 .canada-overlay {
     background: linear-gradient(180deg, 
-        rgba(0, 101, 189, 0.15) 0%, 
+        rgba(255, 0, 0, 0.15) 0%, 
         rgba(10, 10, 10, 0.7) 50%, 
-        rgba(0, 61, 130, 0.15) 100%);
+        rgba(204, 0, 0, 0.15) 100%);
 }
 
 /* canada hero styling */
 .canada-hero {
     background: linear-gradient(135deg, 
-        rgba(0, 101, 189, 0.1) 0%, 
+        rgba(255, 0, 0, 0.1) 0%, 
         transparent 100%);
     padding-top: 8rem;
     min-height: 100vh;
@@ -60,9 +60,9 @@
 .canada-text {
     font-family: 'Archivo Black', var(--font-primary), sans-serif;
     font-size: clamp(2.5rem, 6vw, 4.5rem);
-    color: var(--color-canada-blue-light);
-    text-shadow: 0 0 30px rgba(0, 101, 189, 0.6), 
-                 0 0 60px rgba(0, 101, 189, 0.4);
+    color: var(--color-canada-red-light);
+    text-shadow: 0 0 30px rgba(255, 0, 0, 0.6), 
+                 0 0 60px rgba(255, 0, 0, 0.4);
     letter-spacing: 1px;
     display: flex;
     align-items: center;
@@ -73,14 +73,14 @@
 .canada-flag-logo {
     width: clamp(50px, 8vw, 90px);
     height: auto;
-    filter: drop-shadow(0 0 15px rgba(0, 101, 189, 0.5));
+    filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.5));
     transition: var(--transition-smooth);
     background: transparent;
     border: none;
 }
 
 .canada-flag-logo:hover {
-    filter: drop-shadow(0 0 25px rgba(0, 101, 189, 0.7));
+    filter: drop-shadow(0 0 25px rgba(255, 0, 0, 0.7));
 }
 
 .wtf-text {
@@ -118,7 +118,7 @@
     font-weight: 600;
     color: var(--color-text);
     margin-bottom: 1rem;
-    text-shadow: 0 0 12px rgba(0, 101, 189, 0.3);
+    text-shadow: 0 0 12px rgba(255, 0, 0, 0.3);
     letter-spacing: 0.5px;
 }
 
@@ -135,47 +135,47 @@
 
 /* canada accent colors */
 .page-canada .btn-primary {
-    background: var(--color-canada-blue);
-    border-color: var(--color-canada-blue);
+    background: var(--color-canada-red);
+    border-color: var(--color-canada-red);
 }
 
 .page-canada .btn-primary:hover {
-    background: var(--color-canada-blue-light);
+    background: var(--color-canada-red-light);
     box-shadow: 0 0 20px var(--color-canada-glow);
 }
 
 .page-canada .btn-secondary {
-    border-color: var(--color-canada-blue);
-    color: var(--color-canada-blue-light);
+    border-color: var(--color-canada-red);
+    color: var(--color-canada-red-light);
 }
 
 .page-canada .btn-secondary:hover {
-    background: var(--color-canada-blue);
+    background: var(--color-canada-red);
     color: white;
     box-shadow: 0 0 20px var(--color-canada-glow);
 }
 
 /* canada cards */
 .page-canada .card {
-    border-color: rgba(0, 101, 189, 0.3);
+    border-color: rgba(255, 0, 0, 0.3);
 }
 
 .page-canada .card:hover {
-    border-color: var(--color-canada-blue);
+    border-color: var(--color-canada-red);
     box-shadow: 0 8px 30px var(--color-canada-glow);
 }
 
 /* canada stats */
 .canada-stats .stat-card {
     background: linear-gradient(135deg, 
-        rgba(0, 101, 189, 0.1) 0%, 
+        rgba(255, 0, 0, 0.1) 0%, 
         rgba(10, 10, 10, 0.8) 100%);
 }
 
 .canada-stats .stat-value {
     font-family: var(--font-primary);
     font-size: 2.5rem;
-    color: var(--color-canada-blue-light);
+    color: var(--color-canada-red-light);
     text-shadow: 0 0 15px var(--color-canada-glow);
 }
 
@@ -201,7 +201,7 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: var(--color-canada-blue);
+    background: var(--color-canada-red);
     color: white;
     width: 40px;
     height: 40px;
@@ -214,7 +214,7 @@
 }
 
 .creator-card h3 {
-    color: var(--color-canada-blue-light);
+    color: var(--color-canada-red-light);
     margin: 1rem 0 0.5rem;
 }
 
@@ -236,7 +236,7 @@
 }
 
 .content-card h3 {
-    color: var(--color-canada-blue-light);
+    color: var(--color-canada-red-light);
     margin-bottom: 1rem;
 }
 
@@ -260,16 +260,16 @@
 
 /* Navigation accent */
 .page-canada .nav-logo {
-    color: var(--color-canada-blue-light);
+    color: var(--color-canada-red-light);
 }
 
 .page-canada .nav-links a:hover,
 .page-canada .nav-links a.active {
-    color: var(--color-canada-blue-light);
+    color: var(--color-canada-red-light);
 }
 
 .page-canada .nav-links a::after {
-    background: var(--color-canada-blue);
+    background: var(--color-canada-red);
 }
 
 /* Breadcrumb */
@@ -280,7 +280,7 @@
 }
 
 .breadcrumb a {
-    color: var(--color-canada-blue-light);
+    color: var(--color-canada-red-light);
     text-decoration: none;
     transition: var(--transition-smooth);
 }
