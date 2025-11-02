@@ -63,18 +63,18 @@
     <section class="regional-hero wales-hero">
         <div class="container">
             <div class="breadcrumb">
-                <a href="../../feed.html">Directory</a> / <span>Scotland</span>
+                <a href="../../feed.html">Directory</a> / <span>Wales</span>
             </div>
             <img src="../../assets/logos/wtf-logo.png" alt="WatchTheFall" class="hero-wtf-logo" loading="eager" />
             <h1 class="page-title wales-title">
                 <span class="wales-text">
-                    <img src="../../assets/logos/wales-wtf-logo.png" alt="Scotland" class="wales-flag-logo" loading="eager" />
-                    Scotland
+                    <img src="../../assets/logos/wales-wtf-logo.png" alt="Wales" class="wales-flag-logo" loading="eager" />
+                    Wales
                 </span>
                 <span class="wtf-text">WatchTheFall</span>
             </h1>
             <p class="page-subtitle">Cymru Am Byth - Witnessing the decay of Wales</p>
-            <p class="page-description">From Edinburgh to the Highlands, tracking civilizationâ€™s descent through Scottish eyes</p>
+            <p class="page-description">From Cardiff to the valleys, witnessing the decay of Wales</p>
         </div>
     </section>
 
@@ -188,7 +188,7 @@
                 <div class="footer-info">
                     <h4>Wales WTF</h4>
                     <p>Part of WatchTheFall Network</p>
-                    <p>Cymru</p>
+                    <p>Cymru Am Byth - Wales Forever</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -210,13 +210,13 @@
                 const response = await fetch('../../data/worldcup.json');
                 const data = await response.json();
                 
-                // Find waleswtf in the data
-                const scotlandHub = data.regions.find(c => c.region === 'waleswtf');
+                // Find WalesWTF in the data
+                const walesHub = data.regions.find(c => c.region === 'WalesWTF');
                 
-                if (scotlandHub) {
+                if (walesHub) {
                     // Update Total Followers (TikTok + Instagram combined)
-                    const tiktokFollowers = scotlandHub.followers.tiktok || 0;
-                    const instagramFollowers = scotlandHub.followers.instagram || 0;
+                    const tiktokFollowers = walesHub.followers.tiktok || 0;
+                    const instagramFollowers = walesHub.followers.instagram || 0;
                     const totalFollowers = tiktokFollowers + instagramFollowers;
                     
                     document.getElementById('total-followers-stat').textContent = 
@@ -242,7 +242,7 @@
                 document.getElementById('weekly-content-stat').textContent = weeklyContent + '+';
                 
             } catch (error) {
-                console.error('Failed to load Scotland stats:', error);
+                console.error('Failed to load Wales stats:', error);
                 // Fallback values
                 document.getElementById('total-followers-stat').textContent = '0';
             }
