@@ -20,28 +20,36 @@
   };
 
   const HUB_LINKS = {
+    // Main hubs with dedicated pages
     ScotlandWTF: 'regional/pages/scotland.html',
     WatchTheFallWTF: 'index.html',
     AIWTF: 'ai.html',
     AITechWTF: 'ai.html',
-    // Regional hubs that expand directory cards
-    BritainWTF: '#directory-britain',
-    EnglandWTF: '#directory-britain',
-    WalesWTF: '#directory-britain',
+    
+    // UK Cluster
+    BritainWTF: 'regional/pages/britain.html',
+    EnglandWTF: 'regional/pages/england.html',
+    WalesWTF: 'regional/pages/wales.html',
     NorthernIrelandWTF: '#directory-britain',
-    EuropeWTF: '#directory-europe',
+    
+    // Europe Cluster
+    EuropeWTF: 'regional/pages/europe.html',
+    IrelandWTF: 'regional/pages/ireland.html',
+    FranceWTF: 'regional/pages/france.html',
+    GermanyWTF: 'regional/pages/germany.html',
+    SpainWTF: 'regional/pages/spain.html',
+    ItalyWTF: 'regional/pages/italy.html',
+    NetherlandsWTF: 'regional/pages/netherlands.html',
+    PolandWTF: 'regional/pages/poland.html',
+    SwedenWTF: 'regional/pages/sweden.html',
+    
+    // Americas & Oceania
     TheWestWTF: '#directory-thewest',
-    TheWest: '#directory-thewest',
-    AustraliaWTF: '#directory-thewest',
-    CanadaWTF: '#directory-thewest',
-    // Individual hubs route to directory
-    IrelandWTF: 'index.html#directory',
-    FranceWTF: 'index.html#directory',
-    GermanyWTF: 'index.html#directory',
-    PolandWTF: 'index.html#directory',
-    NetherlandsWTF: 'index.html#directory',
-    ItalyWTF: 'index.html#directory',
-    SwedenWTF: 'index.html#directory',
+    USAmericaWTF: 'regional/pages/usa.html',
+    CanadaWTF: 'regional/pages/canada.html',
+    AustraliaWTF: 'regional/pages/australia.html',
+    
+    // Content hubs (no dedicated pages yet)
     GadgetsWTF: 'index.html#directory',
     ComedyWTF: 'index.html#directory',
     DarkHumourWTF: 'index.html#directory',
@@ -50,23 +58,34 @@
 
   const LOGO_MAP = {
     ScotlandWTF: 'assets/logos/scotland-wtf-logo.png',
-    AustraliaWTF: 'assets/logos/australia-wtf-logo.png',
     WatchTheFallWTF: 'assets/watermark/wtfman.png',
+    
+    // UK Cluster
     BritainWTF: 'assets/logos/britain-wtf-logo.png',
-    EuropeWTF: 'assets/logos/europe-wtf-logo.jpg',
-    TheWestWTF: 'assets/logos/the-west-wtf.jpg',
-    IrelandWTF: 'assets/logos/ireland-wtf-logo.png',
-    AIWTF: 'assets/logos/ai-wtf-logo.webp',
-    AITechWTF: 'assets/logos/ai-tech-wtf-logo.jpg',
-    FranceWTF: 'assets/logos/france-wtf-logo.png',
+    EnglandWTF: 'assets/logos/england-wtf-logo.png',
     WalesWTF: 'assets/logos/wales-wtf-logo.webp',
     NorthernIrelandWTF: 'assets/logos/northern-ireland-wtf-logo.png',
-    TheWest: 'assets/logos/the-west-wtf.jpg',
-    ItalyWTF: 'assets/logos/italy-wtf-logo.png',
-    PolandWTF: 'assets/logos/poland-wtf-logo.png',
-    NetherlandsWTF: 'assets/logos/netherlands-wtf-logo.png',
+    
+    // Europe Cluster
+    EuropeWTF: 'assets/logos/europe-wtf-logo.jpg',
+    IrelandWTF: 'assets/logos/ireland-wtf-logo.png',
+    FranceWTF: 'assets/logos/france-wtf-logo.png',
     GermanyWTF: 'assets/logos/germany-wtf-logo.jpg',
+    SpainWTF: 'assets/logos/spain-wtf-logo.png',
+    ItalyWTF: 'assets/logos/italy-wtf-logo.png',
+    NetherlandsWTF: 'assets/logos/netherlands-wtf-logo.png',
+    PolandWTF: 'assets/logos/poland-wtf-logo.png',
+    SwedenWTF: 'assets/logos/sweden-wtf-logo.png',
+    
+    // Americas & Oceania
+    TheWestWTF: 'assets/logos/the-west-wtf.jpg',
+    USAmericaWTF: 'assets/logos/usa-wtf-logo.png',
     CanadaWTF: 'assets/logos/canada-wtf-logo.png',
+    AustraliaWTF: 'assets/logos/australia-wtf-logo.png',
+    
+    // AI & Content Hubs
+    AIWTF: 'assets/logos/ai-wtf-logo.webp',
+    AITechWTF: 'assets/logos/ai-tech-wtf-logo.jpg',
     GadgetsWTF: 'assets/logos/gadgets-wtf-logo.jpg',
     ComedyWTF: 'assets/logos/c0medy-wtf-logo.jpg',
     DarkHumourWTF: 'assets/logos/dark-humour-wtf-logo.jpg',
