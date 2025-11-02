@@ -72,6 +72,12 @@
     flex-shrink: 0;
 }
 
+.europe-country-name {
+    white-space: nowrap;
+    min-width: fit-content;
+    flex-shrink: 0;
+}
+
 .europe-flag-logo {
     width: clamp(50px, 8vw, 90px);
     height: auto;
