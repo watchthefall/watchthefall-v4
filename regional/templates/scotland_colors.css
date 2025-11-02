@@ -24,6 +24,8 @@
     background: linear-gradient(135deg, 
         rgba(0, 101, 189, 0.1) 0%, 
         transparent 100%);
+    padding-top: 8rem;
+    min-height: 100vh;
 }
 
 .scotland-hero .container {
