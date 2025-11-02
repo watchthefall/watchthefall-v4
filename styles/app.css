@@ -1281,6 +1281,21 @@ body {
     box-shadow: 0 6px 24px rgba(254, 44, 85, 0.4);
 }
 
+.x-btn:hover {
+    border-color: #1da1f2;
+    box-shadow: 0 6px 24px rgba(29, 161, 242, 0.4);
+}
+
+.youtube-btn:hover {
+    border-color: #ff0000;
+    box-shadow: 0 6px 24px rgba(255, 0, 0, 0.4);
+}
+
+.threads-btn:hover {
+    border-color: #000000;
+    box-shadow: 0 6px 24px rgba(255, 255, 255, 0.3);
+}
+
 .shop-btn:hover {
     border-color: var(--color-gold);
     box-shadow: 0 6px 24px rgba(212, 175, 55, 0.5);
