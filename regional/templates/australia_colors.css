@@ -1,28 +1,32 @@
 /* =====================================================================
    AUSTRALIA WTF - Regional Color Theme
-   Green and Gold (#00843D + #FFD100)
+   Royal Purple (#4B0082) + Blue (#00008B) + Red (#FF0000)
    ===================================================================== */
 
 :root {
-    --color-australia-green: #00843D;
-    --color-australia-green-dark: #005E2B;
-    --color-australia-green-light: #33A166;
-    --color-australia-gold: #FFD100;
-    --color-australia-glow: rgba(0, 132, 61, 0.4);
+    --color-australia-purple: #4B0082;
+    --color-australia-purple-dark: #320064;
+    --color-australia-purple-light: #6A2CA8;
+    --color-australia-blue: #00008B;
+    --color-australia-blue-dark: #000066;
+    --color-australia-blue-light: #3333AA;
+    --color-australia-red: #FF0000;
+    --color-australia-gold: #d4af37;
+    --color-australia-glow: rgba(75, 0, 130, 0.4);
 }
 
 /* australia-specific overlays */
 .australia-overlay {
     background: linear-gradient(180deg, 
-        rgba(0, 101, 189, 0.15) 0%, 
+        rgba(75, 0, 130, 0.15) 0%, 
         rgba(10, 10, 10, 0.7) 50%, 
-        rgba(0, 61, 130, 0.15) 100%);
+        rgba(50, 0, 100, 0.15) 100%);
 }
 
 /* australia hero styling */
 .australia-hero {
     background: linear-gradient(135deg, 
-        rgba(0, 101, 189, 0.1) 0%, 
+        rgba(75, 0, 130, 0.1) 0%, 
         transparent 100%);
     padding-top: 8rem;
     min-height: 100vh;
@@ -60,9 +64,9 @@
 .australia-text {
     font-family: 'Archivo Black', var(--font-primary), sans-serif;
     font-size: clamp(2.5rem, 6vw, 4.5rem);
-    color: var(--color-australia-green-light);
-    text-shadow: 0 0 30px rgba(0, 132, 61, 0.6), 
-                 0 0 60px rgba(0, 132, 61, 0.4);
+    color: var(--color-australia-purple-light);
+    text-shadow: 0 0 30px var(--color-australia-glow), 
+                 0 0 60px rgba(75, 0, 130, 0.3);
     letter-spacing: 1px;
     display: flex;
     align-items: center;
@@ -73,14 +77,14 @@
 .australia-flag-logo {
     width: clamp(50px, 8vw, 90px);
     height: auto;
-    filter: drop-shadow(0 0 15px rgba(0, 101, 189, 0.5));
+    filter: drop-shadow(0 0 15px var(--color-australia-glow));
     transition: var(--transition-smooth);
     background: transparent;
     border: none;
 }
 
 .australia-flag-logo:hover {
-    filter: drop-shadow(0 0 25px rgba(0, 101, 189, 0.7));
+    filter: drop-shadow(0 0 25px rgba(75, 0, 130, 0.6));
 }
 
 .wtf-text {
@@ -118,7 +122,7 @@
     font-weight: 600;
     color: var(--color-text);
     margin-bottom: 1rem;
-    text-shadow: 0 0 12px rgba(0, 101, 189, 0.3);
+    text-shadow: 0 0 12px var(--color-australia-glow);
     letter-spacing: 0.5px;
 }
 
@@ -135,47 +139,47 @@
 
 /* australia accent colors */
 .page-australia .btn-primary {
-    background: var(--color-australia-blue);
-    border-color: var(--color-australia-blue);
+    background: var(--color-australia-purple);
+    border-color: var(--color-australia-purple);
 }
 
 .page-australia .btn-primary:hover {
-    background: var(--color-australia-blue-light);
+    background: var(--color-australia-purple-light);
     box-shadow: 0 0 20px var(--color-australia-glow);
 }
 
 .page-australia .btn-secondary {
-    border-color: var(--color-australia-blue);
-    color: var(--color-australia-blue-light);
+    border-color: var(--color-australia-purple);
+    color: var(--color-australia-purple-light);
 }
 
 .page-australia .btn-secondary:hover {
-    background: var(--color-australia-blue);
+    background: var(--color-australia-purple);
     color: white;
     box-shadow: 0 0 20px var(--color-australia-glow);
 }
 
 /* australia cards */
 .page-australia .card {
-    border-color: rgba(0, 101, 189, 0.3);
+    border-color: rgba(75, 0, 130, 0.3);
 }
 
 .page-australia .card:hover {
-    border-color: var(--color-australia-blue);
+    border-color: var(--color-australia-purple);
     box-shadow: 0 8px 30px var(--color-australia-glow);
 }
 
 /* australia stats */
 .australia-stats .stat-card {
     background: linear-gradient(135deg, 
-        rgba(0, 101, 189, 0.1) 0%, 
+        rgba(75, 0, 130, 0.1) 0%, 
         rgba(10, 10, 10, 0.8) 100%);
 }
 
 .australia-stats .stat-value {
     font-family: var(--font-primary);
     font-size: 2.5rem;
-    color: var(--color-australia-blue-light);
+    color: var(--color-australia-purple-light);
     text-shadow: 0 0 15px var(--color-australia-glow);
 }
 
@@ -201,7 +205,7 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: var(--color-australia-blue);
+    background: var(--color-australia-purple);
     color: white;
     width: 40px;
     height: 40px;
@@ -214,7 +218,7 @@
 }
 
 .creator-card h3 {
-    color: var(--color-australia-blue-light);
+    color: var(--color-australia-purple-light);
     margin: 1rem 0 0.5rem;
 }
 
@@ -236,7 +240,7 @@
 }
 
 .content-card h3 {
-    color: var(--color-australia-blue-light);
+    color: var(--color-australia-purple-light);
     margin-bottom: 1rem;
 }
 
