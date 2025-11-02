@@ -873,6 +873,51 @@ body {
     overflow-y: auto;
 }
 
+/* === LAZY-LOAD PLACEHOLDERS === */
+.embed-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 2rem;
+    text-align: center;
+}
+
+.embed-placeholder .placeholder-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.6;
+}
+
+.embed-placeholder .placeholder-text {
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+    opacity: 0.7;
+}
+
+.view-post-btn {
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.view-post-btn:hover {
+    background: rgba(212, 175, 55, 0.2);
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
+    transform: translateY(-2px);
+}
+
+.lazy-embed.loaded .embed-placeholder {
+    display: none;
+}
+
 /* === WTF CREATIONS SHOP STYLING === */
 .creations-hero {
     min-height: 50vh;

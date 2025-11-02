@@ -1,0 +1,55 @@
+{
+  "tiktok": {
+    "videos": [
+      {
+        "url": "https://www.tiktok.com/@scotland.wtf/video/7566599409178332448",
+        "position": 1
+      },
+      {
+        "url": "https://www.tiktok.com/@watchthefall_wtf/video/7524599661609372950",
+        "position": 2
+      },
+      {
+        "url": "https://www.tiktok.com/@usa_wtf/video/7540041489225714946",
+        "position": 3
+      },
+      {
+        "url": "https://www.tiktok.com/@australiawtf/video/7541408537977621782",
+        "position": 4
+      },
+      {
+        "url": "https://www.tiktok.com/@europewtf/video/7532287057226468630",
+        "position": 5
+      },
+      {
+        "url": "https://www.tiktok.com/@irelandwtf/video/7526230419101027606",
+        "position": 7
+      },
+      {
+        "url": "https://www.tiktok.com/@thewestwtf/video/7499150612475415830",
+        "position": 8
+      },
+      {
+        "url": "https://www.tiktok.com/@britainwtf/video/7500168525261049120",
+        "position": 10
+      }
+    ],
+    "ad_positions": [6, 9]
+  },
+  "instagram": {
+    "reels": [],
+    "ad_positions": [6, 9]
+  },
+  "youtube": {
+    "videos": [],
+    "limit": 5
+  },
+  "x": {
+    "posts": [],
+    "limit": 3
+  },
+  "threads": {
+    "posts": [],
+    "limit": 3
+  }
+}
