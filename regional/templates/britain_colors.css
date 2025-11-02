@@ -1,0 +1,235 @@
+/* ===================================
+   BRITAIN WTF - REGIONAL COLORS
+   Union Jack Theme: Red, White, Blue
+   =================================== */
+
+:root {
+    --color-britain-red: #C8102E;
+    --color-britain-blue: #012169;
+    --color-britain-white: #FFFFFF;
+    --color-britain-red-light: #E03C5C;
+    --color-britain-blue-light: #2447A0;
+    --color-britain-glow: rgba(200, 16, 46, 0.5);
+}
+
+/* Britain hero styling */
+.britain-hero {
+    background: linear-gradient(135deg, 
+        rgba(1, 33, 105, 0.15) 0%, 
+        rgba(200, 16, 46, 0.1) 100%);
+    padding-top: 8rem;
+    min-height: 100vh;
+}
+
+.britain-hero .container {
+    text-align: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Main WTF Logo */
+.hero-wtf-logo {
+    width: clamp(80px, 12vw, 140px);
+    height: auto;
+    margin: 0 auto 1.5rem;
+    display: block;
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4));
+    transition: var(--transition-smooth);
+    background: transparent;
+    border: none;
+}
+
+.hero-wtf-logo:hover {
+    filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.6));
+}
+
+/* Split-style title */
+.britain-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.britain-text {
+    font-family: 'Archivo Black', var(--font-primary), sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: var(--color-britain-red-light);
+    text-shadow: 0 0 30px var(--color-britain-glow), 
+                 0 0 60px rgba(200, 16, 46, 0.3);
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.britain-flag-logo {
+    width: clamp(50px, 8vw, 90px);
+    height: auto;
+    filter: drop-shadow(0 0 15px var(--color-britain-glow));
+    transition: var(--transition-smooth);
+    background: transparent;
+    border: none;
+}
+
+.wtf-text {
+    font-family: 'Archivo Black', var(--font-primary), sans-serif;
+    font-size: clamp(2.2rem, 5.5vw, 4rem);
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: 
+        0 0 15px rgba(255, 255, 255, 0.6),
+        0 0 40px rgba(255, 255, 255, 0.35),
+        2px 2px 0 rgba(255, 0, 255, 0.4),
+        -2px -2px 0 rgba(0, 255, 255, 0.4);
+    animation: glitchPulse 3s ease-in-out infinite;
+}
+
+@keyframes glitchPulse {
+    0%, 100% { 
+        text-shadow: 
+            0 0 15px rgba(255, 255, 255, 0.6),
+            0 0 40px rgba(255, 255, 255, 0.35),
+            2px 2px 0 rgba(255, 0, 255, 0.4),
+            -2px -2px 0 rgba(0, 255, 255, 0.4);
+    }
+    50% { 
+        text-shadow: 
+            0 0 25px rgba(255, 255, 255, 0.8),
+            0 0 60px rgba(255, 255, 255, 0.5),
+            3px 3px 0 rgba(255, 0, 255, 0.6),
+            -3px -3px 0 rgba(0, 255, 255, 0.6);
+    }
+}
+
+/* Hero subtitle and description */
+.page-subtitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 12px var(--color-britain-glow);
+    letter-spacing: 0.5px;
+}
+
+.page-description {
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--color-text);
+    opacity: 0.85;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    letter-spacing: 0.3px;
+}
+
+/* Britain overlay */
+.britain-overlay {
+    background: linear-gradient(
+        135deg,
+        rgba(1, 33, 105, 0.3) 0%,
+        rgba(0, 0, 0, 0.7) 50%,
+        rgba(200, 16, 46, 0.2) 100%
+    );
+}
+
+/* Stats section */
+.britain-stats .section-title {
+    color: var(--color-britain-red-light);
+    text-shadow: 0 0 20px var(--color-britain-glow);
+}
+
+.britain-stats .stat-card {
+    border: 1px solid rgba(200, 16, 46, 0.3);
+}
+
+.britain-stats .stat-card:hover {
+    border-color: var(--color-britain-red);
+    box-shadow: 0 8px 30px var(--color-britain-glow);
+}
+
+.britain-stats .stat-value {
+    color: var(--color-britain-red-light);
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+.breadcrumb a {
+    color: var(--color-britain-red-light);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+.breadcrumb a:hover {
+    color: var(--color-britain-white);
+    text-shadow: 0 0 10px var(--color-britain-glow);
+}
+
+/* Anthem player */
+.anthem-section {
+    background: rgba(1, 33, 105, 0.05);
+    border-top: 1px solid rgba(200, 16, 46, 0.2);
+    border-bottom: 1px solid rgba(200, 16, 46, 0.2);
+}
+
+.anthem-player {
+    background: rgba(10, 10, 10, 0.6);
+    border: 1px solid rgba(200, 16, 46, 0.3);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    backdrop-filter: blur(10px);
+}
+
+.anthem-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.anthem-icon {
+    font-size: 2rem;
+}
+
+.anthem-title {
+    color: var(--color-britain-red-light);
+    margin-bottom: 0.25rem;
+}
+
+.anthem-subtitle {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+audio {
+    width: 100%;
+    border-radius: 8px;
+    filter: drop-shadow(0 4px 12px var(--color-britain-glow));
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .britain-hero {
+        padding-top: 6rem;
+    }
+    
+    .britain-title {
+        gap: 0.75rem;
+    }
+    
+    .page-subtitle {
+        font-size: 1rem;
+    }
+    
+    .page-description {
+        font-size: 0.95rem;
+    }
+}
