@@ -371,6 +371,41 @@ body {
     color: var(--color-gold);
 }
 
+/* Metric Toggle Selector */
+.metric-toggle-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.metric-selector {
+    background: rgba(15, 15, 15, 0.8);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    color: var(--color-gold);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    outline: none;
+}
+
+.metric-selector:hover {
+    border-color: var(--color-gold);
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.metric-selector:focus {
+    border-color: var(--color-gold);
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+}
+
+.metric-selector option {
+    background: rgba(10, 10, 10, 0.95);
+    color: var(--color-text);
+}
+
 /* === PRODUCT GRID === */
 .products-grid,
 .product-grid {
