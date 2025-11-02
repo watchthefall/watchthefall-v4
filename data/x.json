@@ -1,0 +1,50 @@
+{
+  "scotland": [
+    {
+      "url": "https://x.com/scotlandwtf/status/1234567890",
+      "caption": "They told us devolution meant freedom. They lied."
+    },
+    {
+      "url": "https://x.com/scotlandwtf/status/1234567891",
+      "caption": "Edinburgh's AI surveillance grid goes live. Welcome to the panopticon."
+    }
+  ],
+  "britain": [
+    {
+      "url": "https://x.com/britainwtf/status/1234567892",
+      "caption": "The empire didn't fall. It just outsourced the collapse."
+    }
+  ],
+  "usamerica": [
+    {
+      "url": "https://x.com/usawtf/status/1234567893",
+      "caption": "Land of the free, home of the surveilled."
+    },
+    {
+      "url": "https://x.com/usawtf/status/1234567894",
+      "caption": "They called it democracy. We call it theater."
+    }
+  ],
+  "europe": [
+    {
+      "url": "https://x.com/europewtf/status/1234567895",
+      "caption": "Brussels: Where sovereignty goes to die."
+    }
+  ],
+  "ai": [
+    {
+      "url": "https://x.com/aiwtf/status/1234567896",
+      "caption": "We built gods and gave them profit motives."
+    },
+    {
+      "url": "https://x.com/aiwtf/status/1234567897",
+      "caption": "The alignment problem isn't technical. It's existential."
+    }
+  ],
+  "global": [
+    {
+      "url": "https://x.com/watchthefall/status/1234567898",
+      "caption": "Documenting the fall, one post at a time."
+    }
+  ]
+}

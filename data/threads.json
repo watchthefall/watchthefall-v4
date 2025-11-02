@@ -1,0 +1,42 @@
+{
+  "scotland": [
+    {
+      "url": "https://www.threads.net/@scotlandwtf/post/abcd1234",
+      "caption": "The highlands remember what the cities forgot."
+    }
+  ],
+  "britain": [
+    {
+      "url": "https://www.threads.net/@britainwtf/post/abcd1235",
+      "caption": "Rule Britannia? More like Rule by Algorithm."
+    }
+  ],
+  "usamerica": [
+    {
+      "url": "https://www.threads.net/@usawtf/post/abcd1236",
+      "caption": "The American Dream is buffering..."
+    }
+  ],
+  "europe": [
+    {
+      "url": "https://www.threads.net/@europewtf/post/abcd1237",
+      "caption": "United in diversity. Divided in reality."
+    }
+  ],
+  "ai": [
+    {
+      "url": "https://www.threads.net/@aiwtf/post/abcd1238",
+      "caption": "We built gods and gave them agendas. Now they're optimizing us out of existence."
+    },
+    {
+      "url": "https://www.threads.net/@aiwtf/post/abcd1239",
+      "caption": "The singularity won't be televised. It'll be streamed with targeted ads."
+    }
+  ],
+  "global": [
+    {
+      "url": "https://www.threads.net/@watchthefall/post/abcd1240",
+      "caption": "Civilization 2.0: Now with 100% more existential dread."
+    }
+  ]
+}

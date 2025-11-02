@@ -1,0 +1,59 @@
+{
+  "scotland": [
+    {
+      "title": "Scotland's Digital Sovereignty",
+      "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "description": "The fight for technological independence"
+    },
+    {
+      "title": "Highland Collapse Chronicles",
+      "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "description": "Documenting the fall of traditional systems"
+    }
+  ],
+  "britain": [
+    {
+      "title": "Empire's End: Britain 2025",
+      "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "description": "The final days of a fading power"
+    }
+  ],
+  "usamerica": [
+    {
+      "title": "RFK Jr vs The Establishment",
+      "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "description": "Medical freedom and political warfare"
+    },
+    {
+      "title": "Empire Collapse: USA Edition",
+      "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "description": "The American experiment unravels"
+    }
+  ],
+  "europe": [
+    {
+      "title": "EU Bureaucracy: The Final Form",
+      "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "description": "When regulation meets reality"
+    }
+  ],
+  "ai": [
+    {
+      "title": "AI Gods: The Reckoning",
+      "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "description": "We built deities with agendas"
+    },
+    {
+      "title": "Singularity Watch",
+      "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "description": "The point of no return approaches"
+    }
+  ],
+  "global": [
+    {
+      "title": "Civilization Speedrun Any%",
+      "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "description": "How fast can we collapse?"
+    }
+  ]
+}
