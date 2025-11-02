@@ -63,18 +63,18 @@
     <section class="regional-hero sweden-hero">
         <div class="container">
             <div class="breadcrumb">
-                <a href="../../feed.html">Directory</a> / <span>Scotland</span>
+                <a href="../../feed.html">Directory</a> / <span>Sweden</span>
             </div>
             <img src="../../assets/logos/wtf-logo.png" alt="WatchTheFall" class="hero-wtf-logo" loading="eager" />
             <h1 class="page-title sweden-title">
                 <span class="sweden-text">
-                    <img src="../../assets/logos/sweden-wtf-logo.png" alt="Scotland" class="sweden-flag-logo" loading="eager" />
-                    Scotland
+                    <img src="../../assets/logos/sweden-wtf-logo.png" alt="Sweden" class="sweden-flag-logo" loading="eager" />
+                    Sweden
                 </span>
                 <span class="wtf-text">WatchTheFall</span>
             </h1>
             <p class="page-subtitle">Sverige - Observing Sweden's transformation</p>
-            <p class="page-description">From Edinburgh to the Highlands, tracking civilizationâ€™s descent through Scottish eyes</p>
+            <p class="page-description">From Stockholm to Malmö, observing Sweden's transformation</p>
         </div>
     </section>
 
@@ -188,7 +188,7 @@
                 <div class="footer-info">
                     <h4>Sweden WTF</h4>
                     <p>Part of WatchTheFall Network</p>
-                    <p>Sverige</p>
+                    <p>Sverige - The Nordic Decline</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -210,13 +210,13 @@
                 const response = await fetch('../../data/worldcup.json');
                 const data = await response.json();
                 
-                // Find swedenwtf in the data
-                const scotlandHub = data.regions.find(c => c.region === 'swedenwtf');
+                // Find SwedenWTF in the data
+                const swedenHub = data.regions.find(c => c.region === 'SwedenWTF');
                 
-                if (scotlandHub) {
+                if (swedenHub) {
                     // Update Total Followers (TikTok + Instagram combined)
-                    const tiktokFollowers = scotlandHub.followers.tiktok || 0;
-                    const instagramFollowers = scotlandHub.followers.instagram || 0;
+                    const tiktokFollowers = swedenHub.followers.tiktok || 0;
+                    const instagramFollowers = swedenHub.followers.instagram || 0;
                     const totalFollowers = tiktokFollowers + instagramFollowers;
                     
                     document.getElementById('total-followers-stat').textContent = 
@@ -242,7 +242,7 @@
                 document.getElementById('weekly-content-stat').textContent = weeklyContent + '+';
                 
             } catch (error) {
-                console.error('Failed to load Scotland stats:', error);
+                console.error('Failed to load Sweden stats:', error);
                 // Fallback values
                 document.getElementById('total-followers-stat').textContent = '0';
             }

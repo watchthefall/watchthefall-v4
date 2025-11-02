@@ -63,18 +63,18 @@
     <section class="regional-hero netherlands-hero">
         <div class="container">
             <div class="breadcrumb">
-                <a href="../../feed.html">Directory</a> / <span>Scotland</span>
+                <a href="../../feed.html">Directory</a> / <span>Netherlands</span>
             </div>
             <img src="../../assets/logos/wtf-logo.png" alt="WatchTheFall" class="hero-wtf-logo" loading="eager" />
             <h1 class="page-title netherlands-title">
                 <span class="netherlands-text">
-                    <img src="../../assets/logos/netherlands-wtf-logo.png" alt="Scotland" class="netherlands-flag-logo" loading="eager" />
-                    Scotland
+                    <img src="../../assets/logos/netherlands-wtf-logo.png" alt="Netherlands" class="netherlands-flag-logo" loading="eager" />
+                    Netherlands
                 </span>
                 <span class="wtf-text">WatchTheFall</span>
             </h1>
             <p class="page-subtitle">Nederland - Following the fall of Dutch sanity</p>
-            <p class="page-description">From Edinburgh to the Highlands, tracking civilizationâ€™s descent through Scottish eyes</p>
+            <p class="page-description">From Amsterdam to Rotterdam, following the fall of Dutch sanity</p>
         </div>
     </section>
 
@@ -188,7 +188,7 @@
                 <div class="footer-info">
                     <h4>Netherlands WTF</h4>
                     <p>Part of WatchTheFall Network</p>
-                    <p>Nederland</p>
+                    <p>Nederland - Falling Below Sea Level</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -210,13 +210,13 @@
                 const response = await fetch('../../data/worldcup.json');
                 const data = await response.json();
                 
-                // Find netherlandswtf in the data
-                const scotlandHub = data.regions.find(c => c.region === 'netherlandswtf');
+                // Find NetherlandsWTF in the data
+                const netherlandsHub = data.regions.find(c => c.region === 'NetherlandsWTF');
                 
-                if (scotlandHub) {
+                if (netherlandsHub) {
                     // Update Total Followers (TikTok + Instagram combined)
-                    const tiktokFollowers = scotlandHub.followers.tiktok || 0;
-                    const instagramFollowers = scotlandHub.followers.instagram || 0;
+                    const tiktokFollowers = netherlandsHub.followers.tiktok || 0;
+                    const instagramFollowers = netherlandsHub.followers.instagram || 0;
                     const totalFollowers = tiktokFollowers + instagramFollowers;
                     
                     document.getElementById('total-followers-stat').textContent = 
@@ -242,7 +242,7 @@
                 document.getElementById('weekly-content-stat').textContent = weeklyContent + '+';
                 
             } catch (error) {
-                console.error('Failed to load Scotland stats:', error);
+                console.error('Failed to load Netherlands stats:', error);
                 // Fallback values
                 document.getElementById('total-followers-stat').textContent = '0';
             }
