@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Britain | WatchTheFall Directory</title>
+    <link rel="stylesheet" href="../../styles/app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-directory">
+    <div class="video-background">
+        <video id="background-video" autoplay muted loop playsinline>
+            <source src="../../assets/video/main_bg.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+    <canvas id="network-canvas"></canvas>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">
+                <img src="../../assets/logos/wtf-logo.png" alt="WatchTheFall">
+                <span>WatchTheFall</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../feed.html" class="active">Directory</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="directory-hero">
+        <div class="container">
+            <h1 class="page-title">🇬🇧 Britain Hubs</h1>
+            <p class="page-subtitle">Select a regional hub</p>
+        </div>
+    </section>
+
+    <section class="section regions-section">
+        <div class="container">
+            <div class="hub-list-grid">
+                <a href="#" class="hub-card">
+                    <img src="../../assets/logos/britain-wtf-logo.png" alt="BritainWTF" class="hub-logo">
+                    <h3>BritainWTF</h3>
+                    <p>Documenting Britain's cultural unravelling</p>
+                    <span class="hub-stat">228 Points</span>
+                </a>
+
+                <a href="scotland.html" class="hub-card">
+                    <img src="../../assets/logos/scotland-wtf-logo.png" alt="ScotlandWTF" class="hub-logo">
+                    <h3>ScotlandWTF</h3>
+                    <p>Documenting the fall of Scotland</p>
+                    <span class="hub-stat">1.4K Points</span>
+                </a>
+
+                <a href="#" class="hub-card">
+                    <img src="../../assets/logos/england-wtf-logo.png" alt="EnglandWTF" class="hub-logo">
+                    <h3>EnglandWTF</h3>
+                    <p>Following England's decline</p>
+                    <span class="hub-stat">Coming Soon</span>
+                </a>
+
+                <a href="#" class="hub-card">
+                    <img src="../../assets/logos/wales-wtf-logo.webp" alt="WalesWTF" class="hub-logo">
+                    <h3>WalesWTF</h3>
+                    <p>Witnessing the decay of Wales</p>
+                    <span class="hub-stat">11 Points</span>
+                </a>
+
+                <a href="#" class="hub-card">
+                    <img src="../../assets/logos/northern-ireland-wtf-logo.png" alt="Northern Ireland WTF" class="hub-logo">
+                    <h3>Northern Ireland WTF</h3>
+                    <p>Following Northern Ireland's decline</p>
+                    <span class="hub-stat">12 Points</span>
+                </a>
+            </div>
+
+            <div class="back-link">
+                <a href="../../feed.html" class="btn-back">← Back to Directory</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="../../scripts/network.js"></script>
+</body>
+</html>

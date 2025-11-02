@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The West | WatchTheFall Directory</title>
+    <link rel="stylesheet" href="../../styles/app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-directory">
+    <div class="video-background">
+        <video id="background-video" autoplay muted loop playsinline>
+            <source src="../../assets/video/main_bg.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+    <canvas id="network-canvas"></canvas>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">
+                <img src="../../assets/logos/wtf-logo.png" alt="WatchTheFall">
+                <span>WatchTheFall</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../feed.html" class="active">Directory</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="directory-hero">
+        <div class="container">
+            <h1 class="page-title">🌎 The West Hubs</h1>
+            <p class="page-subtitle">Select a regional hub</p>
+        </div>
+    </section>
+
+    <section class="section regions-section">
+        <div class="container">
+            <div class="hub-list-grid">
+                <a href="#" class="hub-card">
+                    <img src="../../assets/logos/the-west-wtf.jpg" alt="TheWestWTF" class="hub-logo">
+                    <h3>TheWestWTF</h3>
+                    <p>Tracking the Western decline</p>
+                    <span class="hub-stat">208 Points</span>
+                </a>
+
+                <a href="#" class="hub-card">
+                    <img src="../../assets/logos/usa-wtf-logo.png" alt="USAWTF" class="hub-logo">
+                    <h3>USAWTF</h3>
+                    <p>Documenting America's transformation</p>
+                    <span class="hub-stat">Coming Soon</span>
+                </a>
+
+                <a href="#" class="hub-card">
+                    <img src="../../assets/logos/canada-wtf-logo.png" alt="CanadaWTF" class="hub-logo">
+                    <h3>CanadaWTF</h3>
+                    <p>Following Canada's social decay</p>
+                    <span class="hub-stat">11 Points</span>
+                </a>
+
+                <a href="#" class="hub-card">
+                    <img src="../../assets/logos/australia-wtf-logo.png" alt="AustraliaWTF" class="hub-logo">
+                    <h3>AustraliaWTF</h3>
+                    <p>Watching Australia's unraveling</p>
+                    <span class="hub-stat">298 Points</span>
+                </a>
+            </div>
+
+            <div class="back-link">
+                <a href="../../feed.html" class="btn-back">← Back to Directory</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="../../scripts/network.js"></script>
+</body>
+</html>

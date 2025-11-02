@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global | WatchTheFall Directory</title>
+    <link rel="stylesheet" href="../../styles/app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-directory">
+    <div class="video-background">
+        <video id="background-video" autoplay muted loop playsinline>
+            <source src="../../assets/video/main_bg.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+    <canvas id="network-canvas"></canvas>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">
+                <img src="../../assets/logos/wtf-logo.png" alt="WatchTheFall">
+                <span>WatchTheFall</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../feed.html" class="active">Directory</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="directory-hero">
+        <div class="container">
+            <h1 class="page-title">🌐 Global Hubs</h1>
+            <p class="page-subtitle">Worldwide networks and special projects</p>
+        </div>
+    </section>
+
+    <section class="section regions-section">
+        <div class="container">
+            <div class="hub-list-grid">
+                <a href="../../index.html" class="hub-card">
+                    <img src="../../assets/watermark/wtfman.png" alt="WatchTheFallWTF" class="hub-logo">
+                    <h3>WatchTheFallWTF</h3>
+                    <p>The global hub of the WTF Network</p>
+                    <span class="hub-stat">228 Points</span>
+                </a>
+
+                <a href="#" class="hub-card">
+                    <img src="../../assets/logos/gadgets-wtf-logo.jpg" alt="GadgetsWTF" class="hub-logo">
+                    <h3>GadgetsWTF</h3>
+                    <p>Covering absurd, luxurious tech gadgets</p>
+                    <span class="hub-stat">10 Points</span>
+                </a>
+
+                <a href="#" class="hub-card">
+                    <img src="../../assets/logos/c0medy-wtf-logo.jpg" alt="ComedyWTF" class="hub-logo">
+                    <h3>ComedyWTF</h3>
+                    <p>Humor in the age of collapse</p>
+                    <span class="hub-stat">6 Points</span>
+                </a>
+
+                <a href="#" class="hub-card">
+                    <img src="../../assets/logos/dark-humour-wtf-logo.jpg" alt="DarkHumourWTF" class="hub-logo">
+                    <h3>DarkHumourWTF</h3>
+                    <p>Dark laughter in dystopia</p>
+                    <span class="hub-stat">6 Points</span>
+                </a>
+
+                <a href="#" class="hub-card">
+                    <img src="../../assets/logos/concepts-wtf-logo.webp" alt="ConceptsWTF" class="hub-logo">
+                    <h3>ConceptsWTF</h3>
+                    <p>Exploring paradoxes, illusions, and the mind</p>
+                    <span class="hub-stat">Coming Soon</span>
+                </a>
+
+                <a href="../../watchthefallrecords.html" class="hub-card">
+                    <img src="../../assets/logos/wtf-records-logo.png" alt="WTF Records" class="hub-logo">
+                    <h3>WTF Records</h3>
+                    <p>Music label and creative collective</p>
+                    <span class="hub-stat">Shop</span>
+                </a>
+            </div>
+
+            <div class="back-link">
+                <a href="../../feed.html" class="btn-back">← Back to Directory</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="../../scripts/network.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Europe | WatchTheFall Directory</title>
+    <link rel="stylesheet" href="../../styles/app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-directory">
+    <div class="video-background">
+        <video id="background-video" autoplay muted loop playsinline>
+            <source src="../../assets/video/main_bg.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+    <canvas id="network-canvas"></canvas>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">
+                <img src="../../assets/logos/wtf-logo.png" alt="WatchTheFall">
+                <span>WatchTheFall</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../feed.html" class="active">Directory</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="directory-hero">
+        <div class="container">
+            <h1 class="page-title">🌍 Europe Hubs</h1>
+            <p class="page-subtitle">Select a regional hub</p>
+        </div>
+    </section>
+
+    <section class="section regions-section">
+        <div class="container">
+            <div class="hub-list-grid">
+                <a href="#" class="hub-card">
+                    <img src="../../assets/logos/europe-wtf-logo.jpg" alt="EuropeWTF" class="hub-logo">
+                    <h3>EuropeWTF</h3>
+                    <p>Tracking the fall across Europe</p>
+                    <span class="hub-stat">84 Points</span>
+                </a>
+
+                <a href="#" class="hub-card">
+                    <img src="../../assets/logos/ireland-wtf-logo.png" alt="IrelandWTF" class="hub-logo">
+                    <h3>IrelandWTF</h3>
+                    <p>Tracking Ireland's unraveling</p>
+                    <span class="hub-stat">30 Points</span>
+                </a>
+
+                <a href="#" class="hub-card">
+                    <img src="../../assets/logos/france-wtf-logo.png" alt="FranceWTF" class="hub-logo">
+                    <h3>FranceWTF</h3>
+                    <p>Observing France's ongoing crisis</p>
+                    <span class="hub-stat">6 Points</span>
+                </a>
+
+                <a href="#" class="hub-card">
+                    <img src="../../assets/logos/germany-wtf-logo.jpg" alt="GermanyWTF" class="hub-logo">
+                    <h3>GermanyWTF</h3>
+                    <p>Monitoring the collapse of German stability</p>
+                    <span class="hub-stat">28 Points</span>
+                </a>
+
+                <a href="#" class="hub-card">
+                    <img src="../../assets/logos/netherlands-wtf-logo.png" alt="NetherlandsWTF" class="hub-logo">
+                    <h3>NetherlandsWTF</h3>
+                    <p>Following the fall of Dutch sanity</p>
+                    <span class="hub-stat">11 Points</span>
+                </a>
+
+                <a href="#" class="hub-card">
+                    <img src="../../assets/logos/poland-wtf-logo.png" alt="PolandWTF" class="hub-logo">
+                    <h3>PolandWTF</h3>
+                    <p>Tracking Poland's transformation</p>
+                    <span class="hub-stat">12 Points</span>
+                </a>
+
+                <a href="#" class="hub-card">
+                    <img src="../../assets/logos/italy-wtf-logo.png" alt="ItalyWTF" class="hub-logo">
+                    <h3>ItalyWTF</h3>
+                    <p>Recording Italy's decline</p>
+                    <span class="hub-stat">11 Points</span>
+                </a>
+
+                <a href="#" class="hub-card">
+                    <img src="../../assets/logos/sweden-wtf-logo.png" alt="SwedenWTF" class="hub-logo">
+                    <h3>SwedenWTF</h3>
+                    <p>Documenting Sweden's transformation</p>
+                    <span class="hub-stat">Coming Soon</span>
+                </a>
+            </div>
+
+            <div class="back-link">
+                <a href="../../feed.html" class="btn-back">← Back to Directory</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="../../scripts/network.js"></script>
+</body>
+</html>
