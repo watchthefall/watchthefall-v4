@@ -69,6 +69,7 @@
     gap: 0.75rem;
     white-space: nowrap;
     min-width: fit-content;
+    flex-shrink: 0;
 }
 
 .usa-flag-logo {
