@@ -584,6 +584,15 @@ body {
     animation: fadeInUp 1s ease-out;
 }
 
+/* Hero logo overrides - no borders/backgrounds */
+.hero-wtf-logo,
+.scotland-flag-logo,
+.regional-hero img {
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+}
+
 /* === AI NETWORK CARD === */
 .ai-network {
     border-color: rgba(0, 255, 204, 0.3) !important;

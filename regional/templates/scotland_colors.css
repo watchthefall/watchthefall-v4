@@ -39,6 +39,8 @@
     display: block;
     filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4));
     transition: var(--transition-smooth);
+    background: transparent;
+    border: none;
 }
 
 .hero-wtf-logo:hover {
@@ -70,6 +72,8 @@
     height: auto;
     filter: drop-shadow(0 0 15px rgba(0, 101, 189, 0.5));
     transition: var(--transition-smooth);
+    background: transparent;
+    border: none;
 }
 
 .scotland-flag-logo:hover {
