@@ -1,12 +1,12 @@
 // =====================================================================
-// WatchTheFall v4.2.1 - Version Display Utility
+// WatchTheFall v4.4.0 - Version Display Utility
 // =====================================================================
 
 (function() {
     'use strict';
     
-    const VERSION = 'v4.2.3';
-    const BUILD_DATE = '2025-11-01';
+    const VERSION = 'v4.4.0';
+    const BUILD_DATE = '2025-11-02';
     
     function displayVersion() {
         const versionElement = document.getElementById('version-info');

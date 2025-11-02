@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WTF Creations | Official Shop</title>
+    <meta name="description" content="Official WTF Creations — dystopian design for those who see the world as it truly is. Shop merch powered by Printify.">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#d4af37">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="assets/logos/wtf-logo.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles/app.css">
+</head>
+<body class="page-creations">
+    <!-- Cinematic Video Background -->
+    <div class="video-background">
+        <video id="background-video" autoplay muted loop playsinline>
+            <source src="assets/video/main_bg.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- Particle Network Canvas -->
+    <canvas id="network-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/logos/wtf-logo.png" alt="WatchTheFall">
+                <span>WatchTheFall</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#content">Content</a></li>
+                <li><a href="index.html#worldcup">World Cup</a></li>
+                <li><a href="wtfcreations.html" class="active">Shop</a></li>
+                <li><a href="index.html#directory">Directory</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="creations-hero">
+        <div class="container">
+            <h1 class="page-title">WTF Creations</h1>
+            <p class="page-subtitle">Official WTF Creations — dystopian design for those who see the world as it truly is.</p>
+            <p class="page-description">Every piece tells the story of collapse. Every purchase supports the WatchTheFall Network 💀</p>
+        </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="section products-section">
+        <div class="container">
+            <div class="products-header">
+                <h2>Shop the Collection</h2>
+                <div class="controls-row">
+                    <div class="filter-controls">
+                        <button class="filter-btn active" data-filter="all">All Products</button>
+                        <button class="filter-btn" data-filter="apparel">Apparel</button>
+                        <button class="filter-btn" data-filter="accessories">Accessories</button>
+                        <button class="filter-btn" data-filter="home">Home & Living</button>
+                    </div>
+                    <select id="sort-select" class="sort-dropdown">
+                        <option value="recommended">Recommended</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="newest">Newest First</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div id="products-grid" class="products-grid">
+                <!-- Products will be loaded dynamically via printify_sync.js -->
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Loading WTF Creations from Printify...</p>
+                </div>
+            </div>
+
+            <div id="products-error" class="error-state" style="display: none;">
+                <p>Unable to load products at this time. Please try again later.</p>
+                <button class="btn btn-primary" onclick="window.location.reload()">Retry</button>
+            </div>
+            
+            <div class="shop-footer-tagline">
+                <p>Every purchase supports the WatchTheFall Network 💀</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Info Section -->
+    <section class="section brand-info">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">📦</div>
+                    <h3>Print on Demand</h3>
+                    <p>Every item is printed when you order, ensuring freshness and quality while minimizing waste.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🌍</div>
+                    <h3>Global Shipping</h3>
+                    <p>Delivered worldwide through Printify's trusted network of production partners.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">💎</div>
+                    <h3>Premium Quality</h3>
+                    <p>High-quality materials and printing techniques for designs that last through the fall.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🤝</div>
+                    <h3>Support the Network</h3>
+                    <p>Every purchase helps fund WatchTheFall's mission to document civilization's collapse.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Printify Brand Link Section -->
+    <section class="section printify-brand">
+        <div class="container text-center">
+            <h2>Powered by Printify</h2>
+            <p>All products are fulfilled through Printify's premium network</p>
+            <div id="printify-brand-links" class="brand-links">
+                <!-- Brand links will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/logos/wtf-logo.png" alt="WatchTheFall">
+                    <p>Documenting the fall, one post at a time.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="wtfcreations.html">Shop</a></li>
+                        <li><a href="index.html#directory">Directory</a></li>
+                    </ul>
+                </div>
+                <div class="footer-info">
+                    <h4>WatchTheFall v4</h4>
+                    <p id="version-info">Loading...</p>
+                    <p>Built with ❤️ and dystopian energy</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 WatchTheFall.wtf - MIT License</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/utils/version.js"></script>
+    <script src="scripts/network.js"></script>
+    <script src="scripts/printify_sync.js"></script>
+    
+    <!-- Initialize Printify Products -->
+    <script>
+        // Load products when page loads
+        window.addEventListener('load', () => {
+            if (typeof loadPrintifyProducts === 'function') {
+                loadPrintifyProducts();
+            }
+            
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const filter = btn.dataset.filter;
+                    filterProducts(filter);
+                });
+            });
+        });
+
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.product-card');
+            products.forEach(product => {
+                if (category === 'all' || product.dataset.category === category) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
