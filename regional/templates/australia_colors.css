@@ -1,14 +1,14 @@
 ﻿/* =====================================================================
    AUSTRALIA WTF - Regional Color Theme
-   Base: Antique Gold (#d4af37) + Australia Colors (#0065BD)
+   Green and Gold (#00843D + #FFD100)
    ===================================================================== */
 
 :root {
-    --color-australia-blue: #0065BD;
-    --color-australia-blue-dark: #003D82;
-    --color-australia-blue-light: #4D9DE0;
-    --color-australia-gold: #d4af37;
-    --color-australia-glow: rgba(0, 101, 189, 0.3);
+    --color-australia-green: #00843D;
+    --color-australia-green-dark: #005E2B;
+    --color-australia-green-light: #33A166;
+    --color-australia-gold: #FFD100;
+    --color-australia-glow: rgba(0, 132, 61, 0.4);
 }
 
 /* australia-specific overlays */
