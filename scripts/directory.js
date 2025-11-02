@@ -5,6 +5,44 @@
 (function() {
     'use strict';
 
+    function expandCategory(categoryId) {
+        const category = document.querySelector(`.directory-category[data-category="${categoryId}"]`);
+        if (!category) return;
+
+        const hubLinks = category.querySelector('.hub-links');
+        const expandBtn = category.querySelector('.expand-btn');
+
+        if (!hubLinks || !expandBtn) return;
+
+        category.classList.add('expanded');
+        hubLinks.classList.remove('collapsed');
+        expandBtn.textContent = '−';
+        expandBtn.setAttribute('aria-label', `Collapse ${categoryId} category`);
+
+        // Smooth scroll to the expanded category
+        setTimeout(() => {
+            category.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+    }
+
+    function handleHashNavigation() {
+        const hash = window.location.hash;
+        
+        // Map hash fragments to category IDs
+        const hashToCategoryMap = {
+            '#directory-britain': 'britain',
+            '#directory-europe': 'europe',
+            '#directory-thewest': 'thewest',
+            '#directory-ai': 'ai',
+            '#directory-global': 'global'
+        };
+
+        const categoryId = hashToCategoryMap[hash];
+        if (categoryId) {
+            expandCategory(categoryId);
+        }
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
         const categories = document.querySelectorAll('.directory-category');
 
@@ -35,6 +73,12 @@
                 }
             });
         });
+
+        // Handle initial hash on page load
+        handleHashNavigation();
+
+        // Handle hash changes (e.g., from World Cup leaderboard clicks)
+        window.addEventListener('hashchange', handleHashNavigation);
 
         console.log('✅ Directory expand/collapse initialized');
     });
