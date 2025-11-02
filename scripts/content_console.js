@@ -7,51 +7,61 @@
     'use strict';
     
     let regionData = {
+        tiktok: [],
+        instagram: [],
         youtube: [],
         x: [],
         threads: []
     };
     
+    let currentPlatform = 'tiktok'; // Default active platform
+    let observer = null;
+    
     const PLATFORM_CONFIG = {
         tiktok: {
             name: 'TikTok',
             icon: '📱',
-            limit: 10, // 8 videos + 2 ads
-            contentCount: 8,
-            adPositions: [6, 9],
-            color: '#fe2c55'
+            limit: 15, // 13 videos + 2 ads
+            contentCount: 13,
+            adPositions: [6, 13],
+            color: '#fe2c55',
+            preloadCount: 3
         },
         instagram: {
             name: 'Instagram',
             icon: '📷',
-            limit: 10, // 8 reels + 2 ads
-            contentCount: 8,
-            adPositions: [6, 9],
-            color: '#e4405f'
+            limit: 15, // 13 reels + 2 ads
+            contentCount: 13,
+            adPositions: [6, 13],
+            color: '#e4405f',
+            preloadCount: 3
         },
         youtube: {
             name: 'YouTube',
             icon: '▶️',
-            limit: 5,
-            contentCount: 5,
+            limit: 8,
+            contentCount: 8,
             adPositions: [],
-            color: '#ff0000'
+            color: '#ff0000',
+            preloadCount: 2
         },
         x: {
             name: 'X',
             icon: '𝕏',
-            limit: 3,
-            contentCount: 3,
+            limit: 5,
+            contentCount: 5,
             adPositions: [],
-            color: '#1da1f2'
+            color: '#1da1f2',
+            preloadCount: 2
         },
         threads: {
             name: 'Threads',
             icon: '🧵',
-            limit: 3,
-            contentCount: 3,
+            limit: 5,
+            contentCount: 5,
             adPositions: [],
-            color: '#000000'
+            color: '#000000',
+            preloadCount: 2
         }
     };
     
@@ -102,8 +112,8 @@
             ]);
             
             // Extract region-specific content for TikTok and Instagram
-            regionData.tiktok = (contentFeedsData.tiktok?.regional?.[region] || []).slice(0, 8);
-            regionData.instagram = (contentFeedsData.instagram?.regional?.[region] || []).slice(0, 8);
+            regionData.tiktok = (contentFeedsData.tiktok?.regional?.[region] || []).slice(0, 13);
+            regionData.instagram = (contentFeedsData.instagram?.regional?.[region] || []).slice(0, 13);
             
             // Extract region-specific content for YouTube, X, Threads
             regionData.youtube = (youtubeData[region] || []).slice(0, PLATFORM_CONFIG.youtube.limit);
@@ -145,67 +155,128 @@
             return;
         }
         
+        // Build platform toggle buttons
+        let platformToggles = '';
+        const availablePlatforms = [];
+        
+        if (regionData.tiktok.length > 0) {
+            availablePlatforms.push('tiktok');
+            platformToggles += `<button class="platform-toggle active" data-platform="tiktok">
+                <span class="toggle-icon">${PLATFORM_CONFIG.tiktok.icon}</span>
+                <span class="toggle-name">${PLATFORM_CONFIG.tiktok.name}</span>
+            </button>`;
+        }
+        
+        if (regionData.instagram.length > 0) {
+            availablePlatforms.push('instagram');
+            platformToggles += `<button class="platform-toggle" data-platform="instagram">
+                <span class="toggle-icon">${PLATFORM_CONFIG.instagram.icon}</span>
+                <span class="toggle-name">${PLATFORM_CONFIG.instagram.name}</span>
+            </button>`;
+        }
+        
+        if (regionData.youtube.length > 0) {
+            availablePlatforms.push('youtube');
+            platformToggles += `<button class="platform-toggle" data-platform="youtube">
+                <span class="toggle-icon">${PLATFORM_CONFIG.youtube.icon}</span>
+                <span class="toggle-name">${PLATFORM_CONFIG.youtube.name}</span>
+            </button>`;
+        }
+        
+        if (regionData.x.length > 0) {
+            availablePlatforms.push('x');
+            platformToggles += `<button class="platform-toggle" data-platform="x">
+                <span class="toggle-icon">${PLATFORM_CONFIG.x.icon}</span>
+                <span class="toggle-name">${PLATFORM_CONFIG.x.name}</span>
+            </button>`;
+        }
+        
+        if (regionData.threads.length > 0) {
+            availablePlatforms.push('threads');
+            platformToggles += `<button class="platform-toggle" data-platform="threads">
+                <span class="toggle-icon">${PLATFORM_CONFIG.threads.icon}</span>
+                <span class="toggle-name">${PLATFORM_CONFIG.threads.name}</span>
+            </button>`;
+        }
+        
         let html = `
             <div class="console-header">
                 <h2 class="console-title">Extended Content</h2>
                 <p class="console-subtitle">Deep dives, analysis, and raw footage from ${capitalize(region)}</p>
+                <div class="platform-toggles">
+                    ${platformToggles}
+                </div>
             </div>
-            <div class="console-content">
+            <div class="console-slider-container">
+                <div id="console-content-slider" class="console-content-slider">
+                    <!-- Dynamic content loaded here -->
+                </div>
+            </div>
         `;
-        
-        // TikTok Section (FIRST - 10 boxes: 8 videos + 2 ads)
-        if (regionData.tiktok.length > 0) {
-            html += renderPlatformSection('tiktok', regionData.tiktok);
-        }
-        
-        // Instagram Section (SECOND - 10 boxes: 8 reels + 2 ads)
-        if (regionData.instagram.length > 0) {
-            html += renderPlatformSection('instagram', regionData.instagram);
-        }
-        
-        // YouTube Section (5 videos)
-        if (regionData.youtube.length > 0) {
-            html += renderPlatformSection('youtube', regionData.youtube);
-        }
-        
-        // X Section (3 posts)
-        if (regionData.x.length > 0) {
-            html += renderPlatformSection('x', regionData.x);
-        }
-        
-        // Threads Section (3 posts)
-        if (regionData.threads.length > 0) {
-            html += renderPlatformSection('threads', regionData.threads);
-        }
-        
-        html += `</div>`;
         
         container.innerHTML = html;
+        
+        // Set first available platform as current
+        currentPlatform = availablePlatforms[0] || 'tiktok';
+        
+        // Render initial platform
+        renderPlatformSlider(currentPlatform);
+        
+        // Attach toggle listeners
+        document.querySelectorAll('.platform-toggle').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const platform = btn.dataset.platform;
+                switchPlatform(platform);
+            });
+        });
     }
     
-    function renderPlatformSection(platform, items) {
+    function switchPlatform(platform) {
+        if (platform === currentPlatform) return;
+        
+        currentPlatform = platform;
+        
+        // Update active button
+        document.querySelectorAll('.platform-toggle').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.platform === platform);
+        });
+        
+        // Render new platform with fade transition
+        const slider = document.getElementById('console-content-slider');
+        slider.style.opacity = '0';
+        
+        setTimeout(() => {
+            renderPlatformSlider(platform);
+            slider.style.opacity = '1';
+        }, 200);
+    }
+    
+    function renderPlatformSlider(platform) {
+        const slider = document.getElementById('console-content-slider');
+        if (!slider) return;
+        
+        const items = regionData[platform] || [];
         const config = PLATFORM_CONFIG[platform];
         
-        let html = `
-            <div class="console-section" data-platform="${platform}">
-                <div class="section-header">
-                    <span class="section-icon">${config.icon}</span>
-                    <h3 class="section-title">${config.name}</h3>
-                </div>
-                <div class="section-slider">
-        `;
+        if (items.length === 0) {
+            slider.innerHTML = '<div class="empty-platform"><p>No content available</p></div>';
+            return;
+        }
         
-        // For TikTok and Instagram: 10 boxes (8 content + 2 ads)
+        let html = '<div class="section-slider">';
+        
+        // For TikTok and Instagram: 15 boxes (13 content + 2 ads)
         if (platform === 'tiktok' || platform === 'instagram') {
             let videoIndex = 0;
-            for (let pos = 1; pos <= 10; pos++) {
+            const totalBoxes = config.limit;
+            for (let pos = 1; pos <= totalBoxes; pos++) {
                 if (config.adPositions.includes(pos)) {
                     html += createAdBox(pos);
                 } else if (videoIndex < items.length) {
                     if (platform === 'tiktok') {
-                        html += createTikTokBox(items[videoIndex], videoIndex < 3); // Preload first 3
+                        html += createTikTokBox(items[videoIndex], videoIndex < config.preloadCount);
                     } else {
-                        html += createInstagramBox(items[videoIndex], videoIndex < 3);
+                        html += createInstagramBox(items[videoIndex], videoIndex < config.preloadCount);
                     }
                     videoIndex++;
                 } else {
@@ -216,21 +287,23 @@
             // For YouTube, X, Threads: just render items
             items.forEach((item, index) => {
                 if (platform === 'youtube') {
-                    html += createYouTubeBox(item, index < 2); // Preload first 2
+                    html += createYouTubeBox(item, index < config.preloadCount);
                 } else if (platform === 'x') {
-                    html += createXBox(item, index < 1); // Preload first 1
+                    html += createXBox(item, index < config.preloadCount);
                 } else if (platform === 'threads') {
-                    html += createThreadsBox(item, index < 1); // Preload first 1
+                    html += createThreadsBox(item, index < config.preloadCount);
                 }
             });
         }
         
-        html += `
-                </div>
-            </div>
-        `;
+        html += '</div>';
+        slider.innerHTML = html;
         
-        return html;
+        // Reinitialize lazy loading
+        initLazyLoad();
+        
+        // Load embed scripts for current platform
+        loadEmbedScripts();
     }
     
     function createTikTokBox(item, preload = false) {
