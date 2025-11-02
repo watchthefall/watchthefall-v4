@@ -1,28 +1,28 @@
 ﻿/* =====================================================================
    WALES WTF - Regional Color Theme
-   Base: Antique Gold (#d4af37) + Wales Colors (#0065BD)
+   Welsh Green (#00B140) + Red Dragon (#C8102E)
    ===================================================================== */
 
 :root {
-    --color-wales-blue: #0065BD;
-    --color-wales-blue-dark: #003D82;
-    --color-wales-blue-light: #4D9DE0;
+    --color-wales-green: #00B140;
+    --color-wales-green-dark: #007A2E;
+    --color-wales-green-light: #33C566;
     --color-wales-gold: #d4af37;
-    --color-wales-glow: rgba(0, 101, 189, 0.3);
+    --color-wales-glow: rgba(0, 177, 64, 0.4);
 }
 
 /* wales-specific overlays */
 .wales-overlay {
     background: linear-gradient(180deg, 
-        rgba(0, 101, 189, 0.15) 0%, 
+        rgba(0, 177, 64, 0.2) 0%, 
         rgba(10, 10, 10, 0.7) 50%, 
-        rgba(0, 61, 130, 0.15) 100%);
+        rgba(0, 122, 46, 0.15) 100%);
 }
 
 /* wales hero styling */
 .wales-hero {
     background: linear-gradient(135deg, 
-        rgba(0, 101, 189, 0.1) 0%, 
+        rgba(0, 177, 64, 0.15) 0%, 
         transparent 100%);
     padding-top: 8rem;
     min-height: 100vh;
@@ -60,9 +60,9 @@
 .wales-text {
     font-family: 'Archivo Black', var(--font-primary), sans-serif;
     font-size: clamp(2.5rem, 6vw, 4.5rem);
-    color: var(--color-wales-blue-light);
-    text-shadow: 0 0 30px rgba(0, 101, 189, 0.6), 
-                 0 0 60px rgba(0, 101, 189, 0.4);
+    color: var(--color-wales-green-light);
+    text-shadow: 0 0 30px var(--color-wales-glow), 
+                 0 0 60px rgba(0, 177, 64, 0.3);
     letter-spacing: 1px;
     display: flex;
     align-items: center;
@@ -72,14 +72,14 @@
 .wales-flag-logo {
     width: clamp(50px, 8vw, 90px);
     height: auto;
-    filter: drop-shadow(0 0 15px rgba(0, 101, 189, 0.5));
+    filter: drop-shadow(0 0 15px var(--color-wales-glow));
     transition: var(--transition-smooth);
     background: transparent;
     border: none;
 }
 
 .wales-flag-logo:hover {
-    filter: drop-shadow(0 0 25px rgba(0, 101, 189, 0.7));
+    filter: drop-shadow(0 0 25px rgba(0, 177, 64, 0.6));
 }
 
 .wtf-text {
@@ -117,7 +117,7 @@
     font-weight: 600;
     color: var(--color-text);
     margin-bottom: 1rem;
-    text-shadow: 0 0 12px rgba(0, 101, 189, 0.3);
+    text-shadow: 0 0 12px var(--color-wales-glow);
     letter-spacing: 0.5px;
 }
 
@@ -134,47 +134,47 @@
 
 /* wales accent colors */
 .page-wales .btn-primary {
-    background: var(--color-wales-blue);
-    border-color: var(--color-wales-blue);
+    background: var(--color-wales-green);
+    border-color: var(--color-wales-green);
 }
 
 .page-wales .btn-primary:hover {
-    background: var(--color-wales-blue-light);
+    background: var(--color-wales-green-light);
     box-shadow: 0 0 20px var(--color-wales-glow);
 }
 
 .page-wales .btn-secondary {
-    border-color: var(--color-wales-blue);
-    color: var(--color-wales-blue-light);
+    border-color: var(--color-wales-green);
+    color: var(--color-wales-green-light);
 }
 
 .page-wales .btn-secondary:hover {
-    background: var(--color-wales-blue);
+    background: var(--color-wales-green);
     color: white;
     box-shadow: 0 0 20px var(--color-wales-glow);
 }
 
 /* wales cards */
 .page-wales .card {
-    border-color: rgba(0, 101, 189, 0.3);
+    border-color: rgba(0, 177, 64, 0.3);
 }
 
 .page-wales .card:hover {
-    border-color: var(--color-wales-blue);
+    border-color: var(--color-wales-green);
     box-shadow: 0 8px 30px var(--color-wales-glow);
 }
 
 /* wales stats */
 .wales-stats .stat-card {
     background: linear-gradient(135deg, 
-        rgba(0, 101, 189, 0.1) 0%, 
+        rgba(0, 177, 64, 0.1) 0%, 
         rgba(10, 10, 10, 0.8) 100%);
 }
 
 .wales-stats .stat-value {
     font-family: var(--font-primary);
     font-size: 2.5rem;
-    color: var(--color-wales-blue-light);
+    color: var(--color-wales-green-light);
     text-shadow: 0 0 15px var(--color-wales-glow);
 }
 
