@@ -188,7 +188,7 @@
                 <div class="footer-info">
                     <h4>Ireland WTF</h4>
                     <p>Part of WatchTheFall Network</p>
-                    <p>Eire</p>
+                    <p>Éire - The Emerald Unravels</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -210,13 +210,13 @@
                 const response = await fetch('../../data/worldcup.json');
                 const data = await response.json();
                 
-                // Find irelandwtf in the data
-                const scotlandHub = data.regions.find(c => c.region === 'irelandwtf');
+                // Find IrelandWTF in the data
+                const irelandHub = data.regions.find(c => c.region === 'IrelandWTF');
                 
-                if (scotlandHub) {
+                if (irelandHub) {
                     // Update Total Followers (TikTok + Instagram combined)
-                    const tiktokFollowers = scotlandHub.followers.tiktok || 0;
-                    const instagramFollowers = scotlandHub.followers.instagram || 0;
+                    const tiktokFollowers = irelandHub.followers.tiktok || 0;
+                    const instagramFollowers = irelandHub.followers.instagram || 0;
                     const totalFollowers = tiktokFollowers + instagramFollowers;
                     
                     document.getElementById('total-followers-stat').textContent = 
@@ -242,7 +242,7 @@
                 document.getElementById('weekly-content-stat').textContent = weeklyContent + '+';
                 
             } catch (error) {
-                console.error('Failed to load Scotland stats:', error);
+                console.error('Failed to load Ireland stats:', error);
                 // Fallback values
                 document.getElementById('total-followers-stat').textContent = '0';
             }
