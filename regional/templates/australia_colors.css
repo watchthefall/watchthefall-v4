@@ -60,13 +60,14 @@
 .australia-text {
     font-family: 'Archivo Black', var(--font-primary), sans-serif;
     font-size: clamp(2.5rem, 6vw, 4.5rem);
-    color: var(--color-australia-blue-light);
-    text-shadow: 0 0 30px rgba(0, 101, 189, 0.6), 
-                 0 0 60px rgba(0, 101, 189, 0.4);
+    color: var(--color-australia-green-light);
+    text-shadow: 0 0 30px rgba(0, 132, 61, 0.6), 
+                 0 0 60px rgba(0, 132, 61, 0.4);
     letter-spacing: 1px;
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    white-space: nowrap;
 }
 
 .australia-flag-logo {
