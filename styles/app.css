@@ -665,6 +665,214 @@ body {
     transform: translateY(0);
 }
 
+/* === MULTI-PLATFORM CONTENT SECTION === */
+.content-section {
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.9) 100%);
+    padding: 6rem 2rem;
+}
+
+/* Platform Toggle */
+.platform-toggle {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0 3rem;
+}
+
+.platform-btn {
+    background: rgba(15, 15, 15, 0.8);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    padding: 0.8rem 1.5rem;
+    color: var(--color-text);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.platform-btn:hover {
+    border-color: var(--color-gold);
+    background: rgba(212, 175, 55, 0.1);
+    transform: translateY(-2px);
+}
+
+.platform-btn.active {
+    border-color: var(--platform-color, var(--color-gold));
+    background: var(--platform-color, var(--color-gold));
+    background: linear-gradient(135deg, 
+        rgba(var(--platform-color), 0.2) 0%, 
+        rgba(var(--platform-color), 0.05) 100%);
+    color: var(--color-gold);
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+}
+
+.platform-icon {
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
+.platform-name {
+    font-family: var(--font-secondary);
+}
+
+/* Content Slider */
+.content-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.5rem;
+    padding: 1rem 0 2rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gold) rgba(212, 175, 55, 0.1);
+}
+
+.content-slider::-webkit-scrollbar {
+    height: 8px;
+}
+
+.content-slider::-webkit-scrollbar-track {
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 4px;
+}
+
+.content-slider::-webkit-scrollbar-thumb {
+    background: var(--color-gold);
+    border-radius: 4px;
+}
+
+.content-slider::-webkit-scrollbar-thumb:hover {
+    background: #e6c04d;
+}
+
+/* Content Boxes */
+.content-box {
+    flex: 0 0 320px;
+    height: 570px;
+    scroll-snap-align: center;
+    background: rgba(15, 15, 15, 0.7);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.content-box:hover {
+    border-color: var(--color-gold);
+    box-shadow: 0 8px 32px rgba(212, 175, 55, 0.2);
+    transform: scale(1.02);
+}
+
+/* TikTok Embed Styling */
+.tiktok-box {
+    padding: 0;
+}
+
+.tiktok-box blockquote {
+    margin: 0 !important;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Placeholder Boxes */
+.placeholder-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, 
+        rgba(15, 15, 15, 0.9) 0%, 
+        rgba(20, 20, 20, 0.8) 100%);
+}
+
+.placeholder-content {
+    text-align: center;
+    padding: 2rem;
+}
+
+.placeholder-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.placeholder-text {
+    color: var(--color-text);
+    opacity: 0.6;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Ad Boxes */
+.ad-box {
+    background: linear-gradient(135deg, 
+        rgba(30, 30, 30, 0.9) 0%, 
+        rgba(20, 20, 20, 0.8) 100%);
+    border-color: rgba(212, 175, 55, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ad-placeholder {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+}
+
+.ad-label {
+    display: block;
+    color: var(--color-gold);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    opacity: 0.7;
+}
+
+.ad-content {
+    background: rgba(212, 175, 55, 0.05);
+    border: 2px dashed rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    padding: 4rem 2rem;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ad-content p {
+    color: var(--color-text);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.ad-dimensions {
+    color: var(--color-gold);
+    font-size: 0.9rem;
+    opacity: 0.4;
+}
+
+/* YouTube, Instagram, X, Facebook Embeds */
+.youtube-box iframe,
+.facebook-box iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+
+.instagram-box,
+.x-box {
+    padding: 1rem;
+    overflow-y: auto;
+}
+
 /* === DIRECTORY SECTION === */
 .directory-section {
     background: linear-gradient(180deg, rgba(10, 10, 10, 0.8) 0%, rgba(10, 10, 10, 0.95) 100%);

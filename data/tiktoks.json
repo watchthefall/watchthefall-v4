@@ -1,32 +1,85 @@
-[
-  {
-    "id": "7123456789012345678",
-    "url": "https://www.tiktok.com/@watchthefall/video/7123456789012345678",
-    "title": "Sample TikTok 1",
-    "description": "Replace with real TikTok URLs"
-  },
-  {
-    "id": "7234567890123456789",
-    "url": "https://www.tiktok.com/@watchthefall/video/7234567890123456789",
-    "title": "Sample TikTok 2",
-    "description": "Replace with real TikTok URLs"
-  },
-  {
-    "id": "7345678901234567890",
-    "url": "https://www.tiktok.com/@watchthefall/video/7345678901234567890",
-    "title": "Sample TikTok 3",
-    "description": "Replace with real TikTok URLs"
-  },
-  {
-    "id": "7456789012345678901",
-    "url": "https://www.tiktok.com/@watchthefall/video/7456789012345678901",
-    "title": "Sample TikTok 4",
-    "description": "Replace with real TikTok URLs"
-  },
-  {
-    "id": "7567890123456789012",
-    "url": "https://www.tiktok.com/@watchthefall/video/7567890123456789012",
-    "title": "Sample TikTok 5",
-    "description": "Replace with real TikTok URLs"
-  }
-]
+{
+  "platform": "tiktok",
+  "last_updated": "2025-11-02",
+  "content": [
+    {
+      "type": "video",
+      "url": "https://www.tiktok.com/@scotland.wtf/video/7491005316742548758",
+      "position": 1
+    },
+    {
+      "type": "video",
+      "url": "https://www.tiktok.com/@scotland.wtf/video/7566599409178332448",
+      "position": 2
+    },
+    {
+      "type": "video",
+      "url": "https://www.tiktok.com/@watchthefall_wtf/video/7524599661609372950",
+      "position": 3
+    },
+    {
+      "type": "video",
+      "url": "https://www.tiktok.com/@watchthefall_wtf/video/7518017210535759126",
+      "position": 4
+    },
+    {
+      "type": "video",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7540041489225714946",
+      "position": 5
+    },
+    {
+      "type": "ad",
+      "position": 6,
+      "placeholder": "Ad Slot 1"
+    },
+    {
+      "type": "video",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7549279321681169686",
+      "position": 7
+    },
+    {
+      "type": "video",
+      "url": "https://www.tiktok.com/@irelandwtf/video/7526230419101027606",
+      "position": 8
+    },
+    {
+      "type": "video",
+      "url": "https://www.tiktok.com/@germanywtf/video/7519158132413664534",
+      "position": 9
+    },
+    {
+      "type": "video",
+      "url": "https://www.tiktok.com/@australiawtf/video/7541408537977621782",
+      "position": 10
+    },
+    {
+      "type": "video",
+      "url": "https://www.tiktok.com/@a.i.wtf/video/7549497771024338198",
+      "position": 11
+    },
+    {
+      "type": "video",
+      "url": "https://www.tiktok.com/@europewtf/video/7547630052997975318",
+      "position": 12
+    },
+    {
+      "type": "ad",
+      "position": 13,
+      "placeholder": "Ad Slot 2"
+    },
+    {
+      "type": "video",
+      "url": "https://www.tiktok.com/@europewtf/video/7532287057226468630",
+      "position": 14
+    },
+    {
+      "type": "video",
+      "url": "https://www.tiktok.com/@europewtf/video/7539474012313767190",
+      "position": 15
+    }
+  ],
+  "youtube": [],
+  "instagram": [],
+  "x": [],
+  "facebook": []
+}
