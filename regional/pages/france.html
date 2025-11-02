@@ -210,13 +210,13 @@
                 const response = await fetch('../../data/worldcup.json');
                 const data = await response.json();
                 
-                // Find francewtf in the data
-                const scotlandHub = data.regions.find(c => c.region === 'francewtf');
+                // Find FranceWTF in the data
+                const franceHub = data.regions.find(c => c.region === 'FranceWTF');
                 
-                if (scotlandHub) {
+                if (franceHub) {
                     // Update Total Followers (TikTok + Instagram combined)
-                    const tiktokFollowers = scotlandHub.followers.tiktok || 0;
-                    const instagramFollowers = scotlandHub.followers.instagram || 0;
+                    const tiktokFollowers = franceHub.followers.tiktok || 0;
+                    const instagramFollowers = franceHub.followers.instagram || 0;
                     const totalFollowers = tiktokFollowers + instagramFollowers;
                     
                     document.getElementById('total-followers-stat').textContent = 
@@ -242,7 +242,7 @@
                 document.getElementById('weekly-content-stat').textContent = weeklyContent + '+';
                 
             } catch (error) {
-                console.error('Failed to load Scotland stats:', error);
+                console.error('Failed to load France stats:', error);
                 // Fallback values
                 document.getElementById('total-followers-stat').textContent = '0';
             }

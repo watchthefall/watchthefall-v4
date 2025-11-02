@@ -188,7 +188,7 @@
                 <div class="footer-info">
                     <h4>Germany WTF</h4>
                     <p>Part of WatchTheFall Network</p>
-                    <p>Einigkeit</p>
+                    <p>Deutschland - Stability Crumbles</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -210,13 +210,13 @@
                 const response = await fetch('../../data/worldcup.json');
                 const data = await response.json();
                 
-                // Find germanywtf in the data
-                const scotlandHub = data.regions.find(c => c.region === 'germanywtf');
+                // Find GermanyWTF in the data
+                const germanyHub = data.regions.find(c => c.region === 'GermanyWTF');
                 
-                if (scotlandHub) {
+                if (germanyHub) {
                     // Update Total Followers (TikTok + Instagram combined)
-                    const tiktokFollowers = scotlandHub.followers.tiktok || 0;
-                    const instagramFollowers = scotlandHub.followers.instagram || 0;
+                    const tiktokFollowers = germanyHub.followers.tiktok || 0;
+                    const instagramFollowers = germanyHub.followers.instagram || 0;
                     const totalFollowers = tiktokFollowers + instagramFollowers;
                     
                     document.getElementById('total-followers-stat').textContent = 
@@ -242,7 +242,7 @@
                 document.getElementById('weekly-content-stat').textContent = weeklyContent + '+';
                 
             } catch (error) {
-                console.error('Failed to load Scotland stats:', error);
+                console.error('Failed to load Germany stats:', error);
                 // Fallback values
                 document.getElementById('total-followers-stat').textContent = '0';
             }
