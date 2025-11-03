@@ -1,0 +1,18 @@
+# Unified Regional Sync Log - v4.3
+# Generated on: 11/03/2025 15:34:02
+
+[AustraliaWTF] Tier=3, TikTok=5, Instagram=5, Ads=1, PNGsFixed=Y, LayoutFixed=Y, Backup=regional_pre_v4.3_australia_20251103_153402.html
+[BritainWTF] Tier=2, TikTok=8, Instagram=8, Ads=1, PNGsFixed=Y, LayoutFixed=Y, Backup=regional_pre_v4.3_britain_20251103_153402.html
+[CanadaWTF] Tier=2, TikTok=8, Instagram=8, Ads=1, PNGsFixed=Y, LayoutFixed=Y, Backup=regional_pre_v4.3_canada_20251103_153402.html
+[EnglandWTF] Tier=1, TikTok=13, Instagram=13, Ads=2, PNGsFixed=Y, LayoutFixed=Y, Backup=regional_pre_v4.3_england_20251103_153402.html
+[EuropeWTF] Tier=2, TikTok=8, Instagram=8, Ads=1, PNGsFixed=Y, LayoutFixed=Y, Backup=regional_pre_v4.3_europe_20251103_153402.html
+[FranceWTF] Tier=3, TikTok=5, Instagram=5, Ads=1, PNGsFixed=Y, LayoutFixed=Y, Backup=regional_pre_v4.3_france_20251103_153402.html
+[GermanyWTF] Tier=3, TikTok=5, Instagram=5, Ads=1, PNGsFixed=Y, LayoutFixed=Y, Backup=regional_pre_v4.3_germany_20251103_153402.html
+[IrelandWTF] Tier=1, TikTok=13, Instagram=13, Ads=2, PNGsFixed=Y, LayoutFixed=Y, Backup=regional_pre_v4.3_ireland_20251103_153402.html
+[ItalyWTF] Tier=3, TikTok=5, Instagram=5, Ads=1, PNGsFixed=Y, LayoutFixed=Y, Backup=regional_pre_v4.3_italy_20251103_153402.html
+[NetherlandsWTF] Tier=3, TikTok=5, Instagram=5, Ads=1, PNGsFixed=Y, LayoutFixed=Y, Backup=regional_pre_v4.3_netherlands_20251103_153402.html
+[PolandWTF] Tier=3, TikTok=5, Instagram=5, Ads=1, PNGsFixed=Y, LayoutFixed=Y, Backup=regional_pre_v4.3_poland_20251103_153402.html
+[ScotlandWTF] Tier=1, TikTok=13, Instagram=13, Ads=2, PNGsFixed=Y, LayoutFixed=Y, Backup=regional_pre_v4.3_scotland_20251103_153402.html
+[SpainWTF] Tier=3, TikTok=5, Instagram=5, Ads=1, PNGsFixed=Y, LayoutFixed=Y, Backup=regional_pre_v4.3_spain_20251103_153402.html
+[SwedenWTF] Tier=3, TikTok=5, Instagram=5, Ads=1, PNGsFixed=Y, LayoutFixed=Y, Backup=regional_pre_v4.3_sweden_20251103_153402.html
+[USAmericaWTF] Tier=2, TikTok=8, Instagram=8, Ads=1, PNGsFixed=Y, LayoutFixed=Y, Backup=regional_pre_v4.3_usa_20251103_153402.html

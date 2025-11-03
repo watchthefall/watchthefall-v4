@@ -1,0 +1,38 @@
+# Regional Pages Sync Log
+# Generated on: 11/03/2025 14:54:03
+
+Region | Tier | Buttons Count | Extended Block OK | Links Fixed (Y/N)
+-------|------|---------------|-------------------|------------------
+
+[AustraliaWTF] Tier: 3, Buttons Added: 0, Verified: N, Backup: australia_pre_v4.1_20251103_1500.html (ERROR: No social-actions-section found)
+[BritainWTF] Tier: 2, Buttons Added: 0, Verified: N, Backup: britain_pre_v4.1_20251103_1500.html (ERROR: No social-actions-section found)
+[CanadaWTF] Tier: 2, Buttons Added: 0, Verified: N, Backup: canada_pre_v4.1_20251103_1500.html (ERROR: No social-actions-section found)
+[EnglandWTF] Tier: 1, Buttons Added: 0, Verified: N, Backup: england_pre_v4.1_20251103_1500.html (ERROR: No social-actions-section found)
+[EuropeWTF] Tier: 2, Buttons Added: 0, Verified: N, Backup: europe_pre_v4.1_20251103_1500.html (ERROR: No social-actions-section found)
+[FranceWTF] Tier: 3, Buttons Added: 0, Verified: N, Backup: france_pre_v4.1_20251103_1500.html (ERROR: No social-actions-section found)
+[GermanyWTF] Tier: 3, Buttons Added: 0, Verified: N, Backup: germany_pre_v4.1_20251103_1500.html (ERROR: No social-actions-section found)
+[IrelandWTF] Tier: 1, Buttons Added: 0, Verified: N, Backup: ireland_pre_v4.1_20251103_1500.html (ERROR: No social-actions-section found)
+[ItalyWTF] Tier: 3, Buttons Added: 0, Verified: N, Backup: italy_pre_v4.1_20251103_1500.html (ERROR: No social-actions-section found)
+[NetherlandsWTF] Tier: 3, Buttons Added: 0, Verified: N, Backup: netherlands_pre_v4.1_20251103_1500.html (ERROR: No social-actions-section found)
+[PolandWTF] Tier: 3, Buttons Added: 0, Verified: N, Backup: poland_pre_v4.1_20251103_1500.html (ERROR: No social-actions-section found)
+[ScotlandWTF] Tier: 1, Buttons Added: 0, Verified: N, Backup: scotland_pre_v4.1_20251103_1500.html (ERROR: No social-actions-section found)
+[SpainWTF] Tier: 3, Buttons Added: 0, Verified: N, Backup: spain_pre_v4.1_20251103_1500.html (ERROR: No social-actions-section found)
+[SwedenWTF] Tier: 3, Buttons Added: 0, Verified: N, Backup: sweden_pre_v4.1_20251103_1500.html (ERROR: No social-actions-section found)
+[USAmericaWTF] Tier: 2, Buttons Added: 0, Verified: N, Backup: usa_pre_v4.1_20251103_1500.html (ERROR: No social-actions-section found)
+[WalesWTF] Tier: 1, Buttons Added: 0, Verified: N, Backup: wales_pre_v4.1_20251103_1500.html (ERROR: No social-actions-section found)
+[AustraliaWTF] Tier: 3, Buttons Added: 3, Verified: Y, Backup: australia_pre_v4.1_20251103_1501.html
+[BritainWTF] Tier: 2, Buttons Added: 5, Verified: Y, Backup: britain_pre_v4.1_20251103_1501.html
+[CanadaWTF] Tier: 2, Buttons Added: 5, Verified: Y, Backup: canada_pre_v4.1_20251103_1501.html
+[EnglandWTF] Tier: 1, Buttons Added: 7, Verified: Y, Backup: england_pre_v4.1_20251103_1501.html
+[EuropeWTF] Tier: 2, Buttons Added: 5, Verified: Y, Backup: europe_pre_v4.1_20251103_1501.html
+[FranceWTF] Tier: 3, Buttons Added: 3, Verified: Y, Backup: france_pre_v4.1_20251103_1501.html
+[GermanyWTF] Tier: 3, Buttons Added: 3, Verified: Y, Backup: germany_pre_v4.1_20251103_1501.html
+[IrelandWTF] Tier: 1, Buttons Added: 7, Verified: Y, Backup: ireland_pre_v4.1_20251103_1501.html
+[ItalyWTF] Tier: 3, Buttons Added: 3, Verified: Y, Backup: italy_pre_v4.1_20251103_1501.html
+[NetherlandsWTF] Tier: 3, Buttons Added: 3, Verified: Y, Backup: netherlands_pre_v4.1_20251103_1501.html
+[PolandWTF] Tier: 3, Buttons Added: 3, Verified: Y, Backup: poland_pre_v4.1_20251103_1501.html
+[ScotlandWTF] Tier: 1, Buttons Added: 7, Verified: Y, Backup: scotland_pre_v4.1_20251103_1501.html
+[SpainWTF] Tier: 3, Buttons Added: 3, Verified: Y, Backup: spain_pre_v4.1_20251103_1501.html
+[SwedenWTF] Tier: 3, Buttons Added: 3, Verified: Y, Backup: sweden_pre_v4.1_20251103_1501.html
+[USAmericaWTF] Tier: 2, Buttons Added: 5, Verified: Y, Backup: usa_pre_v4.1_20251103_1501.html
+[WalesWTF] Tier: 1, Buttons Added: 7, Verified: Y, Backup: wales_pre_v4.1_20251103_1501.html
