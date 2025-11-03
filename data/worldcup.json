@@ -1,13 +1,13 @@
-{
+﻿{
   "last_updated": "2025-11-02T00:00:00Z",
   "regions": [
     {"region":"ScotlandWTF","followers":{"tiktok":3594,"instagram":14100,"youtube":0,"x":0},"previous":{"tiktok":3594,"instagram":14100,"youtube":0,"x":0},"points":7077.6,"tagline":"Documenting the fall of Scotland.","logo":"assets/logos/scotland-wtf-logo.png"},
     {"region":"WatchTheFallWTF","followers":{"tiktok":569,"instagram":1323,"youtube":0,"x":0},"previous":{"tiktok":569,"instagram":1323,"youtube":0,"x":0},"points":756.8,"tagline":"The global hub of the WTF Network.","logo":"assets/watermark/wtfman.png"},
     {"region":"AustraliaWTF","followers":{"tiktok":744,"instagram":694,"youtube":0,"x":0},"previous":{"tiktok":744,"instagram":694,"youtube":0,"x":0},"points":575.2,"tagline":"Watching Australia's unraveling.","logo":"assets/logos/australia-wtf-logo.png"},
     {"region":"USAmericaWTF","followers":{"tiktok":28,"instagram":791,"youtube":0,"x":0},"previous":{"tiktok":28,"instagram":791,"youtube":0,"x":0},"points":327.6,"tagline":"Tracking America's decline.","logo":"assets/logos/usa-wtf-logo.png"},
-    {"region":"AIWTF","followers":{"tiktok":23,"instagram":573,"youtube":0,"x":0},"previous":{"tiktok":23,"instagram":573,"youtube":0,"x":0},"points":238.4,"tagline":"Monitoring the rise of artificial intelligence.","logo":"assets/logos/ai-wtf-logo.png"},
+    {"region":"AIWTF","followers":{"tiktok":23,"instagram":573,"youtube":0,"x":0},"previous":{"tiktok":23,"instagram":573,"youtube":0,"x":0},"points":238.4,"tagline":"Monitoring the rise of artificial intelligence.","logo":"assets/logos/ai-wtf-logo.webp"},
     {"region":"BritainWTF","followers":{"tiktok":0,"instagram":571,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":571,"youtube":0,"x":0},"points":228.4,"tagline":"Documenting Britain's cultural unravelling.","logo":"assets/logos/britain-wtf-logo.png"},
-    {"region":"TheWestWTF","followers":{"tiktok":26,"instagram":520,"youtube":0,"x":0},"previous":{"tiktok":26,"instagram":520,"youtube":0,"x":0},"points":218.4,"tagline":"Tracking the Western decline.","logo":"assets/logos/the-west-wtf.jpg"},
+    {"region":"TheWestWTF","followers":{"tiktok":26,"instagram":520,"youtube":0,"x":0},"previous":{"tiktok":26,"instagram":520,"youtube":0,"x":0},"points":218.4,"tagline":"Tracking the Western decline.","logo":"assets/logos/the-west-wtf.png"},
     {"region":"EuropeWTF","followers":{"tiktok":209,"instagram":48,"youtube":0,"x":0},"previous":{"tiktok":209,"instagram":48,"youtube":0,"x":0},"points":102.8,"tagline":"Tracking the fall across Europe.","logo":"assets/logos/europe-wtf-logo.png"},
     {"region":"IrelandWTF","followers":{"tiktok":76,"instagram":59,"youtube":0,"x":0},"previous":{"tiktok":76,"instagram":59,"youtube":0,"x":0},"points":54.0,"tagline":"Tracking Ireland's unraveling.","logo":"assets/logos/ireland-wtf-logo.png"},
     {"region":"GermanyWTF","followers":{"tiktok":0,"instagram":70,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":70,"youtube":0,"x":0},"points":28.0,"tagline":"Monitoring the collapse of German stability.","logo":"assets/logos/germany-wtf-logo.png"},

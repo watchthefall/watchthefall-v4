@@ -1,11 +1,11 @@
-[
+﻿[
   { "id": "scotlandwtf", "name": "ScotlandWTF", "tagline": "Documenting the fall of Scotland.", "logo": "assets/logos/scotland-wtf-logo.png", "delta": 2 },
   { "id": "englandwtf", "name": "EnglandWTF", "tagline": "Tracking the chaos across England.", "logo": "assets/logos/england-wtf-logo.png", "delta": -1 },
   { "id": "waleswtf", "name": "WalesWTF", "tagline": "Witnessing the decay of Wales.", "logo": "assets/logos/wales-wtf-logo.png", "delta": 0 },
   { "id": "northernirelandwtf", "name": "NorthernIrelandWTF", "tagline": "Following Northern Ireland's decline.", "logo": "assets/logos/northern-ireland-wtf-logo.png", "delta": 1 },
   { "id": "irelandwtf", "name": "IrelandWTF", "tagline": "Tracking Ireland's unraveling.", "logo": "assets/logos/ireland-wtf-logo.png", "delta": 3 },
   { "id": "europewtf", "name": "EuropeWTF", "tagline": "Tracking the fall across Europe.", "logo": "assets/logos/europe-wtf-logo.png", "delta": 5 },
-  { "id": "thewestwtf", "name": "TheWestWTF", "tagline": "Tracking the Western decline.", "logo": "assets/logos/the-west-wtf.jpg", "delta": -2 },
+  { "id": "thewestwtf", "name": "TheWestWTF", "tagline": "Tracking the Western decline.", "logo": "assets/logos/the-west-wtf.png", "delta": -2 },
   { "id": "britainwtf", "name": "BritainWTF", "tagline": "Documenting Britain's cultural unravelling.", "logo": "assets/logos/britain-wtf-logo.png", "delta": 0 },
   { "id": "usamericawtf", "name": "USAmericaWTF", "tagline": "Tracking the collapse of the American experiment.", "logo": "assets/logos/usa-wtf-logo.png", "delta": 0 },
   { "id": "canadawtf", "name": "CanadaWTF", "tagline": "Following Canada's social decay.", "logo": "assets/logos/canada-wtf-logo.png", "delta": 1 },
@@ -17,7 +17,7 @@
   { "id": "spainwtf", "name": "SpainWTF", "tagline": "Tracking Spain's social unraveling.", "logo": "assets/logos/spain-wtf-logo.png", "delta": 1 },
   { "id": "italywtf", "name": "ItalyWTF", "tagline": "Recording Italy's decline.", "logo": "assets/logos/italy-wtf-logo.png", "delta": 0 },
   { "id": "netherlandswtf", "name": "NetherlandsWTF", "tagline": "Following the fall of Dutch sanity.", "logo": "assets/logos/netherlands-wtf-logo.png", "delta": 0 },
-  { "id": "aiwtf", "name": "AIWTF", "tagline": "Monitoring the rise of artificial intelligence.", "logo": "assets/logos/ai-wtf-logo.png", "delta": -1 },
+  { "id": "aiwtf", "name": "AIWTF", "tagline": "Monitoring the rise of artificial intelligence.", "logo": "assets/logos/ai-wtf-logo.webp", "delta": -1 },
   { "id": "aitechwtf", "name": "AITechWTF", "tagline": "Documenting the evolution of technology.", "logo": "assets/logos/ai-tech-wtf-logo.png", "delta": 0 },
   { "id": "conceptswtf", "name": "ConceptsWTF", "tagline": "Exploring paradoxes, illusions, and the mind.", "logo": "assets/logos/concepts-wtf-logo.png", "delta": 2 },
   { "id": "gadgetswtf", "name": "GadgetsWTF", "tagline": "Covering absurd, luxurious tech gadgets.", "logo": "assets/logos/gadgets-wtf-logo.png", "delta": 0 },
