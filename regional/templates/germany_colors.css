@@ -96,6 +96,36 @@
     animation: glitchPulse 3s ease-in-out infinite;
 }
 
+/* Additional styles for proper hero alignment and text rendering */
+.germany-overlay {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(1px);
+}
+
+.region-logo-block {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.region-flag-logo {
+  height: 42px;
+  width: auto;
+  border-radius: 4px;
+}
+
+.germany-title .region-name {
+  color: #d4af37;
+}
+
+.wtf-text {
+  display: block;
+  font-size: 3rem;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 0 10px #ff00ff;
+}
+
 @keyframes glitchPulse {
     0%, 100% { 
         text-shadow: 

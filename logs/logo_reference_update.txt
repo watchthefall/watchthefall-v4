@@ -1,0 +1,30 @@
+Logo Reference Update Log
+=========================
+
+This log tracks all .jpg, .jpeg, and .webp to .png conversions made during the Regional Sync + Global Logo Alignment task.
+
+Updated wales-wtf-logo.webp → wales-wtf-logo.png in /data/leaderboard.json
+Updated europe-wtf-logo.jpg → europe-wtf-logo.png in /data/leaderboard.json
+Updated usa-wtf-logo.jpg → usa-wtf-logo.png in /data/leaderboard.json
+Updated germany-wtf-logo.jpg → germany-wtf-logo.png in /data/leaderboard.json
+Updated sweden-wtf-logo.jpg → sweden-wtf-logo.png in /data/leaderboard.json
+Updated ai-wtf-logo.webp → ai-wtf-logo.png in /data/leaderboard.json
+Updated ai-tech-wtf-logo.jpg → ai-tech-wtf-logo.png in /data/leaderboard.json
+Updated concepts-wtf-logo.webp → concepts-wtf-logo.png in /data/leaderboard.json
+Updated gadgets-wtf-logo.jpg → gadgets-wtf-logo.png in /data/leaderboard.json
+Updated c0medy-wtf-logo.jpg → c0medy-wtf-logo.png in /data/leaderboard.json
+Updated dark-humour-wtf-logo.jpg → dark-humour-wtf-logo.png in /data/leaderboard.json
+Updated wales-wtf-logo.webp → wales-wtf-logo.png in /data/worldcup.json
+Updated europe-wtf-logo.jpg → europe-wtf-logo.png in /data/worldcup.json
+Updated usa-wtf-logo.jpg → usa-wtf-logo.png in /data/worldcup.json
+Updated ai-wtf-logo.webp → ai-wtf-logo.png in /data/worldcup.json
+Updated germany-wtf-logo.jpg → germany-wtf-logo.png in /data/worldcup.json
+Updated ai-tech-wtf-logo.jpg → ai-tech-wtf-logo.png in /data/worldcup.json
+Updated wales-wtf-logo.webp → wales-wtf-logo.png in /data/worldcup.json
+Updated sweden-wtf-logo.jpg → sweden-wtf-logo.png in /data/worldcup.json
+Updated gadgets-wtf-logo.jpg → gadgets-wtf-logo.png in /data/worldcup.json
+Updated c0medy-wtf-logo.jpg → c0medy-wtf-logo.png in /data/worldcup.json
+Updated dark-humour-wtf-logo.jpg → dark-humour-wtf-logo.png in /data/worldcup.json
+Updated concepts-wtf-logo.webp → concepts-wtf-logo.png in /data/worldcup.json
+Updated europe-wtf-logo.jpg → europe-wtf-logo.png in /feed.html
+Updated ai-wtf-logo.webp → ai-wtf-logo.png in /feed.html
