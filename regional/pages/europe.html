@@ -1,256 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Europe WTF | WatchTheFall Regional Hub</title>
-    <meta name="description" content="WatchTheFall Scotland - Documenting the fall of Europe">
-    
-    <meta name="theme-color" content="#d4af37">
-    <link rel="manifest" href="../../manifest.json">
-    <link rel="icon" type="image/png" href="../../assets/logos/europe-wtf-logo.png">`r`n    `r`n    <!-- Font Awesome Icons -->`r`n    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <!-- Preload critical assets -->
-    <link rel="preload" href="../../styles/app.css" as="style">
-    <link rel="preload" href="../templates/europe_colors.css" as="style">
-    <link rel="preload" href="../../assets/logos/wtf-logo.png" as="image">
-    <link rel="preload" href="../../assets/logos/europe-wtf-logo.png" as="image">
-    
-    <!-- DNS prefetch for external resources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://www.instagram.com">
-    <link rel="dns-prefetch" href="https://www.tiktok.com">
-    
-    <!-- Load fonts with display=swap for faster rendering -->
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"></noscript>
-    
-    <link rel="stylesheet" href="../../styles/app.css">
-    <link rel="stylesheet" href="../templates/europe_colors.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Europe WTF | WatchTheFall Regional Hub</title>
+  <meta name="description" content="WatchTheFall Europe - Recording Europe's decline" />
+  <meta name="theme-color" content="#d4af37" />
+  <link rel="manifest" href="../../manifest.json" />
+  <link rel="icon" type="image/png" href="../../assets/logos/europe-wtf-logo.png" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" />
+
+  <!-- Preloads -->
+  <link rel="preload" href="../../styles/app.css" as="style" />
+  <link rel="preload" href="../templates/europe_colors.css" as="style" />
+  <link rel="preload" href="../../assets/logos/wtf-logo.png" as="image" />
+  <link rel="preload" href="../../assets/logos/europe-wtf-logo.png" as="image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet"></noscript>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../../styles/app.css" />
+  <link rel="stylesheet" href="../templates/europe_colors.css" />
 </head>
+
 <body class="page-regional page-europe">
-    <!-- Cinematic Video Background -->
-    <div class="video-background">
-        <video id="background-video" autoplay muted loop playsinline preload="auto" poster="../../assets/logos/europe-wtf-logo.png">
-            <source src="../../assets/video/main_bg.mp4" type="video/mp4">
-            <source src="../../assets/video/main_bg.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay europe-overlay"></div>
+  <!-- Background -->
+  <div class="video-background">
+    <video id="background-video" autoplay muted loop playsinline preload="auto"
+           poster="../../assets/logos/europe-wtf-logo.png">
+      <source src="../../assets/video/main_bg.mp4" type="video/mp4" />
+    </video>
+    <div class="video-overlay europe-overlay"></div>
+  </div>
+
+  <canvas id="network-canvas"></canvas>
+
+  <!-- Nav -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="../../index.html" class="nav-logo">
+        <img src="../../assets/logos/europe-wtf-logo.png" alt="Europe WTF" loading="eager" />
+        <span>Europe WTF</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../donate.html">Support</a></li>
+        <li><a href="../../index.html#worldcup">World Cup</a></li>
+        <li><a href="../../watchthefallrecords.html">WTF Creations</a></li>
+        <li><a href="../../feed.html">Directory</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <!-- Particle Network Canvas -->
-    <canvas id="network-canvas"></canvas>
+  <!-- Hero -->
+  <section class="regional-hero europe-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../../feed.html">Directory</a> / <span>Europe</span>
+      </div>
+      <img src="../../assets/logos/wtf-logo.png" alt="WatchTheFall" class="hero-wtf-logo" />
+      <h1 class="page-title europe-title">
+        <span class="region-logo-block">
+          <img src="../../assets/logos/europe-wtf-logo.png" alt="Europe" class="region-flag-logo" onerror="this.style.display='none'" />
+          <span class="region-name">Europe</span>
+        </span>
+        <span class="wtf-text">WatchTheFall</span>
+      </h1>
+      <p class="page-subtitle">In Varietate Concordia - Recording Europe's decline</p>
+      <p class="page-description">Across the continent, witnessing Europe's transformation</p>
+    </div>
+  </section>
 
-    <!-- Navigation -->
-    <nav class="main-nav">
-        <div class="nav-container">
-            <a href="../../index.html" class="nav-logo">
-                <img src="../../assets/logos/europe-wtf-logo.png" alt="Europe WTF" loading="eager">
-                <span>Europe WTF</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="../../index.html">Home</a></li>
-                <li><a href="../../donate.html">Support</a></li>
-                <li><a href="../../index.html#worldcup">World Cup</a></li>
-                <li><a href="../../watchthefallrecords.html">WTF Creations</a></li>
-                <li><a href="../../feed.html">Directory</a></li>
-            </ul>
+  <!-- Anthem -->
+  <section class="section anthem-section">
+    <div class="container">
+      <div class="anthem-player">
+        <div class="anthem-info">
+          <span class="anthem-icon"><i class="fas fa-music"></i></span>
+          <div class="anthem-text">
+            <h3 class="anthem-title">Europe WTF Anthem</h3>
+            <p class="anthem-subtitle">Official theme by WTF Records</p>
+          </div>
         </div>
-    </nav>
+        <audio id="europe-anthem" controls preload="none">
+          <source src="../../assets/brand_anthems/Europe WTF Anthem.m4a" type="audio/mp4" />
+          <source src="../../assets/brand_anthems/Europe WTF Anthem.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+  </section>
 
-    <!-- Hero Section -->
-    <section class="regional-hero europe-hero">
-        <div class="container">
-            <div class="breadcrumb">
-                <a href="../../feed.html">Directory</a> / <span>Europe</span>
-            </div>
-            <img src="../../assets/logos/wtf-logo.png" alt="WatchTheFall" class="hero-wtf-logo" loading="eager" />
-            <h1 class="page-title europe-title">
-                <span class="region-logo-block">
-                    <img src="../../assets/logos/europe-wtf-logo.png" alt="Europe" class="region-flag-logo" loading="eager" />
-                    <span class="region-name">Europe</span>
-                </span>
-                <span class="wtf-text">WatchTheFall</span>
-            </h1>
-            <p class="page-subtitle">In Varietate Concordia - Tracking the fall across Europe</p>
-            <p class="page-description">Across the continent, witnessing Europe's transformation</p>
+  <!-- Stats -->
+  <section class="section europe-stats">
+    <div class="container">
+      <h2 class="section-title">Europe Network</h2>
+      <div class="stats-grid">
+        <div class="stat-card card">
+          <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Growth</h3>
+          <div class="stat-value" id="growth-stat">+0.9K</div>
+          <p>New followers this week</p>
         </div>
-    </section>
-
-    <!-- Europe Anthem -->
-    <section class="section anthem-section">
-        <div class="container">
-            <div class="anthem-player">
-                <div class="anthem-info">
-                    <span class="anthem-icon"><i class="fas fa-music"></i></span>
-                    <div class="anthem-text">
-                        <h3 class="anthem-title">Europe WTF Anthem</h3>
-                        <p class="anthem-subtitle">Official theme by WTF Records</p>
-                    </div>
-                </div>
-                <audio id="europe-anthem" controls preload="none">
-                    <source src="../../assets/brand_anthems/Europe WTF Anthem.m4a" type="audio/mp4">
-                    <source src="../../assets/brand_anthems/Europe WTF Anthem.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
+        <div class="stat-card card">
+          <div class="stat-icon"><i class="fas fa-users"></i></div>
+          <h3>Total Reach</h3>
+          <div class="stat-value" id="total-followers-stat">Loading...</div>
+          <p>Total followers</p>
         </div>
-    </section>
-
-    <!-- Europe Stats Section -->
-    <section class="section europe-stats">
-        <div class="container">
-            <h2 class="section-title">Europe Network</h2>
-            <div class="stats-grid">
-                <div class="stat-card card">
-                    <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
-                    <h3>Growth</h3>
-                    <div class="stat-value" id="growth-stat">+1K</div>
-                    <p>New followers this week</p>
-                </div>
-                <div class="stat-card card">
-                    <div class="stat-icon"><i class="fas fa-users"></i></div>
-                    <h3>Total Reach</h3>
-                    <div class="stat-value" id="total-followers-stat">Loading...</div>
-                    <p>Total followers</p>
-                </div>
-                <div class="stat-card card">
-                    <div class="stat-icon"><i class="fas fa-video"></i></div>
-                    <h3>Weekly Content</h3>
-                    <div class="stat-value" id="weekly-content-stat">24+</div>
-                    <p>Posts per week</p>
-                </div>
-            </div>
+        <div class="stat-card card">
+          <div class="stat-icon"><i class="fas fa-video"></i></div>
+          <h3>Weekly Content</h3>
+          <div class="stat-value" id="weekly-content-stat">25+</div>
+          <p>Posts per week</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Social & Support Actions -->
-    <section class="section social-actions-section">
-        <div class="container">
-            <h2 class="section-title">Connect & Support</h2>
-            <div class="action-buttons">
-                <a href="https://www.instagram.com/europe.wtf" target="_blank" class="action-btn instagram-btn">
-                    <span class="btn-icon"><i class="fab fa-instagram"></i></span>
-                    <span class="btn-text">Instagram</span>
-                </a>
-                <a href="https://www.tiktok.com/@europe.wtf" target="_blank" class="action-btn tiktok-btn">
-                    <span class="btn-icon"><i class="fab fa-tiktok"></i></span>
-                    <span class="btn-text">TikTok</span>
-                </a>
-                <a href="https://x.com/europewtf" target="_blank" class="action-btn x-btn">
-                    <span class="btn-icon"><i class="fab fa-x-twitter"></i></span>
-                    <span class="btn-text">X</span>
-                </a>
-                <a href="https://www.youtube.com/@europewtf" target="_blank" class="action-btn youtube-btn">
-                    <span class="btn-icon"><i class="fab fa-youtube"></i></span>
-                    <span class="btn-text">YouTube</span>
-                </a>
-                <a href="https://www.threads.net/@europewtf" target="_blank" class="action-btn threads-btn">
-                    <span class="btn-icon"><i class="fab fa-threads"></i></span>
-                    <span class="btn-text">Threads</span>
-                </a>
-                <a href="../../watchthefallrecords.html" class="action-btn shop-btn">
-                    <span class="btn-icon"><i class="fas fa-shopping-cart"></i></span>
-                    <span class="btn-text">WTF Creations</span>
-                </a>
-                <a href="#support" class="action-btn support-btn">
-                    <span class="btn-icon"><i class="fas fa-hand-holding-usd"></i></span>
-                    <span class="btn-text">Support Us</span>
-                </a>
-            </div>
+  <!-- Social -->
+  <section class="section social-actions-section">
+    <div class="container">
+      <h2 class="section-title">Connect & Support</h2>
+      <div class="action-buttons">
+        <a href="https://www.instagram.com/europe.wtf" target="_blank" class="action-btn instagram-btn">
+          <span class="btn-icon"><i class="fab fa-instagram"></i></span><span class="btn-text">Instagram</span>
+        </a>
+        <a href="https://www.tiktok.com/@europe.wtf" target="_blank" class="action-btn tiktok-btn">
+          <span class="btn-icon"><i class="fab fa-tiktok"></i></span><span class="btn-text">TikTok</span>
+        </a>
+        <a href="https://x.com/europewtf" target="_blank" class="action-btn x-btn">
+          <span class="btn-icon"><i class="fab fa-x-twitter"></i></span><span class="btn-text">X</span>
+        </a>
+        <a href="https://www.youtube.com/@europewtf" target="_blank" class="action-btn youtube-btn">
+          <span class="btn-icon"><i class="fab fa-youtube"></i></span><span class="btn-text">YouTube</span>
+        </a>
+        <a href="https://www.threads.net/@europewtf" target="_blank" class="action-btn threads-btn">
+          <span class="btn-icon"><i class="fab fa-threads"></i></span><span class="btn-text">Threads</span>
+        </a>
+        <a href="../../watchthefallrecords.html" class="action-btn shop-btn">
+          <span class="btn-icon"><i class="fas fa-shopping-cart"></i></span><span class="btn-text">WTF Creations</span>
+        </a>
+        <a href="#support" class="action-btn support-btn">
+          <span class="btn-icon"><i class="fas fa-hand-holding-usd"></i></span><span class="btn-text">Support Us</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img src="../../assets/logos/europe-wtf-logo.png" alt="Europe WTF" />
+          <p>Recording Europe's decline</p>
         </div>
-    </section>
-
-    <!-- Content Console -->
-    <section id="content-console" class="section content-console-section">
-        <div class="container">
-            <!-- Content loaded dynamically by content_console.js -->
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../../watchthefallrecords.html">Shop</a></li>
+            <li><a href="../../feed.html">Directory</a></li>
+          </ul>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="../../assets/logos/europe-wtf-logo.png" alt="Europe WTF" loading="lazy">
-                    <p>Documenting the fall of Europe</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="../../index.html">Home</a></li>
-                        <li><a href="../../watchthefallrecords.html">Shop</a></li>
-                        <li><a href="../../feed.html">Directory</a></li>
-                    </ul>
-                </div>
-                <div class="footer-info">
-                    <h4>Europe WTF</h4>
-                    <p>Part of WatchTheFall Network</p>
-                    <p>In Varietate Concordia</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 WatchTheFall.wtf - Europe Regional Hub</p>
-            </div>
+        <div class="footer-info">
+          <h4>Europe WTF</h4>
+          <p>Part of WatchTheFall Network</p>
+          <p>In Varietate Concordia</p>
         </div>
-    </footer>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 WatchTheFall.wtf - Europe Regional Hub</p>
+      </div>
+    </div>
+  </footer>
 
-    <!-- Scripts (deferred for better performance) -->
-    <script src="../../scripts/utils/version.js" defer></script>
-    <script src="../../scripts/network.js" defer></script>
-    <script src="../../scripts/content_console.js" defer></script>
-    
-    <!-- Europe Stats Dynamic Loading (inline for immediate execution) -->
-    <script>
-        // Load Europe stats from World Cup data
-        async function loadEuropeStats() {
-            try {
-                const response = await fetch('../../data/worldcup.json');
-                const data = await response.json();
-                
-                // Find EuropeWTF in the data
-                const europeHub = data.regions.find(c => c.region === 'EuropeWTF');
-                
-                if (europeHub) {
-                    // Update Total Followers (TikTok + Instagram combined)
-                    const tiktokFollowers = europeHub.followers.tiktok || 0;
-                    const instagramFollowers = europeHub.followers.instagram || 0;
-                    const totalFollowers = tiktokFollowers + instagramFollowers;
-                    
-                    document.getElementById('total-followers-stat').textContent = 
-                        totalFollowers >= 1000000 ? (totalFollowers / 1000000).toFixed(1) + 'M' :
-                        totalFollowers >= 1000 ? (totalFollowers / 1000).toFixed(1) + 'K' :
-                        totalFollowers.toString();
-                }
-                
-                // Calculate weekly growth (random 7-21 day variation)
-                const daysVariation = 7 + Math.floor(Math.random() * 15); // 7-21 days
-                const baseWeeklyGrowth = 950;
-                const variance = Math.floor(Math.random() * 800) - 400; // +/- 400
-                const weeklyGrowth = baseWeeklyGrowth + variance;
-                
-                document.getElementById('growth-stat').textContent = 
-                    '+' + (weeklyGrowth >= 1000 ? (weeklyGrowth / 1000).toFixed(1) + 'K' : weeklyGrowth);
-                
-                // Calculate weekly content (base 30, varies with days)
-                const baseContent = 24;
-                const contentVariance = Math.floor(Math.random() * 10) - 5; // +/- 5
-                const weeklyContent = baseContent + contentVariance;
-                
-                document.getElementById('weekly-content-stat').textContent = weeklyContent + '+';
-                
-            } catch (error) {
-                console.error('Failed to load Europe stats:', error);
-                // Fallback values
-                document.getElementById('total-followers-stat').textContent = '0';
-            }
+  <!-- Scripts -->
+  <script src="../../scripts/utils/version.js" defer></script>
+  <script src="../../scripts/network.js" defer></script>
+  <script src="../../scripts/content_console.js" defer></script>
+
+  <script>
+    async function loadEuropeStats() {
+      try {
+        const response = await fetch('../../data/worldcup.json');
+        const data = await response.json();
+        const europeHub = data.regions.find(c => c.region === 'EuropeWTF');
+        if (europeHub) {
+          const totalFollowers = (europeHub.followers.tiktok || 0) + (europeHub.followers.instagram || 0);
+          document.getElementById('total-followers-stat').textContent =
+            totalFollowers >= 1e6
+              ? (totalFollowers / 1e6).toFixed(1) + 'M'
+              : totalFollowers >= 1e3
+              ? (totalFollowers / 1e3).toFixed(1) + 'K'
+              : totalFollowers;
         }
-        
-        // Load stats on page load
-        loadEuropeStats();
-    </script>
+      } catch {
+        document.getElementById('total-followers-stat').textContent = '0';
+      }
+    }
+    loadEuropeStats();
+  </script>
 </body>
 </html>
-
