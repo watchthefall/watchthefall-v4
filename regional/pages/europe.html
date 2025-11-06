@@ -165,6 +165,13 @@
     </div>
   </section>
 
+  <!-- Content Console -->
+  <section id="content-console" class="section content-console-section">
+    <div class="container">
+      <!-- Content loaded dynamically by content_console.js -->
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="main-footer">
     <div class="container">
@@ -199,25 +206,13 @@
   <script src="../../scripts/content_console.js" defer></script>
 
   <script>
-    async function loadEuropeStats() {
-      try {
-        const response = await fetch('../../data/worldcup.json');
-        const data = await response.json();
-        const europeHub = data.regions.find(c => c.region === 'EuropeWTF');
-        if (europeHub) {
-          const totalFollowers = (europeHub.followers.tiktok || 0) + (europeHub.followers.instagram || 0);
-          document.getElementById('total-followers-stat').textContent =
-            totalFollowers >= 1e6
-              ? (totalFollowers / 1e6).toFixed(1) + 'M'
-              : totalFollowers >= 1e3
-              ? (totalFollowers / 1e3).toFixed(1) + 'K'
-              : totalFollowers;
-        }
-      } catch {
-        document.getElementById('total-followers-stat').textContent = '0';
-      }
-    }
-    loadEuropeStats();
+    window.WTF && window.WTF.loadRegionStats('EuropeWTF', {
+      totalFollowersId: 'total-followers-stat',
+      growthId: 'growth-stat',
+      weeklyContentId: 'weekly-content-stat',
+      growthBase: 900,
+      weeklyContentBase: 25
+    });
   </script>
 </body>
 </html>

@@ -63,14 +63,14 @@
     // UK Cluster
     BritainWTF: 'assets/logos/britain-wtf-logo.png',
     EnglandWTF: 'assets/logos/england-wtf-logo.png',
-    WalesWTF: 'assets/logos/wales-wtf-logo.webp',
+    WalesWTF: 'assets/logos/wales-wtf-logo.png',
     NorthernIrelandWTF: 'assets/logos/northern-ireland-wtf-logo.png',
     
     // Europe Cluster
-    EuropeWTF: 'assets/logos/europe-wtf-logo.jpg',
+    EuropeWTF: 'assets/logos/europe-wtf-logo.png',
     IrelandWTF: 'assets/logos/ireland-wtf-logo.png',
     FranceWTF: 'assets/logos/france-wtf-logo.png',
-    GermanyWTF: 'assets/logos/germany-wtf-logo.jpg',
+    GermanyWTF: 'assets/logos/germany-wtf-logo.png',
     SpainWTF: 'assets/logos/spain-wtf-logo.png',
     ItalyWTF: 'assets/logos/italy-wtf-logo.png',
     NetherlandsWTF: 'assets/logos/netherlands-wtf-logo.png',
@@ -78,7 +78,7 @@
     SwedenWTF: 'assets/logos/sweden-wtf-logo.png',
     
     // Americas & Oceania
-    TheWestWTF: 'assets/logos/the-west-wtf.jpg',
+    TheWestWTF: 'assets/logos/the-west-wtf.png',
     USAmericaWTF: 'assets/logos/usa-wtf-logo.png',
     CanadaWTF: 'assets/logos/canada-wtf-logo.png',
     AustraliaWTF: 'assets/logos/australia-wtf-logo.png',
@@ -86,10 +86,10 @@
     // AI & Content Hubs
     AIWTF: 'assets/logos/ai-wtf-logo.webp',
     AITechWTF: 'assets/logos/ai-tech-wtf-logo.jpg',
-    GadgetsWTF: 'assets/logos/gadgets-wtf-logo.jpg',
+    GadgetsWTF: 'assets/logos/gadgets-wtf-logo.png',
     ComedyWTF: 'assets/logos/c0medy-wtf-logo.jpg',
-    DarkHumourWTF: 'assets/logos/dark-humour-wtf-logo.jpg',
-    ConceptsWTF: 'assets/logos/concepts-wtf-logo.webp'
+    DarkHumourWTF: 'assets/logos/dark-humour-wtf-logo.png',
+    ConceptsWTF: 'assets/logos/concepts-wtf-logo.png'
   };
 
   let worldCupData = [];
