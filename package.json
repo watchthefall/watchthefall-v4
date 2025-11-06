@@ -1,0 +1,20 @@
+{
+  "name": "watchthefall-v4",
+  "version": "4.4.0",
+  "description": "WatchTheFall - Documenting the collapse of civilization",
+  "type": "module",
+  "scripts": {
+    "test-printify": "node scripts/test_printify.js",
+    "sync-printify": "node scripts/sync_printify.js"
+  },
+  "keywords": [
+    "watchthefall",
+    "printify",
+    "pwa"
+  ],
+  "author": "WatchTheFall",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}

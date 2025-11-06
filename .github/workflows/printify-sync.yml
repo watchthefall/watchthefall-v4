@@ -26,9 +26,7 @@ jobs:
           PRINTIFY_SHOP_ID: ${{ secrets.PRINTIFY_SHOP_ID }}
         run: |
           echo "🔄 Syncing Printify products..."
-          # Future: Add Node.js script to fetch Printify API and update data/brands.json
-          # For now, manual updates required
-          echo "ℹ️ Manual sync required - add Printify API integration script"
+          node scripts/sync_printify.js
       
       - name: Commit and Push
         run: |
