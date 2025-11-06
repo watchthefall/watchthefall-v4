@@ -4,6 +4,7 @@
 // Fetches products from Printify API and updates data/brands.json
 // =====================================================================
 
+import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';

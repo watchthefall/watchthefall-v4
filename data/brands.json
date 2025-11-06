@@ -1,52 +1,87 @@
 {
   "products": [
     {
-      "title": "WTF Classic Tee",
-      "price": "24.99",
-      "category": "apparel",
-      "image": "assets/logos/wtf-logo.png",
-      "url": "https://printify.com/app/products"
-    },
-    {
-      "title": "Dystopian Hoodie",
-      "price": "49.99",
-      "category": "apparel",
-      "image": "assets/logos/wtf-logo.png",
-      "url": "https://printify.com/app/products"
-    },
-    {
-      "title": "Fall Observer Cap",
-      "price": "19.99",
+      "title": "Flexi Phone Cases ",
+      "price": "17.47",
       "category": "accessories",
-      "image": "assets/logos/wtf-logo.png",
-      "url": "https://printify.com/app/products"
+      "image": "https://images-api.printify.com/mockup/68f2da183c12cc054a0630c6/45045/1298/flexi-phone-cases.jpg?camera_label=front-and-side",
+      "url": "https://watchthefall.printify.me/product/68f2da183c12cc054a0630c6"
     },
     {
-      "title": "Collapse Mug",
-      "price": "14.99",
-      "category": "home",
-      "image": "assets/logos/wtf-logo.png",
-      "url": "https://printify.com/app/products"
-    },
-    {
-      "title": "WTF Poster",
-      "price": "29.99",
-      "category": "home",
-      "image": "assets/logos/wtf-logo.png",
-      "url": "https://printify.com/app/products"
-    },
-    {
-      "title": "Society Watch Tote",
-      "price": "18.99",
+      "title": "Pet Bandana Collar",
+      "price": "26.30",
       "category": "accessories",
-      "image": "assets/logos/wtf-logo.png",
-      "url": "https://printify.com/app/products"
+      "image": "https://images-api.printify.com/mockup/68f2bc3bfecc80c6bb0767d6/70843/11837/pet-bandana-collar.jpg?camera_label=front",
+      "url": "https://watchthefall.printify.me/product/68f2bc3bfecc80c6bb0767d6"
+    },
+    {
+      "title": "Stylish AOP Bucket Hat - Trendy Summer Accessory, Perfect for Festival Wear, Outdoor Adventures, Beach Days, and Vacation Style",
+      "price": "25.50",
+      "category": "accessories",
+      "image": "https://images-api.printify.com/mockup/68aa12ad57accd1d120e0f88/102977/100712/stylish-aop-bucket-hat-trendy-summer-accessory-perfect-for-festival-wear-outdoor-adventures-beach-days-and-vacation-style.jpg?camera_label=front",
+      "url": "https://watchthefall.printify.me/product/68aa12ad57accd1d120e0f88"
+    },
+    {
+      "title": "Sleek Smartphone Stand with 'WTF - Watch The Fall' Design, Modern Desk Accessory, Phone Holder, Gift for Tech Lovers, Office Decor, [...]",
+      "price": "13.40",
+      "category": "accessories",
+      "image": "https://images-api.printify.com/mockup/68aa1150658a862981076bdf/78012/33501/sleek-smartphone-stand-with-wtf-watch-the-fall-design-modern-desk-accessory-phone-holder-gift-for-tech-lovers-office-decor.jpg?camera_label=front",
+      "url": "https://watchthefall.printify.me/product/68aa1150658a862981076bdf"
+    },
+    {
+      "title": "Unisex Graphic T-Shirt - WTF Watch the Fall, Casual Wear, Statement Tee, Gift for Him/Her, Trendy Streetwear",
+      "price": "30.02",
+      "category": "apparel",
+      "image": "https://images-api.printify.com/mockup/68aa0f74a2d0e504f808a44f/73204/98445/unisex-graphic-t-shirt-wtf-watch-the-fall-casual-wear-statement-tee-gift-for-himher-trendy-streetwear.jpg?camera_label=front",
+      "url": "https://watchthefall.printify.me/product/68aa0f74a2d0e504f808a44f"
+    },
+    {
+      "title": "Vintage-Inspired Graphic T-Shirt: WTF - Watch The Fall, Unisex Tee, Casual Wear, Statement Shirt, Gift for Friends, Unique Fashion",
+      "price": "29.48",
+      "category": "apparel",
+      "image": "https://images-api.printify.com/mockup/6868bf2d50206fbd5b0d247c/73204/98445/vintage-inspired-graphic-t-shirt-wtf-watch-the-fall-unisex-tee-casual-wear-statement-shirt-gift-for-friends-unique-fashion.jpg?camera_label=front",
+      "url": "https://watchthefall.printify.me/product/6868bf2d50206fbd5b0d247c"
+    },
+    {
+      "title": "WTF Scotland Two-Tier Bento Box – Fun Lunch Container for School and Work",
+      "price": "16.93",
+      "category": "home",
+      "image": "https://images-api.printify.com/mockup/6815a67c64bdd1b0c608cb94/74332/19236/wtf-scotland-two-tier-bento-box-fun-lunch-container-for-school-and-work.jpg?camera_label=front",
+      "url": "https://watchthefall.printify.me/product/6815a67c64bdd1b0c608cb94"
+    },
+    {
+      "title": "Men's Pajama Pants (AOP)",
+      "price": "57.78",
+      "category": "apparel",
+      "image": "https://images-api.printify.com/mockup/6815a62ec21397c44d05c845/74882/19086/mens-pajama-pants-aop.jpg?camera_label=front",
+      "url": "https://watchthefall.printify.me/product/6815a62ec21397c44d05c845"
+    },
+    {
+      "title": "WTF Scotland Full Zip Hoodie – Unisex Heavy Blend",
+      "price": "55.23",
+      "category": "apparel",
+      "image": "https://images-api.printify.com/mockup/6815a532c21397c44d05c816/31950/108335/wtf-scotland-full-zip-hoodie-unisex-heavy-blend.jpg?camera_label=front",
+      "url": "https://watchthefall.printify.me/product/6815a532c21397c44d05c816"
+    },
+    {
+      "title": "Scottish Heritage Stainless Steel Water Bottle - Adventure & Tradition",
+      "price": "38.13",
+      "category": "home",
+      "image": "https://images-api.printify.com/mockup/6815a3500ed813d9e508b14e/77044/100772/scottish-heritage-stainless-steel-water-bottle-adventure-tradition.jpg?camera_label=front",
+      "url": "https://watchthefall.printify.me/product/6815a3500ed813d9e508b14e"
+    },
+    {
+      "title": "WTF Scotland Ceramic Mug - Unique 11oz & 15oz Drinking Cup for Coffee Lovers",
+      "price": "7.68",
+      "category": "home",
+      "image": "https://images-api.printify.com/mockup/6815a292c21397c44d05c79c/65216/6310/wtf-scotland-ceramic-mug-unique-11oz-15oz-drinking-cup-for-coffee-lovers.jpg?camera_label=front",
+      "url": "https://watchthefall.printify.me/product/6815a292c21397c44d05c79c"
     }
   ],
   "brandLinks": [
     {
-      "name": "Visit Printify Store",
-      "url": "https://printify.com"
+      "name": "Visit WTF Creations Store",
+      "url": "https://watchthefall.printify.me"
     }
   ]
 }
