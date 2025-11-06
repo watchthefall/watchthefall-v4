@@ -46,6 +46,26 @@
       "title": "Empire's End: Britain 2025",
       "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
       "description": "The final days of a fading power"
+    },
+    {
+      "title": "Britain Placeholder 2",
+      "url": "https://www.youtube.com/embed/placeholder2",
+      "description": "Placeholder content"
+    },
+    {
+      "title": "Britain Placeholder 3",
+      "url": "https://www.youtube.com/embed/placeholder3",
+      "description": "Placeholder content"
+    },
+    {
+      "title": "Britain Placeholder 4",
+      "url": "https://www.youtube.com/embed/placeholder4",
+      "description": "Placeholder content"
+    },
+    {
+      "title": "Britain Placeholder 5",
+      "url": "https://www.youtube.com/embed/placeholder5",
+      "description": "Placeholder content"
     }
   ],
   "usamerica": [
@@ -58,6 +78,21 @@
       "title": "Empire Collapse: USA Edition",
       "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
       "description": "The American experiment unravels"
+    },
+    {
+      "title": "USA Placeholder 3",
+      "url": "https://www.youtube.com/embed/placeholder3",
+      "description": "Placeholder content"
+    },
+    {
+      "title": "USA Placeholder 4",
+      "url": "https://www.youtube.com/embed/placeholder4",
+      "description": "Placeholder content"
+    },
+    {
+      "title": "USA Placeholder 5",
+      "url": "https://www.youtube.com/embed/placeholder5",
+      "description": "Placeholder content"
     }
   ],
   "europe": [
@@ -65,6 +100,26 @@
       "title": "EU Bureaucracy: The Final Form",
       "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
       "description": "When regulation meets reality"
+    },
+    {
+      "title": "Europe Placeholder 2",
+      "url": "https://www.youtube.com/embed/placeholder2",
+      "description": "Placeholder content"
+    },
+    {
+      "title": "Europe Placeholder 3",
+      "url": "https://www.youtube.com/embed/placeholder3",
+      "description": "Placeholder content"
+    },
+    {
+      "title": "Europe Placeholder 4",
+      "url": "https://www.youtube.com/embed/placeholder4",
+      "description": "Placeholder content"
+    },
+    {
+      "title": "Europe Placeholder 5",
+      "url": "https://www.youtube.com/embed/placeholder5",
+      "description": "Placeholder content"
     }
   ],
   "ai": [
@@ -77,6 +132,21 @@
       "title": "Singularity Watch",
       "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
       "description": "The point of no return approaches"
+    },
+    {
+      "title": "AI Placeholder 3",
+      "url": "https://www.youtube.com/embed/placeholder3",
+      "description": "Placeholder content"
+    },
+    {
+      "title": "AI Placeholder 4",
+      "url": "https://www.youtube.com/embed/placeholder4",
+      "description": "Placeholder content"
+    },
+    {
+      "title": "AI Placeholder 5",
+      "url": "https://www.youtube.com/embed/placeholder5",
+      "description": "Placeholder content"
     }
   ],
   "global": [
@@ -84,6 +154,110 @@
       "title": "Civilization Speedrun Any%",
       "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
       "description": "How fast can we collapse?"
+    },
+    {
+      "title": "Global Placeholder 2",
+      "url": "https://www.youtube.com/embed/placeholder2",
+      "description": "Placeholder content"
+    },
+    {
+      "title": "Global Placeholder 3",
+      "url": "https://www.youtube.com/embed/placeholder3",
+      "description": "Placeholder content"
+    },
+    {
+      "title": "Global Placeholder 4",
+      "url": "https://www.youtube.com/embed/placeholder4",
+      "description": "Placeholder content"
+    },
+    {
+      "title": "Global Placeholder 5",
+      "url": "https://www.youtube.com/embed/placeholder5",
+      "description": "Placeholder content"
     }
+  ],
+  "england": [
+    {"title": "England Placeholder 1", "url": "https://www.youtube.com/embed/placeholder1", "description": "Placeholder content"},
+    {"title": "England Placeholder 2", "url": "https://www.youtube.com/embed/placeholder2", "description": "Placeholder content"},
+    {"title": "England Placeholder 3", "url": "https://www.youtube.com/embed/placeholder3", "description": "Placeholder content"},
+    {"title": "England Placeholder 4", "url": "https://www.youtube.com/embed/placeholder4", "description": "Placeholder content"},
+    {"title": "England Placeholder 5", "url": "https://www.youtube.com/embed/placeholder5", "description": "Placeholder content"}
+  ],
+  "wales": [
+    {"title": "Wales Placeholder 1", "url": "https://www.youtube.com/embed/placeholder1", "description": "Placeholder content"},
+    {"title": "Wales Placeholder 2", "url": "https://www.youtube.com/embed/placeholder2", "description": "Placeholder content"},
+    {"title": "Wales Placeholder 3", "url": "https://www.youtube.com/embed/placeholder3", "description": "Placeholder content"},
+    {"title": "Wales Placeholder 4", "url": "https://www.youtube.com/embed/placeholder4", "description": "Placeholder content"},
+    {"title": "Wales Placeholder 5", "url": "https://www.youtube.com/embed/placeholder5", "description": "Placeholder content"}
+  ],
+  "ireland": [
+    {"title": "Ireland Placeholder 1", "url": "https://www.youtube.com/embed/placeholder1", "description": "Placeholder content"},
+    {"title": "Ireland Placeholder 2", "url": "https://www.youtube.com/embed/placeholder2", "description": "Placeholder content"},
+    {"title": "Ireland Placeholder 3", "url": "https://www.youtube.com/embed/placeholder3", "description": "Placeholder content"},
+    {"title": "Ireland Placeholder 4", "url": "https://www.youtube.com/embed/placeholder4", "description": "Placeholder content"},
+    {"title": "Ireland Placeholder 5", "url": "https://www.youtube.com/embed/placeholder5", "description": "Placeholder content"}
+  ],
+  "france": [
+    {"title": "France Placeholder 1", "url": "https://www.youtube.com/embed/placeholder1", "description": "Placeholder content"},
+    {"title": "France Placeholder 2", "url": "https://www.youtube.com/embed/placeholder2", "description": "Placeholder content"},
+    {"title": "France Placeholder 3", "url": "https://www.youtube.com/embed/placeholder3", "description": "Placeholder content"},
+    {"title": "France Placeholder 4", "url": "https://www.youtube.com/embed/placeholder4", "description": "Placeholder content"},
+    {"title": "France Placeholder 5", "url": "https://www.youtube.com/embed/placeholder5", "description": "Placeholder content"}
+  ],
+  "germany": [
+    {"title": "Germany Placeholder 1", "url": "https://www.youtube.com/embed/placeholder1", "description": "Placeholder content"},
+    {"title": "Germany Placeholder 2", "url": "https://www.youtube.com/embed/placeholder2", "description": "Placeholder content"},
+    {"title": "Germany Placeholder 3", "url": "https://www.youtube.com/embed/placeholder3", "description": "Placeholder content"},
+    {"title": "Germany Placeholder 4", "url": "https://www.youtube.com/embed/placeholder4", "description": "Placeholder content"},
+    {"title": "Germany Placeholder 5", "url": "https://www.youtube.com/embed/placeholder5", "description": "Placeholder content"}
+  ],
+  "spain": [
+    {"title": "Spain Placeholder 1", "url": "https://www.youtube.com/embed/placeholder1", "description": "Placeholder content"},
+    {"title": "Spain Placeholder 2", "url": "https://www.youtube.com/embed/placeholder2", "description": "Placeholder content"},
+    {"title": "Spain Placeholder 3", "url": "https://www.youtube.com/embed/placeholder3", "description": "Placeholder content"},
+    {"title": "Spain Placeholder 4", "url": "https://www.youtube.com/embed/placeholder4", "description": "Placeholder content"},
+    {"title": "Spain Placeholder 5", "url": "https://www.youtube.com/embed/placeholder5", "description": "Placeholder content"}
+  ],
+  "italy": [
+    {"title": "Italy Placeholder 1", "url": "https://www.youtube.com/embed/placeholder1", "description": "Placeholder content"},
+    {"title": "Italy Placeholder 2", "url": "https://www.youtube.com/embed/placeholder2", "description": "Placeholder content"},
+    {"title": "Italy Placeholder 3", "url": "https://www.youtube.com/embed/placeholder3", "description": "Placeholder content"},
+    {"title": "Italy Placeholder 4", "url": "https://www.youtube.com/embed/placeholder4", "description": "Placeholder content"},
+    {"title": "Italy Placeholder 5", "url": "https://www.youtube.com/embed/placeholder5", "description": "Placeholder content"}
+  ],
+  "netherlands": [
+    {"title": "Netherlands Placeholder 1", "url": "https://www.youtube.com/embed/placeholder1", "description": "Placeholder content"},
+    {"title": "Netherlands Placeholder 2", "url": "https://www.youtube.com/embed/placeholder2", "description": "Placeholder content"},
+    {"title": "Netherlands Placeholder 3", "url": "https://www.youtube.com/embed/placeholder3", "description": "Placeholder content"},
+    {"title": "Netherlands Placeholder 4", "url": "https://www.youtube.com/embed/placeholder4", "description": "Placeholder content"},
+    {"title": "Netherlands Placeholder 5", "url": "https://www.youtube.com/embed/placeholder5", "description": "Placeholder content"}
+  ],
+  "poland": [
+    {"title": "Poland Placeholder 1", "url": "https://www.youtube.com/embed/placeholder1", "description": "Placeholder content"},
+    {"title": "Poland Placeholder 2", "url": "https://www.youtube.com/embed/placeholder2", "description": "Placeholder content"},
+    {"title": "Poland Placeholder 3", "url": "https://www.youtube.com/embed/placeholder3", "description": "Placeholder content"},
+    {"title": "Poland Placeholder 4", "url": "https://www.youtube.com/embed/placeholder4", "description": "Placeholder content"},
+    {"title": "Poland Placeholder 5", "url": "https://www.youtube.com/embed/placeholder5", "description": "Placeholder content"}
+  ],
+  "sweden": [
+    {"title": "Sweden Placeholder 1", "url": "https://www.youtube.com/embed/placeholder1", "description": "Placeholder content"},
+    {"title": "Sweden Placeholder 2", "url": "https://www.youtube.com/embed/placeholder2", "description": "Placeholder content"},
+    {"title": "Sweden Placeholder 3", "url": "https://www.youtube.com/embed/placeholder3", "description": "Placeholder content"},
+    {"title": "Sweden Placeholder 4", "url": "https://www.youtube.com/embed/placeholder4", "description": "Placeholder content"},
+    {"title": "Sweden Placeholder 5", "url": "https://www.youtube.com/embed/placeholder5", "description": "Placeholder content"}
+  ],
+  "canada": [
+    {"title": "Canada Placeholder 1", "url": "https://www.youtube.com/embed/placeholder1", "description": "Placeholder content"},
+    {"title": "Canada Placeholder 2", "url": "https://www.youtube.com/embed/placeholder2", "description": "Placeholder content"},
+    {"title": "Canada Placeholder 3", "url": "https://www.youtube.com/embed/placeholder3", "description": "Placeholder content"},
+    {"title": "Canada Placeholder 4", "url": "https://www.youtube.com/embed/placeholder4", "description": "Placeholder content"},
+    {"title": "Canada Placeholder 5", "url": "https://www.youtube.com/embed/placeholder5", "description": "Placeholder content"}
+  ],
+  "australia": [
+    {"title": "Australia Placeholder 1", "url": "https://www.youtube.com/embed/placeholder1", "description": "Placeholder content"},
+    {"title": "Australia Placeholder 2", "url": "https://www.youtube.com/embed/placeholder2", "description": "Placeholder content"},
+    {"title": "Australia Placeholder 3", "url": "https://www.youtube.com/embed/placeholder3", "description": "Placeholder content"},
+    {"title": "Australia Placeholder 4", "url": "https://www.youtube.com/embed/placeholder4", "description": "Placeholder content"},
+    {"title": "Australia Placeholder 5", "url": "https://www.youtube.com/embed/placeholder5", "description": "Placeholder content"}
   ]
 }
