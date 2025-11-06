@@ -16,12 +16,13 @@
     
     let currentPlatform = 'tiktok'; // Default active platform
     let observer = null;
+    let regionRank = null; // Store region's World Cup rank
     
     const PLATFORM_CONFIG = {
         tiktok: {
             name: 'TikTok',
             icon: '📱',
-            limit: 15, // 13 videos + 2 ads
+            limit: 15, // Base: 13 videos + 2 ads
             contentCount: 13,
             adPositions: [6, 13],
             color: '#fe2c55',
@@ -30,7 +31,7 @@
         instagram: {
             name: 'Instagram',
             icon: '📷',
-            limit: 15, // 13 reels + 2 ads
+            limit: 15, // Base: 13 reels + 2 ads
             contentCount: 13,
             adPositions: [6, 13],
             color: '#e4405f',
@@ -64,6 +65,66 @@
             preloadCount: 2
         }
     };
+    
+    // Tier allocation based on World Cup rank
+    function getTierConfig(rank) {
+        if (rank >= 1 && rank <= 3) {
+            // Tier S: Top 3
+            return {
+                tiktok: { limit: 15, contentCount: 13, adPositions: [6, 13] },
+                instagram: { limit: 15, contentCount: 13, adPositions: [6, 13] },
+                youtube: { limit: 8, contentCount: 8 },
+                x: { limit: 5, contentCount: 5 },
+                threads: { limit: 5, contentCount: 5 }
+            };
+        } else if (rank >= 4 && rank <= 8) {
+            // Tier A: Ranks 4-8
+            return {
+                tiktok: { limit: 11, contentCount: 10, adPositions: [6] },
+                instagram: { limit: 11, contentCount: 10, adPositions: [6] },
+                youtube: { limit: 6, contentCount: 6 },
+                x: { limit: 5, contentCount: 5 },
+                threads: { limit: 5, contentCount: 5 }
+            };
+        } else if (rank >= 9 && rank <= 16) {
+            // Tier B: Ranks 9-16
+            return {
+                tiktok: { limit: 9, contentCount: 8, adPositions: [6] },
+                instagram: { limit: 9, contentCount: 8, adPositions: [6] },
+                youtube: { limit: 5, contentCount: 5 },
+                x: { limit: 5, contentCount: 5 },
+                threads: { limit: 5, contentCount: 5 }
+            };
+        } else {
+            // Tier C: Rank 17+
+            return {
+                tiktok: { limit: 7, contentCount: 6, adPositions: [6] },
+                instagram: { limit: 7, contentCount: 6, adPositions: [6] },
+                youtube: { limit: 5, contentCount: 5 },
+                x: { limit: 5, contentCount: 5 },
+                threads: { limit: 5, contentCount: 5 }
+            };
+        }
+    }
+    
+    // Apply tier config to platform settings
+    function applyTierConfig(rank) {
+        if (!rank) return; // Use defaults if no rank
+        
+        const tierConfig = getTierConfig(rank);
+        
+        Object.keys(tierConfig).forEach(platform => {
+            if (PLATFORM_CONFIG[platform]) {
+                PLATFORM_CONFIG[platform].limit = tierConfig[platform].limit;
+                PLATFORM_CONFIG[platform].contentCount = tierConfig[platform].contentCount;
+                if (tierConfig[platform].adPositions) {
+                    PLATFORM_CONFIG[platform].adPositions = tierConfig[platform].adPositions;
+                }
+            }
+        });
+        
+        console.log(`✅ Tier applied for rank ${rank}: TikTok=${PLATFORM_CONFIG.tiktok.contentCount} content, Instagram=${PLATFORM_CONFIG.instagram.contentCount} content`);
+    }
     
     // Auto-detect region from page URL
     function detectRegion() {
@@ -117,6 +178,43 @@
         const dataPath = isRootPage ? 'data/' : '../../data/';
         
         try {
+            // Load World Cup data to get region rank
+            const worldcupData = await fetch(dataPath + 'worldcup.json').then(r => r.ok ? r.json() : {});
+            const regions = worldcupData.regions || [];
+            
+            // Map region page name to World Cup region name
+            const regionNameMap = {
+                'scotland': 'ScotlandWTF',
+                'britain': 'BritainWTF',
+                'england': 'EnglandWTF',
+                'wales': 'WalesWTF',
+                'ireland': 'IrelandWTF',
+                'france': 'FranceWTF',
+                'germany': 'GermanyWTF',
+                'spain': 'SpainWTF',
+                'italy': 'ItalyWTF',
+                'netherlands': 'NetherlandsWTF',
+                'poland': 'PolandWTF',
+                'sweden': 'SwedenWTF',
+                'europe': 'EuropeWTF',
+                'usamerica': 'USAmericaWTF',
+                'canada': 'CanadaWTF',
+                'australia': 'AustraliaWTF',
+                'ai': 'AIWTF'
+            };
+            
+            // Sort regions by points to get rank
+            const sortedRegions = [...regions].sort((a, b) => (b.points || 0) - (a.points || 0));
+            const wcRegionName = regionNameMap[region];
+            
+            if (wcRegionName) {
+                const rankIndex = sortedRegions.findIndex(r => r.region === wcRegionName);
+                if (rankIndex !== -1) {
+                    regionRank = rankIndex + 1;
+                    applyTierConfig(regionRank);
+                }
+            }
+            
             // Load all datasets in parallel
             const [contentFeedsData, youtubeData, xData, threadsData] = await Promise.all([
                 fetch(dataPath + 'content_feeds.json').then(r => r.ok ? r.json() : {}),
@@ -125,9 +223,9 @@
                 fetch(dataPath + 'threads.json').then(r => r.ok ? r.json() : {})
             ]);
             
-            // Extract region-specific content for TikTok and Instagram
-            regionData.tiktok = (contentFeedsData.tiktok?.regional?.[region] || []).slice(0, 13);
-            regionData.instagram = (contentFeedsData.instagram?.regional?.[region] || []).slice(0, 13);
+            // Extract region-specific content for TikTok and Instagram (use tier-adjusted contentCount)
+            regionData.tiktok = (contentFeedsData.tiktok?.regional?.[region] || []).slice(0, PLATFORM_CONFIG.tiktok.contentCount);
+            regionData.instagram = (contentFeedsData.instagram?.regional?.[region] || []).slice(0, PLATFORM_CONFIG.instagram.contentCount);
             
             // Extract region-specific content for YouTube, X, Threads
             regionData.youtube = (youtubeData[region] || []).slice(0, PLATFORM_CONFIG.youtube.limit);
@@ -142,7 +240,7 @@
             if (regionData.x.length > 0) activePlatforms.push('X');
             if (regionData.threads.length > 0) activePlatforms.push('Threads');
             
-            console.log(`✅ Content Console Loaded | Region: ${region} | Platforms: ${activePlatforms.join(', ')}`);
+            console.log(`✅ Content Console Loaded | Region: ${region} | Rank: ${regionRank || 'N/A'} | Platforms: ${activePlatforms.join(', ')}`);
             
             // Render the console
             renderContentConsole(container, region);
