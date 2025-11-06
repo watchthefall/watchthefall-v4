@@ -366,13 +366,13 @@
     
     function createAdBox(position) {
         return `
-            <div class="console-box ad-box">
+            <a href="https://qoder.com/referral?referral_code=ZnT4mhAIRJYHD7JEVAI57wueJw0yr2qS" target="_blank" class="console-box ad-box" style="text-decoration: none; display: block;">
                 <div class="ad-content">
-                    <span class="ad-icon">📰</span>
-                    <p class="ad-text">Ad Slot ${position}</p>
-                    <p class="ad-subtext">Support WatchTheFall</p>
+                    <span class="ad-icon">💻</span>
+                    <p class="ad-text">Try Qoder AI</p>
+                    <p class="ad-subtext">Next-Gen Code Editor</p>
                 </div>
-            </div>
+            </a>
         `;
     }
     

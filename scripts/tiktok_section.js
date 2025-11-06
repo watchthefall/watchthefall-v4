@@ -192,15 +192,15 @@
     
     function createAdBox(position) {
         return `
-            <div class="content-box ad-box">
+            <a href="https://qoder.com/referral?referral_code=ZnT4mhAIRJYHD7JEVAI57wueJw0yr2qS" target="_blank" class="content-box ad-box" style="text-decoration: none; display: block;">
                 <div class="ad-placeholder">
-                    <span class="ad-label">ADVERTISEMENT</span>
+                    <span class="ad-label">SPONSORED</span>
                     <div class="ad-content">
-                        <p>Ad Space ${position === 6 ? '1' : '2'}</p>
-                        <span class="ad-dimensions">320x570</span>
+                        <p>💻 Try Qoder AI</p>
+                        <span class="ad-dimensions">Next-Gen Code Editor</span>
                     </div>
                 </div>
-            </div>
+            </a>
         `;
     }
     
