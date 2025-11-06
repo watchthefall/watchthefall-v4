@@ -180,7 +180,7 @@
   }
 
   function formatNumber(n) {
-    const v = Number(n || 0);
+    const v = Math.round(Number(n || 0)); // Round to avoid floating point precision issues
     if (v >= 1000000) return (v / 1000000).toFixed(1) + 'M';
     if (v >= 1000) return (v / 1000).toFixed(1) + 'K';
     return v.toString();
