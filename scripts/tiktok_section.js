@@ -91,7 +91,7 @@
             if (adPositions.includes(pos)) {
                 boxes.push(createAdBox(pos));
             } else if (videoIndex < videos.length) {
-                boxes.push(createContentBox(videos[videoIndex], currentPlatform, videoIndex < 3));
+                boxes.push(createContentBox(videos[videoIndex], currentPlatform, false)); // Changed to false - no preload
                 videoIndex++;
             } else {
                 boxes.push(createPlaceholderBox(currentPlatform));

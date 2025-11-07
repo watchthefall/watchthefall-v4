@@ -26,7 +26,7 @@
             contentCount: 13,
             adPositions: [6, 13],
             color: '#fe2c55',
-            preloadCount: 3
+            preloadCount: 0 // Changed from 3 to 0 for better performance
         },
         instagram: {
             name: 'Instagram',
@@ -35,7 +35,7 @@
             contentCount: 13,
             adPositions: [6, 13],
             color: '#e4405f',
-            preloadCount: 3
+            preloadCount: 0 // Changed from 3 to 0 for better performance
         },
         youtube: {
             name: 'YouTube',
@@ -44,7 +44,7 @@
             contentCount: 8,
             adPositions: [],
             color: '#ff0000',
-            preloadCount: 2
+            preloadCount: 0 // Changed from 2 to 0 for better performance
         },
         x: {
             name: 'X',
@@ -53,7 +53,7 @@
             contentCount: 5,
             adPositions: [],
             color: '#1da1f2',
-            preloadCount: 2
+            preloadCount: 0 // Changed from 2 to 0 for better performance
         },
         threads: {
             name: 'Threads',
@@ -62,7 +62,7 @@
             contentCount: 5,
             adPositions: [],
             color: '#000000',
-            preloadCount: 2
+            preloadCount: 0 // Changed from 2 to 0 for better performance
         }
     };
     
