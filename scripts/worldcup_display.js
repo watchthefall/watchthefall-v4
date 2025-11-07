@@ -62,12 +62,14 @@
                 <div class="rank"><strong>Rank</strong></div>
                 <div><strong>Hub</strong></div>
                 <div><strong>${metricLabel}</strong></div>
-                <div class="metric-toggle-header">
-                    <select id="metric-toggle" class="metric-selector">
-                        <option value="points" ${currentMetric === 'points' ? 'selected' : ''}>Points</option>
-                        <option value="followers" ${currentMetric === 'followers' ? 'selected' : ''}>Followers</option>
-                    </select>
-                </div>
+                <div><strong>Change</strong></div>
+            </div>
+            <div style="display: flex; justify-content: flex-end; padding: 0.5rem 1rem; gap: 0.5rem;">
+                <label for="metric-toggle" style="opacity: 0.7; font-size: 0.875rem;">View:</label>
+                <select id="metric-toggle" class="metric-selector">
+                    <option value="points" ${currentMetric === 'points' ? 'selected' : ''}>Points</option>
+                    <option value="followers" ${currentMetric === 'followers' ? 'selected' : ''}>Followers</option>
+                </select>
             </div>
             ${top10.map((entry, index) => {
                 const value = currentMetric === 'points' 
