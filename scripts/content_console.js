@@ -395,6 +395,8 @@
                     html += createPlaceholderBox(platform);
                 }
             }
+            // Add "More" box at the end
+            html += createMoreBox(platform);
         } else {
             // For YouTube, X, Threads: just render items
             items.forEach((item, index) => {
@@ -406,6 +408,8 @@
                     html += createThreadsBox(item, index < config.preloadCount);
                 }
             });
+            // Add "More" box at the end
+            html += createMoreBox(platform);
         }
         
         html += '</div>';
@@ -483,6 +487,62 @@
                     <p class="placeholder-text">Coming Soon</p>
                 </div>
             </div>
+        `;
+    }
+    
+    function createMoreBox(platform) {
+        const region = detectRegion();
+        
+        // Map regions to their social media handles
+        const socialHandles = {
+            'scotland': { tiktok: '@scotland.wtf', instagram: 'scotland.wtf', youtube: '', x: '', threads: '' },
+            'britain': { tiktok: '@britainwtf', instagram: 'britainwtf', youtube: '', x: '', threads: '' },
+            'england': { tiktok: '@englandwtf', instagram: 'englandwtf', youtube: '', x: '', threads: '' },
+            'wales': { tiktok: '@waleswtf', instagram: 'waleswtf', youtube: '', x: '', threads: '' },
+            'ireland': { tiktok: '@irelandwtf', instagram: 'irelandwtf', youtube: '', x: '', threads: '' },
+            'france': { tiktok: '@francewtf', instagram: 'francewtf', youtube: '', x: '', threads: '' },
+            'germany': { tiktok: '@germanywtf', instagram: 'germanywtf', youtube: '', x: '', threads: '' },
+            'spain': { tiktok: '@spainwtf', instagram: 'spainwtf', youtube: '', x: '', threads: '' },
+            'italy': { tiktok: '@italywtf', instagram: 'italywtf', youtube: '', x: '', threads: '' },
+            'netherlands': { tiktok: '@netherlandswtf', instagram: 'netherlandswtf', youtube: '', x: '', threads: '' },
+            'poland': { tiktok: '@polandwtf', instagram: 'polandwtf', youtube: '', x: '', threads: '' },
+            'sweden': { tiktok: '@swedenwtf', instagram: 'swedenwtf', youtube: '', x: '', threads: '' },
+            'europe': { tiktok: '@europewtf', instagram: 'europewtf', youtube: '', x: '', threads: '' },
+            'usamerica': { tiktok: '@usa_wtf', instagram: 'usa_wtf', youtube: '', x: '', threads: '' },
+            'canada': { tiktok: '@canadawtf', instagram: 'canadawtf', youtube: '', x: '', threads: '' },
+            'australia': { tiktok: '@australiawtf', instagram: 'australiawtf', youtube: '', x: '', threads: '' },
+            'ai': { tiktok: '@a.i.wtf', instagram: 'a.i.wtf', youtube: '', x: '', threads: '' }
+        };
+        
+        const handle = socialHandles[region]?.[platform] || '';
+        if (!handle) {
+            return ''; // Don't show "More" if no handle exists
+        }
+        
+        // Generate profile URLs based on platform
+        let profileUrl = '';
+        if (platform === 'tiktok') {
+            profileUrl = `https://www.tiktok.com/${handle}`;
+        } else if (platform === 'instagram') {
+            profileUrl = `https://www.instagram.com/${handle}`;
+        } else if (platform === 'youtube') {
+            profileUrl = handle; // Provide full YouTube channel URL
+        } else if (platform === 'x') {
+            profileUrl = `https://x.com/${handle}`;
+        } else if (platform === 'threads') {
+            profileUrl = `https://www.threads.net/${handle}`;
+        }
+        
+        const config = PLATFORM_CONFIG[platform];
+        
+        return `
+            <a href="${profileUrl}" target="_blank" class="console-box more-box" style="text-decoration: none; display: block;">
+                <div class="more-content">
+                    <span class="more-icon">${config.icon}</span>
+                    <p class="more-text">See More</p>
+                    <p class="more-subtext">Visit Profile</p>
+                </div>
+            </a>
         `;
     }
     
