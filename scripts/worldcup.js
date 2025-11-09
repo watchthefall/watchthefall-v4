@@ -202,8 +202,8 @@
 
     const effectiveMetric = isMetricAllZeros(metric) ? 'points' : metric;
     const sorted = sortData(effectiveMetric);
-    const headerMetricLabel = (effectiveMetric === 'points') ? 'Points' : 'Followers';
-    const headerChangeLabel = (effectiveMetric === 'points') ? 'Change' : 'Change vs Previous';
+    const headerMetricLabel = METRIC_LABELS[effectiveMetric] || 'Points';
+    const headerChangeLabel = 'Change';
 
     const tableHtml = `
       <div class="wc-header">
