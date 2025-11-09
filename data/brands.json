@@ -1,6 +1,13 @@
 {
   "products": [
     {
+      "title": "ScotlandWTF “Piper Edition” Tee",
+      "price": "47.30",
+      "category": "apparel",
+      "image": "https://images-api.printify.com/mockup/6910547a2e33a251dc0f8076/12124/102003/scotlandwtf-piper-edition-tee.jpg?camera_label=hanging-2",
+      "url": "https://watchthefall.printify.me/product/6910547a2e33a251dc0f8076"
+    },
+    {
       "title": "BritainWTF “Imperium Edition” Te",
       "price": "33.75",
       "category": "apparel",
