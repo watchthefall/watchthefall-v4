@@ -1,6 +1,34 @@
 {
   "products": [
     {
+      "title": "BritainWTF “Imperium Edition” Te",
+      "price": "33.75",
+      "category": "apparel",
+      "image": "https://images-api.printify.com/mockup/69104e4cd0a3b9e5b1079c56/12124/92586/britainwtf-imperium-edition-te.jpg?camera_label=front-collar-closeup",
+      "url": "https://watchthefall.printify.me/product/69104e4cd0a3b9e5b1079c56"
+    },
+    {
+      "title": "USAmericaWTF “Empire Edition” Tee",
+      "price": "38.33",
+      "category": "apparel",
+      "image": "https://images-api.printify.com/mockup/69104c9741ac722ee80137f2/12124/102003/usamericawtf-empire-edition-tee.jpg?camera_label=hanging-2",
+      "url": "https://watchthefall.printify.me/product/69104c9741ac722ee80137f2"
+    },
+    {
+      "title": "AustraliaWTF “Firewall Edition” Tee",
+      "price": "38.33",
+      "category": "apparel",
+      "image": "https://images-api.printify.com/mockup/69104954386d9ee60c0f2bc3/12124/92575/australiawtf-firewall-edition-tee.jpg?camera_label=person-5",
+      "url": "https://watchthefall.printify.me/product/69104954386d9ee60c0f2bc3"
+    },
+    {
+      "title": "ScotlandWTF “Founders Edition” Tee",
+      "price": "47.30",
+      "category": "apparel",
+      "image": "https://images-api.printify.com/mockup/691045cc149edf1d8f069173/12124/102004/scotlandwtf-founders-edition-tee.jpg?camera_label=hanging-3",
+      "url": "https://watchthefall.printify.me/product/691045cc149edf1d8f069173"
+    },
+    {
       "title": "Flexi Phone Cases ",
       "price": "17.47",
       "category": "accessories",
