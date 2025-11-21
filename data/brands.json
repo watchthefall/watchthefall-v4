@@ -1,6 +1,41 @@
 {
   "products": [
     {
+      "title": "USAmericaWTF “Dual Signal Hoodie”",
+      "price": "63.23",
+      "category": "apparel",
+      "image": "https://images-api.printify.com/mockup/6910721f2e33a251dc0f86be/31950/108335/usamericawtf-dual-signal-hoodie.jpg?camera_label=front",
+      "url": "https://watchthefall.printify.me/product/6910721f2e33a251dc0f86be"
+    },
+    {
+      "title": "USAmericaWTF “Capitol Flame” Candle",
+      "price": "18.78",
+      "category": "home",
+      "image": "https://images-api.printify.com/mockup/6910702475896d655507d21d/93541/47078/usamericawtf-capitol-flame-candle.jpg?camera_label=front",
+      "url": "https://watchthefall.printify.me/product/6910702475896d655507d21d"
+    },
+    {
+      "title": "USAmericaWTF “Mount Edition” Mug",
+      "price": "12.82",
+      "category": "home",
+      "image": "https://images-api.printify.com/mockup/69106f2b386d9ee60c0f3619/72180/102752/usamericawtf-mount-edition-mug.jpg?camera_label=front",
+      "url": "https://watchthefall.printify.me/product/69106f2b386d9ee60c0f3619"
+    },
+    {
+      "title": "BritainWTF “Imperium Mug”",
+      "price": "12.82",
+      "category": "home",
+      "image": "https://images-api.printify.com/mockup/69106e92149edf1d8f069b37/72180/102752/britainwtf-imperium-mug.jpg?camera_label=front",
+      "url": "https://watchthefall.printify.me/product/69106e92149edf1d8f069b37"
+    },
+    {
+      "title": "WTF \"Watch The Fall\" Zip Hoodie — Apocalyptic Graphic Full-Zip Hoodie",
+      "price": "71.98",
+      "category": "apparel",
+      "image": "https://images-api.printify.com/mockup/69106be2386d9ee60c0f3578/36485/105276/wtf-watch-the-fall-zip-hoodie-apocalyptic-graphic-full-zip-hoodie.jpg?camera_label=front",
+      "url": "https://watchthefall.printify.me/product/69106be2386d9ee60c0f3578"
+    },
+    {
       "title": "ScotlandWTF “Piper Edition” Tee",
       "price": "47.30",
       "category": "apparel",
