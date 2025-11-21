@@ -20,6 +20,9 @@ jobs:
         with:
           node-version: '20'
       
+      - name: Install Dependencies
+        run: npm install
+      
       - name: Sync Printify Products
         env:
           PRINTIFY_API_KEY: ${{ secrets.PRINTIFY_API_KEY }}
