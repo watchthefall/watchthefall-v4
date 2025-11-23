@@ -52,6 +52,8 @@
                 <li><a href="#worldcup">World Cup</a></li>
                 <li><a href="wtfcreations.html">Shop</a></li>
                 <li><a href="#directory">Directory</a></li>
+                <li><a href="wtfrecords.html">WTF Records</a></li>
+                <li><a href="philosophy.html">Philosophy</a></li>
             </ul>
         </div>
     </nav>
@@ -66,6 +68,7 @@
             <div class="hero-cta">
                 <a href="#support" class="btn btn-primary">Feed Hungry Cats!</a>
                 <a href="wtfcreations.html" class="btn btn-secondary">Shop Merch</a>
+                <button id="open-social-modal" class="btn btn-primary">Follow WatchTheFall Everywhere</button>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -221,6 +224,8 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="wtfcreations.html">Shop</a></li>
                         <li><a href="#directory">Directory</a></li>
+                        <li><a href="wtfrecords.html">WTF Records</a></li>
+                        <li><a href="philosophy.html">Philosophy</a></li>
                     </ul>
                 </div>
                 <div class="footer-info">
@@ -235,6 +240,16 @@
         </div>
     </footer>
 
+    <!-- Social Modal -->
+    <div id="social-modal" class="modal" aria-hidden="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-dialog">
+            <button class="modal-close" aria-label="Close">×</button>
+            <h3 class="modal-title">Follow WatchTheFall</h3>
+            <div id="social-links" class="modal-content"></div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="scripts/utils/version.js"></script>
     <script src="scripts/network.js?v=2"></script>
@@ -243,6 +258,20 @@
     <!-- Removed: worldcup_display.js (duplicate renderer) -->
     <script src="scripts/printify_sync.js?v=2"></script>
     <script src="scripts/directory.js?v=2"></script>
+    <script src="scripts/social_links.js"></script>
+    <script>
+        (function(){
+            const modal = document.getElementById('social-modal');
+            const openBtn = document.getElementById('open-social-modal');
+            const closeBtn = modal.querySelector('.modal-close');
+            const backdrop = modal.querySelector('.modal-backdrop');
+            function open() { modal.setAttribute('aria-hidden', 'false'); document.body.classList.add('modal-open'); }
+            function close() { modal.setAttribute('aria-hidden', 'true'); document.body.classList.remove('modal-open'); }
+            openBtn?.addEventListener('click', open);
+            closeBtn?.addEventListener('click', close);
+            backdrop?.addEventListener('click', close);
+        })();
+    </script>
     
     <!-- PWA Service Worker Registration -->
     <script>

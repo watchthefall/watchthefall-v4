@@ -38,6 +38,51 @@ body {
     overflow-x: hidden;
 }
 
+/* Mobile header refinement: hide text, adjust spacing, tappable buttons */
+@media (max-width: 640px) {
+  .main-nav .nav-logo span { display: none; }
+  .main-nav .nav-container { padding: 0.5rem 1rem; }
+  .main-nav .nav-links li a { font-size: 0.95rem; line-height: 1.4; }
+  .btn { min-height: 42px; padding: 0.6rem 1rem; }
+  body { -webkit-text-size-adjust: 100%; }
+}
+
+/* Modal styles */
+.modal { position: fixed; inset: 0; display: none; z-index: 1001; }
+.modal[aria-hidden="false"] { display: block; }
+.modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+.modal-dialog { position: relative; max-width: 720px; margin: 10vh auto; background: rgba(10,10,10,0.9); border: 1px solid rgba(212,175,55,0.3); padding: 1.25rem; border-radius: 8px; }
+.modal-title { color: var(--color-gold); margin-bottom: 0.75rem; }
+.modal-close { position: absolute; right: 0.75rem; top: 0.5rem; background: transparent; border: none; color: #f3e7d3; font-size: 1.25rem; cursor: pointer; }
+body.modal-open { overflow: hidden; }
+
+/* WTF Records styles */
+.records-hero { padding: 18vh 0 6vh; text-align: center; }
+.records-logo { width: 96px; height: 96px; filter: brightness(0) invert(1); margin-bottom: 1rem; }
+.records-title { font-size: 2.5rem; color: #f3e7d3; letter-spacing: 0.04em; }
+.records-subtitle { color: var(--color-gold); opacity: 0.9; }
+
+.records-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+.record-card { background: rgba(10,10,10,0.85); border: 1px solid rgba(212,175,55,0.2); border-radius: 10px; padding: 1rem; display: grid; gap: 0.75rem; }
+.record-title { color: #f3e7d3; font-size: 1.25rem; }
+.record-desc { opacity: 0.8; }
+
+.artist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+.artist-card { display: grid; grid-template-columns: 96px 1fr; gap: 0.75rem; background: rgba(10,10,10,0.85); border: 1px solid rgba(212,175,55,0.2); border-radius: 10px; padding: 0.75rem; }
+.artist-portrait { width: 96px; height: 96px; background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(255,255,255,0.06)); border-radius: 8px; }
+.artist-name { color: var(--color-gold); margin: 0; }
+.artist-bio { opacity: 0.85; margin: 0.25rem 0 0.5rem; }
+.artist-tracks { list-style: none; padding: 0; margin: 0; }
+.artist-tracks li { font-size: 0.95rem; padding: 0.125rem 0; }
+
+.listen-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.listen-row .btn { background: rgba(10,10,10,0.85); border: 1px solid rgba(212,175,55,0.3); }
+
+@media (max-width: 640px) {
+  .records-hero { padding: 14vh 0 4vh; }
+  .modal-dialog { margin: 8vh 1rem; }
+}
+
 /* === VIDEO BACKGROUND (z-index: -1000) === */
 .video-background {
     position: fixed;

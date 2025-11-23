@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WTF Records — Music for a world on fire</title>
+    <meta name="description" content="WTF Records: dystopian music hub by WatchTheFall.">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="assets/logos/wtf-logo.png">
+    <link rel="stylesheet" href="styles/app.css">
+</head>
+<body>
+    <div class="video-background">
+        <video id="background-video" autoplay muted loop playsinline>
+            <source src="assets/video/main_bg.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/logos/wtf-logo.png" alt="WatchTheFall">
+                <span>WatchTheFall</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="wtfcreations.html">Shop</a></li>
+                <li><a href="wtfrecords.html" class="active">WTF Records</a></li>
+                <li><a href="philosophy.html">Philosophy</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section records-hero">
+        <div class="container">
+            <div class="records-hero-inner">
+                <img class="records-logo" src="assets/logos/wtf-logo.png" alt="WTF Records">
+                <h1 class="records-title">WTF Records</h1>
+                <p class="records-subtitle">Music for a world on fire.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="releases">
+        <div class="container">
+            <h2 class="section-title">Latest Releases</h2>
+            <p class="section-subtitle">Curated from <a href="https://suno.com/@wtfrecords" target="_blank" rel="noopener">suno.com/@wtfrecords</a></p>
+            <div id="records-releases" class="records-grid"></div>
+        </div>
+    </section>
+
+    <section class="section" id="artists">
+        <div class="container">
+            <h2 class="section-title">Artist Universe</h2>
+            <div id="artist-universe" class="artist-grid"></div>
+        </div>
+    </section>
+
+    <section class="section" id="listen">
+        <div class="container">
+            <h2 class="section-title">Listen Everywhere</h2>
+            <div id="listen-everywhere" class="listen-row"></div>
+        </div>
+    </section>
+
+    <section class="section" id="records-signup">
+        <div class="container">
+            <h2 class="section-title">Join the Movement</h2>
+            <form id="records-email-form" class="records-form" action="#" method="post">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+            <p class="section-subtitle" style="opacity:0.7">We'll send you new releases and drops.</p>
+        </div>
+    </section>
+
+    <div id="age-gate-modal" class="modal" aria-hidden="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-dialog">
+            <h3 class="modal-title">Age Verification</h3>
+            <p style="opacity:0.85; margin-bottom:1rem;">Some content may contain mature themes. Are you 18 or older?</p>
+            <div style="display:flex; gap:0.5rem;">
+                <button id="age-confirm-yes" class="btn btn-primary">Yes, I'm 18+</button>
+                <button id="age-confirm-no" class="btn btn-secondary">No</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/logos/wtf-logo.png" alt="WatchTheFall">
+                    <p>WTF Records — Soundtrack to collapse.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="wtfcreations.html">Shop</a></li>
+                        <li><a href="wtfrecords.html">WTF Records</a></li>
+                        <li><a href="philosophy.html">Philosophy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-info">
+                    <h4>WatchTheFall v4</h4>
+                    <p id="version-info">Loading...</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 WatchTheFall.wtf - MIT License</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/utils/version.js"></script>
+    <script src="scripts/network.js"></script>
+    <script src="scripts/wtfrecords.js"></script>
+</body>
+</html>
