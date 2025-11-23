@@ -1,10 +1,5 @@
 {
   "artists": {
-    "jamai_g": {
-      "name": "JamAi G",
-      "bio": "AI-bent lyricism forged under pressure.",
-      "tracks": ["track_1"]
-    },
     "elaira": {
       "name": "Elaira Valesis",
       "bio": "Ethereal resistance against the machine.",
@@ -22,14 +17,6 @@
     }
   },
   "tracks": {
-    "track_1": {
-      "title": "Whipped Dreams",
-      "suno_url": "https://suno.com/song/a9532532-66e0-4a9a-8bfd-4e2eb308d818",
-      "download_mp3": "",
-      "description": "Dual-meaning dessert euphoria. 18+ themes.",
-      "age_restricted": true,
-      "embed_html": ""
-    },
     "skyea_1": {
       "title": "Skyea - Track 1",
       "suno_url": "https://suno.com/song/79fdf2ca-939d-4337-bf76-26ba790b8968",
