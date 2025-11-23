@@ -1,0 +1,460 @@
+{
+  "regions": {
+    "GLOBAL": [
+      {
+        "file": "WTF_Poster_GLOBAL_01.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_01.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_02.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_02.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_03.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_03.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_04.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_04.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_05.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_05.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_06.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_06.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_07.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_07.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_08.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_08.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_09.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_09.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_10.jpg",
+        "path": "assets/posters/WTF_Poster_GLOBAL_10.jpg"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_11.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_11.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_12.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_12.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_13.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_13.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_14.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_14.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_15.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_15.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_16.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_16.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_17.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_17.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_18.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_18.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_19.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_19.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_20.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_20.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_21.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_21.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_22.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_22.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_23.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_23.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_24.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_24.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_25.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_25.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_26.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_26.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_27.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_27.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_28.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_28.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_29.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_29.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_30.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_30.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_31.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_31.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_32.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_32.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_33.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_33.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_34.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_34.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_35.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_35.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_36.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_36.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_37.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_37.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_38.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_38.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_39.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_39.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_40.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_40.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_41.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_41.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_42.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_42.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_43.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_43.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_44.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_44.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_45.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_45.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_46.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_46.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_47.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_47.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_48.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_48.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_49.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_49.png"
+      },
+      {
+        "file": "WTF_Poster_GLOBAL_50.png",
+        "path": "assets/posters/WTF_Poster_GLOBAL_50.png"
+      }
+    ],
+    "France": [
+      {
+        "file": "WTF_Poster_France_01.png",
+        "path": "assets/posters/WTF_Poster_France_01.png"
+      },
+      {
+        "file": "WTF_Poster_France_02.png",
+        "path": "assets/posters/WTF_Poster_France_02.png"
+      },
+      {
+        "file": "WTF_Poster_France_03.png",
+        "path": "assets/posters/WTF_Poster_France_03.png"
+      },
+      {
+        "file": "WTF_Poster_France_04.png",
+        "path": "assets/posters/WTF_Poster_France_04.png"
+      },
+      {
+        "file": "WTF_Poster_France_05.png",
+        "path": "assets/posters/WTF_Poster_France_05.png"
+      },
+      {
+        "file": "WTF_Poster_France_06.png",
+        "path": "assets/posters/WTF_Poster_France_06.png"
+      },
+      {
+        "file": "WTF_Poster_France_07.png",
+        "path": "assets/posters/WTF_Poster_France_07.png"
+      },
+      {
+        "file": "WTF_Poster_France_08.png",
+        "path": "assets/posters/WTF_Poster_France_08.png"
+      },
+      {
+        "file": "WTF_Poster_France_09.png",
+        "path": "assets/posters/WTF_Poster_France_09.png"
+      },
+      {
+        "file": "WTF_Poster_France_10.png",
+        "path": "assets/posters/WTF_Poster_France_10.png"
+      },
+      {
+        "file": "WTF_Poster_France_11.png",
+        "path": "assets/posters/WTF_Poster_France_11.png"
+      },
+      {
+        "file": "WTF_Poster_France_12.png",
+        "path": "assets/posters/WTF_Poster_France_12.png"
+      },
+      {
+        "file": "WTF_Poster_France_13.png",
+        "path": "assets/posters/WTF_Poster_France_13.png"
+      },
+      {
+        "file": "WTF_Poster_France_14.png",
+        "path": "assets/posters/WTF_Poster_France_14.png"
+      },
+      {
+        "file": "WTF_Poster_France_15.png",
+        "path": "assets/posters/WTF_Poster_France_15.png"
+      },
+      {
+        "file": "WTF_Poster_France_16.png",
+        "path": "assets/posters/WTF_Poster_France_16.png"
+      },
+      {
+        "file": "WTF_Poster_France_17.png",
+        "path": "assets/posters/WTF_Poster_France_17.png"
+      },
+      {
+        "file": "WTF_Poster_France_18.png",
+        "path": "assets/posters/WTF_Poster_France_18.png"
+      },
+      {
+        "file": "WTF_Poster_France_19.png",
+        "path": "assets/posters/WTF_Poster_France_19.png"
+      },
+      {
+        "file": "WTF_Poster_France_20.png",
+        "path": "assets/posters/WTF_Poster_France_20.png"
+      },
+      {
+        "file": "WTF_Poster_France_21.png",
+        "path": "assets/posters/WTF_Poster_France_21.png"
+      },
+      {
+        "file": "WTF_Poster_France_22.png",
+        "path": "assets/posters/WTF_Poster_France_22.png"
+      },
+      {
+        "file": "WTF_Poster_France_23.png",
+        "path": "assets/posters/WTF_Poster_France_23.png"
+      }
+    ],
+    "Germany": [
+      {
+        "file": "WTF_Poster_Germany_01.png",
+        "path": "assets/posters/WTF_Poster_Germany_01.png"
+      },
+      {
+        "file": "WTF_Poster_Germany_02.png",
+        "path": "assets/posters/WTF_Poster_Germany_02.png"
+      },
+      {
+        "file": "WTF_Poster_Germany_03.png",
+        "path": "assets/posters/WTF_Poster_Germany_03.png"
+      }
+    ],
+    "Scotland": [
+      {
+        "file": "WTF_Poster_Scotland_01.png",
+        "path": "assets/posters/WTF_Poster_Scotland_01.png"
+      },
+      {
+        "file": "WTF_Poster_Scotland_02.png",
+        "path": "assets/posters/WTF_Poster_Scotland_02.png"
+      },
+      {
+        "file": "WTF_Poster_Scotland_03.png",
+        "path": "assets/posters/WTF_Poster_Scotland_03.png"
+      },
+      {
+        "file": "WTF_Poster_Scotland_04.png",
+        "path": "assets/posters/WTF_Poster_Scotland_04.png"
+      },
+      {
+        "file": "WTF_Poster_Scotland_05.png",
+        "path": "assets/posters/WTF_Poster_Scotland_05.png"
+      },
+      {
+        "file": "WTF_Poster_Scotland_06.png",
+        "path": "assets/posters/WTF_Poster_Scotland_06.png"
+      },
+      {
+        "file": "WTF_Poster_Scotland_07.png",
+        "path": "assets/posters/WTF_Poster_Scotland_07.png"
+      },
+      {
+        "file": "WTF_Poster_Scotland_08.png",
+        "path": "assets/posters/WTF_Poster_Scotland_08.png"
+      },
+      {
+        "file": "WTF_Poster_Scotland_09.png",
+        "path": "assets/posters/WTF_Poster_Scotland_09.png"
+      },
+      {
+        "file": "WTF_Poster_Scotland_10.png",
+        "path": "assets/posters/WTF_Poster_Scotland_10.png"
+      },
+      {
+        "file": "WTF_Poster_Scotland_11.png",
+        "path": "assets/posters/WTF_Poster_Scotland_11.png"
+      },
+      {
+        "file": "WTF_Poster_Scotland_12.png",
+        "path": "assets/posters/WTF_Poster_Scotland_12.png"
+      },
+      {
+        "file": "WTF_Poster_Scotland_13.png",
+        "path": "assets/posters/WTF_Poster_Scotland_13.png"
+      },
+      {
+        "file": "WTF_Poster_Scotland_14.png",
+        "path": "assets/posters/WTF_Poster_Scotland_14.png"
+      },
+      {
+        "file": "WTF_Poster_Scotland_15.png",
+        "path": "assets/posters/WTF_Poster_Scotland_15.png"
+      }
+    ],
+    "Australia": [
+      {
+        "file": "WTF_Poster_Australia_01.png",
+        "path": "assets/posters/WTF_Poster_Australia_01.png"
+      },
+      {
+        "file": "WTF_Poster_Australia_02.png",
+        "path": "assets/posters/WTF_Poster_Australia_02.png"
+      },
+      {
+        "file": "WTF_Poster_Australia_03.png",
+        "path": "assets/posters/WTF_Poster_Australia_03.png"
+      },
+      {
+        "file": "WTF_Poster_Australia_04.png",
+        "path": "assets/posters/WTF_Poster_Australia_04.png"
+      },
+      {
+        "file": "WTF_Poster_Australia_05.png",
+        "path": "assets/posters/WTF_Poster_Australia_05.png"
+      },
+      {
+        "file": "WTF_Poster_Australia_06.png",
+        "path": "assets/posters/WTF_Poster_Australia_06.png"
+      },
+      {
+        "file": "WTF_Poster_Australia_07.png",
+        "path": "assets/posters/WTF_Poster_Australia_07.png"
+      },
+      {
+        "file": "WTF_Poster_Australia_08.png",
+        "path": "assets/posters/WTF_Poster_Australia_08.png"
+      }
+    ],
+    "Britain": [
+      {
+        "file": "WTF_Poster_Britain_01.png",
+        "path": "assets/posters/WTF_Poster_Britain_01.png"
+      },
+      {
+        "file": "WTF_Poster_Britain_02.png",
+        "path": "assets/posters/WTF_Poster_Britain_02.png"
+      }
+    ],
+    "Europe": [
+      {
+        "file": "WTF_Poster_Europe_01.png",
+        "path": "assets/posters/WTF_Poster_Europe_01.png"
+      }
+    ],
+    "USA": [
+      {
+        "file": "WTF_Poster_USA_01.png",
+        "path": "assets/posters/WTF_Poster_USA_01.png"
+      },
+      {
+        "file": "WTF_Poster_USA_02.png",
+        "path": "assets/posters/WTF_Poster_USA_02.png"
+      },
+      {
+        "file": "WTF_Poster_USA_03.png",
+        "path": "assets/posters/WTF_Poster_USA_03.png"
+      },
+      {
+        "file": "WTF_Poster_USA_04.png",
+        "path": "assets/posters/WTF_Poster_USA_04.png"
+      },
+      {
+        "file": "WTF_Poster_USA_05.png",
+        "path": "assets/posters/WTF_Poster_USA_05.png"
+      },
+      {
+        "file": "WTF_Poster_USA_06.png",
+        "path": "assets/posters/WTF_Poster_USA_06.png"
+      },
+      {
+        "file": "WTF_Poster_USA_07.png",
+        "path": "assets/posters/WTF_Poster_USA_07.png"
+      },
+      {
+        "file": "WTF_Poster_USA_08.png",
+        "path": "assets/posters/WTF_Poster_USA_08.png"
+      }
+    ]
+  }
+}
