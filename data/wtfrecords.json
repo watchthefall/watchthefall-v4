@@ -13,7 +13,7 @@
     "skyea": {
       "name": "Skyea Caelix",
       "bio": "Starborne harmonics from the outer rim.",
-      "tracks": ["skyea_1", "skyea_2"]
+      "tracks": ["skyea_1", "skyea_2", "skyea_3"]
     },
     "watchthefall": {
       "name": "WatchTheFall",
@@ -43,6 +43,14 @@
       "suno_url": "https://suno.com/song/54d7f28c-4e93-4e8b-8332-82eef13073ad",
       "download_mp3": "",
       "description": "Featuring Tyler Lennox.",
+      "age_restricted": false,
+      "embed_html": ""
+    },
+    "skyea_3": {
+      "title": "Through It All",
+      "suno_url": "https://suno.com/song/b36cefc3-0a0e-458e-845a-b59f754a3c39",
+      "download_mp3": "",
+      "description": "Skyea Caelix - Through It All.",
       "age_restricted": false,
       "embed_html": ""
     }
