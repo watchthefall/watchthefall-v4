@@ -120,8 +120,10 @@
   }
 
   function isMetricAllZeros(metric) {
+    // Don't force fallback for individual platforms - let users see actual data even if mostly zeros
     if (metric === 'points') return false;
     if (metric === 'followers') {
+      // Only fallback to points if ALL entries have zero followers across all platforms
       return worldCupData.every((e) => {
         const total = Number(e.followers?.tiktok || 0) + 
                      Number(e.followers?.instagram || 0) + 
@@ -130,7 +132,8 @@
         return total === 0;
       });
     }
-    return worldCupData.every((e) => Number(e.followers?.[metric] || 0) === 0);
+    // For individual platforms, don't force fallback - show actual values
+    return false;
   }
 
   function getDisplayValue(entry, metric) {
@@ -143,6 +146,7 @@
       const tw = Number(entry.followers?.x || 0);
       return tik + ig + yt + tw;
     }
+    // For individual platforms, return the specific value
     return Number(entry.followers?.[metric] || 0);
   }
 
@@ -156,6 +160,7 @@
       const prevTotal = Number(entry.previous?.tiktok || 0) + Number(entry.previous?.instagram || 0) + Number(entry.previous?.youtube || 0) + Number(entry.previous?.x || 0);
       return currTotal - prevTotal;
     } else {
+      // For individual platforms
       const curr = Number(entry.followers?.[metric] || 0);
       const prev = Number(entry.previous?.[metric] || 0);
       return curr - prev;
@@ -200,7 +205,8 @@
     const container = document.getElementById(CONTAINER_ID);
     if (!container) return;
 
-    const effectiveMetric = isMetricAllZeros(metric) ? 'points' : metric;
+    // Don't force fallback to points for individual platforms
+    const effectiveMetric = metric;
     const sorted = sortData(effectiveMetric);
     const headerMetricLabel = METRIC_LABELS[effectiveMetric] || 'Points';
     const headerChangeLabel = 'Change';
@@ -282,13 +288,16 @@
 
     fadeSwap(container, tableHtml);
 
-    const select = container.querySelector('#metric-select');
-    if (select) {
-      select.addEventListener('change', (e) => {
+    // Fixed event binding using requestAnimationFrame for reliable DOM access
+    requestAnimationFrame(() => {
+      const select = document.getElementById('metric-select');
+      if (!select) return;
+
+      select.onchange = (e) => {
         currentMetric = e.target.value;
         renderLeaderboard(currentMetric);
-      });
-    }
+      };
+    });
 
     console.log(
       `✅ World Cup v4.3 loaded | Metric: ${METRIC_LABELS[effectiveMetric]} | Regions: ${sorted.length}`
