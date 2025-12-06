@@ -137,33 +137,47 @@
   }
 
   function getDisplayValue(entry, metric) {
-    if (metric === 'points') return Number(entry.points || 0);
-    if (metric === 'followers') {
-      // Sum all platform followers
-      const tik = Number(entry.followers?.tiktok || 0);
-      const ig = Number(entry.followers?.instagram || 0);
-      const yt = Number(entry.followers?.youtube || 0);
-      const tw = Number(entry.followers?.x || 0);
-      return tik + ig + yt + tw;
+    switch (metric) {
+      case 'followers':
+        // Sum all platform followers
+        const tik = Number(entry.followers?.tiktok || 0);
+        const ig = Number(entry.followers?.instagram || 0);
+        const yt = Number(entry.followers?.youtube || 0);
+        const tw = Number(entry.followers?.x || 0);
+        return tik + ig + yt + tw;
+      case 'tiktok':
+        return Number(entry.followers?.tiktok || 0);
+      case 'instagram':
+        return Number(entry.followers?.instagram || 0);
+      case 'youtube':
+        return Number(entry.followers?.youtube || 0);
+      case 'x':
+        return Number(entry.followers?.x || 0);
+      case 'points':
+      default:
+        return Number(entry.points || 0);
     }
-    // For individual platforms, return the specific value
-    return Number(entry.followers?.[metric] || 0);
   }
 
   function calculateChange(entry, metric) {
-    if (metric === 'points') {
-      const prevTik = Number(entry.previous?.tiktok || 0);
-      const prevPoints = prevTik * 0.4;
-      return Number(entry.points || 0) - prevPoints;
-    } else if (metric === 'followers') {
-      const currTotal = Number(entry.followers?.tiktok || 0) + Number(entry.followers?.instagram || 0) + Number(entry.followers?.youtube || 0) + Number(entry.followers?.x || 0);
-      const prevTotal = Number(entry.previous?.tiktok || 0) + Number(entry.previous?.instagram || 0) + Number(entry.previous?.youtube || 0) + Number(entry.previous?.x || 0);
-      return currTotal - prevTotal;
-    } else {
-      // For individual platforms
-      const curr = Number(entry.followers?.[metric] || 0);
-      const prev = Number(entry.previous?.[metric] || 0);
-      return curr - prev;
+    switch (metric) {
+      case 'followers':
+        const currTotal = Number(entry.followers?.tiktok || 0) + Number(entry.followers?.instagram || 0) + Number(entry.followers?.youtube || 0) + Number(entry.followers?.x || 0);
+        const prevTotal = Number(entry.previous?.tiktok || 0) + Number(entry.previous?.instagram || 0) + Number(entry.previous?.youtube || 0) + Number(entry.previous?.x || 0);
+        return currTotal - prevTotal;
+      case 'tiktok':
+        return Number(entry.followers?.tiktok || 0) - Number(entry.previous?.tiktok || 0);
+      case 'instagram':
+        return Number(entry.followers?.instagram || 0) - Number(entry.previous?.instagram || 0);
+      case 'youtube':
+        return Number(entry.followers?.youtube || 0) - Number(entry.previous?.youtube || 0);
+      case 'x':
+        return Number(entry.followers?.x || 0) - Number(entry.previous?.x || 0);
+      case 'points':
+      default:
+        const prevTik = Number(entry.previous?.tiktok || 0);
+        const prevPoints = prevTik * 0.4;
+        return Number(entry.points || 0) - prevPoints;
     }
   }
 
@@ -201,14 +215,12 @@
     }, 150);
   }
 
-  function renderLeaderboard(metric) {
+  function renderLeaderboard(metric = 'points') {
     const container = document.getElementById(CONTAINER_ID);
     if (!container) return;
 
-    // Don't force fallback to points for individual platforms
-    const effectiveMetric = metric;
-    const sorted = sortData(effectiveMetric);
-    const headerMetricLabel = METRIC_LABELS[effectiveMetric] || 'Points';
+    const sorted = sortData(metric);
+    const headerMetricLabel = METRIC_LABELS[metric] || 'Points';
     const headerChangeLabel = 'Change';
 
     const tableHtml = `
@@ -216,12 +228,12 @@
         <div class="wc-title">World Cup Leaderboard</div>
         <div class="wc-controls">
           <select id="metric-select" class="wc-select">
-            <option value="points"${effectiveMetric === 'points' ? ' selected' : ''}>Points</option>
-            <option value="followers"${effectiveMetric === 'followers' ? ' selected' : ''}>Followers</option>
-            <option value="tiktok"${effectiveMetric === 'tiktok' ? ' selected' : ''}>TikTok</option>
-            <option value="instagram"${effectiveMetric === 'instagram' ? ' selected' : ''}>Instagram</option>
-            <option value="youtube"${effectiveMetric === 'youtube' ? ' selected' : ''}>YouTube</option>
-            <option value="x"${effectiveMetric === 'x' ? ' selected' : ''}>X (Twitter)</option>
+            <option value="points"${metric === 'points' ? ' selected' : ''}>Points</option>
+            <option value="followers"${metric === 'followers' ? ' selected' : ''}>Followers</option>
+            <option value="tiktok"${metric === 'tiktok' ? ' selected' : ''}>TikTok</option>
+            <option value="instagram"${metric === 'instagram' ? ' selected' : ''}>Instagram</option>
+            <option value="youtube"${metric === 'youtube' ? ' selected' : ''}>YouTube</option>
+            <option value="x"${metric === 'x' ? ' selected' : ''}>X (Twitter)</option>
           </select>
         </div>
       </div>
@@ -237,8 +249,8 @@
           ${sorted
             .map((entry, idx) => {
               const rank = idx + 1;
-              const value = getDisplayValue(entry, effectiveMetric);
-              const change = calculateChange(entry, effectiveMetric);
+              const value = getDisplayValue(entry, metric);
+              const change = calculateChange(entry, metric);
               const changeSign = change > 0 ? '▲' : change < 0 ? '▼' : '—';
               const changeClass =
                 change > 0 ? 'wc-up' : change < 0 ? 'wc-down' : 'wc-flat';
@@ -288,19 +300,22 @@
 
     fadeSwap(container, tableHtml);
 
-    // Fixed event binding using requestAnimationFrame for reliable DOM access
-    requestAnimationFrame(() => {
-      const select = document.getElementById('metric-select');
-      if (!select) return;
-
-      select.onchange = (e) => {
-        currentMetric = e.target.value;
+    // Add event listener to the dropdown without relying on requestAnimationFrame
+    const select = document.getElementById('metric-select');
+    if (select) {
+      // Remove any existing event listeners to prevent duplicates
+      const newSelect = select.cloneNode(true);
+      select.parentNode.replaceChild(newSelect, select);
+      
+      // Add the event listener
+      newSelect.addEventListener('change', () => {
+        currentMetric = newSelect.value;
         renderLeaderboard(currentMetric);
-      };
-    });
+      });
+    }
 
     console.log(
-      `✅ World Cup v4.3 loaded | Metric: ${METRIC_LABELS[effectiveMetric]} | Regions: ${sorted.length}`
+      `✅ World Cup v4.3 loaded | Metric: ${METRIC_LABELS[metric]} | Regions: ${sorted.length}`
     );
   }
 
