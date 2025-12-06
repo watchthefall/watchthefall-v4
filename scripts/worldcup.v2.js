@@ -223,95 +223,165 @@
     const headerMetricLabel = METRIC_LABELS[metric] || 'Points';
     const headerChangeLabel = 'Change';
 
-    const tableHtml = `
-      <div class="wc-header">
-        <div class="wc-title">World Cup Leaderboard</div>
-        <div class="wc-controls">
-          <select id="metric-select" class="wc-select">
-            <option value="points"${metric === 'points' ? ' selected' : ''}>Points</option>
-            <option value="followers"${metric === 'followers' ? ' selected' : ''}>Followers</option>
-            <option value="tiktok"${metric === 'tiktok' ? ' selected' : ''}>TikTok</option>
-            <option value="instagram"${metric === 'instagram' ? ' selected' : ''}>Instagram</option>
-            <option value="youtube"${metric === 'youtube' ? ' selected' : ''}>YouTube</option>
-            <option value="x"${metric === 'x' ? ' selected' : ''}>X (Twitter)</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="wc-table-wrapper">
-        <div id="${TABLE_ID}" class="wc-table">
-          <div class="wc-row wc-head">
-            <div class="wc-col rank">Rank</div>
-            <div class="wc-col hub">Hub</div>
-            <div class="wc-col metric">${headerMetricLabel}</div>
-            <div class="wc-col change">${headerChangeLabel}</div>
+    // Check if this is the first render (container is empty or doesn't have the header)
+    if (!container.querySelector('.wc-header')) {
+      // First render - create the full structure
+      const fullHtml = `
+        <div class="wc-header">
+          <div class="wc-title">World Cup Leaderboard</div>
+          <div class="wc-controls">
+            <select id="metric-select" class="wc-select">
+              <option value="points"${metric === 'points' ? ' selected' : ''}>Points</option>
+              <option value="followers"${metric === 'followers' ? ' selected' : ''}>Followers</option>
+              <option value="tiktok"${metric === 'tiktok' ? ' selected' : ''}>TikTok</option>
+              <option value="instagram"${metric === 'instagram' ? ' selected' : ''}>Instagram</option>
+              <option value="youtube"${metric === 'youtube' ? ' selected' : ''}>YouTube</option>
+              <option value="x"${metric === 'x' ? ' selected' : ''}>X (Twitter)</option>
+            </select>
           </div>
-          ${sorted
-            .map((entry, idx) => {
-              const rank = idx + 1;
-              const value = getDisplayValue(entry, metric);
-              const change = calculateChange(entry, metric);
-              const changeSign = change > 0 ? '▲' : change < 0 ? '▼' : '—';
-              const changeClass =
-                change > 0 ? 'wc-up' : change < 0 ? 'wc-down' : 'wc-flat';
-              const logo =
-                entry.logo || LOGO_MAP[entry.region] || 'assets/watermark/wtfman.png';
-              const tagline =
-                entry.tagline ||
-                'Global hub of the WTF Network.';
-              const hubLink = HUB_LINKS[entry.region] || '#';
-              const isClickable = HUB_LINKS[entry.region] ? true : false;
+        </div>
+        <div class="wc-table-wrapper">
+          <div id="${TABLE_ID}" class="wc-table">
+            <div class="wc-row wc-head">
+              <div class="wc-col rank">Rank</div>
+              <div class="wc-col hub">Hub</div>
+              <div class="wc-col metric">${headerMetricLabel}</div>
+              <div class="wc-col change">${headerChangeLabel}</div>
+            </div>
+            ${sorted
+              .map((entry, idx) => {
+                const rank = idx + 1;
+                const value = getDisplayValue(entry, metric);
+                const change = calculateChange(entry, metric);
+                const changeSign = change > 0 ? '▲' : change < 0 ? '▼' : '—';
+                const changeClass =
+                  change > 0 ? 'wc-up' : change < 0 ? 'wc-down' : 'wc-flat';
+                const logo =
+                  entry.logo || LOGO_MAP[entry.region] || 'assets/watermark/wtfman.png';
+                const tagline =
+                  entry.tagline ||
+                  'Global hub of the WTF Network.';
+                const hubLink = HUB_LINKS[entry.region] || '#';
+                const isClickable = HUB_LINKS[entry.region] ? true : false;
 
-              return `
-              <div class="wc-row wc-body wc-animate">
-                <div class="wc-col rank">${rankBadge(rank)} ${rank}</div>
-                <div class="wc-col hub">
-                  <div class="wc-hub">
-                    <img class="wc-logo" src="${logo}" alt="${entry.region}" onerror="this.style.display='none'"/>
-                    <div class="wc-meta">
-                      <div class="wc-name">
-                        ${isClickable 
-                          ? `<a href="${hubLink}" class="wc-hub-link"><strong>${entry.region}</strong></a>` 
-                          : `<strong>${entry.region}</strong>`
-                        }
+                return `
+                <div class="wc-row wc-body wc-animate">
+                  <div class="wc-col rank">${rankBadge(rank)} ${rank}</div>
+                  <div class="wc-col hub">
+                    <div class="wc-hub">
+                      <img class="wc-logo" src="${logo}" alt="${entry.region}" onerror="this.style.display='none'"/>
+                      <div class="wc-meta">
+                        <div class="wc-name">
+                          ${isClickable 
+                            ? `<a href="${hubLink}" class="wc-hub-link"><strong>${entry.region}</strong></a>` 
+                            : `<strong>${entry.region}</strong>`
+                          }
+                        </div>
+                        <div class="wc-tag">${tagline}</div>
                       </div>
-                      <div class="wc-tag">${tagline}</div>
                     </div>
                   </div>
-                </div>
-                <div class="wc-col metric">
-                  <div class="wc-value">${formatNumber(value)}</div>
-                </div>
-                <div class="wc-col change">
-                  <div class="wc-change ${changeClass}">
-                    ${changeSign} ${formatNumber(Math.abs(change))}
+                  <div class="wc-col metric">
+                    <div class="wc-value">${formatNumber(value)}</div>
+                  </div>
+                  <div class="wc-col change">
+                    <div class="wc-change ${changeClass}">
+                      ${changeSign} ${formatNumber(Math.abs(change))}
+                    </div>
+                  </div>
+                </div>`;
+              })
+              .join('')}
+          </div>
+        </div>
+        <div class="wc-footer">
+          <div class="wc-updated">📈 Updated manually${lastUpdated ? ` • ${lastUpdated}` : ''}</div>
+        </div>
+      `;
+
+      container.innerHTML = fullHtml;
+
+      // Attach event listener to the dropdown
+      const select = document.getElementById('metric-select');
+      if (select) {
+        console.log("Metric dropdown attached:", select);
+        console.log("Current metric =", metric);
+        
+        select.addEventListener('change', () => {
+          const selectedMetric = select.value;
+          console.log("Metric dropdown changed to:", selectedMetric);
+          currentMetric = selectedMetric;
+          console.log("Leaderboard rerender triggered with metric:", currentMetric);
+          renderLeaderboard(currentMetric);
+        });
+      }
+    } else {
+      // Update only the table content, preserve the dropdown
+      const tableHtml = `
+        <div class="wc-row wc-head">
+          <div class="wc-col rank">Rank</div>
+          <div class="wc-col hub">Hub</div>
+          <div class="wc-col metric">${headerMetricLabel}</div>
+          <div class="wc-col change">${headerChangeLabel}</div>
+        </div>
+        ${sorted
+          .map((entry, idx) => {
+            const rank = idx + 1;
+            const value = getDisplayValue(entry, metric);
+            const change = calculateChange(entry, metric);
+            const changeSign = change > 0 ? '▲' : change < 0 ? '▼' : '—';
+            const changeClass =
+              change > 0 ? 'wc-up' : change < 0 ? 'wc-down' : 'wc-flat';
+            const logo =
+              entry.logo || LOGO_MAP[entry.region] || 'assets/watermark/wtfman.png';
+            const tagline =
+              entry.tagline ||
+              'Global hub of the WTF Network.';
+            const hubLink = HUB_LINKS[entry.region] || '#';
+            const isClickable = HUB_LINKS[entry.region] ? true : false;
+
+            return `
+            <div class="wc-row wc-body wc-animate">
+              <div class="wc-col rank">${rankBadge(rank)} ${rank}</div>
+              <div class="wc-col hub">
+                <div class="wc-hub">
+                  <img class="wc-logo" src="${logo}" alt="${entry.region}" onerror="this.style.display='none'"/>
+                  <div class="wc-meta">
+                    <div class="wc-name">
+                      ${isClickable 
+                        ? `<a href="${hubLink}" class="wc-hub-link"><strong>${entry.region}</strong></a>` 
+                        : `<strong>${entry.region}</strong>`
+                      }
+                    </div>
+                    <div class="wc-tag">${tagline}</div>
                   </div>
                 </div>
-              </div>`;
-            })
-            .join('')}
-        </div>
-      </div>
+              </div>
+              <div class="wc-col metric">
+                <div class="wc-value">${formatNumber(value)}</div>
+              </div>
+              <div class="wc-col change">
+                <div class="wc-change ${changeClass}">
+                  ${changeSign} ${formatNumber(Math.abs(change))}
+                </div>
+              </div>
+            </div>`;
+          })
+          .join('')}
+      `;
 
-      <div class="wc-footer">
-        <div class="wc-updated">📈 Updated manually${lastUpdated ? ` • ${lastUpdated}` : ''}</div>
-      </div>
-    `;
+      // Update the table content
+      const tableElement = document.getElementById(TABLE_ID);
+      if (tableElement) {
+        // Simple update without fade effect for now to avoid complications
+        tableElement.innerHTML = tableHtml;
+      }
 
-    fadeSwap(container, tableHtml);
-
-    // Add event listener to the dropdown without relying on requestAnimationFrame
-    const select = document.getElementById('metric-select');
-    if (select) {
-      // Remove any existing event listeners to prevent duplicates
-      const newSelect = select.cloneNode(true);
-      select.parentNode.replaceChild(newSelect, select);
-      
-      // Add the event listener
-      newSelect.addEventListener('change', () => {
-        currentMetric = newSelect.value;
-        renderLeaderboard(currentMetric);
-      });
+      // Update the dropdown selection to match the current metric
+      const select = document.getElementById('metric-select');
+      if (select) {
+        select.value = metric;
+      }
     }
 
     console.log(
