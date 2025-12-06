@@ -144,14 +144,10 @@
       const ig = Number(entry.followers?.instagram || 0);
       const yt = Number(entry.followers?.youtube || 0);
       const tw = Number(entry.followers?.x || 0);
-      const total = tik + ig + yt + tw;
-      console.log(`Followers total for ${entry.region}: ${total} (tiktok: ${tik}, instagram: ${ig}, youtube: ${yt}, x: ${tw})`);
-      return total;
+      return tik + ig + yt + tw;
     }
     // For individual platforms, return the specific value
-    const value = Number(entry.followers?.[metric] || 0);
-    console.log(`Platform ${metric} value for ${entry.region}: ${value}`);
-    return value;
+    return Number(entry.followers?.[metric] || 0);
   }
 
   function calculateChange(entry, metric) {
@@ -209,8 +205,6 @@
     const container = document.getElementById(CONTAINER_ID);
     if (!container) return;
 
-    console.log(`Rendering leaderboard with metric: ${metric}`);
-    
     // Don't force fallback to points for individual platforms
     const effectiveMetric = metric;
     const sorted = sortData(effectiveMetric);
@@ -300,7 +294,6 @@
       if (!select) return;
 
       select.onchange = (e) => {
-        console.log(`Dropdown changed to: ${e.target.value}`);
         currentMetric = e.target.value;
         renderLeaderboard(currentMetric);
       };
