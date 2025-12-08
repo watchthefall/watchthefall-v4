@@ -3,7 +3,7 @@
 // =====================================================================
 
 // 🔥 Bump this every time you change assets or JS files
-const CACHE_NAME = 'wtf-v4-cache-v3';
+const CACHE_NAME = 'wtf-v4-cache-v4';
 
 // 🚫 DO NOT cache dynamic JS files that change often.
 // Only cache the stable, static assets that rarely change.
