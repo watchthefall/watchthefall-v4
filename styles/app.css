@@ -202,6 +202,60 @@ body.modal-open { overflow: hidden; }
     width: 100%;
 }
 
+/* === NAVIGATION DROPDOWN === */
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-gold);
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+    min-width: 180px;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-dropdown .dropdown-menu li {
+    padding: 0;
+}
+
+.nav-dropdown .dropdown-menu a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    border-left: 3px solid transparent;
+}
+
+.nav-dropdown .dropdown-menu a::after {
+    display: none;
+}
+
+.nav-dropdown .dropdown-menu a:hover {
+    background: rgba(212, 175, 55, 0.1);
+    border-left-color: var(--color-gold);
+    color: var(--color-gold);
+}
+
 /* === HERO SECTION === */
 .hero {
     min-height: 100vh;
