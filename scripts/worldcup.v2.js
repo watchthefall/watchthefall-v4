@@ -108,11 +108,8 @@
       const json = await res.json();
       worldCupData = safeGetArray(json);
       lastUpdated = json.last_updated || '';
-      worldCupData = worldCupData.map((e) => {
-        const tik = Number(e.followers?.tiktok || 0);
-        const points = typeof e.points === 'number' ? e.points : tik * 0.4;
-        return { ...e, points };
-      });
+      // Points are already defined in the data file, no recalculation needed
+      worldCupData = worldCupData.map((e) => ({ ...e }));
     } catch (err) {
       console.error('❌ Failed to load World Cup data:', err);
       worldCupData = [];
@@ -175,8 +172,8 @@
         return Number(entry.followers?.x || 0) - Number(entry.previous?.x || 0);
       case 'points':
       default:
-        const prevTik = Number(entry.previous?.tiktok || 0);
-        const prevPoints = prevTik * 0.4;
+        // Use actual points from data instead of calculating from TikTok
+        const prevPoints = Number(entry.previous?.points || entry.points || 0);
         return Number(entry.points || 0) - prevPoints;
     }
   }
