@@ -1,9 +1,9 @@
 ﻿{
   "last_updated": "2025-11-02T00:00:00Z",
   "regions": [
-    {"region":"ScotlandWTF","followers":{"tiktok":4416,"instagram":14800,"youtube":0,"x":0},"previous":{"tiktok":4416,"instagram":14800,"youtube":0,"x":0},"points":7077.6,"tagline":"Documenting the fall of Scotland.","logo":"assets/logos/scotland-wtf-logo.png"},
+    {"region":"ScotlandWTF","followers":{"tiktok":4416,"instagram":16600,"youtube":0,"x":0},"previous":{"tiktok":4416,"instagram":16600,"youtube":0,"x":0},"points":7077.6,"tagline":"Documenting the fall of Scotland.","logo":"assets/logos/scotland-wtf-logo.png"},
     {"region":"WatchTheFallWTF","followers":{"tiktok":569,"instagram":1323,"youtube":0,"x":0},"previous":{"tiktok":569,"instagram":1323,"youtube":0,"x":0},"points":756.8,"tagline":"The global hub of the WTF Network.","logo":"assets/watermark/wtfman.png"},
-    {"region":"AustraliaWTF","followers":{"tiktok":749,"instagram":694,"youtube":0,"x":0},"previous":{"tiktok":749,"instagram":694,"youtube":0,"x":0},"points":575.2,"tagline":"Watching Australia's unraveling.","logo":"assets/logos/australia-wtf-logo.png"},
+    {"region":"AustraliaWTF","followers":{"tiktok":749,"instagram":16000,"youtube":0,"x":0},"previous":{"tiktok":749,"instagram":16000,"youtube":0,"x":0},"points":575.2,"tagline":"Watching Australia's unraveling.","logo":"assets/logos/australia-wtf-logo.png"},
     {"region":"USAmericaWTF","followers":{"tiktok":29,"instagram":791,"youtube":0,"x":0},"previous":{"tiktok":29,"instagram":791,"youtube":0,"x":0},"points":327.6,"tagline":"Tracking America's decline.","logo":"assets/logos/usa-wtf-logo.png"},
     {"region":"AIWTF","followers":{"tiktok":24,"instagram":573,"youtube":0,"x":0},"previous":{"tiktok":24,"instagram":573,"youtube":0,"x":0},"points":238.4,"tagline":"Monitoring the rise of artificial intelligence.","logo":"assets/logos/ai-wtf-logo.webp"},
     {"region":"BritainWTF","followers":{"tiktok":52,"instagram":571,"youtube":0,"x":0},"previous":{"tiktok":52,"instagram":571,"youtube":0,"x":0},"points":228.4,"tagline":"Documenting Britain's cultural unravelling.","logo":"assets/logos/britain-wtf-logo.png"},
@@ -17,7 +17,7 @@
     {"region":"NorthernIrelandWTF","followers":{"tiktok":0,"instagram":31,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":31,"youtube":0,"x":0},"points":12.4,"tagline":"Following Northern Ireland's decline.","logo":"assets/logos/northern-ireland-wtf-logo.png"},
     {"region":"PolandWTF","followers":{"tiktok":0,"instagram":31,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":31,"youtube":0,"x":0},"points":12.4,"tagline":"Tracking Poland's transformation.","logo":"assets/logos/poland-wtf-logo.png"},
     {"region":"WalesWTF","followers":{"tiktok":0,"instagram":28,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":28,"youtube":0,"x":0},"points":11.2,"tagline":"Witnessing the decay of Wales.","logo":"assets/logos/wales-wtf-logo.png"},
-    {"region":"CanadaWTF","followers":{"tiktok":0,"instagram":28,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":28,"youtube":0,"x":0},"points":11.2,"tagline":"Following Canada's social decay.","logo":"assets/logos/canada-wtf-logo.png"},
+    {"region":"CanadaWTF","followers":{"tiktok":0,"instagram":1532,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":1532,"youtube":0,"x":0},"points":11.2,"tagline":"Following Canada's social decay.","logo":"assets/logos/canada-wtf-logo.png"},
     {"region":"SwedenWTF","followers":{"tiktok":0,"instagram":28,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":28,"youtube":0,"x":0},"points":11.2,"tagline":"Observing Sweden's transformation.","logo":"assets/logos/sweden-wtf-logo.png"},
     {"region":"SpainWTF","followers":{"tiktok":0,"instagram":27,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":27,"youtube":0,"x":0},"points":10.8,"tagline":"Documenting Spain's decline.","logo":"assets/logos/spain-wtf-logo.png"},
     {"region":"ItalyWTF","followers":{"tiktok":0,"instagram":27,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":27,"youtube":0,"x":0},"points":10.8,"tagline":"Recording Italy's decline.","logo":"assets/logos/italy-wtf-logo.png"},
