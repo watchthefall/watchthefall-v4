@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support WatchTheFall | Donate</title>
+    <meta name="description" content="Support the WatchTheFall network. Help us document civilization's collapse through social media analytics.">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#d4af37">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="assets/logos/wtf-logo.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="styles/donate.css">
+</head>
+<body class="page-donate">
+    <!-- Cinematic Video Background -->
+    <div class="video-background">
+        <video id="background-video" autoplay muted loop playsinline>
+            <source src="assets/video/main_bg.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- Particle Network Canvas -->
+    <canvas id="network-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/watermark/watchthefall_watermark.png" alt="WatchTheFall">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="donate.html" class="active">Support</a></li>
+                <li><a href="index.html#worldcup">World Cup</a></li>
+                <li><a href="wtfcreations.html">Shop</a></li>
+                <li><a href="index.html#directory">Directory</a></li>
+                <li><a href="wtfrecords.html">WTF Records</a></li>
+                <li class="nav-dropdown">
+                    <a href="philosophy.html">Philosophy</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="philosophy.html">Philosophy</a></li>
+                        <li><a href="regional/pages/roadmap.html">Roadmap</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="donate-hero">
+        <div class="container">
+            <h1 class="page-title glitch" data-text="Support WatchTheFall">Support WatchTheFall</h1>
+            <p class="hero-tagline">Help us document the fall. Every contribution keeps the network alive.</p>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section class="section donation-section">
+        <div class="container">
+            <div class="donation-card">
+                <!-- Progress Goal -->
+                <div class="goal-tracker">
+                    <div class="goal-header">
+                        <h3>Monthly Hosting Goal</h3>
+                        <span class="goal-amount"><span id="current-goal">£0</span> / <span id="target-goal">£150</span></span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progress-bar" style="width: 0%">
+                            <span class="progress-percentage" id="progress-percentage">0%</span>
+                        </div>
+                    </div>
+                    <p class="goal-status" id="goal-status">Help us reach this month's hosting costs</p>
+                </div>
+
+                <!-- Amount Selector -->
+                <div class="donation-form">
+                    <h2>Choose Your Support Level</h2>
+                    
+                    <!-- Preset Amounts -->
+                    <div class="amount-options">
+                        <button class="amount-btn" data-amount="5" data-impact="Keeps the site live for 1 day">
+                            <span class="currency">£</span>
+                            <span class="value">5</span>
+                        </button>
+                        <button class="amount-btn" data-amount="10" data-impact="Powers our servers for 2 days">
+                            <span class="currency">£</span>
+                            <span class="value">10</span>
+                        </button>
+                        <button class="amount-btn" data-amount="20" data-impact="Covers a week of hosting">
+                            <span class="currency">£</span>
+                            <span class="value">20</span>
+                        </button>
+                        <button class="amount-btn" data-amount="50" data-impact="Supports development for a week">
+                            <span class="currency">£</span>
+                            <span class="value">50</span>
+                        </button>
+                    </div>
+
+                    <!-- Custom Amount Slider -->
+                    <div class="slider-container">
+                        <label for="custom-amount">Or choose a custom amount:</label>
+                        <div class="slider-wrapper">
+                            <input type="range" id="custom-amount" min="1" max="100" value="15" step="1">
+                            <div class="slider-output">
+                                <span class="slider-currency">£</span>
+                                <span id="slider-value">15</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Impact Message -->
+                    <div class="impact-message" id="impact-message">
+                        <span class="impact-icon">💡</span>
+                        <p id="impact-text">Your £15 helps cover hosting costs and keeps the network running</p>
+                    </div>
+
+                    <!-- Donate Button -->
+                    <div class="donate-actions">
+                        <button class="btn btn-primary btn-donate" id="donate-btn">
+                            <span class="btn-icon">💰</span>
+                            <span class="btn-text">Donate via PayPal</span>
+                        </button>
+                        <p class="donate-note">Secure payment powered by PayPal</p>
+                    </div>
+
+                    <!-- PayPal Placeholder -->
+                    <div id="paypal-button-container" style="display: none;"></div>
+                </div>
+
+                <!-- Why Donate Panel -->
+                <div class="info-panel">
+                    <button class="info-toggle" id="info-toggle">
+                        <span>Why does WatchTheFall need donations?</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="info-content collapsed" id="info-content">
+                        <h3>What Your Support Covers</h3>
+                        <div class="cost-breakdown">
+                            <div class="cost-item">
+                                <span class="cost-label">Server Hosting</span>
+                                <span class="cost-value">£50/month</span>
+                            </div>
+                            <div class="cost-item">
+                                <span class="cost-label">CDN & Storage</span>
+                                <span class="cost-value">£30/month</span>
+                            </div>
+                            <div class="cost-item">
+                                <span class="cost-label">Domain & SSL</span>
+                                <span class="cost-value">£15/month</span>
+                            </div>
+                            <div class="cost-item">
+                                <span class="cost-label">API Services</span>
+                                <span class="cost-value">£25/month</span>
+                            </div>
+                            <div class="cost-item">
+                                <span class="cost-label">Development Time</span>
+                                <span class="cost-value">£30/month</span>
+                            </div>
+                        </div>
+                        <p class="info-description">
+                            WatchTheFall is an independent network documenting civilizational decline through social media analytics. 
+                            We operate across 25+ regional hubs, tracking content from TikTok, Instagram, YouTube, X, and Threads. 
+                            Your support keeps us independent, ad-free, and focused on documenting the fall.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alternative Support -->
+            <div class="alt-support">
+                <h3>Other Ways to Support</h3>
+                <div class="support-grid">
+                    <a href="wtfcreations.html" class="support-card">
+                        <span class="support-icon">🛍️</span>
+                        <h4>Shop Merch</h4>
+                        <p>Browse our dystopian designs on Printify</p>
+                    </a>
+                    <a href="index.html#content" class="support-card">
+                        <span class="support-icon">📱</span>
+                        <h4>Share Content</h4>
+                        <p>Follow and share our posts on social media</p>
+                    </a>
+                    <a href="index.html#directory" class="support-card">
+                        <span class="support-icon">🌍</span>
+                        <h4>Join a Hub</h4>
+                        <p>Contribute to your regional network</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/logos/wtf-logo.png" alt="WatchTheFall">
+                    <p>Documenting the fall, one post at a time.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="wtfcreations.html">Shop</a></li>
+                        <li><a href="index.html#directory">Directory</a></li>
+                        <li><a href="philosophy.html">Philosophy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-info">
+                    <h4>WatchTheFall v4</h4>
+                    <p>Independent. Unfiltered. Essential.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 WatchTheFall.wtf - MIT License</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Thank You Modal -->
+    <div id="thank-you-modal" class="modal" aria-hidden="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-dialog thank-you-dialog">
+            <button class="modal-close" aria-label="Close">×</button>
+            <div class="modal-content">
+                <div class="thank-you-icon">🙏</div>
+                <h2 id="thank-you-title">Thank You!</h2>
+                <p id="thank-you-message">Your support keeps WatchTheFall alive and independent.</p>
+                <button class="btn btn-secondary" id="close-modal-btn">Continue Exploring</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/utils/version.js"></script>
+    <script src="scripts/network.js"></script>
+    <script src="scripts/donate.js"></script>
+</body>
+</html>
