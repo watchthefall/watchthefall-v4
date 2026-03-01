@@ -20,12 +20,20 @@
             75: "Covers full monthly hosting",
             100: "Enables new features and improvements"
         },
+        catMessages: {
+            3: "buys snacks for Luna, Broxi & Pats",
+            7: "buys special treats for Luna, Broxi & Pats",
+            15: "buys quality kibble for Luna, Broxi & Pats",
+            25: "buys premium gourmet feast for Luna, Broxi & Pats"
+        },
         thankYouMessages: [
             "Your support keeps WatchTheFall alive and independent.",
             "You're helping us document the fall without compromise.",
             "Thank you for believing in independent media.",
             "Your contribution keeps our servers running and our content free.",
-            "Every pound helps us stay independent and ad-free."
+            "Every pound helps us stay independent and ad-free.",
+            "Thanks for supporting Luna, Broxi & Pats too!",
+            "Your donation feeds our cats and funds infrastructure."
         ]
     };
     
@@ -112,9 +120,19 @@
         }
         
         const message = CONFIG.impactMessages[closestAmount] || 
-                       `Your £${amount} helps cover hosting costs and keeps the network running`;
+                       `helps cover hosting costs and keeps the network running`;
         
-        impactText.textContent = `Your £${amount} ${message.toLowerCase()}`;
+        // Brief cat mention
+        const catAmounts = Object.keys(CONFIG.catMessages).map(Number).sort((a, b) => b - a);
+        let catMessage = "";
+        for (const catAmount of catAmounts) {
+            if (amount >= catAmount) {
+                catMessage = ` (${CONFIG.catMessages[catAmount]})`;
+                break;
+            }
+        }
+        
+        impactText.textContent = `Your £${amount} ${message.toLowerCase()}${catMessage}`;
         
         // Animate impact message
         const impactMessage = document.querySelector('.impact-message');

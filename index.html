@@ -267,6 +267,10 @@
                         <p>Selected: <span id="selected-tier">None</span></p>
                         <p>Total: £<span id="selected-amount">0</span></p>
                     </div>
+                                    
+                    <div class="infrastructure-link">
+                        <p>Want to fund the wider network? <a href="donate.html">View the full Support page</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -436,6 +440,42 @@
                 } else {
                     paypalCta.querySelector('.btn-text').textContent = 'Continue to PayPal';
                 }
+                
+                // Update impact message based on selected tier
+                updateImpactMessage(tier, amount);
+            }
+            
+            // Update impact message based on audience
+            function updateImpactMessage(tier, amount) {
+                const impactElement = document.querySelector('.selected-tier-display');
+                
+                if (amount > 0) {
+                    // Different messaging for cat supporters vs infrastructure supporters
+                    const catMessage = `This buys ${calculateCatItems(amount)} for Luna, Broxi & Pats`;
+                    const infraMessage = `This covers ${Math.round(amount * 0.7)} days of hosting`;
+                    
+                    // Add both messages to the display
+                    impactElement.innerHTML = `
+                        <p>Selected: <span id="selected-tier">${tier}</span></p>
+                        <p>Total: £<span id="selected-amount">${amount.toFixed(2)}</span></p>
+                        <p class="cat-impact"><strong>Cat Impact:</strong> ${catMessage}</p>
+                        <p class="infra-impact"><strong>Infrastructure:</strong> ${infraMessage}</p>
+                    `;
+                } else {
+                    impactElement.innerHTML = `
+                        <p>Selected: <span id="selected-tier">None</span></p>
+                        <p>Total: £<span id="selected-amount">0</span></p>
+                    `;
+                }
+            }
+            
+            // Calculate cat items based on amount
+            function calculateCatItems(amount) {
+                if (amount >= 25) return 'premium gourmet feast';
+                if (amount >= 15) return 'quality kibble';
+                if (amount >= 7) return 'special treats';
+                if (amount >= 3) return 'snacks';
+                return 'love';
             }
             
             // PayPal CTA handler

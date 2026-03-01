@@ -2688,3 +2688,43 @@ audio::-webkit-media-controls-panel {
     width: 100%;
   }
 }
+
+.infrastructure-link {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.infrastructure-link a {
+  color: var(--color-gold);
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.infrastructure-link a:hover {
+  text-decoration: underline;
+}
+
+.cat-impact,
+.infra-impact {
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.cat-impact {
+  background: rgba(173, 216, 230, 0.1);
+  border-left: 3px solid #87ceeb;
+  color: #add8e6;
+}
+
+.infra-impact {
+  background: rgba(212, 175, 55, 0.1);
+  border-left: 3px solid var(--color-gold);
+  color: #d4af37;
+}
