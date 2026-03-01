@@ -218,6 +218,60 @@
         </div>
     </section>
 
+    <!-- Support Section -->
+    <section id="support" class="section support-section">
+        <div class="container">
+            <div class="support-card">
+                <h2 class="section-title">Feed Hungry Cats!</h2>
+                <p class="section-subtitle">Support WatchTheFall and keep the network alive</p>
+                
+                <div class="donation-options">
+                    <div class="tier-buttons">
+                        <button class="tier-btn" data-amount="3">
+                            <span class="tier-name">Cat Treat</span>
+                            <span class="tier-amount">£3</span>
+                        </button>
+                        <button class="tier-btn" data-amount="7">
+                            <span class="tier-name">Catnip</span>
+                            <span class="tier-amount">£7</span>
+                        </button>
+                        <button class="tier-btn" data-amount="15">
+                            <span class="tier-name">Premium Kibble</span>
+                            <span class="tier-amount">£15</span>
+                        </button>
+                        <button class="tier-btn" data-amount="25">
+                            <span class="tier-name">Gourmet Feast</span>
+                            <span class="tier-amount">£25</span>
+                        </button>
+                        <button class="tier-btn custom-amount" data-amount="">
+                            <span class="tier-name">Custom</span>
+                            <span class="tier-amount">£<span id="custom-value">0</span></span>
+                        </button>
+                    </div>
+                    
+                    <div class="payment-area">
+                        <button id="paypal-cta" class="btn btn-primary paypal-btn" disabled>
+                            <span class="btn-icon">💳</span>
+                            <span class="btn-text">Continue to PayPal</span>
+                        </button>
+                        
+                        <div class="qr-section">
+                            <h3>Scan to Pay</h3>
+                            <div class="qr-container">
+                                <img id="qr-code" src="assets/payments/paypal_qr.png" alt="PayPal QR Code">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="selected-tier-display">
+                        <p>Selected: <span id="selected-tier">None</span></p>
+                        <p>Total: £<span id="selected-amount">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
@@ -278,6 +332,153 @@
             openBtn?.addEventListener('click', open);
             closeBtn?.addEventListener('click', close);
             backdrop?.addEventListener('click', close);
+        })();
+    </script>
+    
+    <!-- Support Section JavaScript -->
+    <script>
+        (function() {
+            'use strict';
+            
+            // PayPal configuration - MVP placeholder
+            const PAYPAL_URL = "https://paypal.me/watchthefall";
+            
+            // DOM Elements
+            const tierButtons = document.querySelectorAll('.tier-btn:not(.custom-amount)');
+            const customAmountBtn = document.querySelector('.tier-btn.custom-amount');
+            const customValueSpan = document.getElementById('custom-value');
+            const paypalCta = document.getElementById('paypal-cta');
+            const selectedTierSpan = document.getElementById('selected-tier');
+            const selectedAmountSpan = document.getElementById('selected-amount');
+            const qrCodeImg = document.getElementById('qr-code');
+            
+            let selectedAmount = 0;
+            let selectedTier = 'None';
+            
+            // Initialize custom amount input
+            const customInput = document.createElement('input');
+            customInput.type = 'number';
+            customInput.id = 'custom-input';
+            customInput.min = '1';
+            customInput.placeholder = 'Enter amount';
+            customInput.style.cssText = `
+                width: 80px;
+                padding: 8px;
+                margin-left: 8px;
+                border: 1px solid #d4af37;
+                border-radius: 4px;
+                background: rgba(0, 0, 0, 0.7);
+                color: #fff;
+            `;
+            
+            // Add custom input to custom button
+            customAmountBtn.appendChild(customInput);
+            
+            // Update custom amount display
+            customInput.addEventListener('input', function() {
+                const value = parseFloat(this.value) || 0;
+                customValueSpan.textContent = value.toFixed(0);
+                
+                // If custom amount button is selected, update the display
+                if (customAmountBtn.classList.contains('selected')) {
+                    updateSelection('Custom', value);
+                }
+            });
+            
+            // Tier selection handler
+            tierButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove selected class from all buttons
+                    tierButtons.forEach(btn => btn.classList.remove('selected'));
+                    
+                    // Add selected class to clicked button
+                    this.classList.add('selected');
+                    
+                    // Get amount from data attribute
+                    const amount = parseFloat(this.dataset.amount);
+                    const tierName = this.querySelector('.tier-name').textContent;
+                    
+                    updateSelection(tierName, amount);
+                });
+            });
+            
+            // Custom amount button handler
+            customAmountBtn.addEventListener('click', function() {
+                // Remove selected class from all buttons
+                tierButtons.forEach(btn => btn.classList.remove('selected'));
+                
+                // Add selected class to custom button
+                this.classList.add('selected');
+                
+                // Focus the custom input
+                customInput.focus();
+                
+                // Get value from input
+                const amount = parseFloat(customInput.value) || 0;
+                
+                updateSelection('Custom', amount);
+            });
+            
+            // Update the selection display
+            function updateSelection(tier, amount) {
+                selectedTier = tier;
+                selectedAmount = amount;
+                
+                selectedTierSpan.textContent = tier;
+                selectedAmountSpan.textContent = amount.toFixed(2);
+                
+                // Enable PayPal button if amount > 0
+                paypalCta.disabled = amount <= 0;
+                
+                // Update PayPal button text to show amount
+                if (amount > 0) {
+                    paypalCta.querySelector('.btn-text').textContent = `Pay £${amount.toFixed(2)} via PayPal`;
+                } else {
+                    paypalCta.querySelector('.btn-text').textContent = 'Continue to PayPal';
+                }
+            }
+            
+            // PayPal CTA handler
+            paypalCta.addEventListener('click', function() {
+                if (selectedAmount > 0) {
+                    // Construct PayPal URL with amount
+                    const url = `${PAYPAL_URL}?amount=${selectedAmount}`;
+                    
+                    // Open in new tab
+                    window.open(url, '_blank');
+                }
+            });
+            
+            // Handle QR code fallback
+            qrCodeImg.addEventListener('error', function() {
+                // Create a simple SVG placeholder
+                const svgData = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+                    <rect width="200" height="200" fill="#0a0a0a"/>
+                    <rect x="20" y="20" width="160" height="160" fill="#1a1a1a" stroke="#d4af37" stroke-width="2"/>
+                    <text x="100" y="90" font-family="Arial" font-size="14" text-anchor="middle" fill="#d4af37">PayPal QR</text>
+                    <text x="100" y="110" font-family="Arial" font-size="12" text-anchor="middle" fill="#aaa">Code</text>
+                    <text x="100" y="130" font-family="Arial" font-size="10" text-anchor="middle" fill="#666">will appear here</text>
+                </svg>`;
+                
+                this.src = svgData;
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#support') {
+                        e.preventDefault();
+                        
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
         })();
     </script>
     
