@@ -1,0 +1,314 @@
+/* Fall Map feature styles. Kept separate from app.css for safer additive work. */
+
+.fall-map-page {
+    min-height: 100vh;
+}
+
+.fall-map-hero {
+    padding: 18vh 0 5vh;
+    text-align: center;
+}
+
+.fall-map-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 1.25rem;
+    align-items: stretch;
+}
+
+.fall-map-stage {
+    position: relative;
+    min-height: 620px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    border-radius: 12px;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.12), transparent 24%),
+        linear-gradient(135deg, rgba(12, 12, 12, 0.92), rgba(0, 0, 0, 0.78));
+    box-shadow: inset 0 0 45px rgba(212, 175, 55, 0.05), 0 10px 30px rgba(0, 0, 0, 0.28);
+}
+
+.fall-map-stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 175, 55, 0.05) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(circle at center, #000 0%, transparent 75%);
+    pointer-events: none;
+}
+
+.fall-map-axis {
+    position: absolute;
+    color: rgba(243, 231, 211, 0.45);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    pointer-events: none;
+}
+
+.fall-map-axis.top { top: 1rem; left: 50%; transform: translateX(-50%); }
+.fall-map-axis.bottom { bottom: 1rem; left: 50%; transform: translateX(-50%); }
+.fall-map-axis.left { left: 1rem; top: 50%; transform: translateY(-50%) rotate(-90deg); }
+.fall-map-axis.right { right: 1rem; top: 50%; transform: translateY(-50%) rotate(90deg); }
+
+.fall-map-node {
+    position: absolute;
+    left: calc(var(--x) * 1%);
+    top: calc(var(--y) * 1%);
+    transform: translate(-50%, -50%);
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(212, 175, 55, 0.48);
+    border-radius: 50%;
+    background: rgba(10, 10, 10, 0.86);
+    color: var(--color-gold);
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    z-index: 2;
+}
+
+.fall-map-node:hover,
+.fall-map-node.active {
+    transform: translate(-50%, -50%) scale(1.08);
+    border-color: var(--color-gold);
+    box-shadow: 0 0 24px rgba(212, 175, 55, 0.28);
+}
+
+.fall-map-node.coming-soon {
+    border-style: dashed;
+    opacity: 0.72;
+}
+
+.fall-map-node.system {
+    width: 76px;
+    height: 76px;
+    border-radius: 16px;
+    background: rgba(212, 175, 55, 0.12);
+}
+
+.fall-map-node img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.fall-map-initials {
+    font-family: var(--font-primary);
+    font-size: 0.8rem;
+}
+
+.fall-map-label {
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    max-width: 132px;
+    color: rgba(243, 231, 211, 0.78);
+    font-size: 0.72rem;
+    line-height: 1.2;
+    text-align: center;
+    pointer-events: none;
+}
+
+.fall-map-panel,
+.fall-map-legend,
+.fall-map-cta-card {
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 10px;
+    background: rgba(10, 10, 10, 0.78);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
+}
+
+.fall-map-panel {
+    display: flex;
+    flex-direction: column;
+    min-height: 620px;
+    padding: 1.25rem;
+}
+
+.fall-map-panel-kicker,
+.fall-map-status {
+    color: var(--color-gold);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.fall-map-panel h2 {
+    margin: 0.7rem 0 0.45rem;
+    color: var(--color-text);
+    font-family: var(--font-primary);
+    font-size: 1.4rem;
+    line-height: 1.15;
+}
+
+.fall-map-thesis {
+    color: rgba(243, 231, 211, 0.82);
+    line-height: 1.65;
+}
+
+.fall-map-actions {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+.fall-map-actions .btn.disabled,
+.fall-map-actions .btn[aria-disabled="true"] {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.fall-map-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.fall-map-pill {
+    border: 1px solid rgba(212, 175, 55, 0.24);
+    border-radius: 999px;
+    padding: 0.3rem 0.6rem;
+    color: rgba(243, 231, 211, 0.76);
+    font-size: 0.78rem;
+}
+
+.fall-map-support {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.fall-map-legend,
+.fall-map-cta-card {
+    padding: 1rem;
+}
+
+.fall-map-legend h3,
+.fall-map-cta-card h3 {
+    margin: 0 0 0.5rem;
+    color: var(--color-gold);
+}
+
+.fall-map-legend-list {
+    display: grid;
+    gap: 0.55rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.fall-map-dot {
+    display: inline-block;
+    width: 0.7rem;
+    height: 0.7rem;
+    margin-right: 0.45rem;
+    border: 1px solid var(--color-gold);
+    border-radius: 50%;
+}
+
+.fall-map-dot.coming-soon {
+    border-style: dashed;
+    opacity: 0.65;
+}
+
+.fall-map-cta-card {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.fall-map-cta-card p {
+    margin: 0;
+    color: rgba(243, 231, 211, 0.78);
+    line-height: 1.55;
+}
+
+.fall-map-empty {
+    color: rgba(243, 231, 211, 0.68);
+}
+
+.philosophy-article {
+    padding: 16vh 0 6vh;
+}
+
+.philosophy-article-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 1.25rem;
+    align-items: start;
+}
+
+.philosophy-article-body {
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    border-radius: 10px;
+    background: rgba(10, 10, 10, 0.72);
+    padding: 1.5rem;
+}
+
+.philosophy-article-body h2,
+.philosophy-article-side h3 {
+    color: var(--color-gold);
+}
+
+.philosophy-article-body p {
+    color: rgba(243, 231, 211, 0.84);
+    line-height: 1.75;
+}
+
+.philosophy-article-side {
+    position: sticky;
+    top: 6rem;
+}
+
+@media (max-width: 900px) {
+    .fall-map-shell,
+    .fall-map-support,
+    .philosophy-article-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fall-map-stage,
+    .fall-map-panel {
+        min-height: 560px;
+    }
+
+    .philosophy-article-side {
+        position: static;
+    }
+}
+
+@media (max-width: 560px) {
+    .fall-map-stage {
+        min-height: 520px;
+    }
+
+    .fall-map-node {
+        width: 48px;
+        height: 48px;
+    }
+
+    .fall-map-node.system {
+        width: 62px;
+        height: 62px;
+    }
+
+    .fall-map-node img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .fall-map-label {
+        display: none;
+    }
+}
