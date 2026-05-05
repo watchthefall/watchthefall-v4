@@ -15,9 +15,9 @@
 
     const WORLD_COORDS = {
         'the-west': { x: 23, y: 42 },
-        britain: { x: 45, y: 36 },
-        europe: { x: 58, y: 36 },
-        ai: { x: 65, y: 33 },
+        britain: { x: 43, y: 34 },
+        europe: { x: 55, y: 36 },
+        ai: { x: 69, y: 30 },
         antarctica: { x: 52, y: 76 },
         watchthefall: { x: 52, y: 18 },
         scotland: { x: 44, y: 29 },
