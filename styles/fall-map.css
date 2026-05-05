@@ -18,14 +18,56 @@
 
 .fall-map-stage {
     position: relative;
+    isolation: isolate;
     min-height: 620px;
     overflow: hidden;
     border: 1px solid rgba(212, 175, 55, 0.28);
     border-radius: 12px;
-    background:
-        radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.12), transparent 24%),
-        linear-gradient(135deg, rgba(12, 12, 12, 0.92), rgba(0, 0, 0, 0.78));
+    background-color: #020303;
     box-shadow: inset 0 0 45px rgba(212, 175, 55, 0.05), 0 10px 30px rgba(0, 0, 0, 0.28);
+}
+
+.fall-map-world {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    transform: translate(var(--view-x, 0), var(--view-y, 0)) scale(var(--view-scale, 1));
+    transform-origin: center center;
+    transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
+}
+
+.fall-map-bg-map {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-image:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.2)),
+        var(--fall-map-art, url("/assets/fall-map/map-global.png"));
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 1;
+    filter: saturate(1.16) contrast(1.2) brightness(1.08);
+    pointer-events: none;
+}
+
+.fall-map-bg-atmosphere {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    opacity: 0.18;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08), transparent 28%),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.08), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.16)),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.06), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.18));
+}
+
+.fall-map-node-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
 }
 
 .fall-map-stage::before {
@@ -38,6 +80,8 @@
     background-size: 44px 44px;
     mask-image: radial-gradient(circle at center, #000 0%, transparent 75%);
     pointer-events: none;
+    z-index: 2;
+    opacity: 0.18;
 }
 
 .fall-map-axis {
@@ -47,6 +91,7 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     pointer-events: none;
+    z-index: 4;
 }
 
 .fall-map-axis.top { top: 1rem; left: 50%; transform: translateX(-50%); }
@@ -58,7 +103,7 @@
     position: absolute;
     left: calc(var(--x) * 1%);
     top: calc(var(--y) * 1%);
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(var(--node-scale, 1));
     width: 58px;
     height: 58px;
     display: grid;
@@ -68,13 +113,14 @@
     background: rgba(10, 10, 10, 0.86);
     color: var(--color-gold);
     cursor: pointer;
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-    z-index: 2;
+    pointer-events: auto;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    z-index: 5;
 }
 
 .fall-map-node:hover,
 .fall-map-node.active {
-    transform: translate(-50%, -50%) scale(1.08);
+    transform: translate(-50%, -50%) scale(calc(var(--node-scale, 1) * 1.08));
     border-color: var(--color-gold);
     box-shadow: 0 0 24px rgba(212, 175, 55, 0.28);
 }
@@ -89,6 +135,60 @@
     height: 76px;
     border-radius: 16px;
     background: rgba(212, 175, 55, 0.12);
+    box-shadow: 0 0 26px rgba(212, 175, 55, 0.18);
+}
+
+.fall-map-node.region {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+}
+
+.fall-map-node.theme {
+    width: 52px;
+    height: 52px;
+    border-color: rgba(212, 175, 55, 0.36);
+}
+
+.fall-map-node.cluster-parent {
+    border-style: double;
+    box-shadow: 0 0 18px rgba(212, 175, 55, 0.14);
+}
+
+.fall-map-node.cluster-parent .fall-map-label {
+    color: var(--color-gold);
+    font-weight: 700;
+}
+
+.fall-map-node.map-reset {
+    width: 72px;
+    height: 44px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.78);
+}
+
+.fall-map-reset-button {
+    position: absolute;
+    top: 1.15rem;
+    left: 1.15rem;
+    z-index: 20;
+    padding: 0.5rem 0.8rem;
+    border: 1px solid rgba(212, 175, 55, 0.7);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.86);
+    color: var(--color-gold);
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    pointer-events: auto;
+    box-shadow: 0 0 22px rgba(0, 0, 0, 0.6);
+}
+
+.fall-map-reset-button:hover {
+    border-color: var(--color-gold);
+    box-shadow: 0 0 18px rgba(212, 175, 55, 0.2);
 }
 
 .fall-map-node img {
@@ -109,7 +209,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: max-content;
-    max-width: 132px;
+    max-width: 118px;
     color: rgba(243, 231, 211, 0.78);
     font-size: 0.72rem;
     line-height: 1.2;
@@ -131,6 +231,8 @@
     flex-direction: column;
     min-height: 620px;
     padding: 1.25rem;
+    position: relative;
+    z-index: 6;
 }
 
 .fall-map-panel-kicker,
@@ -156,9 +258,19 @@
 
 .fall-map-actions {
     display: grid;
-    gap: 0.75rem;
+    grid-template-columns: repeat(2, minmax(0, max-content));
+    gap: 0.6rem;
+    align-items: center;
     margin-top: auto;
     padding-top: 1rem;
+}
+
+.fall-map-actions .btn {
+    min-height: auto;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.88rem;
+    line-height: 1.2;
+    white-space: nowrap;
 }
 
 .fall-map-actions .btn.disabled,
@@ -166,6 +278,61 @@
     opacity: 0.45;
     cursor: not-allowed;
     pointer-events: none;
+}
+
+.fall-map-cluster {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(212, 175, 55, 0.18);
+}
+
+.fall-map-cluster h3 {
+    margin: 0 0 0.75rem;
+    color: var(--color-gold);
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.fall-map-cluster-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem;
+}
+
+.fall-map-cluster-card {
+    display: grid;
+    gap: 0.25rem;
+    min-height: 0;
+    padding: 0.65rem;
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.24);
+    color: var(--color-text);
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.fall-map-cluster-card:hover,
+.fall-map-cluster-card.active {
+    border-color: rgba(212, 175, 55, 0.6);
+    background: rgba(212, 175, 55, 0.08);
+    transform: translateY(-1px);
+}
+
+.fall-map-cluster-name {
+    color: var(--color-text);
+    font-weight: 700;
+    font-size: 0.84rem;
+    line-height: 1.2;
+}
+
+.fall-map-cluster-status {
+    color: var(--color-gold);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 .fall-map-meta {
@@ -283,6 +450,10 @@
         min-height: 560px;
     }
 
+    .fall-map-actions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .philosophy-article-side {
         position: static;
     }
@@ -303,6 +474,12 @@
         height: 62px;
     }
 
+    .fall-map-node.region,
+    .fall-map-node.theme {
+        width: 46px;
+        height: 46px;
+    }
+
     .fall-map-node img {
         width: 34px;
         height: 34px;
@@ -310,5 +487,19 @@
 
     .fall-map-label {
         display: none;
+    }
+
+    .fall-map-actions {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+    }
+
+    .fall-map-actions .btn {
+        width: 100%;
+        padding: 0.55rem 0.75rem;
+    }
+
+    .fall-map-cluster-grid {
+        grid-template-columns: 1fr;
     }
 }
