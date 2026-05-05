@@ -3,7 +3,7 @@
 // =====================================================================
 
 // 🔥 Bump this every time you change assets or JS files
-const CACHE_NAME = 'wtf-v4-cache-v6';
+const CACHE_NAME = 'wtf-v4-cache-v7';
 
 // 🚫 DO NOT cache dynamic JS files that change often.
 // Only cache the stable, static assets that rarely change.
@@ -83,9 +83,14 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
         fetch(request)
             .catch(() => {
-                // If offline and requesting a page, fall back to index
                 if (request.destination === 'document') {
-                    return caches.match('/index.html');
+                    if (url.pathname.endsWith('.html')) {
+                        return caches.match(request);
+                    }
+
+                    if (url.pathname === '/' || !url.pathname.includes('.')) {
+                        return caches.match('/index.html');
+                    }
                 }
             })
     );
