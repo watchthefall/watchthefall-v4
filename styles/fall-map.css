@@ -11,9 +11,9 @@
 
 .fall-map-shell {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 360px;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 420px);
     gap: 1.25rem;
-    align-items: stretch;
+    align-items: start;
 }
 
 .fall-map-stage {
@@ -229,9 +229,12 @@
 .fall-map-panel {
     display: flex;
     flex-direction: column;
-    min-height: 620px;
+    min-height: 0;
+    max-height: calc(100vh - 7rem);
+    overflow: auto;
     padding: 1.25rem;
-    position: relative;
+    position: sticky;
+    top: 5.5rem;
     z-index: 6;
 }
 
@@ -258,10 +261,10 @@
 
 .fall-map-actions {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, max-content));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.6rem;
     align-items: center;
-    margin-top: auto;
+    margin-top: 1rem;
     padding-top: 1rem;
 }
 
@@ -270,7 +273,8 @@
     padding: 0.55rem 0.85rem;
     font-size: 0.88rem;
     line-height: 1.2;
-    white-space: nowrap;
+    text-align: center;
+    white-space: normal;
 }
 
 .fall-map-actions .btn.disabled,
@@ -448,6 +452,14 @@
     .fall-map-stage,
     .fall-map-panel {
         min-height: 560px;
+    }
+
+    .fall-map-panel {
+        min-height: 0;
+        max-height: none;
+        overflow: visible;
+        position: relative;
+        top: auto;
     }
 
     .fall-map-actions {

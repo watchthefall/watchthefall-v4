@@ -20,18 +20,18 @@
         ai: { x: 69, y: 30 },
         antarctica: { x: 52, y: 76 },
         watchthefall: { x: 52, y: 18 },
-        scotland: { x: 44, y: 29 },
-        england: { x: 48, y: 41 },
-        wales: { x: 43, y: 43 },
-        'northern-ireland': { x: 40, y: 39 },
-        ireland: { x: 35, y: 45 },
-        france: { x: 47, y: 53 },
-        germany: { x: 57, y: 48 },
-        netherlands: { x: 50, y: 42 },
-        poland: { x: 65, y: 44 },
-        spain: { x: 42, y: 66 },
-        italy: { x: 58, y: 64 },
-        sweden: { x: 57, y: 24 },
+        scotland: { x: 43.5, y: 30 },
+        england: { x: 48.5, y: 42.5 },
+        wales: { x: 42.8, y: 44 },
+        'northern-ireland': { x: 39.2, y: 39.2 },
+        ireland: { x: 35.7, y: 45 },
+        france: { x: 48, y: 54 },
+        germany: { x: 57, y: 47 },
+        netherlands: { x: 51, y: 42 },
+        poland: { x: 64, y: 44 },
+        spain: { x: 43, y: 65 },
+        italy: { x: 58, y: 63 },
+        sweden: { x: 57, y: 25 },
         usa: { x: 30, y: 50 },
         canada: { x: 27, y: 34 },
         australia: { x: 78, y: 68 },
@@ -42,41 +42,63 @@
         'dark-humour': { x: 70, y: 68 }
     };
 
+    const VIEW_COORDS = {
+        britain: {
+            britain: { x: 45.4, y: 36.8 },
+            scotland: { x: 43.5, y: 30 },
+            england: { x: 48.3, y: 42 },
+            wales: { x: 42.5, y: 44 },
+            'northern-ireland': { x: 39.2, y: 39.2 },
+            ireland: { x: 35.7, y: 45 }
+        },
+        europe: {
+            europe: { x: 59, y: 35 },
+            ireland: { x: 37, y: 42 },
+            france: { x: 48, y: 53.5 },
+            germany: { x: 57, y: 46.5 },
+            netherlands: { x: 52, y: 41 },
+            poland: { x: 64.5, y: 43.5 },
+            spain: { x: 43, y: 65 },
+            italy: { x: 58, y: 62.5 },
+            sweden: { x: 57, y: 24.5 }
+        },
+        'the-west': {
+            'the-west': { x: 25, y: 42 },
+            usa: { x: 29, y: 51 },
+            canada: { x: 25, y: 34 },
+            australia: { x: 78, y: 68.5 }
+        }
+    };
+
     const FALL_MAP_VIEWS = {
         world: {
             scale: 1,
-            x: 0,
-            y: 0,
+            center: { x: 50, y: 50 },
             visible: ['britain', 'europe', 'the-west', 'ai', 'antarctica']
         },
         britain: {
-            scale: 2.5,
-            x: 14,
-            y: 24,
+            scale: 3.05,
+            center: { x: 42.5, y: 39.5 },
             visible: ['britain', 'scotland', 'england', 'wales', 'northern-ireland', 'ireland']
         },
         europe: {
-            scale: 1.78,
-            x: -8,
-            y: 8,
+            scale: 1.85,
+            center: { x: 55, y: 45.5 },
             visible: ['europe', 'ireland', 'france', 'germany', 'netherlands', 'poland', 'spain', 'italy', 'sweden']
         },
         'the-west': {
-            scale: 1.42,
-            x: 25,
-            y: 6,
+            scale: 1.15,
+            center: { x: 45, y: 50 },
             visible: ['the-west', 'usa', 'canada', 'australia']
         },
         ai: {
             scale: 1.45,
-            x: -18,
-            y: 8,
+            center: { x: 69, y: 42 },
             visible: ['ai', 'ai-tech', 'gadgets']
         },
         antarctica: {
             scale: 1.45,
-            x: -4,
-            y: -18,
+            center: { x: 53, y: 62 },
             visible: ['antarctica', 'watchthefall', 'concepts', 'comedy', 'dark-humour']
         }
     };
@@ -117,8 +139,21 @@
         };
     }
 
-    function layoutFor(node) {
+    function layoutFor(node, viewId = currentView) {
+        const viewCoords = VIEW_COORDS[viewId] && VIEW_COORDS[viewId][node.id];
+        if (viewCoords) return viewCoords;
         return WORLD_COORDS[node.id] || { x: node.x || 50, y: node.y || 50 };
+    }
+
+    function viewTransform(view) {
+        const scale = Number(view.scale || 1);
+        const center = view.center || { x: 50, y: 50 };
+
+        return {
+            scale,
+            x: (50 - Number(center.x || 50)) * scale,
+            y: (50 - Number(center.y || 50)) * scale
+        };
     }
 
     function fullMapNode() {
@@ -154,13 +189,14 @@
         const resetButton = currentView !== 'world'
             ? `<button class="fall-map-reset-button" type="button" data-node-id="${FULL_MAP_NODE_ID}" aria-label="Back to World View">Back to World View</button>`
             : '';
+        const transform = viewTransform(view);
         const visibleNodes = view.visible
             .map(id => nodes.find(node => node.id === id))
             .filter(Boolean);
         const nodeScale = Math.max(0.48, Math.min(1, 1 / view.scale));
         const nodeHtml = visibleNodes.map(node => {
             const displayNode = stageNode(node);
-            const position = layoutFor(node);
+            const position = layoutFor(node, currentView);
             const displayLabel = displayNode.clusterLabel || displayNode.label;
             return `
             <button
@@ -179,7 +215,7 @@
         stage.innerHTML = `
             <div
                 class="fall-map-world"
-                style="--view-scale: ${view.scale}; --view-x: ${view.x}%; --view-y: ${view.y}%; --fall-map-art: url('${GLOBAL_MAP_URL}')">
+                style="--view-scale: ${transform.scale}; --view-x: ${transform.x}%; --view-y: ${transform.y}%; --fall-map-art: url('${GLOBAL_MAP_URL}')">
                 <div class="fall-map-bg-map" aria-hidden="true"></div>
                 <div class="fall-map-bg-atmosphere" aria-hidden="true"></div>
                 <div class="fall-map-node-layer">
