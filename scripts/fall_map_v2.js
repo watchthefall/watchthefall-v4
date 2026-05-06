@@ -49,37 +49,37 @@
     const VIEW_COORDS = {
         britain: {
             britain: { x: 50, y: 47 },
-            scotland: { x: 50, y: 26 },
-            england: { x: 59, y: 59 },
-            wales: { x: 43, y: 62 },
-            'northern-ireland': { x: 35, y: 49 },
-            ireland: { x: 28, y: 66 }
+            scotland: { x: 50, y: 31 },
+            england: { x: 59, y: 60 },
+            wales: { x: 43, y: 63 },
+            'northern-ireland': { x: 35, y: 51 },
+            ireland: { x: 28, y: 67 }
         },
         europe: {
-            europe: { x: 53, y: 32 },
-            ireland: { x: 27, y: 43 },
+            europe: { x: 53, y: 35 },
+            ireland: { x: 27, y: 45 },
             france: { x: 44, y: 60 },
             germany: { x: 57, y: 50 },
-            netherlands: { x: 46, y: 43 },
-            poland: { x: 68, y: 46 },
+            netherlands: { x: 46, y: 45 },
+            poland: { x: 68, y: 48 },
             spain: { x: 35, y: 75 },
             italy: { x: 61, y: 72 },
-            sweden: { x: 59, y: 21 }
+            sweden: { x: 59, y: 26 }
         },
         'the-west': {
-            'the-west': { x: 43, y: 43 },
-            canada: { x: 35, y: 28 },
+            'the-west': { x: 43, y: 45 },
+            canada: { x: 35, y: 33 },
             usa: { x: 43, y: 58 },
             australia: { x: 78, y: 69 }
         },
         ai: {
-            ai: { x: 49, y: 32 },
-            'ai-tech': { x: 64, y: 48 },
-            gadgets: { x: 39, y: 62 }
+            ai: { x: 49, y: 37 },
+            'ai-tech': { x: 64, y: 51 },
+            gadgets: { x: 39, y: 64 }
         },
         antarctica: {
-            antarctica: { x: 53, y: 57 },
-            watchthefall: { x: 50, y: 39 },
+            antarctica: { x: 53, y: 59 },
+            watchthefall: { x: 50, y: 44 },
             concepts: { x: 37, y: 55 },
             comedy: { x: 67, y: 53 },
             'dark-humour': { x: 67, y: 69 }
@@ -95,32 +95,32 @@
         },
         britain: {
             visible: ['britain', 'scotland', 'england', 'wales', 'northern-ireland', 'ireland'],
-            center: { x: 50, y: 49 },
-            scale: 1.55,
+            center: { x: 50, y: 51 },
+            scale: 1.45,
             caption: 'The island contract, civic memory, and the borders inside the story.'
         },
         europe: {
             visible: ['europe', 'ireland', 'france', 'germany', 'netherlands', 'poland', 'spain', 'italy', 'sweden'],
-            center: { x: 53, y: 49 },
-            scale: 1.28,
+            center: { x: 53, y: 51 },
+            scale: 1.2,
             caption: 'Managed distance, continental pressure, and institutions above ordinary life.'
         },
         'the-west': {
             visible: ['the-west', 'usa', 'canada', 'australia'],
-            center: { x: 48, y: 51 },
-            scale: 1.18,
+            center: { x: 48, y: 53 },
+            scale: 1.12,
             caption: 'A transatlantic mirror with Australia held as a satellite pressure point.'
         },
         ai: {
             visible: ['ai', 'ai-tech', 'gadgets'],
-            center: { x: 52, y: 49 },
-            scale: 1.22,
+            center: { x: 52, y: 52 },
+            scale: 1.14,
             caption: 'A symbolic machine layer: tools, platforms, automation, and attention.'
         },
         antarctica: {
             visible: ['watchthefall', 'antarctica', 'concepts', 'comedy', 'dark-humour'],
-            center: { x: 54, y: 56 },
-            scale: 1.18,
+            center: { x: 54, y: 58 },
+            scale: 1.12,
             caption: 'The meta layer underneath the signal: sovereignty, control, and interpretation.'
         }
     };
@@ -206,7 +206,7 @@
         }
 
         const pressurePoints = visible.map(point =>
-            `<circle class="v2-pressure" cx="${point.x}" cy="${point.y}" r="0.8" />`
+            `<circle class="v2-pressure" cx="${point.x}" cy="${point.y}" r="0.62" />`
         ).join('');
 
         const fineGrid = Array.from({ length: 8 }, (_, index) => {
@@ -217,23 +217,23 @@
             `;
         }).join('');
 
-        const constellation = visible.map((point, index) => {
+        const constellation = visible.slice(0, 6).map((point, index) => {
             const next = visible[(index + 2) % visible.length] || visible[0];
             return `<path class="v2-constellation" d="M ${point.x} ${point.y} L ${next.x} ${next.y}" />`;
         }).join('');
 
         const labels = `
-            <text class="v2-map-label" x="16" y="21">WESTERN MEMORY</text>
-            <text class="v2-map-label" x="43" y="18">CIVIC STRAIN</text>
-            <text class="v2-map-label" x="69" y="23">MACHINE LAYER</text>
-            <text class="v2-map-label" x="49" y="84">SYSTEM FLOOR</text>
+            <text class="v2-map-label" x="16" y="21">MEMORY FIELD</text>
+            <text class="v2-map-label" x="44" y="18">CIVIC FIELD</text>
+            <text class="v2-map-label" x="71" y="23">MACHINE FIELD</text>
+            <text class="v2-map-label" x="47" y="84">SYSTEM FLOOR</text>
         `;
 
         const systemRings = viewId === 'antarctica'
             ? `
-                <circle class="v2-system-ring" cx="53" cy="57" r="13" />
-                <circle class="v2-system-ring outer" cx="53" cy="57" r="22" />
-                <path class="v2-system-orbit" d="M 37 55 C 44 41 59 39 67 53 C 72 62 67 72 53 57" />
+                <circle class="v2-system-ring" cx="53" cy="58" r="12" />
+                <circle class="v2-system-ring outer" cx="53" cy="58" r="22" />
+                <path class="v2-system-orbit" d="M 37 55 C 43 44 59 42 67 53 C 72 62 67 72 53 58" />
             `
             : '';
 
@@ -248,18 +248,19 @@
                 </defs>
                 <rect width="100" height="100" fill="url(#v2-glow)" />
                 ${fineGrid}
-                <path class="v2-land land-west" d="M 8 32 C 18 20 28 22 34 34 C 30 45 28 57 17 63 C 8 58 4 45 8 32 Z" />
-                <path class="v2-land land-europe" d="M 42 28 C 55 18 69 24 76 39 C 70 54 58 58 45 52 C 36 45 34 35 42 28 Z" />
-                <path class="v2-land land-south" d="M 42 62 C 54 55 67 60 71 73 C 61 83 47 80 42 62 Z" />
-                <path class="v2-land land-pacific" d="M 77 61 C 88 58 94 67 90 78 C 79 82 72 73 77 61 Z" />
-                <path class="v2-contour" d="M 11 34 C 20 28 28 30 31 37 C 28 43 24 51 17 56 C 12 52 9 43 11 34 Z" />
-                <path class="v2-contour" d="M 45 31 C 55 25 66 29 71 39 C 66 48 57 52 48 49 C 41 43 40 36 45 31 Z" />
-                <path class="v2-contour" d="M 47 65 C 56 60 64 63 67 72 C 59 77 50 75 47 65 Z" />
-                <path class="v2-contour" d="M 80 64 C 87 63 91 70 87 76 C 81 77 77 70 80 64 Z" />
-                <path class="v2-coast" d="M 12 28 C 23 19 35 27 34 38 C 30 49 25 59 14 61" />
-                <path class="v2-coast" d="M 43 27 C 55 19 71 24 76 40 C 72 51 60 57 47 52" />
-                <path class="v2-coast" d="M 40 62 C 51 55 67 59 72 74" />
-                <path class="v2-coast" d="M 78 61 C 90 59 94 70 89 80" />
+                <rect class="v2-field field-west" x="8" y="25" width="28" height="44" rx="5" />
+                <rect class="v2-field field-civic" x="39" y="23" width="33" height="38" rx="5" />
+                <rect class="v2-field field-machine" x="67" y="19" width="24" height="50" rx="5" />
+                <rect class="v2-field field-system" x="31" y="61" width="45" height="26" rx="5" />
+                <path class="v2-zone-boundary" d="M 38 18 L 38 88" />
+                <path class="v2-zone-boundary" d="M 67 16 L 67 88" />
+                <path class="v2-zone-boundary" d="M 10 60 L 91 60" />
+                <circle class="v2-focus-ring" cx="24" cy="48" r="16" />
+                <circle class="v2-focus-ring" cx="55" cy="42" r="17" />
+                <circle class="v2-focus-ring" cx="75" cy="39" r="14" />
+                <circle class="v2-focus-ring low" cx="53" cy="72" r="18" />
+                <path class="v2-route-spine" d="M 17 51 C 32 37 46 40 56 43 C 68 47 75 42 84 35" />
+                <path class="v2-route-spine secondary" d="M 31 76 C 43 63 56 60 73 70" />
                 ${constellation}
                 ${links.join('')}
                 ${systemRings}

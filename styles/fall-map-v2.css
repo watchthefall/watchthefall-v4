@@ -7,6 +7,7 @@
     --v2-panel: rgba(8, 8, 8, 0.86);
     --v2-font-heading: "Archivo Black", Impact, sans-serif;
     --v2-font-body: "Inter", Arial, sans-serif;
+    --v2-nav-clearance: 6rem;
 }
 
 * {
@@ -72,10 +73,11 @@ body {
 .v2-main {
     width: min(1800px, calc(100% - 2rem));
     margin: 0 auto;
+    padding-top: 0.35rem;
 }
 
 .v2-hero {
-    padding: 2rem 0 1rem;
+    padding: 1.35rem 0 0.85rem;
     text-align: center;
 }
 
@@ -108,6 +110,8 @@ body {
     gap: 1.25rem;
     align-items: start;
     padding-bottom: 2.25rem;
+    padding-top: 0.35rem;
+    scroll-margin-top: var(--v2-nav-clearance);
 }
 
 .v2-stage-card,
@@ -116,6 +120,7 @@ body {
     border-radius: 10px;
     background: rgba(7, 7, 7, 0.78);
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.36);
+    scroll-margin-top: var(--v2-nav-clearance);
 }
 
 .v2-stage-toolbar {
@@ -146,7 +151,7 @@ body {
 
 .v2-stage {
     position: relative;
-    min-height: clamp(590px, 72vh, 820px);
+    min-height: clamp(620px, 74vh, 860px);
     overflow: hidden;
     border-radius: 0 0 10px 10px;
     background:
@@ -154,6 +159,17 @@ body {
         linear-gradient(180deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.42)),
         #020303;
     isolation: isolate;
+    scroll-margin-top: var(--v2-nav-clearance);
+}
+
+.v2-stage::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 5.25rem;
+    z-index: 7;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(2, 3, 3, 0.72), rgba(2, 3, 3, 0));
 }
 
 .v2-atlas-art,
@@ -170,40 +186,67 @@ body {
 .v2-atlas-svg {
     width: 100%;
     height: 100%;
-    filter: drop-shadow(0 0 18px rgba(212, 175, 55, 0.12));
+    filter: drop-shadow(0 0 14px rgba(212, 175, 55, 0.08));
 }
 
-.v2-land {
-    fill: rgba(212, 175, 55, 0.065);
-    stroke: rgba(212, 175, 55, 0.42);
-    stroke-width: 0.24;
+.v2-field {
+    fill: rgba(212, 175, 55, 0.028);
+    stroke: rgba(212, 175, 55, 0.16);
+    stroke-width: 0.16;
 }
 
-.v2-contour {
+.field-civic {
+    fill: rgba(8, 91, 103, 0.05);
+}
+
+.field-machine {
+    fill: rgba(8, 91, 103, 0.035);
+}
+
+.field-system {
+    fill: rgba(212, 175, 55, 0.04);
+}
+
+.v2-zone-boundary {
     fill: none;
-    stroke: rgba(212, 175, 55, 0.2);
-    stroke-width: 0.14;
-    stroke-dasharray: 0.7 0.75;
+    stroke: rgba(212, 175, 55, 0.13);
+    stroke-width: 0.12;
+    stroke-dasharray: 0.9 1.4;
 }
 
-.v2-coast {
+.v2-focus-ring {
     fill: none;
-    stroke: rgba(212, 175, 55, 0.64);
-    stroke-width: 0.18;
-    stroke-dasharray: 1.5 1.2;
+    stroke: rgba(212, 175, 55, 0.22);
+    stroke-width: 0.15;
+    stroke-dasharray: 1.2 1.4;
+}
+
+.v2-focus-ring.low {
+    stroke: rgba(212, 175, 55, 0.16);
+}
+
+.v2-route-spine {
+    fill: none;
+    stroke: rgba(212, 175, 55, 0.24);
+    stroke-width: 0.16;
+    stroke-dasharray: 1.6 1.2;
+}
+
+.v2-route-spine.secondary {
+    stroke: rgba(212, 175, 55, 0.14);
 }
 
 .v2-arc {
     fill: none;
-    stroke: rgba(212, 175, 55, 0.28);
-    stroke-width: 0.12;
-    stroke-dasharray: 1 1.2;
+    stroke: rgba(212, 175, 55, 0.18);
+    stroke-width: 0.1;
+    stroke-dasharray: 0.8 1.4;
 }
 
 .v2-constellation {
     fill: none;
-    stroke: rgba(243, 231, 211, 0.1);
-    stroke-width: 0.08;
+    stroke: rgba(243, 231, 211, 0.075);
+    stroke-width: 0.07;
 }
 
 .v2-grid-line {
@@ -215,11 +258,11 @@ body {
 
 .v2-pressure {
     fill: var(--v2-gold);
-    filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.9));
+    filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.75));
 }
 
 .v2-map-label {
-    fill: rgba(243, 231, 211, 0.18);
+    fill: rgba(243, 231, 211, 0.14);
     font-family: var(--v2-font-body);
     font-size: 1.7px;
     font-weight: 700;
@@ -230,7 +273,7 @@ body {
 .v2-system-ring,
 .v2-system-orbit {
     fill: none;
-    stroke: rgba(212, 175, 55, 0.38);
+    stroke: rgba(212, 175, 55, 0.3);
     stroke-width: 0.16;
     stroke-dasharray: 1.1 1;
 }
@@ -334,7 +377,7 @@ body {
 
 .v2-back {
     position: absolute;
-    top: 1rem;
+    top: 1.15rem;
     left: 1rem;
     z-index: 20;
     background: rgba(0, 0, 0, 0.86);
@@ -342,9 +385,9 @@ body {
 
 .v2-panel {
     position: sticky;
-    top: 5rem;
+    top: var(--v2-nav-clearance);
     min-height: 500px;
-    max-height: calc(100vh - 6rem);
+    max-height: calc(100vh - var(--v2-nav-clearance) - 1rem);
     overflow: auto;
     padding: 1.4rem;
 }
@@ -466,6 +509,10 @@ body {
 }
 
 @media (max-width: 640px) {
+    :root {
+        --v2-nav-clearance: 9rem;
+    }
+
     .v2-main {
         width: min(100% - 1rem, 1800px);
     }
@@ -482,7 +529,7 @@ body {
     }
 
     .v2-stage {
-        min-height: 560px;
+        min-height: 620px;
     }
 
     .v2-actions,
