@@ -49,7 +49,7 @@
       "thesis": "Scotland asks whether a nation can recover meaning after institutions, identity, and civic trust have drifted apart.",
       "pageUrl": "regional/pages/scotland.html",
       "philosophyUrl": "regional/philosophy/scotland.html",
-      "logo": "assets/logos/scotland-wtf-logo.png",
+      "logo": "assets/logos/scotland-wtf-logo.webp",
       "initials": "SCO"
     },
     {
@@ -66,7 +66,7 @@
       "thesis": "Britain is the old system trying to remember what it promised and who it was built to serve.",
       "pageUrl": "regional/pages/britain.html",
       "philosophyUrl": "",
-      "logo": "assets/logos/britain-wtf-logo.png",
+      "logo": "assets/logos/britain-wtf-logo.webp",
       "initials": "BR"
     },
     {
@@ -82,7 +82,7 @@
       "thesis": "England is the centre that became invisible to itself while carrying the weight of everyone else's story.",
       "pageUrl": "regional/pages/england.html",
       "philosophyUrl": "",
-      "logo": "assets/logos/england-wtf-logo.png",
+      "logo": "assets/logos/england-wtf-logo.webp",
       "initials": "ENG"
     },
     {
@@ -98,7 +98,7 @@
       "thesis": "Wales holds the tension between cultural memory, economic neglect, and the need for a living future.",
       "pageUrl": "regional/pages/wales.html",
       "philosophyUrl": "",
-      "logo": "assets/logos/wales-wtf-logo.png",
+      "logo": "assets/logos/wales-wtf-logo.webp",
       "initials": "WAL"
     },
     {
@@ -114,7 +114,7 @@
       "thesis": "Northern Ireland exposes how unresolved history keeps shaping the present long after everyone claims to have moved on.",
       "pageUrl": "",
       "philosophyUrl": "",
-      "logo": "assets/logos/northern-ireland-wtf-logo.png",
+      "logo": "assets/logos/northern-ireland-wtf-logo.webp",
       "initials": "NI"
     },
     {
@@ -130,7 +130,7 @@
       "thesis": "Ireland asks what independence means when economic, cultural, and institutional pressures arrive from everywhere at once.",
       "pageUrl": "regional/pages/ireland.html",
       "philosophyUrl": "",
-      "logo": "assets/logos/ireland-wtf-logo.png",
+      "logo": "assets/logos/ireland-wtf-logo.webp",
       "initials": "IRE"
     },
     {
@@ -147,7 +147,7 @@
       "thesis": "Europe is the experiment in distance: power moving upward while ordinary life becomes harder to steer.",
       "pageUrl": "regional/pages/europe.html",
       "philosophyUrl": "",
-      "logo": "assets/logos/europe-wtf-logo.png",
+      "logo": "assets/logos/europe-wtf-logo.webp",
       "initials": "EU"
     },
     {
@@ -163,7 +163,7 @@
       "thesis": "France reveals what happens when civic ideals, street reality, and state authority pull against each other.",
       "pageUrl": "regional/pages/france.html",
       "philosophyUrl": "",
-      "logo": "assets/logos/france-wtf-logo.png.webp",
+      "logo": "assets/logos/france-wtf-logo.webp",
       "initials": "FR"
     },
     {
@@ -179,7 +179,7 @@
       "thesis": "Germany tests whether order can survive when confidence, energy, industry, and identity lose their old alignment.",
       "pageUrl": "regional/pages/germany.html",
       "philosophyUrl": "",
-      "logo": "assets/logos/germany-wtf-logo.png",
+      "logo": "assets/logos/germany-wtf-logo.webp",
       "initials": "DE"
     },
     {
@@ -195,7 +195,7 @@
       "thesis": "The Netherlands turns planning into a worldview, then asks what happens when people feel planned around.",
       "pageUrl": "regional/pages/netherlands.html",
       "philosophyUrl": "",
-      "logo": "assets/logos/netherlands-wtf-logo.png",
+      "logo": "assets/logos/netherlands-wtf-logo.webp",
       "initials": "NL"
     },
     {
@@ -211,7 +211,7 @@
       "thesis": "Poland carries the memory of pressure from both directions and turns survival into cultural instinct.",
       "pageUrl": "regional/pages/poland.html",
       "philosophyUrl": "",
-      "logo": "assets/logos/poland-wtf-logo.png",
+      "logo": "assets/logos/poland-wtf-logo.webp",
       "initials": "PL"
     },
     {
@@ -227,7 +227,7 @@
       "thesis": "Sweden shows how high-trust societies break differently: quietly at first, then all at once.",
       "pageUrl": "regional/pages/sweden.html",
       "philosophyUrl": "",
-      "logo": "assets/logos/sweden-wtf-logo.png",
+      "logo": "assets/logos/sweden-wtf-logo.webp",
       "initials": "SE"
     },
     {
@@ -243,7 +243,7 @@
       "thesis": "Spain tracks the gap between beauty, memory, youth pressure, and a state struggling to hold the centre.",
       "pageUrl": "regional/pages/spain.html",
       "philosophyUrl": "",
-      "logo": "assets/logos/spain-wtf-logo.png",
+      "logo": "assets/logos/spain-wtf-logo.webp",
       "initials": "ES"
     },
     {
@@ -259,7 +259,7 @@
       "thesis": "Italy understands decline aesthetically before it understands it administratively.",
       "pageUrl": "regional/pages/italy.html",
       "philosophyUrl": "",
-      "logo": "assets/logos/italy-wtf-logo.png",
+      "logo": "assets/logos/italy-wtf-logo.webp",
       "initials": "IT"
     },
     {
@@ -276,7 +276,7 @@
       "thesis": "The West is less a place than a shared argument about liberty, power, memory, and fatigue.",
       "pageUrl": "",
       "philosophyUrl": "",
-      "logo": "assets/logos/the-west-wtf.png",
+      "logo": "assets/logos/the-west-wtf-logo.webp",
       "initials": "WEST"
     },
     {
@@ -292,7 +292,7 @@
       "thesis": "America turns every crisis into a broadcast and every broadcast into a test of reality.",
       "pageUrl": "regional/pages/usa.html",
       "philosophyUrl": "",
-      "logo": "assets/logos/usa-wtf-logo.png",
+      "logo": "assets/logos/usa-wtf-logo.webp",
       "initials": "USA"
     },
     {
@@ -308,7 +308,7 @@
       "thesis": "Canada asks how a soft national language can conceal hard administrative control.",
       "pageUrl": "regional/pages/canada.html",
       "philosophyUrl": "",
-      "logo": "assets/logos/canada-wtf-logo.png",
+      "logo": "assets/logos/canada-wtf-logo.webp",
       "initials": "CA"
     },
     {
@@ -324,7 +324,7 @@
       "thesis": "Australia shows what isolation, compliance, resource politics, and cultural distance do to a modern society.",
       "pageUrl": "regional/pages/australia.html",
       "philosophyUrl": "",
-      "logo": "assets/logos/australia-wtf-logo.png",
+      "logo": "assets/logos/australia-wtf-logo.webp",
       "initials": "AU"
     },
     {
@@ -405,7 +405,7 @@
       "thesis": "Dark humour survives where politeness fails because it admits the situation is already absurd.",
       "pageUrl": "",
       "philosophyUrl": "",
-      "logo": "assets/logos/dark-humour-wtf-logo.png",
+      "logo": "assets/logos/dark-humour-wtf-logo.webp",
       "initials": "DH"
     },
     {
@@ -421,7 +421,7 @@
       "thesis": "ConceptsWTF names the invisible structures: paradoxes, illusions, incentives, and mental traps.",
       "pageUrl": "",
       "philosophyUrl": "",
-      "logo": "assets/logos/concepts-wtf-logo.png",
+      "logo": "assets/logos/concepts-wtf-logo.webp",
       "initials": "CON"
     }
   ]
