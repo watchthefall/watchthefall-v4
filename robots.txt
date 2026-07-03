@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /cleanup_restore/
+
+Sitemap: https://watchthefall.com/sitemap.xml
