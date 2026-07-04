@@ -78,8 +78,13 @@ body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;}
 .b-hero-note{margin-top:2.25rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.07);font-size:0.78rem;color:var(--tx3);max-width:400px;line-height:1.6;}
 .b-hero-note a{color:var(--g);text-decoration:none;}
 
-/* ---- HERO APP MOCKUP ---- */
+/* ---- HERO SCREENSHOT ---- */
 .b-hero-right{position:relative;z-index:1;}
+.b-screenshot-frame{
+    border-radius:12px;overflow:hidden;
+    box-shadow:0 40px 80px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.06);
+}
+.b-screenshot-frame img{display:block;width:100%;height:auto;}
 .b-mock{
     background:var(--app-bg);border:1px solid rgba(255,255,255,0.08);
     border-radius:12px;overflow:hidden;
@@ -181,6 +186,10 @@ body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;}
 .b-gallery-hero .b-mock-bar{justify-content:flex-start;}
 .b-gallery-body{padding:1.5rem;}
 .b-gallery-sub{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.b-gallery-hero--photo{padding:0;display:block;}
+.b-gallery-hero--photo img{display:block;width:100%;height:auto;}
+.b-gallery-card--photo{padding:0;display:block;}
+.b-gallery-card--photo img{display:block;width:100%;height:auto;}
 .b-gallery-card{
     background:var(--app-bg);border:1px solid rgba(255,255,255,0.08);
     border-radius:10px;overflow:hidden;
@@ -390,40 +399,10 @@ body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;}
     </div>
 
     <div class="b-hero-right">
-        <!-- CSS App Mockup — Brand Settings view -->
-        <div class="b-mock">
-            <div class="b-mock-bar">
-                <div class="b-mock-logo">B</div>
-                <div class="b-mock-tabs">
-                    <div class="b-mock-tab">Create</div>
-                    <div class="b-mock-tab active">Brands</div>
-                    <div class="b-mock-tab">Library</div>
-                </div>
-                <div class="b-mock-acct">Account ▾</div>
-            </div>
-            <div class="b-mock-body">
-                <div class="b-mock-title">Brand Settings</div>
-                <div class="b-mock-formats">
-                    <div class="b-mock-fmt active">Vertical 9:16</div>
-                    <div class="b-mock-fmt">Square 1:1 <span style="font-size:.55rem;background:rgba(34,197,94,.15);color:#22c55e;padding:.1rem .3rem;border-radius:3px;">Active</span></div>
-                </div>
-                <div class="b-mock-grid">
-                    <div class="b-mock-main">
-                        <div class="b-mock-brand-name">ScotlandWTF</div>
-                        <div class="b-mock-badge">✓ Ready to render</div>
-                        <div class="b-mock-layers">
-                            <div class="b-mock-layer"><div class="b-mock-layer-icon"></div>Main Logo &nbsp;<span style="color:rgba(255,255,255,.3);font-size:.6rem;">Select to adjust</span></div>
-                            <div class="b-mock-layer"><div class="b-mock-layer-icon"></div>Watermark &nbsp;<span style="color:rgba(255,255,255,.3);font-size:.6rem;">Select to adjust</span></div>
-                        </div>
-                    </div>
-                    <div class="b-mock-sidebar">
-                        <div class="b-mock-card"><div class="b-mock-card-logo logo-scot"></div><div class="b-mock-card-info"><div class="b-mock-card-name">Scotland</div><div class="b-mock-card-badge">✓ Ready</div></div></div>
-                        <div class="b-mock-card"><div class="b-mock-card-logo logo-brit"></div><div class="b-mock-card-info"><div class="b-mock-card-name">Britain</div><div class="b-mock-card-badge">✓ Ready</div></div></div>
-                        <div class="b-mock-card"><div class="b-mock-card-logo logo-aus"></div><div class="b-mock-card-info"><div class="b-mock-card-name">Australia</div><div class="b-mock-card-badge">✓ Ready</div></div></div>
-                        <div class="b-mock-card"><div class="b-mock-card-logo logo-ire"></div><div class="b-mock-card-info"><div class="b-mock-card-name">Ireland</div><div class="b-mock-card-badge">✓ Ready</div></div></div>
-                    </div>
-                </div>
-            </div>
+        <div class="b-screenshot-frame">
+            <img src="assets/brandr/brandr_online_brandsettings.png"
+                 alt="Brandr — Brand Settings showing WTF regional pages ready to render"
+                 loading="lazy">
         </div>
     </div>
 </section>
@@ -504,167 +483,43 @@ body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;}
     <div class="b-label">04 · Inside Brandr</div>
     <h2 class="b-h2">Every page. One tool.</h2>
 
-    <!-- Featured mock: Brands view with real WTF logos -->
-    <div class="b-gallery-hero">
-        <div class="b-mock-bar">
-            <div class="b-mock-logo">B</div>
-            <div class="b-mock-tabs">
-                <div class="b-mock-tab">Create</div>
-                <div class="b-mock-tab active">Brands</div>
-                <div class="b-mock-tab">Library</div>
-            </div>
-            <div style="margin-left:auto;background:rgba(255,255,255,0.08);color:#fff;font-size:.7rem;padding:.3rem .8rem;border-radius:4px;font-weight:600;">+ Create Brand</div>
-        </div>
-        <div class="b-gallery-body">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start;">
-                <div style="display:flex;flex-direction:column;gap:0.6rem;">
-                    <div style="font-size:.8rem;font-weight:600;color:#fff;margin-bottom:.25rem;">Brand Settings</div>
-                    <div class="b-bl-item">
-                        <div class="b-bl-logo logo-scot"></div>
-                        <div class="b-bl-info"><div class="b-bl-name">ScotlandWTF</div><div class="b-bl-badge">✓ Ready to render</div></div>
-                        <div class="b-bl-edit">Edit</div>
-                    </div>
-                    <div class="b-bl-item">
-                        <div class="b-bl-logo logo-brit"></div>
-                        <div class="b-bl-info"><div class="b-bl-name">BritainWTF</div><div class="b-bl-badge">✓ Ready to render</div></div>
-                        <div class="b-bl-edit">Edit</div>
-                    </div>
-                    <div class="b-bl-item">
-                        <div class="b-bl-logo logo-aus"></div>
-                        <div class="b-bl-info"><div class="b-bl-name">AustraliaWTF</div><div class="b-bl-badge">✓ Ready to render</div></div>
-                        <div class="b-bl-edit">Edit</div>
-                    </div>
-                    <div class="b-bl-item">
-                        <div class="b-bl-logo logo-ire"></div>
-                        <div class="b-bl-info"><div class="b-bl-name">IrelandWTF</div><div class="b-bl-badge">✓ Ready to render</div></div>
-                        <div class="b-bl-edit">Edit</div>
-                    </div>
-                    <div class="b-bl-item" style="opacity:.6;">
-                        <div class="b-bl-logo" style="background:url('assets/logos/canada-wtf-logo.png') center/cover;"></div>
-                        <div class="b-bl-info"><div class="b-bl-name">CanadaWTF</div><div class="b-bl-badge">✓ Ready to render</div></div>
-                        <div class="b-bl-edit">Edit</div>
-                    </div>
-                </div>
-                <div style="display:flex;flex-direction:column;gap:0.5rem;">
-                    <div style="display:flex;gap:.75rem;font-size:.72rem;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:.5rem;margin-bottom:.25rem;">
-                        <span style="color:rgba(255,255,255,.4);">Vertical 9:16</span>
-                        <span style="color:var(--g);border-bottom:1.5px solid var(--g);">Square 1:1</span>
-                        <span style="background:rgba(34,197,94,.15);color:#22c55e;font-size:.58rem;padding:.1rem .4rem;border-radius:3px;align-self:center;">Active</span>
-                    </div>
-                    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:1rem;min-height:180px;display:flex;flex-direction:column;justify-content:space-between;">
-                        <div>
-                            <div style="font-size:.75rem;font-weight:600;color:#fff;margin-bottom:.25rem;">ScotlandWTF</div>
-                            <div style="display:flex;gap:.4rem;margin-bottom:.75rem;">
-                                <span class="b-mock-badge" style="margin:0;">✓ Ready</span>
-                                <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:4px;padding:.1rem .5rem;font-size:.6rem;color:rgba(255,255,255,.5);">Watermark</span>
-                            </div>
-                        </div>
-                        <div style="background:rgba(0,0,0,.3);border-radius:6px;height:80px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
-                            <img src="assets/logos/scotland-wtf-logo.png" alt="" style="width:42px;height:42px;object-fit:contain;opacity:.7;position:absolute;bottom:6px;right:6px;">
-                            <span style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:rgba(255,255,255,.15);letter-spacing:.05em;">WTF</span>
-                        </div>
-                        <div style="font-size:.62rem;color:rgba(255,255,255,.3);margin-top:.5rem;font-style:italic;">Viewing: Square 1:1 · Default layout saved</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Featured screenshot: Format canvas preview -->
+    <div class="b-gallery-hero b-gallery-hero--photo">
+        <img src="assets/brandr/brandr_online_formatsetting.png"
+             alt="Brandr — Format canvas preview with WTF logo branding applied"
+             loading="lazy">
     </div>
-    <span class="b-gallery-cap">Brand Settings — every page's logo and watermark, ready to render. Switch between format presets.</span>
+    <span class="b-gallery-cap">Format Settings — live canvas preview with your brand applied. Switch between aspect ratios in one click.</span>
 
     <!-- Sub-screenshots row: Create / Library / Profile -->
     <div class="b-gallery-sub" style="margin-top:2rem;">
 
         <!-- Create flow -->
         <div>
-            <div class="b-gallery-card">
-                <div class="b-mock-bar" style="padding:.5rem .75rem;">
-                    <div class="b-mock-logo" style="width:22px;height:22px;font-size:.62rem;">B</div>
-                    <div class="b-mock-tabs">
-                        <div class="b-mock-tab active" style="font-size:.62rem;">Create</div>
-                        <div class="b-mock-tab" style="font-size:.62rem;">Brands</div>
-                        <div class="b-mock-tab" style="font-size:.62rem;">Library</div>
-                    </div>
-                </div>
-                <div class="b-create-card">
-                    <div style="text-align:center;font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;color:#fff;margin-bottom:.75rem;">CREATE</div>
-                    <div class="b-stepper">
-                        <div class="b-stepper-step active"><div class="b-stepper-circle active">1</div><span>Downloadr</span></div>
-                        <div class="b-stepper-line"></div>
-                        <div class="b-stepper-step"><div class="b-stepper-circle">2</div><span>Studio</span></div>
-                        <div class="b-stepper-line"></div>
-                        <div class="b-stepper-step"><div class="b-stepper-circle">3</div><span>Results</span></div>
-                    </div>
-                    <div style="font-size:.68rem;font-weight:600;color:#fff;margin-bottom:.5rem;">Selected Video</div>
-                    <div class="b-create-tabs-row">
-                        <div class="b-create-tab active">Paste Links</div>
-                        <div class="b-create-tab">From Library</div>
-                        <div class="b-create-tab">Upload New</div>
-                    </div>
-                    <div class="b-create-input">
-                        <span style="flex:1;">Paste a TikTok, Instagram, or YouTube link...</span>
-                        <span class="btn">Get Media</span>
-                    </div>
-                </div>
+            <div class="b-gallery-card b-gallery-card--photo">
+                <img src="assets/brandr/brandr_online_create.png"
+                     alt="Brandr — Create flow with paste links interface"
+                     loading="lazy">
             </div>
-            <p class="b-gallery-label">Create — fetch source content from a link or upload directly</p>
+            <p class="b-gallery-label">Create — paste a link from TikTok, Instagram, or YouTube to fetch source content</p>
         </div>
 
         <!-- Library -->
         <div>
-            <div class="b-gallery-card">
-                <div class="b-mock-bar" style="padding:.5rem .75rem;">
-                    <div class="b-mock-logo" style="width:22px;height:22px;font-size:.62rem;">B</div>
-                    <div class="b-mock-tabs">
-                        <div class="b-mock-tab" style="font-size:.62rem;">Create</div>
-                        <div class="b-mock-tab" style="font-size:.62rem;">Brands</div>
-                        <div class="b-mock-tab active" style="font-size:.62rem;">Library</div>
-                    </div>
-                </div>
-                <div class="b-library">
-                    <div class="b-lib-tabs">
-                        <div class="b-lib-tab">Source Videos</div>
-                        <div class="b-lib-tab active">Finished Renders</div>
-                    </div>
-                    <div class="b-lib-count">Finished renders ready for download</div>
-                    <div class="b-lib-cards">
-                        <div class="b-lib-card">
-                            <div class="b-lib-card-name">BritainWTF</div>
-                            <span class="b-lib-card-tag">Vertical 9:16</span>
-                            <div class="b-lib-card-meta">720×1280 · Rendered</div>
-                            <div class="b-lib-card-actions"><span class="b-lib-card-btn">Download</span><span class="b-lib-card-btn">Save</span></div>
-                        </div>
-                        <div class="b-lib-card">
-                            <div class="b-lib-card-name">EnglandWTF</div>
-                            <span class="b-lib-card-tag">Vertical 9:16</span>
-                            <div class="b-lib-card-meta">720×1280 · Rendered</div>
-                            <div class="b-lib-card-actions"><span class="b-lib-card-btn">Download</span><span class="b-lib-card-btn">Save</span></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="b-gallery-card b-gallery-card--photo">
+                <img src="assets/brandr/brandr_online_library.png"
+                     alt="Brandr — Library showing finished renders ready to download"
+                     loading="lazy">
             </div>
             <p class="b-gallery-label">Library — finished renders organised and ready to download</p>
         </div>
 
         <!-- Profile -->
         <div>
-            <div class="b-gallery-card">
-                <div class="b-mock-bar" style="padding:.5rem .75rem;">
-                    <div class="b-mock-logo" style="width:22px;height:22px;font-size:.62rem;">B</div>
-                    <div style="font-size:.65rem;color:rgba(255,255,255,.4);margin-right:auto;">Account</div>
-                </div>
-                <div class="b-profile">
-                    <div class="b-profile-avatar">J</div>
-                    <div class="b-profile-badges">
-                        <span class="b-profile-badge admin">ADMIN</span>
-                        <span class="b-profile-badge plat">Platinum</span>
-                    </div>
-                    <div class="b-profile-limits">
-                        <div class="b-profile-limit"><div class="b-profile-limit-lbl">Branding Jobs</div><div class="b-profile-limit-val">300<span style="font-size:.55rem;color:var(--tx2);font-family:'Inter',sans-serif;font-weight:400;"> /day</span></div></div>
-                        <div class="b-profile-limit"><div class="b-profile-limit-lbl">Brands / Job</div><div class="b-profile-limit-val">50</div></div>
-                        <div class="b-profile-limit"><div class="b-profile-limit-lbl">Brand Configs</div><div class="b-profile-limit-val" style="font-size:1.4rem;">∞</div></div>
-                        <div class="b-profile-limit"><div class="b-profile-limit-lbl">Fetches</div><div class="b-profile-limit-val">500<span style="font-size:.55rem;color:var(--tx2);font-family:'Inter',sans-serif;font-weight:400;"> /day</span></div></div>
-                    </div>
-                </div>
+            <div class="b-gallery-card b-gallery-card--photo">
+                <img src="assets/brandr/brandr_online_profile.png"
+                     alt="Brandr — Profile page showing usage limits and Platinum tier"
+                     loading="lazy">
             </div>
             <p class="b-gallery-label">Profile — usage limits and account tier visible at a glance</p>
         </div>
@@ -822,3 +677,4 @@ body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;}
 
 </body>
 </html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
