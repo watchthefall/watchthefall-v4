@@ -1,0 +1,528 @@
+/* ============================================
+   FALL MAP GEO — WatchTheFall Network Map
+   v2.0.0
+   ============================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #06060e;
+  color: #e8e8f0;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Map Container ──────────────────────── */
+
+#map-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#world-map {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+#world-map:active {
+  cursor: grabbing;
+}
+
+/* ── Geographic SVG Layers ──────────────── */
+
+.sphere {
+  fill: #06060e;
+  stroke: rgba(255, 255, 255, 0.06);
+  stroke-width: 0.8px;
+}
+
+.graticule {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.035);
+  stroke-width: 0.4px;
+}
+
+.land {
+  fill: #0f0f1c;
+}
+
+.country-border {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 0.4px;
+}
+
+/* ── Loading ────────────────────────────── */
+
+#map-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255, 255, 255, 0.28);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* ── Pins ───────────────────────────────── */
+
+.pin-group {
+  cursor: pointer;
+}
+
+.pin-group:hover .pin-circle {
+  filter: brightness(1.5);
+}
+
+/* Pulse ring — live nodes */
+.pin-pulse {
+  fill: none;
+  stroke-width: 1px;
+  animation: pinPulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+.pin-status-live.pin-type-country .pin-pulse { stroke: #e8273a; }
+.pin-status-live.pin-type-region  .pin-pulse { stroke: #9b59b6; }
+
+@keyframes pinPulse {
+  0%   { r: 11; opacity: 0.7; }
+  100% { r: 26; opacity: 0; }
+}
+
+/* Main circles */
+.pin-circle {
+  stroke-width: 1.5px;
+  transition: filter 0.15s ease;
+}
+
+.pin-status-live.pin-type-country .pin-circle {
+  fill: rgba(232, 39, 58, 0.14);
+  stroke: #e8273a;
+}
+
+.pin-status-live.pin-type-region .pin-circle {
+  fill: rgba(155, 89, 182, 0.14);
+  stroke: #9b59b6;
+}
+
+.pin-status-coming-soon.pin-type-country .pin-circle {
+  fill: rgba(74, 48, 90, 0.22);
+  stroke: #4a3060;
+}
+
+.pin-status-coming-soon.pin-type-region .pin-circle {
+  fill: rgba(55, 35, 75, 0.22);
+  stroke: #3d2855;
+}
+
+/* Active */
+.pin-group.pin-active .pin-circle {
+  stroke-width: 2px;
+  filter: brightness(1.4);
+}
+
+/* Initials */
+.pin-initials {
+  fill: rgba(255, 255, 255, 0.48);
+  font-size: 5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.pin-status-live .pin-initials      { fill: rgba(255, 255, 255, 0.88); }
+.pin-group.pin-active .pin-initials { fill: #ffffff; }
+
+/* ── Tooltip ────────────────────────────── */
+
+#map-tooltip {
+  position: fixed;
+  display: none;
+  background: rgba(8, 6, 18, 0.93);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  color: #e8e8f0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 5px 10px;
+  border-radius: 5px;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 200;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* ── Info Panel ─────────────────────────── */
+
+#info-panel {
+  position: fixed;
+  top: 50%;
+  right: -420px;
+  transform: translateY(-50%);
+  width: 310px;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: rgba(7, 5, 16, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  padding: 24px 22px 22px;
+  z-index: 80;
+  transition: right 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  scrollbar-width: none;
+}
+
+#info-panel::-webkit-scrollbar { display: none; }
+
+#info-panel.open { right: 20px; }
+
+.info-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.28);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 6px;
+  transition: color 0.15s;
+}
+
+.info-close:hover { color: rgba(255, 255, 255, 0.72); }
+
+#info-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.info-status {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+
+.status-live {
+  background: rgba(232, 39, 58, 0.13);
+  color: #e8273a;
+  border: 1px solid rgba(232, 39, 58, 0.27);
+}
+
+.status-coming-soon {
+  background: rgba(155, 89, 182, 0.10);
+  color: #9b59b6;
+  border: 1px solid rgba(155, 89, 182, 0.22);
+}
+
+#info-label {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+#info-philosophy-title {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+  margin-bottom: 12px;
+}
+
+#info-thesis {
+  font-size: 13px;
+  line-height: 1.68;
+  color: rgba(255, 255, 255, 0.58);
+  margin-bottom: 20px;
+}
+
+#info-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(232, 39, 58, 0.09);
+  border: 1px solid rgba(232, 39, 58, 0.22);
+  color: #e8273a;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 7px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+#info-link:hover {
+  background: rgba(232, 39, 58, 0.18);
+  border-color: rgba(232, 39, 58, 0.42);
+}
+
+#info-link::after { content: ' →'; }
+
+/* ── WTF Hub Button ─────────────────────── */
+
+#wtf-hub {
+  position: fixed;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 90;
+}
+
+/* Satellite origin — centered at button */
+#hub-satellite-layer {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.hub-satellite {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(8, 6, 18, 0.95);
+  border: 1.5px solid rgba(155, 89, 182, 0.38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  pointer-events: none;
+  /* centre the circle at (0,0) */
+  margin-left: -23px;
+  margin-top: -23px;
+  /* collapsed */
+  transform: translate(0px, 0px) scale(0);
+  opacity: 0;
+  transition:
+    transform 0.48s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity   0.38s ease,
+    border-color 0.18s ease,
+    box-shadow   0.18s ease;
+}
+
+.hub-satellite:hover {
+  border-color: rgba(155, 89, 182, 0.82);
+  box-shadow: 0 0 18px rgba(155, 89, 182, 0.26);
+}
+
+.hub-satellite img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.hub-satellite-initials {
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  pointer-events: none;
+}
+
+/* Hub button */
+#wtf-hub-btn {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(5, 3, 12, 0.96);
+  border: 2px solid rgba(232, 39, 58, 0.36);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  overflow: hidden;
+  transition:
+    width  0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease,
+    box-shadow   0.3s ease;
+  box-shadow:
+    0 0 22px rgba(232, 39, 58, 0.10),
+    0 4px 28px rgba(0, 0, 0, 0.65);
+}
+
+#wtf-hub-btn:hover {
+  border-color: rgba(232, 39, 58, 0.60);
+  box-shadow:
+    0 0 32px rgba(232, 39, 58, 0.20),
+    0 4px 28px rgba(0, 0, 0, 0.70);
+}
+
+#wtf-hub.expanded #wtf-hub-btn {
+  width: 80px;
+  height: 80px;
+  border-color: rgba(232, 39, 58, 0.72);
+  box-shadow:
+    0 0 44px rgba(232, 39, 58, 0.28),
+    0 6px 34px rgba(0, 0, 0, 0.75);
+}
+
+.hub-icon-collapsed {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.26s ease, transform 0.26s ease;
+}
+
+.hub-logo-expanded {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.30s ease 0.10s, transform 0.30s ease 0.10s;
+}
+
+#wtf-hub.expanded .hub-icon-collapsed {
+  opacity: 0;
+  transform: scale(0.45);
+}
+
+#wtf-hub.expanded .hub-logo-expanded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── Zoom Controls ──────────────────────── */
+
+#map-controls {
+  position: fixed;
+  bottom: 36px;
+  right: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 70;
+}
+
+.map-ctrl-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(6, 4, 14, 0.90);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  line-height: 1;
+}
+
+.map-ctrl-btn:hover {
+  background: rgba(18, 14, 32, 0.96);
+  color: rgba(255, 255, 255, 0.82);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* ── Wordmark ───────────────────────────── */
+
+#map-wordmark {
+  position: fixed;
+  top: 22px;
+  left: 22px;
+  z-index: 70;
+  pointer-events: none;
+}
+
+#map-wordmark .wm-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.60);
+}
+
+#map-wordmark .wm-sub {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.22);
+  margin-top: 3px;
+}
+
+/* ── Legend ─────────────────────────────── */
+
+#map-legend {
+  position: fixed;
+  bottom: 36px;
+  left: 22px;
+  z-index: 70;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 9px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.26);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid;
+  flex-shrink: 0;
+}
+
+.legend-dot.ld-live        { border-color: #e8273a; background: rgba(232,39,58,0.18); }
+.legend-dot.ld-region      { border-color: #6b4090; background: rgba(107,64,144,0.18); }
+.legend-dot.ld-coming-soon { border-color: #4a3060; background: rgba(74,48,96,0.18); }

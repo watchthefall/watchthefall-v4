@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall Map — WatchTheFall Network</title>
+    <meta name="description" content="The WatchTheFall network, pinned to the world. Geographic ecosystem map.">
+    <meta name="robots" content="noindex">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Map CSS -->
+    <link rel="stylesheet" href="styles/fall-map-geo.css">
+</head>
+<body>
+
+<div id="map-container">
+
+    <!-- D3 renders the SVG map here -->
+    <svg id="world-map" role="img" aria-label="WatchTheFall geographic network map"></svg>
+
+    <!-- Loading / error state -->
+    <div id="map-loading">Loading map&#x2026;</div>
+
+    <!-- Floating tooltip (shown on pin hover) -->
+    <div id="map-tooltip" role="tooltip" aria-hidden="true"></div>
+
+    <!-- Top-left wordmark -->
+    <div id="map-wordmark" aria-hidden="true">
+        <div class="wm-title">WatchTheFall</div>
+        <div class="wm-sub">Network Map</div>
+    </div>
+
+    <!-- Bottom-left legend -->
+    <nav id="map-legend" aria-label="Map legend">
+        <div class="legend-item">
+            <span class="legend-dot ld-live"        aria-hidden="true"></span>
+            Live
+        </div>
+        <div class="legend-item">
+            <span class="legend-dot ld-region"      aria-hidden="true"></span>
+            Region
+        </div>
+        <div class="legend-item">
+            <span class="legend-dot ld-coming-soon" aria-hidden="true"></span>
+            Coming Soon
+        </div>
+    </nav>
+
+    <!-- Bottom-right zoom controls -->
+    <div id="map-controls" role="group" aria-label="Map controls">
+        <button id="ctrl-zoom-in"  class="map-ctrl-btn" title="Zoom in"   aria-label="Zoom in">+</button>
+        <button id="ctrl-zoom-out" class="map-ctrl-btn" title="Zoom out"  aria-label="Zoom out">&#x2212;</button>
+        <button id="ctrl-reset"    class="map-ctrl-btn" title="Reset view" aria-label="Reset view">&#x2299;</button>
+    </div>
+
+    <!-- Right-side info panel (slides in on pin click) -->
+    <aside id="info-panel" aria-live="polite" aria-label="Region details">
+        <button class="info-close" id="info-close-btn" aria-label="Close panel">&#x00D7;</button>
+
+        <img id="info-logo" src="" alt="" aria-hidden="true">
+
+        <div id="info-status" class="info-status status-coming-soon">Coming Soon</div>
+
+        <h2 id="info-label"></h2>
+        <p  id="info-philosophy-title"></p>
+        <p  id="info-thesis"></p>
+
+        <a id="info-link" href="#" target="_blank" rel="noopener noreferrer" style="display:none;">
+            Visit
+        </a>
+    </aside>
+
+    <!-- Bottom-centre WTF home button -->
+    <div id="wtf-hub" role="navigation" aria-label="WatchTheFall hub">
+
+        <!-- Satellites bloom out of this layer (injected by JS) -->
+        <div id="hub-satellite-layer" aria-hidden="true"></div>
+
+        <button id="wtf-hub-btn" aria-label="WatchTheFall open theme channels" aria-expanded="false">
+            <img
+                class="hub-icon-collapsed"
+                src="assets/watermark/wtfman.png"
+                alt="WTF"
+                draggable="false">
+            <img
+                class="hub-logo-expanded"
+                src="assets/watermark/WatchTheFall_logo.png"
+                alt="WatchTheFall"
+                draggable="false">
+        </button>
+
+    </div>
+
+</div><!-- /#map-container -->
+
+
+<!-- D3 v7 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+
+<!-- TopoJSON client v3 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+
+<!-- Fall Map App -->
+<script src="scripts/fall_map_geo.js"></script>
+
+<script>
+    document.getElementById('info-close-btn').addEventListener('click', function () {
+        document.getElementById('info-panel').classList.remove('open');
+        document.querySelectorAll('.pin-group').forEach(function (p) {
+            p.classList.remove('pin-active');
+        });
+    });
+</script>
+
+</body>
+</html>
