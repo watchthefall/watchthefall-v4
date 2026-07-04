@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall Map v2 — Geographic | WatchTheFall</title>
+    <meta name="description" content="The WatchTheFall Fall Map — geographic D3 prototype. Real lat/lng nodes, Natural Earth projection, cluster zoom.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="WatchTheFall">
+    <meta property="og:title" content="Fall Map v2 — WatchTheFall">
+    <meta property="og:description" content="Interactive geographic map of the WatchTheFall network — regions, themes, and clusters.">
+    <meta property="og:url" content="https://watchthefall.com/fall-map-d3.html">
+    <meta property="og:image" content="https://watchthefall.com/assets/logos/wtf-logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fall Map v2 — WatchTheFall">
+    <meta name="twitter:description" content="Interactive geographic map of the WatchTheFall network.">
+    <meta name="twitter:image" content="https://watchthefall.com/assets/logos/wtf-logo.png">
+    <meta name="theme-color" content="#d4af37">
+    <meta name="robots" content="noindex"><!-- prototype — not for search indexing yet -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="assets/logos/wtf-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="styles/fall-map.css">
+    <link rel="stylesheet" href="styles/fall-map-d3.css">
+</head>
+<body class="fall-map-d3-page">
+
+    <div class="video-background">
+        <video id="background-video" autoplay muted loop playsinline>
+            <source src="assets/video/main_bg.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay global-overlay"></div>
+    </div>
+
+    <canvas id="network-canvas"></canvas>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/watermark/watchthefall_watermark.png" alt="WatchTheFall">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="fall-map.html" class="nav-active">Fall Map</a></li>
+                <li><a href="feed.html">Directory</a></li>
+                <li class="nav-dropdown">
+                    <a href="philosophy.html">Philosophy</a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="philosophy.html">Core Philosophy</a></li>
+                        <li><a href="regional/pages/roadmap.html">Roadmap</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="fall-map-d3-hero">
+        <div class="container">
+            <p class="fall-map-panel-kicker">WatchTheFall Network</p>
+            <h1 class="section-title">The Fall Map</h1>
+            <div class="fall-map-d3-meta">
+                <span class="fall-map-d3-badge">v2 Prototype</span>
+                <span id="wtf-d3-count">Loading…</span>
+                <a href="fall-map.html" style="color:inherit;opacity:0.65;font-size:0.78rem;">← Classic Map</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="fall-map-d3-shell">
+
+                <!-- D3 Map -->
+                <div id="wtf-d3-container" role="region" aria-label="WatchTheFall Geographic Map">
+                    <noscript>
+                        <p style="padding:2rem;color:#f3e7d3;text-align:center;">
+                            JavaScript is required to view the interactive Fall Map.
+                        </p>
+                    </noscript>
+                </div>
+
+                <!-- Detail panel -->
+                <div id="wtf-d3-panel" class="fall-map-panel" role="complementary" aria-label="Node detail panel">
+                    <div class="wtf-d3-empty">
+                        <p class="fall-map-panel-kicker">Fall Map v2</p>
+                        <h2>Loading map…</h2>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Legend + CTA row -->
+            <div class="fall-map-d3-support">
+                <div class="fall-map-legend">
+                    <h3>Legend</h3>
+                    <ul class="fall-map-legend-list">
+                        <li>
+                            <span class="fall-map-dot"></span>
+                            Live node — solid ring, clickable philosophy
+                        </li>
+                        <li>
+                            <span class="fall-map-dot coming-soon"></span>
+                            Coming soon — dashed ring, page in development
+                        </li>
+                        <li>
+                            <span class="fall-map-dot" style="border-style:double;width:0.85rem;height:0.85rem;"></span>
+                            Cluster parent — double ring, zoom to cluster
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="fall-map-cta-card">
+                    <h3>About the Fall Map</h3>
+                    <p>
+                        The Fall Map is WatchTheFall's editorial worldview — regions, themes, and the system layer
+                        that connects them. Scroll or pinch to zoom. Tap any node to open its philosophy card.
+                    </p>
+                    <a class="btn btn-secondary" href="fall-map.html">View Classic Map</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/logos/wtf-logo.png" alt="WatchTheFall">
+                    <p>Watching the signal in the noise.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="fall-map.html">Fall Map (Classic)</a></li>
+                        <li><a href="feed.html">Directory</a></li>
+                        <li><a href="philosophy.html">Philosophy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-info">
+                    <h4>WatchTheFall v4</h4>
+                    <p id="version-info">Loading...</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 WatchTheFall.wtf — Fall Map v2 Prototype</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- D3 v7 + TopoJSON v3 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"
+            integrity="sha512-vc58zeoMuE9iSLdXoJB7TeCUBSLXSMBTGQvsOEgDnL5dtKauMTSCLFTi5o2/oEKlqjW4yCdC8lLKUXaO60+A=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"
+            integrity="sha512-4UKI/XKm3xrvJ6pZS5oTRvIQGIzZFoXR71rRBb1y9N/PZZjHuos9B7vchxGCbcnbHk4+Z6HGFLCQoFzCHPqA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Site scripts -->
+    <script src="scripts/utils/version.js"></script>
+    <script src="scripts/network.js"></script>
+
+    <!-- Fall Map D3 -->
+    <script src="scripts/fall_map_d3.js"></script>
+</body>
+</html>

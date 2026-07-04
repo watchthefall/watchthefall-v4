@@ -1,0 +1,377 @@
+/* WatchTheFall D3 Geographic Map — fall-map-d3.css
+   Companion to fall_map_d3.js. Keeps D3-specific rules separate from fall-map.css.
+   Reuses CSS variables from app.css: --color-gold, --color-text, --font-primary, etc.
+*/
+
+/* ── Page shell ──────────────────────────────────────────────── */
+.fall-map-d3-page {
+    min-height: 100vh;
+}
+
+.fall-map-d3-hero {
+    padding: 18vh 0 4vh;
+    text-align: center;
+}
+
+.fall-map-d3-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.75rem;
+    color: rgba(243, 231, 211, 0.58);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+}
+
+.fall-map-d3-badge {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid rgba(212, 175, 55, 0.38);
+    border-radius: 999px;
+    color: var(--color-gold);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* ── Main layout ─────────────────────────────────────────────── */
+.fall-map-d3-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 400px);
+    gap: 1.25rem;
+    align-items: start;
+    margin-bottom: 3rem;
+}
+
+/* ── Map container ───────────────────────────────────────────── */
+#wtf-d3-container {
+    position: relative;
+    isolation: isolate;
+    min-height: 560px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    border-radius: 12px;
+    background: #050808;
+    box-shadow:
+        inset 0 0 60px rgba(212, 175, 55, 0.04),
+        0 12px 40px rgba(0, 0, 0, 0.32);
+}
+
+/* ── SVG ─────────────────────────────────────────────────────── */
+.wtf-d3-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+}
+
+.wtf-d3-svg:active {
+    cursor: grabbing;
+}
+
+/* ── Map layers ──────────────────────────────────────────────── */
+.wtf-ocean {
+    fill: #050d14;
+}
+
+.map-sphere {
+    fill: none;
+    stroke: rgba(212, 175, 55, 0.08);
+    stroke-width: 1;
+}
+
+.map-graticule {
+    fill: none;
+    stroke: rgba(212, 175, 55, 0.04);
+    stroke-width: 0.5;
+}
+
+.country {
+    fill: #0e1a1f;
+    stroke: rgba(212, 175, 55, 0.12);
+    stroke-width: 0.5;
+    transition: fill 0.2s ease;
+}
+
+.map-borders {
+    fill: none;
+    stroke: rgba(212, 175, 55, 0.10);
+    stroke-width: 0.35;
+}
+
+.map-outline {
+    fill: none;
+    stroke: rgba(212, 175, 55, 0.06);
+    stroke-width: 1;
+}
+
+/* ── Node base styles ────────────────────────────────────────── */
+.wtf-node {
+    cursor: pointer;
+    outline: none;
+}
+
+.wtf-node:focus-visible .node-ring {
+    stroke: #fff;
+    stroke-width: 2;
+}
+
+/* Shadow (glow base) */
+.node-shadow {
+    fill: rgba(0, 0, 0, 0);
+    stroke: none;
+    filter: none;
+}
+
+/* Dark disc */
+.node-bg {
+    fill: #0a0f10;
+    stroke: none;
+}
+
+/* Logo image */
+.node-logo {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+/* Initials fallback */
+.node-initials {
+    fill: var(--color-gold, #d4af37);
+    font-family: var(--font-primary, 'Archivo Black', sans-serif);
+    font-size: 9px;
+    font-weight: 700;
+    pointer-events: none;
+}
+
+/* Border ring — solid for live/cluster-parent */
+.node-ring {
+    fill: none;
+    stroke: rgba(212, 175, 55, 0.55);
+    stroke-width: 1.5;
+    transition: stroke 0.2s ease, stroke-width 0.2s ease;
+}
+
+.is-cluster-parent .node-ring {
+    stroke: rgba(212, 175, 55, 0.85);
+    stroke-width: 2;
+    stroke-dasharray: none;
+}
+
+.status-coming-soon .node-ring {
+    stroke-dasharray: 4 2.5;
+    stroke: rgba(212, 175, 55, 0.38);
+}
+
+/* Pulse ring (live nodes only) */
+.node-pulse {
+    fill: none;
+    stroke: rgba(212, 175, 55, 0.2);
+    stroke-width: 1;
+    animation: wtf-node-pulse 2.4s ease-out infinite;
+}
+
+@keyframes wtf-node-pulse {
+    0%   { stroke-opacity: 0.22; r: var(--r-base, 23); }
+    70%  { stroke-opacity: 0;    r: var(--r-end, 33); }
+    100% { stroke-opacity: 0;    r: var(--r-end, 33); }
+}
+
+/* Label */
+.node-label {
+    fill: rgba(243, 231, 211, 0.72);
+    font-family: var(--font-secondary, 'Inter', sans-serif);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    pointer-events: none;
+    transition: fill 0.2s ease;
+}
+
+.is-cluster-parent .node-label {
+    fill: var(--color-gold, #d4af37);
+    font-size: 11px;
+}
+
+/* ── Hover / selected / dimmed states ────────────────────────── */
+.wtf-node:hover .node-ring,
+.wtf-node.is-selected .node-ring {
+    stroke: var(--color-gold, #d4af37);
+    stroke-width: 2.5;
+    stroke-dasharray: none;
+}
+
+.wtf-node:hover .node-shadow,
+.wtf-node.is-selected .node-shadow {
+    fill: rgba(212, 175, 55, 0.06);
+    filter: url(#wtf-glow);
+}
+
+.wtf-node:hover .node-label,
+.wtf-node.is-selected .node-label {
+    fill: rgba(243, 231, 211, 0.95);
+}
+
+.wtf-node.is-dimmed {
+    opacity: 0.32;
+    transition: opacity 0.25s ease;
+}
+
+.wtf-node.is-selected {
+    opacity: 1;
+}
+
+/* ── Zoom controls ───────────────────────────────────────────── */
+.wtf-d3-zoom-ctrl {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    z-index: 10;
+}
+
+.wtf-d3-zoom-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    border-radius: 6px;
+    background: rgba(5, 10, 12, 0.88);
+    color: var(--color-gold, #d4af37);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    backdrop-filter: blur(4px);
+    transition: border-color 0.18s ease, background 0.18s ease;
+}
+
+.wtf-d3-zoom-btn:hover {
+    border-color: var(--color-gold, #d4af37);
+    background: rgba(212, 175, 55, 0.12);
+}
+
+/* ── Panel ───────────────────────────────────────────────────── */
+#wtf-d3-panel {
+    position: sticky;
+    top: 5.5rem;
+    max-height: calc(100vh - 7rem);
+    overflow: auto;
+    padding: 1.25rem;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 10px;
+    background: rgba(8, 10, 10, 0.82);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+    z-index: 6;
+}
+
+.wtf-d3-empty {
+    color: rgba(243, 231, 211, 0.65);
+}
+
+.wtf-d3-empty h2 {
+    margin: 0.7rem 0 0.45rem;
+    color: var(--color-text, #f3e7d3);
+    font-family: var(--font-primary, 'Archivo Black', sans-serif);
+    font-size: 1.35rem;
+}
+
+/* Followers row */
+.wtf-d3-followers {
+    display: flex;
+    gap: 0.75rem;
+    margin: 0.6rem 0 0;
+    flex-wrap: wrap;
+}
+
+.wtf-d3-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: rgba(243, 231, 211, 0.72);
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.wtf-d3-stat svg {
+    flex-shrink: 0;
+    opacity: 0.72;
+}
+
+/* Back button */
+.wtf-d3-back-btn {
+    display: inline-block;
+    margin-top: 1.1rem;
+    padding: 0;
+    border: none;
+    background: none;
+    color: rgba(212, 175, 55, 0.7);
+    cursor: pointer;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.18s ease;
+}
+
+.wtf-d3-back-btn:hover {
+    color: var(--color-gold, #d4af37);
+}
+
+/* ── Support row ─────────────────────────────────────────────── */
+.fall-map-d3-support {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+/* ── Mobile ──────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .fall-map-d3-shell {
+        grid-template-columns: 1fr;
+    }
+
+    #wtf-d3-container {
+        min-height: 440px;
+    }
+
+    #wtf-d3-panel {
+        position: relative;
+        top: auto;
+        max-height: none;
+        overflow: visible;
+    }
+
+    .fall-map-d3-support {
+        grid-template-columns: 1fr;
+    }
+
+    .node-label {
+        display: none;
+    }
+}
+
+@media (max-width: 560px) {
+    #wtf-d3-container {
+        min-height: 360px;
+    }
+
+    .wtf-d3-zoom-ctrl {
+        bottom: 0.6rem;
+        right: 0.6rem;
+    }
+
+    .wtf-d3-zoom-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.9rem;
+    }
+}
