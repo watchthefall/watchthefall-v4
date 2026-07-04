@@ -33,3 +33,8 @@ desktop.ini
 # Temporary files
 *.tmp
 .cache/
+
+.claude/
+logo-deploy.patch
+clear-git-locks.ps1
+start-preview.bat

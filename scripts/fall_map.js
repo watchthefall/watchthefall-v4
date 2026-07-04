@@ -2,6 +2,8 @@
     'use strict';
 
     const DATA_URL = 'data/fall_map.json';
+    const GLOBAL_HUB_PAGE_URL = 'index.html';
+    const GLOBAL_HUB_PHILOSOPHY_URL = 'philosophy.html';
     const stage = document.getElementById('fall-map-stage');
     const panel = document.getElementById('fall-map-panel');
     const countEl = document.getElementById('fall-map-count');
@@ -136,6 +138,22 @@
             clusterLabel: watchNode.label,
             logo: watchNode.logo,
             initials: watchNode.initials
+        };
+    }
+
+    function panelNode(node, clusterContextId = null) {
+        if (!node) return null;
+        if (node.id === 'watchthefall') {
+            return {
+                ...node,
+                philosophyUrl: node.philosophyUrl || GLOBAL_HUB_PHILOSOPHY_URL
+            };
+        }
+        if (node.id !== 'antarctica' || clusterContextId) return node;
+        return {
+            ...node,
+            pageUrl: GLOBAL_HUB_PAGE_URL,
+            philosophyUrl: GLOBAL_HUB_PHILOSOPHY_URL
         };
     }
 
@@ -282,7 +300,7 @@
         `;
     }
 
-    function renderPanel(node) {
+    function renderPanel(node, clusterContextId = null) {
         if (!panel) return;
 
         if (!node) {
@@ -296,22 +314,23 @@
             return;
         }
 
-        const statusText = node.status === 'live' ? 'Live philosophy' : 'Coming soon';
+        const shown = panelNode(node, clusterContextId);
+        const statusText = shown.status === 'live' ? 'Live philosophy' : 'Coming soon';
         const clusterParent = activeClusterId ? nodes.find(item => item.id === activeClusterId) : node;
         const clusterHtml = renderCluster(clusterParent);
 
         panel.innerHTML = `
-            <p class="fall-map-panel-kicker">${escapeHtml(node.clusterLabel || node.label)}</p>
-            <h2>${escapeHtml(node.philosophyTitle)}</h2>
+            <p class="fall-map-panel-kicker">${escapeHtml(shown.clusterLabel || shown.label)}</p>
+            <h2>${escapeHtml(shown.philosophyTitle)}</h2>
             <div class="fall-map-meta">
-                <span class="fall-map-pill">${escapeHtml(node.type)}</span>
+                <span class="fall-map-pill">${escapeHtml(shown.type)}</span>
                 <span class="fall-map-pill">${statusText}</span>
             </div>
-            <p class="fall-map-thesis">${escapeHtml(node.thesis)}</p>
+            <p class="fall-map-thesis">${escapeHtml(shown.thesis)}</p>
             <p class="fall-map-status">${statusText}</p>
             <div class="fall-map-actions">
-                ${actionLink(node.philosophyUrl, 'Read Philosophy', 'Philosophy Coming Soon')}
-                ${actionLink(node.pageUrl, 'View Page', 'Page Coming Soon')}
+                ${actionLink(shown.philosophyUrl, 'Read Philosophy', 'Philosophy Coming Soon')}
+                ${actionLink(shown.pageUrl, 'View Page', 'Page Coming Soon')}
             </div>
             ${clusterHtml}
         `;
@@ -333,7 +352,7 @@
         document.querySelectorAll('.fall-map-node').forEach(button => {
             button.classList.toggle('active', button.dataset.nodeId === id || button.dataset.nodeId === activeClusterId);
         });
-        renderPanel(node);
+        renderPanel(node, clusterContextId);
         if (shouldFocusStage && typeof stage.scrollIntoView === 'function') {
             stage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }

@@ -1,0 +1,56 @@
+warning: in the working copy of 'donate.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'fall-map.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'feed.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'philosophy.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'regional/pages/australia.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'regional/pages/britain.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'regional/pages/canada.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'regional/pages/england.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'regional/pages/europe.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'regional/pages/france.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'regional/pages/germany.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'regional/pages/ireland.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'regional/pages/italy.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'regional/pages/netherlands.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'regional/pages/poland.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'regional/pages/spain.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'regional/pages/sweden.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'regional/pages/usa.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'regional/pages/wales.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'regional/philosophy/scotland.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'regional/philosophy/system-layer.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/fall_map.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/fall_map_v2.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'wtfcreations.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'wtfrecords.html', LF will be replaced by CRLF the next time Git touches it
+ data/followers.json                   |  50 [32m+++[m[31m----[m
+ donate.html                           |   3 [32m+[m[31m-[m
+ fall-map.html                         |   2 [32m+[m[31m-[m
+ feed.html                             |   2 [32m+[m[31m-[m
+ index.html                            |   4 [32m+[m[31m-[m
+ philosophy.html                       |   6 [32m+[m[31m-[m
+ regional/pages/australia.html         |   2 [32m+[m[31m-[m
+ regional/pages/britain.html           |   2 [32m+[m[31m-[m
+ regional/pages/canada.html            |   2 [32m+[m[31m-[m
+ regional/pages/england.html           |   2 [32m+[m[31m-[m
+ regional/pages/europe.html            |   2 [32m+[m[31m-[m
+ regional/pages/france.html            |   2 [32m+[m[31m-[m
+ regional/pages/germany.html           |   2 [32m+[m[31m-[m
+ regional/pages/ireland.html           |   2 [32m+[m[31m-[m
+ regional/pages/italy.html             |   2 [32m+[m[31m-[m
+ regional/pages/netherlands.html       |   2 [32m+[m[31m-[m
+ regional/pages/poland.html            |   2 [32m+[m[31m-[m
+ regional/pages/spain.html             |   2 [32m+[m[31m-[m
+ regional/pages/sweden.html            |   2 [32m+[m[31m-[m
+ regional/pages/usa.html               |   2 [32m+[m[31m-[m
+ regional/pages/wales.html             |   2 [32m+[m[31m-[m
+ regional/philosophy/scotland.html     |   2 [32m+[m[31m-[m
+ regional/philosophy/system-layer.html |   2 [32m+[m[31m-[m
+ scripts/fall_map.js                   |  37 [32m+++[m[31m--[m
+ scripts/fall_map_v2.js                |  33 [32m++++[m[31m-[m
+ scripts/worldcup.v2.js                | 265 [32m+++++++++++++++++++++++++++++++[m[31m---[m
+ styles/app.css                        |  41 [32m++++++[m
+ wtfcreations.html                     |   3 [32m+[m[31m-[m
+ wtfrecords.html                       |   5 [32m+[m[31m-[m
+ 29 files changed, 400 insertions(+), 85 deletions(-)

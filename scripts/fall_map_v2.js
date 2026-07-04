@@ -2,6 +2,8 @@
     'use strict';
 
     const DATA_URL = 'data/fall_map.json';
+    const GLOBAL_HUB_PAGE_URL = 'index.html';
+    const GLOBAL_HUB_PHILOSOPHY_URL = 'philosophy.html';
     const stage = document.getElementById('fall-map-v2-stage');
     const panel = document.getElementById('fall-map-v2-panel');
     const viewLabel = document.getElementById('v2-view-label');
@@ -153,6 +155,23 @@
             };
         }
         return node;
+    }
+
+    function panelNode(node, clusterContextId = null) {
+        if (!node) return null;
+        const shown = displayNode(node);
+        if (node.id === 'watchthefall') {
+            return {
+                ...shown,
+                philosophyUrl: shown.philosophyUrl || GLOBAL_HUB_PHILOSOPHY_URL
+            };
+        }
+        if (node.id !== 'antarctica' || clusterContextId) return shown;
+        return {
+            ...shown,
+            pageUrl: GLOBAL_HUB_PAGE_URL,
+            philosophyUrl: GLOBAL_HUB_PHILOSOPHY_URL
+        };
     }
 
     function viewForNode(node) {
@@ -324,7 +343,7 @@
         if (!children.length) return '';
         const title = node.clusterLabel || node.label;
         const cards = children.map(child => `
-            <button class="v2-child-card ${child.id === activeNodeId ? 'active' : ''}" type="button" data-node-id="${escapeHtml(child.id)}">
+            <button class="v2-child-card ${child.id === activeNodeId ? 'active' : ''}" type="button" data-node-id="${escapeHtml(child.id)}" data-cluster-context="${escapeHtml(node.id)}">
                 <strong>${escapeHtml(child.label)}</strong>
                 <span>${child.status === 'live' ? 'Live' : 'Soon'}</span>
             </button>
@@ -338,7 +357,7 @@
         `;
     }
 
-    function renderPanel(node) {
+    function renderPanel(node, clusterContextId = null) {
         if (!panel) return;
         if (!node) {
             panel.innerHTML = `
@@ -349,7 +368,7 @@
             return;
         }
 
-        const shown = displayNode(node);
+        const shown = panelNode(node, clusterContextId);
         const title = shown.philosophyTitle || shown.clusterLabel || shown.label;
         const thesis = shown.thesis || 'This node is present in the WatchTheFall worldview map.';
         const statusText = shown.status === 'live' ? 'Live' : 'Coming soon';
@@ -371,17 +390,17 @@
         `;
     }
 
-    function selectNode(id) {
+    function selectNode(id, clusterContextId = null) {
         const node = findNode(id);
         if (!node) return;
 
         const nextView = viewForNode(node);
         currentView = nextView;
         activeNodeId = node.id;
-        activeClusterId = Array.isArray(node.children) ? node.id : (node.clusterId === 'global-system' ? 'antarctica' : node.clusterId);
+        activeClusterId = clusterContextId || (Array.isArray(node.children) ? node.id : (node.clusterId === 'global-system' ? 'antarctica' : node.clusterId));
 
         renderStage();
-        renderPanel(node);
+        renderPanel(node, clusterContextId);
     }
 
     function resetWorld() {
@@ -417,7 +436,7 @@
 
         const nodeButton = event.target.closest('[data-node-id]');
         if (nodeButton) {
-            selectNode(nodeButton.dataset.nodeId);
+            selectNode(nodeButton.dataset.nodeId, nodeButton.dataset.clusterContext || null);
         }
     });
 

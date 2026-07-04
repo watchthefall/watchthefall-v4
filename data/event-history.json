@@ -1,0 +1,15 @@
+{
+  "archivedEvents": [
+    {
+      "name": "Summer Social Boost",
+      "type": "platform",
+      "target": "instagram",
+      "multiplier": 2,
+      "start": "2025-06-01",
+      "end": "2025-08-31",
+      "archived_at": "2025-09-01T00:00:00Z",
+      "impact": "Instagram followers increased by 15% during event",
+      "winner": "AustraliaWTF"
+    }
+  ]
+}

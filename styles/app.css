@@ -2728,3 +2728,44 @@ audio::-webkit-media-controls-panel {
   border-left: 3px solid var(--color-gold);
   color: #d4af37;
 }
+
+/* === WORLD CUP EVENT BANNERS === */
+.wc-events-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  background: rgba(15, 15, 15, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 8px;
+  justify-content: center;
+}
+
+.wc-event-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: var(--color-gold);
+}
+
+.wc-event-icon {
+  font-size: 1.1rem;
+}
+
+.wc-event-text {
+  font-weight: 600;
+}
+
+.wc-event-countdown {
+  background: rgba(212, 175, 55, 0.2);
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  opacity: 0.9;
+}

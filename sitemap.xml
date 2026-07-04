@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core pages -->
+  <url><loc>https://watchthefall.com/</loc></url>
+  <url><loc>https://watchthefall.com/feed.html</loc></url>
+  <url><loc>https://watchthefall.com/philosophy.html</loc></url>
+  <url><loc>https://watchthefall.com/fall-map.html</loc></url>
+  <url><loc>https://watchthefall.com/donate.html</loc></url>
+  <url><loc>https://watchthefall.com/ai.html</loc></url>
+  <url><loc>https://watchthefall.com/wtfcreations.html</loc></url>
+  <url><loc>https://watchthefall.com/wtfrecords.html</loc></url>
+
+  <!-- Regional hubs -->
+  <url><loc>https://watchthefall.com/regional/pages/scotland.html</loc></url>
+  <url><loc>https://watchthefall.com/regional/pages/england.html</loc></url>
+  <url><loc>https://watchthefall.com/regional/pages/wales.html</loc></url>
+  <url><loc>https://watchthefall.com/regional/pages/britain.html</loc></url>
+  <url><loc>https://watchthefall.com/regional/pages/ireland.html</loc></url>
+  <url><loc>https://watchthefall.com/regional/pages/france.html</loc></url>
+  <url><loc>https://watchthefall.com/regional/pages/germany.html</loc></url>
+  <url><loc>https://watchthefall.com/regional/pages/netherlands.html</loc></url>
+  <url><loc>https://watchthefall.com/regional/pages/poland.html</loc></url>
+  <url><loc>https://watchthefall.com/regional/pages/italy.html</loc></url>
+  <url><loc>https://watchthefall.com/regional/pages/spain.html</loc></url>
+  <url><loc>https://watchthefall.com/regional/pages/sweden.html</loc></url>
+  <url><loc>https://watchthefall.com/regional/pages/europe.html</loc></url>
+  <url><loc>https://watchthefall.com/regional/pages/australia.html</loc></url>
+  <url><loc>https://watchthefall.com/regional/pages/canada.html</loc></url>
+  <url><loc>https://watchthefall.com/regional/pages/usa.html</loc></url>
+
+  <!-- Philosophy -->
+  <url><loc>https://watchthefall.com/regional/philosophy/scotland.html</loc></url>
+  <url><loc>https://watchthefall.com/regional/philosophy/system-layer.html</loc></url>
+
+</urlset>
