@@ -1,28 +1,442 @@
 {
   "last_updated": "2026-07-04T00:00:00Z",
   "regions": [
-    {"region":"ScotlandWTF","followers":{"tiktok":4416,"instagram":23300,"youtube":0,"x":0},"previous":{"tiktok":4416,"instagram":16600,"youtube":0,"x":0,"points":7077.6},"points":11086.4,"tagline":"Documenting the fall of Scotland.","logo":"assets/logos/scotland-wtf-logo.png"},
-    {"region":"AustraliaWTF","followers":{"tiktok":749,"instagram":17000,"youtube":0,"x":0},"previous":{"tiktok":749,"instagram":16000,"youtube":0,"x":0,"points":5752.0},"points":7099.6,"tagline":"Watching Australia's unraveling.","logo":"assets/logos/australia-wtf-logo.png"},
-    {"region":"WatchTheFallWTF","followers":{"tiktok":569,"instagram":1323,"youtube":0,"x":0},"previous":{"tiktok":569,"instagram":1323,"youtube":0,"x":0,"points":756.8},"points":756.8,"tagline":"The global hub of the WTF Network.","logo":"assets/watermark/wtfman.png"},
-    {"region":"CanadaWTF","followers":{"tiktok":0,"instagram":1531,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":1532,"youtube":0,"x":0,"points":11.2},"points":612.4,"tagline":"Following Canada's social decay.","logo":"assets/logos/canada-wtf-logo.png"},
-    {"region":"EuropeWTF","followers":{"tiktok":213,"instagram":1084,"youtube":0,"x":0},"previous":{"tiktok":213,"instagram":655,"youtube":0,"x":0,"points":102.8},"points":518.8,"tagline":"Tracking the fall across Europe.","logo":"assets/logos/europe-wtf-logo.png"},
-    {"region":"GermanyWTF","followers":{"tiktok":17,"instagram":750,"youtube":0,"x":0},"previous":{"tiktok":17,"instagram":70,"youtube":0,"x":0,"points":28.0},"points":306.8,"tagline":"Monitoring the collapse of German stability.","logo":"assets/logos/germany-wtf-logo.png"},
-    {"region":"USAmericaWTF","followers":{"tiktok":29,"instagram":706,"youtube":0,"x":0},"previous":{"tiktok":29,"instagram":791,"youtube":0,"x":0,"points":327.6},"points":294.0,"tagline":"Tracking America's decline.","logo":"assets/logos/usa-wtf-logo.png"},
-    {"region":"BritainWTF","followers":{"tiktok":52,"instagram":570,"youtube":0,"x":0},"previous":{"tiktok":52,"instagram":571,"youtube":0,"x":0,"points":228.4},"points":248.8,"tagline":"Documenting Britain's cultural unravelling.","logo":"assets/logos/britain-wtf-logo.png"},
-    {"region":"AIWTF","followers":{"tiktok":24,"instagram":573,"youtube":0,"x":0},"previous":{"tiktok":24,"instagram":573,"youtube":0,"x":0,"points":238.4},"points":238.8,"tagline":"Monitoring the rise of artificial intelligence.","logo":"assets/logos/ai-wtf-logo.webp"},
-    {"region":"TheWestWTF","followers":{"tiktok":27,"instagram":485,"youtube":0,"x":0},"previous":{"tiktok":27,"instagram":520,"youtube":0,"x":0,"points":218.4},"points":204.8,"tagline":"Tracking the Western decline.","logo":"assets/logos/the-west-wtf.png"},
-    {"region":"SpainWTF","followers":{"tiktok":0,"instagram":451,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":27,"youtube":0,"x":0,"points":10.8},"points":180.4,"tagline":"Documenting Spain's decline.","logo":"assets/logos/spain-wtf-logo.png"},
-    {"region":"NorthernIrelandWTF","followers":{"tiktok":0,"instagram":218,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":31,"youtube":0,"x":0,"points":12.4},"points":87.2,"tagline":"Following Northern Ireland's decline.","logo":"assets/logos/northern-ireland-wtf-logo.png"},
-    {"region":"IrelandWTF","followers":{"tiktok":78,"instagram":62,"youtube":0,"x":0},"previous":{"tiktok":78,"instagram":59,"youtube":0,"x":0,"points":54.0},"points":56.0,"tagline":"Tracking Ireland's unraveling.","logo":"assets/logos/ireland-wtf-logo.png"},
-    {"region":"FranceWTF","followers":{"tiktok":15,"instagram":62,"youtube":0,"x":0},"previous":{"tiktok":15,"instagram":32,"youtube":0,"x":0,"points":18.4},"points":30.8,"tagline":"Observing France's ongoing crisis.","logo":"assets/logos/france-wtf-logo.png"},
-    {"region":"EnglandWTF","followers":{"tiktok":0,"instagram":51,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":51,"youtube":0,"x":0,"points":20.4},"points":20.4,"tagline":"Witnessing England's descent.","logo":"assets/logos/england-wtf-logo.png"},
-    {"region":"ConceptsWTF","followers":{"tiktok":12,"instagram":24,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":0,"youtube":0,"x":0,"points":0.0},"points":14.4,"tagline":"Exploring paradoxes, illusions, and the mind.","logo":"assets/logos/concepts-wtf-logo.png"},
-    {"region":"PolandWTF","followers":{"tiktok":0,"instagram":31,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":31,"youtube":0,"x":0,"points":12.4},"points":12.4,"tagline":"Tracking Poland's transformation.","logo":"assets/logos/poland-wtf-logo.png"},
-    {"region":"SwedenWTF","followers":{"tiktok":0,"instagram":28,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":28,"youtube":0,"x":0,"points":11.2},"points":11.2,"tagline":"Observing Sweden's transformation.","logo":"assets/logos/sweden-wtf-logo.png"},
-    {"region":"WalesWTF","followers":{"tiktok":0,"instagram":28,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":28,"youtube":0,"x":0,"points":11.2},"points":11.2,"tagline":"Witnessing the decay of Wales.","logo":"assets/logos/wales-wtf-logo.png"},
-    {"region":"ItalyWTF","followers":{"tiktok":0,"instagram":27,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":27,"youtube":0,"x":0,"points":10.8},"points":10.8,"tagline":"Recording Italy's decline.","logo":"assets/logos/italy-wtf-logo.png"},
-    {"region":"NetherlandsWTF","followers":{"tiktok":0,"instagram":27,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":27,"youtube":0,"x":0,"points":10.8},"points":10.8,"tagline":"Following the fall of Dutch sanity.","logo":"assets/logos/netherlands-wtf-logo.png"},
-    {"region":"GadgetsWTF","followers":{"tiktok":0,"instagram":26,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":26,"youtube":0,"x":0,"points":10.4},"points":10.4,"tagline":"Covering absurd, luxurious tech gadgets.","logo":"assets/logos/gadgets-wtf-logo.png"},
-    {"region":"DarkHumourWTF","followers":{"tiktok":0,"instagram":15,"youtube":0,"x":0},"previous":{"tiktok":0,"instagram":15,"youtube":0,"x":0,"points":6.0},"points":6.0,"tagline":"Dark laughter in dystopia.","logo":"assets/logos/dark-humour-wtf-logo.png"}
+    {
+      "region": "ScotlandWTF",
+      "followers": {
+        "tiktok": 4416,
+        "instagram": 23300,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 4416,
+        "instagram": 16600,
+        "youtube": 0,
+        "x": 0,
+        "points": 7077.6
+      },
+      "points": 11086.4,
+      "tagline": "Documenting the fall of Scotland.",
+      "logo": "assets/logos/scotland-wtf-logo.webp"
+    },
+    {
+      "region": "AustraliaWTF",
+      "followers": {
+        "tiktok": 749,
+        "instagram": 17000,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 749,
+        "instagram": 16000,
+        "youtube": 0,
+        "x": 0,
+        "points": 5752.0
+      },
+      "points": 7099.6,
+      "tagline": "Watching Australia's unraveling.",
+      "logo": "assets/logos/australia-wtf-logo.webp"
+    },
+    {
+      "region": "WatchTheFallWTF",
+      "followers": {
+        "tiktok": 569,
+        "instagram": 1323,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 569,
+        "instagram": 1323,
+        "youtube": 0,
+        "x": 0,
+        "points": 756.8
+      },
+      "points": 756.8,
+      "tagline": "The global hub of the WTF Network.",
+      "logo": "assets/watermark/wtfman.png"
+    },
+    {
+      "region": "CanadaWTF",
+      "followers": {
+        "tiktok": 0,
+        "instagram": 1531,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 0,
+        "instagram": 1532,
+        "youtube": 0,
+        "x": 0,
+        "points": 11.2
+      },
+      "points": 612.4,
+      "tagline": "Following Canada's social decay.",
+      "logo": "assets/logos/canada-wtf-logo.webp"
+    },
+    {
+      "region": "EuropeWTF",
+      "followers": {
+        "tiktok": 213,
+        "instagram": 1084,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 213,
+        "instagram": 655,
+        "youtube": 0,
+        "x": 0,
+        "points": 102.8
+      },
+      "points": 518.8,
+      "tagline": "Tracking the fall across Europe.",
+      "logo": "assets/logos/europe-wtf-logo.webp"
+    },
+    {
+      "region": "GermanyWTF",
+      "followers": {
+        "tiktok": 17,
+        "instagram": 750,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 17,
+        "instagram": 70,
+        "youtube": 0,
+        "x": 0,
+        "points": 28.0
+      },
+      "points": 306.8,
+      "tagline": "Monitoring the collapse of German stability.",
+      "logo": "assets/logos/germany-wtf-logo.webp"
+    },
+    {
+      "region": "USAmericaWTF",
+      "followers": {
+        "tiktok": 29,
+        "instagram": 706,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 29,
+        "instagram": 791,
+        "youtube": 0,
+        "x": 0,
+        "points": 327.6
+      },
+      "points": 294.0,
+      "tagline": "Tracking America's decline.",
+      "logo": "assets/logos/usa-wtf-logo.webp"
+    },
+    {
+      "region": "BritainWTF",
+      "followers": {
+        "tiktok": 52,
+        "instagram": 570,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 52,
+        "instagram": 571,
+        "youtube": 0,
+        "x": 0,
+        "points": 228.4
+      },
+      "points": 248.8,
+      "tagline": "Documenting Britain's cultural unravelling.",
+      "logo": "assets/logos/britain-wtf-logo.webp"
+    },
+    {
+      "region": "AIWTF",
+      "followers": {
+        "tiktok": 24,
+        "instagram": 573,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 24,
+        "instagram": 573,
+        "youtube": 0,
+        "x": 0,
+        "points": 238.4
+      },
+      "points": 238.8,
+      "tagline": "Monitoring the rise of artificial intelligence.",
+      "logo": "assets/logos/ai-wtf-logo.webp"
+    },
+    {
+      "region": "TheWestWTF",
+      "followers": {
+        "tiktok": 27,
+        "instagram": 485,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 27,
+        "instagram": 520,
+        "youtube": 0,
+        "x": 0,
+        "points": 218.4
+      },
+      "points": 204.8,
+      "tagline": "Tracking the Western decline.",
+      "logo": "assets/logos/the-west-wtf-logo.webp"
+    },
+    {
+      "region": "SpainWTF",
+      "followers": {
+        "tiktok": 0,
+        "instagram": 451,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 0,
+        "instagram": 27,
+        "youtube": 0,
+        "x": 0,
+        "points": 10.8
+      },
+      "points": 180.4,
+      "tagline": "Documenting Spain's decline.",
+      "logo": "assets/logos/spain-wtf-logo.webp"
+    },
+    {
+      "region": "NorthernIrelandWTF",
+      "followers": {
+        "tiktok": 0,
+        "instagram": 218,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 0,
+        "instagram": 31,
+        "youtube": 0,
+        "x": 0,
+        "points": 12.4
+      },
+      "points": 87.2,
+      "tagline": "Following Northern Ireland's decline.",
+      "logo": "assets/logos/northern-ireland-wtf-logo.webp"
+    },
+    {
+      "region": "IrelandWTF",
+      "followers": {
+        "tiktok": 78,
+        "instagram": 62,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 78,
+        "instagram": 59,
+        "youtube": 0,
+        "x": 0,
+        "points": 54.0
+      },
+      "points": 56.0,
+      "tagline": "Tracking Ireland's unraveling.",
+      "logo": "assets/logos/ireland-wtf-logo.webp"
+    },
+    {
+      "region": "FranceWTF",
+      "followers": {
+        "tiktok": 15,
+        "instagram": 62,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 15,
+        "instagram": 32,
+        "youtube": 0,
+        "x": 0,
+        "points": 18.4
+      },
+      "points": 30.8,
+      "tagline": "Observing France's ongoing crisis.",
+      "logo": "assets/logos/france-wtf-logo.webp"
+    },
+    {
+      "region": "EnglandWTF",
+      "followers": {
+        "tiktok": 0,
+        "instagram": 51,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 0,
+        "instagram": 51,
+        "youtube": 0,
+        "x": 0,
+        "points": 20.4
+      },
+      "points": 20.4,
+      "tagline": "Witnessing England's descent.",
+      "logo": "assets/logos/england-wtf-logo.webp"
+    },
+    {
+      "region": "ConceptsWTF",
+      "followers": {
+        "tiktok": 12,
+        "instagram": 24,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 0,
+        "instagram": 0,
+        "youtube": 0,
+        "x": 0,
+        "points": 0.0
+      },
+      "points": 14.4,
+      "tagline": "Exploring paradoxes, illusions, and the mind.",
+      "logo": "assets/logos/concepts-wtf-logo.webp"
+    },
+    {
+      "region": "PolandWTF",
+      "followers": {
+        "tiktok": 0,
+        "instagram": 31,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 0,
+        "instagram": 31,
+        "youtube": 0,
+        "x": 0,
+        "points": 12.4
+      },
+      "points": 12.4,
+      "tagline": "Tracking Poland's transformation.",
+      "logo": "assets/logos/poland-wtf-logo.webp"
+    },
+    {
+      "region": "SwedenWTF",
+      "followers": {
+        "tiktok": 0,
+        "instagram": 28,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 0,
+        "instagram": 28,
+        "youtube": 0,
+        "x": 0,
+        "points": 11.2
+      },
+      "points": 11.2,
+      "tagline": "Observing Sweden's transformation.",
+      "logo": "assets/logos/sweden-wtf-logo.webp"
+    },
+    {
+      "region": "WalesWTF",
+      "followers": {
+        "tiktok": 0,
+        "instagram": 28,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 0,
+        "instagram": 28,
+        "youtube": 0,
+        "x": 0,
+        "points": 11.2
+      },
+      "points": 11.2,
+      "tagline": "Witnessing the decay of Wales.",
+      "logo": "assets/logos/wales-wtf-logo.webp"
+    },
+    {
+      "region": "ItalyWTF",
+      "followers": {
+        "tiktok": 0,
+        "instagram": 27,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 0,
+        "instagram": 27,
+        "youtube": 0,
+        "x": 0,
+        "points": 10.8
+      },
+      "points": 10.8,
+      "tagline": "Recording Italy's decline.",
+      "logo": "assets/logos/italy-wtf-logo.webp"
+    },
+    {
+      "region": "NetherlandsWTF",
+      "followers": {
+        "tiktok": 0,
+        "instagram": 27,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 0,
+        "instagram": 27,
+        "youtube": 0,
+        "x": 0,
+        "points": 10.8
+      },
+      "points": 10.8,
+      "tagline": "Following the fall of Dutch sanity.",
+      "logo": "assets/logos/netherlands-wtf-logo.webp"
+    },
+    {
+      "region": "GadgetsWTF",
+      "followers": {
+        "tiktok": 0,
+        "instagram": 26,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 0,
+        "instagram": 26,
+        "youtube": 0,
+        "x": 0,
+        "points": 10.4
+      },
+      "points": 10.4,
+      "tagline": "Covering absurd, luxurious tech gadgets.",
+      "logo": "assets/logos/gadgets-wtf-logo.png"
+    },
+    {
+      "region": "DarkHumourWTF",
+      "followers": {
+        "tiktok": 0,
+        "instagram": 15,
+        "youtube": 0,
+        "x": 0
+      },
+      "previous": {
+        "tiktok": 0,
+        "instagram": 15,
+        "youtube": 0,
+        "x": 0,
+        "points": 6.0
+      },
+      "points": 6.0,
+      "tagline": "Dark laughter in dystopia.",
+      "logo": "assets/logos/dark-humour-wtf-logo.webp"
+    }
   ]
 }

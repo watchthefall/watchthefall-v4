@@ -6,7 +6,7 @@
     'use strict';
     
     const VERSION = 'v4.5.1';
-    const BUILD_DATE = '2025-11-02';
+    const BUILD_DATE = '2026-07-04';
     
     function displayVersion() {
         const versionElement = document.getElementById('version-info');

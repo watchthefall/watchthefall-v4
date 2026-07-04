@@ -57,39 +57,37 @@
   };
 
   const LOGO_MAP = {
-    ScotlandWTF: 'assets/logos/scotland-wtf-logo.png',
+    ScotlandWTF: 'assets/logos/scotland-wtf-logo.webp',
     WatchTheFallWTF: 'assets/watermark/wtfman.png',
-    
+
     // UK Cluster
-    BritainWTF: 'assets/logos/britain-wtf-logo.png',
-    EnglandWTF: 'assets/logos/england-wtf-logo.png',
-    WalesWTF: 'assets/logos/wales-wtf-logo.png',
-    NorthernIrelandWTF: 'assets/logos/northern-ireland-wtf-logo.png',
-    
+    BritainWTF: 'assets/logos/britain-wtf-logo.webp',
+    EnglandWTF: 'assets/logos/england-wtf-logo.webp',
+    WalesWTF: 'assets/logos/wales-wtf-logo.webp',
+    NorthernIrelandWTF: 'assets/logos/northern-ireland-wtf-logo.webp',
+
     // Europe Cluster
-    EuropeWTF: 'assets/logos/europe-wtf-logo.png',
-    IrelandWTF: 'assets/logos/ireland-wtf-logo.png',
-    FranceWTF: 'assets/logos/france-wtf-logo.png',
-    GermanyWTF: 'assets/logos/germany-wtf-logo.png',
-    SpainWTF: 'assets/logos/spain-wtf-logo.png',
-    ItalyWTF: 'assets/logos/italy-wtf-logo.png',
-    NetherlandsWTF: 'assets/logos/netherlands-wtf-logo.png',
-    PolandWTF: 'assets/logos/poland-wtf-logo.png',
-    SwedenWTF: 'assets/logos/sweden-wtf-logo.png',
-    
+    EuropeWTF: 'assets/logos/europe-wtf-logo.webp',
+    IrelandWTF: 'assets/logos/ireland-wtf-logo.webp',
+    FranceWTF: 'assets/logos/france-wtf-logo.webp',
+    GermanyWTF: 'assets/logos/germany-wtf-logo.webp',
+    SpainWTF: 'assets/logos/spain-wtf-logo.webp',
+    ItalyWTF: 'assets/logos/italy-wtf-logo.webp',
+    NetherlandsWTF: 'assets/logos/netherlands-wtf-logo.webp',
+    PolandWTF: 'assets/logos/poland-wtf-logo.webp',
+    SwedenWTF: 'assets/logos/sweden-wtf-logo.webp',
+
     // Americas & Oceania
-    TheWestWTF: 'assets/logos/the-west-wtf.png',
-    USAmericaWTF: 'assets/logos/usa-wtf-logo.png',
-    CanadaWTF: 'assets/logos/canada-wtf-logo.png',
-    AustraliaWTF: 'assets/logos/australia-wtf-logo.png',
-    
-    // AI & Content Hubs
+    TheWestWTF: 'assets/logos/the-west-wtf-logo.webp',
+    USAmericaWTF: 'assets/logos/usa-wtf-logo.webp',
+    CanadaWTF: 'assets/logos/canada-wtf-logo.webp',
+    AustraliaWTF: 'assets/logos/australia-wtf-logo.webp',
+
+    // Content Hubs
     AIWTF: 'assets/logos/ai-wtf-logo.webp',
-    AITechWTF: 'assets/logos/ai-tech-wtf-logo.jpg',
     GadgetsWTF: 'assets/logos/gadgets-wtf-logo.png',
-    ComedyWTF: 'assets/logos/c0medy-wtf-logo.jpg',
-    DarkHumourWTF: 'assets/logos/dark-humour-wtf-logo.png',
-    ConceptsWTF: 'assets/logos/concepts-wtf-logo.png'
+    DarkHumourWTF: 'assets/logos/dark-humour-wtf-logo.webp',
+    ConceptsWTF: 'assets/logos/concepts-wtf-logo.webp'
   };
 
   let worldCupData = [];
