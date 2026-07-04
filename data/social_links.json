@@ -2,37 +2,29 @@
   {
     "name": "TikTok",
     "icon": "📱",
-    "url": "https://tiktok.com/@watchthefall",
+    "handle": "@watchthefall_wtf",
+    "url": "https://tiktok.com/@watchthefall_wtf",
     "description": "Main content hub"
   },
   {
     "name": "Instagram",
-    "icon": "📷",
-    "url": "https://instagram.com/watchthefall",
+    "icon": "📸",
+    "handle": "@watchthefall.wtf",
+    "url": "https://instagram.com/watchthefall.wtf",
     "description": "Visual stories"
   },
   {
+    "name": "X / Twitter",
+    "icon": "𝕏",
+    "handle": "@WatchTheFallWTF",
+    "url": "https://x.com/WatchTheFallWTF",
+    "description": "Real-time signal"
+  },
+  {
     "name": "YouTube",
-    "icon": "🎥",
+    "icon": "▶",
+    "handle": "@watchthefall",
     "url": "https://youtube.com/@watchthefall",
     "description": "Long-form analysis"
-  },
-  {
-    "name": "Twitter/X",
-    "icon": "🐦",
-    "url": "https://twitter.com/watchthefall",
-    "description": "Real-time updates"
-  },
-  {
-    "name": "Discord",
-    "icon": "💬",
-    "url": "https://discord.gg/watchthefall",
-    "description": "Community discussions"
-  },
-  {
-    "name": "Telegram",
-    "icon": "✈️",
-    "url": "https://t.me/watchthefall",
-    "description": "Alerts & updates"
   }
 ]

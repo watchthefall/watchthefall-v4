@@ -32,15 +32,15 @@
             console.error('❌ Error loading social links:', error);
             // Fallback to default links
             container.innerHTML = `
-                <a href="https://tiktok.com/@watchthefall" class="social-card card" target="_blank">
+                <a href="https://tiktok.com/@watchthefall_wtf" class="social-card card" target="_blank">
                     <div style="font-size: 2rem;">📱</div>
                     <h3 style="color: var(--color-gold);">TikTok</h3>
-                    <p style="font-size: 0.875rem; opacity: 0.7;">@watchthefall</p>
+                    <p style="font-size: 0.875rem; opacity: 0.7;">@watchthefall_wtf</p>
                 </a>
-                <a href="https://instagram.com/watchthefall" class="social-card card" target="_blank">
-                    <div style="font-size: 2rem;">📷</div>
-                    <h3 style="color: var(--color-gold);">Instagram</h3>
-                    <p style="font-size: 0.875rem; opacity: 0.7;">@watchthefall</p>
+                <a href="https://x.com/WatchTheFallWTF" class="social-card card" target="_blank">
+                    <div style="font-size: 2rem;">𝕏</div>
+                    <h3 style="color: var(--color-gold);">X</h3>
+                    <p style="font-size: 0.875rem; opacity: 0.7;">@WatchTheFallWTF</p>
                 </a>
             `;
         }
