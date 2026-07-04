@@ -105,6 +105,9 @@
         <div class="video-overlay scotland-overlay"></div>
     </div>
 
+    <!-- Floating Poster Background -->
+    <div class="floating-posters-background" id="floating-posters"></div>
+
     <!-- Particle Network Canvas -->
     <canvas id="network-canvas"></canvas>
 
@@ -279,5 +282,13 @@
     <!-- Scripts -->
     <script src="../../scripts/utils/version.js"></script>
     <script src="../../scripts/network.js"></script>
+    <script>
+        window.WTF_FLOATING_CONFIG = {
+            dataUrl: '../../data/posters.json',
+            pathPrefix: '../../',
+            regions: ['GLOBAL']
+        };
+    </script>
+    <script src="../../scripts/floating_posters.js"></script>
 </body>
 </html>

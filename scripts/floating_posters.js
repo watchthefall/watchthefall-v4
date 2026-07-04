@@ -2,10 +2,22 @@
  * Floating Posters Background System
  * Creates ambient floating poster images similar to video background
  * Posters drift slowly across the screen with varying speeds and opacities
+ *
+ * Optional page-level config (set before loading this script):
+ *   window.WTF_FLOATING_CONFIG = {
+ *     dataUrl:    '../../data/posters.json', // path relative to the HTML page
+ *     pathPrefix: '../../',                  // prepended to poster asset paths
+ *     regions:    ['Scotland']               // null/omit = all regions
+ *   };
  */
 
 (function() {
     'use strict';
+
+    const CFG = window.WTF_FLOATING_CONFIG || {};
+    const DATA_URL     = CFG.dataUrl    || 'data/posters.json';
+    const PATH_PREFIX  = CFG.pathPrefix || '';
+    const REGION_FILTER = CFG.regions   || null; // null = use all regions
 
     const POSTER_COUNT = 12; // Number of floating posters
     const MIN_DURATION = 40; // Minimum animation duration (seconds)
@@ -23,17 +35,21 @@
      */
     async function loadPostersData() {
         try {
-            const response = await fetch('data/posters.json');
+            const response = await fetch(DATA_URL);
             if (!response.ok) throw new Error('Failed to load posters');
             postersData = await response.json();
-            
-            // Flatten all poster paths into single array
-            Object.values(postersData.regions).forEach(regionPosters => {
-                regionPosters.forEach(poster => {
-                    allPosterPaths.push(poster.path);
+
+            // Use region filter if specified, otherwise use all regions
+            const regionKeys = REGION_FILTER
+                ? REGION_FILTER.filter(r => postersData.regions[r])
+                : Object.keys(postersData.regions);
+
+            regionKeys.forEach(region => {
+                postersData.regions[region].forEach(poster => {
+                    allPosterPaths.push(PATH_PREFIX + poster.path);
                 });
             });
-            
+
             return true;
         } catch (error) {
             console.error('Error loading floating posters:', error);
