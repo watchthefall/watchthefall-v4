@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall Map — Geographic Prototype | WatchTheFall</title>
+    <meta name="description" content="WatchTheFall ecosystem visualised geographically. Phase 1 prototype — D3 Natural Earth projection.">
+    <meta name="robots" content="noindex">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/fall-map-geo.css">
+</head>
+<body>
+
+<div class="geo-page-bg" aria-hidden="true"></div>
+
+<!-- ── Navigation ─────────────────────────────────────────── -->
+<nav class="v2-nav" aria-label="WatchTheFall navigation">
+    <a class="v2-logo" href="index.html" aria-label="WatchTheFall home">
+        <img src="assets/wtf-logo-sm.png" alt="WTF">
+    </a>
+    <div class="v2-links">
+        <a href="index.html">Home</a>
+        <a href="fall-map.html">Fall Map</a>
+        <a href="brandr.html">Brandr</a>
+        <a href="fall-map-geo.html" class="active">Geo Proto</a>
+    </div>
+</nav>
+
+<!-- ── Hero ───────────────────────────────────────────────── -->
+<header class="geo-hero">
+    <p class="geo-kicker">WatchTheFall Ecosystem</p>
+    <h1>Fall Map</h1>
+    <p>The network, pinned to the world. Click a region to explore the ecosystem in place.</p>
+    <span class="geo-proto-badge">
+        <svg width="7" height="7" viewBox="0 0 7 7" fill="none" aria-hidden="true">
+            <circle cx="3.5" cy="3.5" r="3.5" fill="#d4af37"/>
+        </svg>
+        Phase 1 Prototype
+    </span>
+</header>
+
+<!-- ── Shell ──────────────────────────────────────────────── -->
+<main class="geo-shell">
+
+    <!-- Stage card -->
+    <div class="geo-stage-card">
+        <!-- Toolbar -->
+        <div class="geo-stage-toolbar">
+            <button
+                class="geo-world-btn"
+                type="button"
+                aria-label="Reset to world view"
+                data-geo-action="world">
+                ← World
+            </button>
+            <span id="geo-view-label" aria-live="polite">World View</span>
+        </div>
+
+        <!-- SVG is injected here by JS -->
+        <div id="geo-stage" role="img" aria-label="WatchTheFall geographic network map">
+            <div class="geo-load-error" style="color:var(--geo-muted)">
+                Initialising map…
+            </div>
+        </div>
+
+        <!-- Australia note (visible only in The West view) -->
+        <p class="geo-aus-note" aria-hidden="true">
+            Australia is geographically separate from The West cluster's zoom bounds — accessible via panel
+        </p>
+    </div>
+
+    <!-- Panel -->
+    <aside class="geo-panel" id="geo-panel" aria-live="polite">
+        <p class="geo-panel-kicker">Fall Map / Geographic</p>
+        <h2>Select a node</h2>
+        <p>Click a region on the map or a cluster node to open its preview. Nodes are pinned to their real-world coordinates.</p>
+    </aside>
+
+</main>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer class="geo-footer">
+    <p>WatchTheFall &mdash; Geographic prototype &mdash; Phase 1 &mdash; Not for public release</p>
+</footer>
+
+<!-- ── Dependencies ───────────────────────────────────────── -->
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+
+<!-- ── App ────────────────────────────────────────────────── -->
+<script src="scripts/fall_map_geo.js"></script>
+
+</body>
+</html>

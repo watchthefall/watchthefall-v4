@@ -1,0 +1,510 @@
+/* ============================================================
+   Fall Map — Geographic Prototype (Phase 1)
+   styles/fall-map-geo.css
+   ============================================================ */
+
+:root {
+    --geo-gold:        #d4af37;
+    --geo-gold-soft:   rgba(212, 175, 55, 0.22);
+    --geo-gold-dim:    rgba(212, 175, 55, 0.08);
+    --geo-text:        #f3e7d3;
+    --geo-muted:       rgba(243, 231, 211, 0.62);
+    --geo-muted-faint: rgba(243, 231, 211, 0.35);
+    --geo-bg:          #030404;
+    --geo-panel-bg:    rgba(7, 7, 7, 0.9);
+    --geo-font-head:   "Archivo Black", Impact, sans-serif;
+    --geo-font-body:   "Inter", Arial, sans-serif;
+    --geo-nav-h:       5.5rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--geo-bg);
+    color: var(--geo-text);
+    font-family: var(--geo-font-body);
+    min-height: 100vh;
+}
+
+/* ── Page background ─────────────────────────────────────── */
+.geo-page-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.08), transparent 30%),
+        radial-gradient(circle at 70% 75%, rgba(8, 91, 103, 0.1), transparent 28%),
+        #030404;
+    pointer-events: none;
+}
+
+/* ── Navigation (canonical v2-nav) ──────────────────────── */
+.v2-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.75rem clamp(1rem, 4vw, 3rem);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.7);
+    background: rgba(3, 3, 3, 0.94);
+    backdrop-filter: blur(12px);
+}
+.v2-logo img { width: 58px; height: auto; display: block; }
+.v2-links {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    gap: clamp(0.8rem, 2vw, 1.6rem);
+    flex-wrap: wrap;
+}
+.v2-links a {
+    color: var(--geo-text);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: color 0.15s;
+}
+.v2-links a.active,
+.v2-links a:hover { color: var(--geo-gold); }
+
+/* ── Hero ────────────────────────────────────────────────── */
+.geo-hero {
+    padding: 1.4rem 0 0.9rem;
+    text-align: center;
+}
+.geo-kicker {
+    margin: 0;
+    color: var(--geo-gold);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+.geo-hero h1 {
+    margin: 0.35rem 0 0.25rem;
+    font-family: var(--geo-font-head);
+    font-size: clamp(2rem, 4.6vw, 3.8rem);
+    line-height: 0.95;
+}
+.geo-hero p {
+    margin: 0 auto;
+    max-width: 680px;
+    color: var(--geo-muted);
+    font-size: 0.95rem;
+}
+.geo-proto-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.65rem;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 999px;
+    padding: 0.25rem 0.8rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--geo-gold);
+    opacity: 0.75;
+}
+
+/* ── Shell layout ────────────────────────────────────────── */
+.geo-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 400px);
+    gap: 1.25rem;
+    align-items: start;
+    width: min(1800px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 0.5rem 0 2.5rem;
+}
+
+/* ── Stage card ──────────────────────────────────────────── */
+.geo-stage-card {
+    border: 1px solid var(--geo-gold-soft);
+    border-radius: 10px;
+    background: rgba(6, 6, 6, 0.82);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.38);
+    overflow: hidden;
+}
+
+.geo-stage-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.65rem 0.9rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.14);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.geo-world-btn {
+    border: 1px solid rgba(212, 175, 55, 0.55);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.72);
+    color: var(--geo-gold);
+    cursor: pointer;
+    font: 700 0.72rem var(--geo-font-body);
+    letter-spacing: 0.09em;
+    padding: 0.5rem 0.85rem;
+    text-transform: uppercase;
+    transition: background 0.15s, border-color 0.15s;
+    flex-shrink: 0;
+}
+.geo-world-btn:hover {
+    background: rgba(212, 175, 55, 0.12);
+    border-color: var(--geo-gold);
+}
+
+#geo-view-label {
+    color: var(--geo-muted);
+    font-size: 0.88rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ── Map stage (SVG container) ───────────────────────────── */
+#geo-stage {
+    position: relative;
+    min-height: clamp(500px, 70vh, 820px);
+    background: #020303;
+    overflow: hidden;
+    cursor: default;
+}
+
+#geo-stage svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* ── SVG: world geography ────────────────────────────────── */
+.geo-sphere {
+    fill: #020303;
+    stroke: rgba(212, 175, 55, 0.18);
+    stroke-width: 0.8;
+}
+
+.geo-graticule {
+    fill: none;
+    stroke: rgba(212, 175, 55, 0.055);
+    stroke-width: 0.35;
+    pointer-events: none;
+}
+
+.geo-country {
+    fill: #070706;
+    stroke: rgba(212, 175, 55, 0.1);
+    stroke-width: 0.45;
+    transition: fill 0.35s ease;
+    cursor: default;
+}
+
+.geo-country--wtf {
+    fill: #0d0b08;
+    stroke: rgba(212, 175, 55, 0.24);
+    stroke-width: 0.6;
+}
+
+.geo-country--active {
+    fill: rgba(212, 175, 55, 0.05);
+    stroke: rgba(212, 175, 55, 0.36);
+    stroke-width: 0.7;
+}
+
+/* ── SVG: node markers ───────────────────────────────────── */
+.geo-node { cursor: pointer; }
+
+.node-ring {
+    fill: none;
+    stroke: rgba(212, 175, 55, 0.42);
+    stroke-width: 1;
+    stroke-dasharray: 4 3;
+    transition: stroke 0.2s, stroke-opacity 0.2s;
+}
+
+.geo-node.cluster .node-ring {
+    stroke: rgba(212, 175, 55, 0.62);
+    stroke-width: 1.5;
+    stroke-dasharray: none;
+}
+
+.geo-node:hover .node-ring,
+.geo-node.active .node-ring {
+    stroke: var(--geo-gold);
+    stroke-opacity: 1;
+    stroke-dasharray: none;
+}
+
+.node-body {
+    fill: rgba(4, 4, 4, 0.9);
+    stroke: rgba(212, 175, 55, 0.65);
+    stroke-width: 1;
+    transition: fill 0.2s, stroke 0.2s;
+}
+
+.geo-node:hover .node-body,
+.geo-node.active .node-body {
+    fill: rgba(212, 175, 55, 0.1);
+    stroke: var(--geo-gold);
+}
+
+.geo-node.coming-soon .node-body {
+    stroke-dasharray: 3 2;
+    opacity: 0.82;
+}
+
+.node-logo {
+    pointer-events: none;
+    border-radius: 3px;
+}
+
+.node-initials {
+    fill: var(--geo-gold);
+    font-family: var(--geo-font-head);
+    font-size: 8px;
+    pointer-events: none;
+}
+
+.geo-node.cluster .node-initials {
+    font-size: 10px;
+}
+
+.node-label {
+    fill: rgba(243, 231, 211, 0.82);
+    font-family: var(--geo-font-body);
+    font-size: 10px;
+    font-weight: 700;
+    pointer-events: none;
+    paint-order: stroke;
+    stroke: rgba(2, 3, 3, 0.92);
+    stroke-width: 3px;
+    stroke-linejoin: round;
+}
+
+.geo-node.cluster .node-label {
+    font-size: 11px;
+    fill: var(--geo-text);
+}
+
+.geo-node.active .node-label,
+.geo-node:hover .node-label {
+    fill: var(--geo-gold);
+}
+
+/* ── Australia offset badge ──────────────────────────────── */
+.geo-aus-note {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 4px;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.65rem;
+    color: var(--geo-muted-faint);
+    white-space: nowrap;
+    pointer-events: none;
+    display: none;
+}
+.geo-stage-card.view-the-west .geo-aus-note { display: block; }
+
+/* ── Error ───────────────────────────────────────────────── */
+.geo-load-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    color: #ffcf6b;
+    font-size: 0.9rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* ── Panel ───────────────────────────────────────────────── */
+.geo-panel {
+    position: sticky;
+    top: calc(var(--geo-nav-h) + 0.75rem);
+    max-height: calc(100vh - var(--geo-nav-h) - 1.5rem);
+    overflow-y: auto;
+    border: 1px solid var(--geo-gold-soft);
+    border-radius: 10px;
+    background: var(--geo-panel-bg);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.36);
+    padding: 1.4rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(212, 175, 55, 0.25) transparent;
+}
+
+.geo-panel-kicker {
+    margin: 0;
+    color: var(--geo-gold);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.geo-panel h2 {
+    margin: 0.4rem 0 0.65rem;
+    font-family: var(--geo-font-head);
+    font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+    line-height: 1.1;
+}
+
+.geo-panel p {
+    color: var(--geo-muted);
+    line-height: 1.58;
+    font-size: 0.9rem;
+    margin: 0 0 1rem;
+}
+
+.geo-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0 0 1rem;
+}
+
+.geo-meta span {
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 999px;
+    color: var(--geo-muted);
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    text-transform: capitalize;
+}
+
+.geo-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+    margin: 0 0 1.4rem;
+}
+
+.geo-action {
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    border-radius: 7px;
+    background: var(--geo-gold);
+    color: #060606;
+    font-weight: 800;
+    font-size: 0.8rem;
+    padding: 0.7rem 0.75rem;
+    text-align: center;
+    text-decoration: none;
+    transition: opacity 0.15s;
+}
+
+.geo-action:hover { opacity: 0.85; }
+
+.geo-action.disabled {
+    background: transparent;
+    color: rgba(212, 175, 55, 0.45);
+    cursor: default;
+}
+
+/* ── Panel cluster cards ─────────────────────────────────── */
+.geo-cluster {
+    border-top: 1px solid rgba(212, 175, 55, 0.14);
+    padding-top: 1rem;
+    margin-top: 0.25rem;
+}
+
+.geo-cluster h3 {
+    margin: 0 0 0.75rem;
+    font-family: var(--geo-font-head);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--geo-gold);
+}
+
+.geo-child-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+}
+
+.geo-child-card {
+    border: 1px solid rgba(212, 175, 55, 0.24);
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.35);
+    color: var(--geo-text);
+    cursor: pointer;
+    font-family: var(--geo-font-body);
+    padding: 0.75rem;
+    text-align: left;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.geo-child-card strong {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.geo-child-card span {
+    display: block;
+    color: var(--geo-gold);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.geo-child-card:hover,
+.geo-child-card.active {
+    border-color: var(--geo-gold);
+    background: rgba(212, 175, 55, 0.08);
+}
+
+/* ── System layer note ───────────────────────────────────── */
+.geo-system-note {
+    font-size: 0.75rem;
+    color: var(--geo-muted-faint);
+    font-style: italic;
+    margin: 0 0 1rem;
+    padding: 0.65rem 0.9rem;
+    border-left: 2px solid rgba(212, 175, 55, 0.2);
+    background: rgba(212, 175, 55, 0.03);
+    border-radius: 0 4px 4px 0;
+    line-height: 1.5;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+.geo-footer {
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+    color: var(--geo-muted-faint);
+    font-size: 0.75rem;
+    padding: 1.75rem 2rem;
+    text-align: center;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 980px) {
+    .v2-nav {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    .v2-links { justify-content: flex-start; font-size: 0.85rem; }
+    --geo-nav-h: 9rem;
+
+    .geo-shell { grid-template-columns: 1fr; }
+
+    .geo-panel {
+        position: static;
+        max-height: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .geo-actions { grid-template-columns: 1fr; }
+    .geo-child-grid { grid-template-columns: 1fr; }
+    #geo-stage { min-height: 380px; }
+}
