@@ -8,383 +8,655 @@
     <meta property="og:title" content="Brandr — Built by WatchTheFall">
     <meta property="og:description" content="Turn raw content into branded, publish-ready posts. Built internally to run 20+ WatchTheFall pages.">
     <meta property="og:url" content="https://watchthefall.com/brandr.html">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@WatchTheFallWTF">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="assets/logos/wtf-logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
 /* ============================================================
-   BRANDR PAGE — v2 Visual Redesign
-   Dark premium product UI. Public-safe.
+   BRANDR PAGE — Visual Redesign
+   WTF-aligned dark premium product page.
    ============================================================ */
-:root{
-    --g:#d4af37; --g2:rgba(212,175,55,0.18); --g3:rgba(212,175,55,0.28);
-    --bg:#0d0d0d; --bg2:rgba(255,255,255,0.025); --bg3:rgba(255,255,255,0.05);
-    --tx:#f3e7d3; --tx2:rgba(243,231,211,0.55); --tx3:rgba(243,231,211,0.35);
-    --app-bg:#111118; --app-bg2:#1a1a26;
-    --green:#22c55e;
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+    --g: #d4af37;
+    --g2: rgba(212, 175, 55, 0.18);
+    --g3: rgba(212, 175, 55, 0.28);
+    --g4: rgba(212, 175, 55, 0.06);
+    --bg: #030404;
+    --bg2: rgba(255, 255, 255, 0.025);
+    --bg3: rgba(255, 255, 255, 0.05);
+    --tx: #f3e7d3;
+    --tx2: rgba(243, 231, 211, 0.62);
+    --tx3: rgba(243, 231, 211, 0.35);
+    --green: #22c55e;
+    --font-head: "Archivo Black", Impact, sans-serif;
+    --font-body: "Inter", Arial, sans-serif;
+    --nav-h: 5.5rem;
 }
-body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;}
 
-/* ---- SECTION SCAFFOLDING ---- */
-.bw{max-width:1200px;margin:0 auto;padding:8vh 6vw;}
-.bw--sm{max-width:1200px;margin:0 auto;padding:6vh 6vw;}
-.b-stripe{background:var(--bg2);border-top:1px solid var(--bg3);border-bottom:1px solid var(--bg3);}
-.b-stripe .bw{padding:8vh 6vw;}
-
-/* ---- SECTION LABEL (build-page style) ---- */
-.b-label{
-    display:inline-flex;align-items:center;gap:0.5rem;
-    border:1px solid var(--g3);border-radius:4px;
-    padding:0.3rem 0.75rem;
-    font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
-    color:var(--g);margin-bottom:1.5rem;
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--tx);
+    font-family: var(--font-body);
+    min-height: 100vh;
 }
-.b-h1{font-family:'Syne',sans-serif;font-size:clamp(4rem,11vw,8.5rem);font-weight:800;line-height:0.88;letter-spacing:-0.035em;margin-bottom:1.25rem;}
-.b-h2{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:800;line-height:1.05;margin-bottom:1rem;}
-.b-h3{font-family:'Syne',sans-serif;font-size:clamp(1.3rem,2.5vw,1.75rem);font-weight:800;line-height:1.1;margin-bottom:0.75rem;}
-.b-lead{font-size:clamp(1rem,1.8vw,1.15rem);line-height:1.7;color:var(--tx2);max-width:580px;}
-.b-muted{color:var(--tx2);}
-.b-gold{color:var(--g);}
 
-/* ---- CTA BUTTONS ---- */
-.b-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.25rem;}
-.b-btn{display:inline-flex;align-items:center;gap:0.4rem;padding:.875rem 1.75rem;font-family:'Inter',sans-serif;font-size:.88rem;font-weight:600;text-decoration:none;border-radius:4px;transition:all 0.2s;}
-.b-btn--gold{background:var(--g);color:#0d0d0d;}
-.b-btn--gold:hover{opacity:.88;transform:translateY(-1px);}
-.b-btn--outline{border:1px solid var(--g3);color:var(--tx);}
-.b-btn--outline:hover{border-color:var(--g);color:var(--g);}
+/* ============================================================
+   NAVIGATION — canonical WTF nav
+   ============================================================ */
+.v2-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.75rem clamp(1rem, 4vw, 3rem);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.7);
+    background: rgba(3, 3, 3, 0.94);
+    backdrop-filter: blur(12px);
+}
+.v2-logo img { width: 58px; height: auto; display: block; }
+.v2-links {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    gap: clamp(0.8rem, 2vw, 1.6rem);
+    flex-wrap: wrap;
+}
+.v2-links a {
+    color: var(--tx);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+.v2-links a.active, .v2-links a:hover { color: var(--g); }
+
+/* ============================================================
+   PAGE BACKGROUND
+   ============================================================ */
+.b-page-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 72% 18%, rgba(212, 175, 55, 0.07), transparent 32%),
+        radial-gradient(circle at 20% 75%, rgba(212, 175, 55, 0.05), transparent 28%),
+        #030404;
+    pointer-events: none;
+}
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
+.bw  { max-width: 1200px; margin: 0 auto; padding: 8vh clamp(1.25rem, 5vw, 5rem); }
+.bw--sm { max-width: 1200px; margin: 0 auto; padding: 5vh clamp(1.25rem, 5vw, 5rem); }
+.b-stripe {
+    background: rgba(255, 255, 255, 0.018);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* ============================================================
+   TYPE SCALE
+   ============================================================ */
+.b-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--g3);
+    border-radius: 4px;
+    padding: 0.28rem 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--g);
+    margin-bottom: 1.5rem;
+}
+.b-h1 {
+    font-family: var(--font-head);
+    font-size: clamp(4.5rem, 11vw, 9rem);
+    line-height: 0.87;
+    letter-spacing: -0.03em;
+    margin: 0 0 1.25rem;
+}
+.b-h2 {
+    font-family: var(--font-head);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1;
+    margin: 0 0 1rem;
+}
+.b-h3 {
+    font-family: var(--font-head);
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    line-height: 1.1;
+    margin: 0 0 0.75rem;
+}
+.b-lead {
+    font-size: clamp(0.95rem, 1.8vw, 1.12rem);
+    line-height: 1.68;
+    color: var(--tx2);
+    max-width: 560px;
+}
+.b-gold { color: var(--g); }
+.b-muted { color: var(--tx2); }
+
+/* ---- BUTTONS ---- */
+.b-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.25rem; }
+.b-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.875rem 1.75rem;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+}
+.b-btn--gold { background: var(--g); color: #030404; }
+.b-btn--gold:hover { opacity: 0.88; transform: translateY(-1px); }
+.b-btn--outline { border: 1px solid var(--g3); color: var(--tx); }
+.b-btn--outline:hover { border-color: var(--g); color: var(--g); }
 
 /* ============================================================
    HERO
    ============================================================ */
-.b-hero{
-    min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
-    align-items:center;gap:4rem;padding:12vh 6vw 8vh;position:relative;overflow:hidden;
+.b-hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    padding: 12vh clamp(1.25rem, 6vw, 5rem) 8vh;
+    position: relative;
+    overflow: hidden;
 }
-.b-hero::before{
-    content:'';position:absolute;top:-20%;right:-5%;
-    width:700px;height:700px;
-    background:radial-gradient(circle,rgba(212,175,55,0.07) 0%,transparent 65%);
-    pointer-events:none;
+.b-hero-left { position: relative; z-index: 1; }
+.b-hero-title { font-family: var(--font-head); font-size: clamp(5rem, 11vw, 9.5rem); line-height: 0.86; letter-spacing: -0.03em; margin: 0 0 1.4rem; }
+.b-hero-title span { color: var(--g); }
+.b-hero-sub {
+    font-size: clamp(1rem, 2vw, 1.18rem);
+    line-height: 1.65;
+    color: var(--tx2);
+    max-width: 480px;
 }
-.b-hero-left{position:relative;z-index:1;}
-.b-hero-title{font-family:'Syne',sans-serif;font-size:clamp(4.5rem,10vw,9rem);font-weight:800;line-height:0.87;letter-spacing:-0.04em;margin-bottom:1.5rem;}
-.b-hero-title span{color:var(--g);}
-.b-hero-sub{font-size:clamp(1rem,2vw,1.2rem);line-height:1.65;color:var(--tx2);max-width:480px;margin-bottom:0.5rem;}
-.b-hero-note{margin-top:2.25rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.07);font-size:0.78rem;color:var(--tx3);max-width:400px;line-height:1.6;}
-.b-hero-note a{color:var(--g);text-decoration:none;}
-
-/* ---- HERO SCREENSHOT ---- */
-.b-hero-right{position:relative;z-index:1;}
-.b-screenshot-frame{
-    border-radius:12px;overflow:hidden;
-    box-shadow:0 40px 80px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.06);
+.b-hero-note {
+    margin-top: 2rem;
+    padding-top: 1.35rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    font-size: 0.78rem;
+    color: var(--tx3);
+    max-width: 420px;
+    line-height: 1.6;
 }
-.b-screenshot-frame img{display:block;width:100%;height:auto;}
-.b-mock{
-    background:var(--app-bg);border:1px solid rgba(255,255,255,0.08);
-    border-radius:12px;overflow:hidden;
-    box-shadow:0 40px 80px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.04),inset 0 1px 0 rgba(255,255,255,0.06);
+.b-hero-note a { color: var(--g); text-decoration: none; }
+.b-hero-right { position: relative; z-index: 1; }
+.b-screenshot-frame {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow:
+        0 40px 80px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(212, 175, 55, 0.12);
 }
-.b-mock-bar{
-    background:var(--app-bg2);border-bottom:1px solid rgba(255,255,255,0.07);
-    padding:0.75rem 1rem;display:flex;align-items:center;gap:1rem;
-}
-.b-mock-logo{
-    width:28px;height:28px;background:var(--g);border-radius:5px;
-    display:flex;align-items:center;justify-content:center;
-    font-family:'Syne',sans-serif;font-size:0.75rem;font-weight:800;color:#0d0d0d;flex-shrink:0;
-}
-.b-mock-tabs{display:flex;gap:0;margin-right:auto;}
-.b-mock-tab{padding:0.3rem 0.9rem;font-size:0.72rem;font-weight:500;color:rgba(255,255,255,0.4);cursor:default;border-radius:4px;}
-.b-mock-tab.active{color:#fff;background:rgba(255,255,255,0.08);}
-.b-mock-acct{font-size:0.7rem;color:rgba(255,255,255,0.35);}
-.b-mock-body{padding:1.25rem;}
-.b-mock-title{font-size:1rem;font-weight:600;color:#fff;margin-bottom:0.25rem;}
-.b-mock-formats{display:flex;gap:1rem;margin-bottom:1rem;border-bottom:1px solid rgba(255,255,255,0.07);padding-bottom:0.75rem;}
-.b-mock-fmt{font-size:0.72rem;color:rgba(255,255,255,0.35);padding-bottom:0.35rem;cursor:default;}
-.b-mock-fmt.active{color:var(--g);border-bottom:1.5px solid var(--g);}
-.b-mock-grid{display:flex;gap:1rem;}
-.b-mock-main{flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:1rem;min-height:130px;}
-.b-mock-brand-name{font-size:0.85rem;font-weight:600;color:#fff;margin-bottom:0.35rem;}
-.b-mock-badge{display:inline-flex;align-items:center;gap:0.3rem;background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.3);border-radius:4px;padding:0.1rem 0.5rem;font-size:0.62rem;font-weight:600;color:var(--green);margin-bottom:0.75rem;}
-.b-mock-layers{display:flex;flex-direction:column;gap:0.4rem;}
-.b-mock-layer{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:5px;padding:0.4rem 0.6rem;display:flex;align-items:center;gap:0.5rem;font-size:0.68rem;color:rgba(255,255,255,0.6);}
-.b-mock-layer-icon{width:20px;height:20px;background:rgba(255,255,255,0.08);border-radius:3px;flex-shrink:0;}
-.b-mock-sidebar{width:120px;display:flex;flex-direction:column;gap:0.5rem;}
-.b-mock-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:6px;padding:0.6rem;display:flex;align-items:center;gap:0.5rem;}
-.b-mock-card-logo{width:24px;height:24px;border-radius:50%;flex-shrink:0;background:rgba(255,255,255,0.1);}
-.b-mock-card-info{flex:1;min-width:0;}
-.b-mock-card-name{font-size:0.65rem;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.b-mock-card-badge{font-size:0.55rem;color:var(--green);margin-top:0.1rem;}
-/* logo circle colors from WTF pages */
-.logo-scot{background:url('assets/logos/scotland-wtf-logo.png') center/cover;}
-.logo-brit{background:url('assets/logos/britain-wtf-logo.png') center/cover;}
-.logo-aus{background:url('assets/logos/australia-wtf-logo.png') center/cover;}
-.logo-ire{background:url('assets/logos/ireland-wtf-logo.png') center/cover;}
+.b-screenshot-frame img { display: block; width: 100%; height: auto; }
 
 /* ============================================================
-   ORIGIN SECTION
+   ORIGIN
    ============================================================ */
-.b-origin-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
-.b-blockquote{
-    border-left:3px solid var(--g);padding-left:1.5rem;
-    font-size:clamp(1rem,2vw,1.1rem);line-height:1.7;color:var(--tx2);
-    font-style:italic;margin:1.5rem 0;
+.b-origin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.b-blockquote {
+    border-left: 3px solid var(--g);
+    padding-left: 1.5rem;
+    font-size: clamp(0.95rem, 1.8vw, 1.08rem);
+    line-height: 1.72;
+    color: var(--tx2);
+    font-style: italic;
+    margin: 1.5rem 0;
 }
-.b-logos-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:0.6rem;
+.b-logos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; }
+.b-logo-tile {
+    aspect-ratio: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: transform 0.2s, border-color 0.2s;
 }
-.b-logo-tile{
-    aspect-ratio:1;border-radius:10px;overflow:hidden;
-    border:1px solid rgba(255,255,255,0.06);
-    transition:transform 0.2s,border-color 0.2s;
-}
-.b-logo-tile:hover{transform:scale(1.04);border-color:var(--g3);}
-.b-logo-tile img{width:100%;height:100%;object-fit:cover;display:block;}
-.b-logo-caption{
-    margin-top:1rem;font-size:0.65rem;letter-spacing:0.14em;
-    text-transform:uppercase;color:var(--tx3);text-align:center;
+.b-logo-tile:hover { transform: scale(1.04); border-color: var(--g3); }
+.b-logo-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.b-logo-caption {
+    margin-top: 1rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--tx3);
+    text-align: center;
 }
 
 /* ============================================================
    WORKFLOW STRIP
    ============================================================ */
-.b-workflow{
-    display:flex;align-items:center;gap:0;
-    background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);
-    border-radius:8px;overflow:hidden;margin:2rem 0;
+.b-workflow {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    background: rgba(255, 255, 255, 0.022);
+    border: 1px solid rgba(212, 175, 55, 0.12);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 2.5rem 0 0.75rem;
 }
-.b-wf-step{
-    flex:1;padding:1.25rem 1.5rem;text-align:left;
-    border-right:1px solid rgba(255,255,255,0.06);
-    position:relative;
+.b-wf-step {
+    flex: 1;
+    padding: 1.5rem 1.4rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
 }
-.b-wf-step:last-child{border-right:none;}
-.b-wf-arrow{
-    position:absolute;right:-0.75rem;top:50%;transform:translateY(-50%);
-    color:var(--g);font-size:0.85rem;z-index:1;
-    background:var(--bg);padding:0 2px;
+.b-wf-step:last-child { border-right: none; }
+.b-wf-num {
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+    color: var(--g);
+    opacity: 0.6;
+    margin-bottom: 0.35rem;
+    font-weight: 700;
+    text-transform: uppercase;
 }
-.b-wf-num{font-size:0.6rem;letter-spacing:0.12em;color:var(--g);opacity:0.55;margin-bottom:0.25rem;font-weight:700;text-transform:uppercase;}
-.b-wf-title{font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:700;color:#fff;margin-bottom:0.25rem;}
-.b-wf-desc{font-size:0.75rem;color:var(--tx3);line-height:1.5;}
-.b-workflow-note{font-size:0.72rem;color:var(--tx3);font-style:italic;text-align:right;margin-top:0.5rem;}
+.b-wf-title {
+    font-family: var(--font-head);
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 0.35rem;
+}
+.b-wf-desc { font-size: 0.78rem; color: var(--tx3); line-height: 1.55; }
+.b-workflow-note {
+    font-size: 0.7rem;
+    color: var(--tx3);
+    font-style: italic;
+    text-align: right;
+}
 
 /* ============================================================
-   INSIDE BRANDR — SCREENSHOT GALLERY
+   SCREENSHOT GALLERY
    ============================================================ */
-.b-gallery-hero{
-    background:var(--app-bg);border:1px solid rgba(255,255,255,0.08);
-    border-radius:12px;overflow:hidden;margin-bottom:1.25rem;
-    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+.b-gallery-hero {
+    background: #111118;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
 }
-.b-gallery-hero .b-mock-bar{justify-content:flex-start;}
-.b-gallery-body{padding:1.5rem;}
-.b-gallery-sub{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
-.b-gallery-hero--photo{padding:0;display:block;}
-.b-gallery-hero--photo img{display:block;width:100%;height:auto;}
-.b-gallery-card--photo{padding:0;display:block;}
-.b-gallery-card--photo img{display:block;width:100%;height:auto;}
-.b-gallery-card{
-    background:var(--app-bg);border:1px solid rgba(255,255,255,0.08);
-    border-radius:10px;overflow:hidden;
-    box-shadow:0 8px 24px rgba(0,0,0,0.4);
-    cursor:default;transition:border-color 0.2s;
+.b-gallery-hero img { display: block; width: 100%; height: auto; }
+.b-gallery-sub { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem; }
+.b-gallery-card {
+    background: #111118;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
+    transition: border-color 0.2s;
 }
-.b-gallery-card:hover{border-color:var(--g3);}
-.b-gallery-label{
-    font-size:0.7rem;color:var(--tx3);margin-top:0.65rem;
-    font-style:italic;line-height:1.4;
+.b-gallery-card:hover { border-color: var(--g3); }
+.b-gallery-card img { display: block; width: 100%; height: auto; }
+.b-gallery-label {
+    font-size: 0.7rem;
+    color: var(--tx3);
+    margin-top: 0.65rem;
+    font-style: italic;
+    line-height: 1.45;
 }
-.b-gallery-cap{
-    display:block;text-align:center;
-    font-size:0.7rem;color:var(--tx3);margin-top:0.6rem;font-style:italic;
+.b-gallery-cap {
+    display: block;
+    text-align: center;
+    font-size: 0.72rem;
+    color: var(--tx3);
+    margin-top: 0.6rem;
+    font-style: italic;
 }
-
-/* Brand cards grid mock */
-.b-brand-list{display:flex;flex-direction:column;gap:0.5rem;padding:0.5rem;}
-.b-bl-item{
-    background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);
-    border-radius:6px;padding:0.6rem 0.75rem;display:flex;align-items:center;gap:0.6rem;
-}
-.b-bl-logo{width:28px;height:28px;border-radius:50%;flex-shrink:0;}
-.b-bl-info{flex:1;}
-.b-bl-name{font-size:0.72rem;font-weight:600;color:#fff;}
-.b-bl-badge{font-size:0.58rem;color:var(--green);}
-.b-bl-edit{font-size:0.62rem;color:rgba(255,255,255,0.3);padding:0.2rem 0.4rem;border:1px solid rgba(255,255,255,0.1);border-radius:3px;}
-
-/* Create flow mock */
-.b-create-card{padding:1rem;}
-.b-create-tabs-row{display:flex;gap:0.4rem;margin-bottom:0.75rem;}
-.b-create-tab{font-size:0.65rem;padding:0.25rem 0.6rem;border-radius:4px;color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.1);}
-.b-create-tab.active{background:rgba(255,255,255,0.1);color:#fff;border-color:rgba(255,255,255,0.2);}
-.b-create-input{
-    background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);
-    border-radius:6px;padding:0.6rem 0.75rem;
-    display:flex;justify-content:space-between;align-items:center;
-    font-size:0.68rem;color:rgba(255,255,255,0.3);margin-bottom:0.5rem;
-}
-.b-create-input span.btn{
-    background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);
-    border-radius:4px;padding:0.2rem 0.6rem;font-size:0.62rem;font-weight:600;
-}
-.b-stepper{display:flex;align-items:center;gap:0;font-size:0.62rem;color:rgba(255,255,255,0.3);margin-bottom:0.75rem;}
-.b-stepper-step{display:flex;align-items:center;gap:0.3rem;}
-.b-stepper-step.active{color:rgba(255,255,255,0.7);}
-.b-stepper-circle{width:18px;height:18px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:0.6rem;}
-.b-stepper-circle.active{background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.4);}
-.b-stepper-line{flex:1;height:1px;background:rgba(255,255,255,0.1);margin:0 0.4rem;}
-
-/* Library mock */
-.b-library{padding:0.75rem;}
-.b-lib-tabs{display:flex;gap:1rem;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:0.75rem;padding-bottom:0.5rem;}
-.b-lib-tab{font-size:0.65rem;color:rgba(255,255,255,0.35);}
-.b-lib-tab.active{color:#fff;border-bottom:1.5px solid var(--g);padding-bottom:0.3rem;}
-.b-lib-count{font-size:0.62rem;color:var(--tx2);margin-bottom:0.6rem;}
-.b-lib-cards{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;}
-.b-lib-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:6px;padding:0.6rem;}
-.b-lib-card-name{font-size:0.68rem;font-weight:600;color:#fff;margin-bottom:0.25rem;}
-.b-lib-card-tag{display:inline-block;background:rgba(59,130,246,0.2);color:rgba(147,197,253,0.8);font-size:0.55rem;padding:0.1rem 0.4rem;border-radius:3px;margin-bottom:0.3rem;}
-.b-lib-card-meta{font-size:0.58rem;color:rgba(255,255,255,0.3);}
-.b-lib-card-actions{display:flex;gap:0.35rem;margin-top:0.4rem;}
-.b-lib-card-btn{font-size:0.58rem;padding:0.2rem 0.4rem;border:1px solid rgba(255,255,255,0.12);border-radius:3px;color:rgba(255,255,255,0.5);}
-
-/* Profile mock */
-.b-profile{padding:1rem;text-align:center;}
-.b-profile-avatar{width:40px;height:40px;border-radius:50%;border:2px solid var(--g);margin:0 auto 0.5rem;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--g);}
-.b-profile-badges{display:flex;gap:0.4rem;justify-content:center;margin-bottom:0.75rem;}
-.b-profile-badge{font-size:0.58rem;padding:0.15rem 0.5rem;border-radius:3px;font-weight:600;}
-.b-profile-badge.admin{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);}
-.b-profile-badge.plat{background:rgba(212,175,55,0.2);color:var(--g);border:1px solid rgba(212,175,55,0.3);}
-.b-profile-limits{display:grid;grid-template-columns:repeat(2,1fr);gap:0.4rem;text-align:left;}
-.b-profile-limit{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:5px;padding:0.5rem 0.6rem;}
-.b-profile-limit-lbl{font-size:0.55rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:0.2rem;}
-.b-profile-limit-val{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:#fff;}
 
 /* ============================================================
    WHO IT'S FOR
    ============================================================ */
-.b-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem;}
-.b-card{
-    background:var(--bg2);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:2rem 1.5rem;
-    transition:border-color 0.25s,transform 0.25s;
+.b-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3rem; }
+.b-card {
+    background: var(--bg2);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 2rem 1.6rem;
+    transition: border-color 0.25s, transform 0.25s;
 }
-.b-card:hover{border-color:var(--g3);transform:translateY(-2px);}
-.b-card.lead{border-color:var(--g3);background:rgba(212,175,55,0.04);}
-.b-card-icon{font-size:1.75rem;margin-bottom:1rem;}
-.b-card-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:0.5rem;}
-.b-card-lead-tag{font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--g);margin-bottom:0.35rem;font-weight:600;}
-.b-card-desc{font-size:0.875rem;color:var(--tx2);line-height:1.65;}
+.b-card:hover { border-color: var(--g3); transform: translateY(-2px); }
+.b-card.lead { border-color: var(--g3); background: var(--g4); }
+.b-card-lead-tag {
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--g);
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+}
+.b-card-title { font-family: var(--font-head); font-size: 1.05rem; margin: 0 0 0.65rem; }
+.b-card-desc { font-size: 0.875rem; color: var(--tx2); line-height: 1.65; }
+.b-card-marker {
+    width: 32px;
+    height: 2px;
+    background: var(--g);
+    opacity: 0.5;
+    margin-bottom: 1.25rem;
+    border-radius: 1px;
+}
+.b-card.lead .b-card-marker { opacity: 1; }
 
 /* ============================================================
    PRICING
    ============================================================ */
-.b-pricing{display:grid;grid-template-columns:repeat(5,1fr);gap:0.875rem;margin-top:3rem;}
-.b-pc{
-    background:var(--bg2);border:1px solid rgba(255,255,255,0.06);border-radius:10px;
-    padding:1.75rem 1.25rem;display:flex;flex-direction:column;
-    transition:border-color 0.25s,transform 0.25s;position:relative;
+.b-pricing { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.875rem; margin-top: 3rem; }
+.b-pc {
+    background: var(--bg2);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 1.5rem 1.1rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: border-color 0.25s, transform 0.25s;
 }
-.b-pc:hover{border-color:var(--g3);transform:translateY(-2px);}
-.b-pc.featured{border-color:var(--g3);background:rgba(212,175,55,0.04);}
-.b-pc.dimmed{opacity:0.55;}
-.b-pc-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--g);color:#0d0d0d;font-size:0.6rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:.2rem .7rem;border-radius:0 0 5px 5px;white-space:nowrap;}
-.b-pc-tier{font-family:'Syne',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--g);margin-bottom:0.5rem;}
-.b-pc-amount{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;line-height:1;margin-bottom:0.2rem;}
-.b-pc-period{font-size:0.75rem;color:var(--tx2);margin-bottom:1.25rem;}
-.b-pc-was{text-decoration:line-through;color:var(--tx3);font-size:0.72rem;}
-.b-pc-hr{height:1px;background:rgba(255,255,255,0.07);margin-bottom:1rem;}
-.b-pc-feats{list-style:none;padding:0;margin:0 0 1.5rem;flex-grow:1;display:flex;flex-direction:column;gap:0.5rem;}
-.b-pc-feats li{font-size:0.8rem;color:var(--tx2);display:flex;gap:0.45rem;align-items:flex-start;}
-.b-pc-feats li::before{content:'✓';color:var(--g);font-size:0.75rem;flex-shrink:0;margin-top:0.05rem;}
-.b-pc-cta{display:block;text-align:center;padding:.7rem;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;text-decoration:none;border-radius:4px;transition:all .2s;margin-top:auto;}
-.b-pc-cta.primary{background:var(--g);color:#0d0d0d;}
-.b-pc-cta.primary:hover{opacity:.88;}
-.b-pc-cta.outline{border:1px solid var(--g3);color:var(--tx);}
-.b-pc-cta.outline:hover{border-color:var(--g);color:var(--g);}
-.b-pc-cta.locked{border:1px solid rgba(255,255,255,0.08);color:var(--tx3);cursor:default;}
-.b-pricing-note{margin-top:1rem;font-size:0.72rem;color:var(--tx3);font-style:italic;font-family:'Inter',monospace;}
+.b-pc:hover { transform: translateY(-3px); }
+.b-pc.featured { border-color: var(--g3); background: var(--g4); }
+.b-pc.dimmed { opacity: 0.5; }
+.b-pc-badge {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--g);
+    color: #030404;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.75rem;
+    border-radius: 0 0 5px 5px;
+    white-space: nowrap;
+}
+
+/* Tier logo image */
+.b-pc-logo {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.b-pc-logo img {
+    width: 100%;
+    max-width: 130px;
+    height: auto;
+    border-radius: 8px;
+    display: inline-block;
+}
+.b-pc-logo-placeholder {
+    width: 100%;
+    max-width: 130px;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-head);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--tx3);
+    text-transform: uppercase;
+}
+
+.b-pc-tier {
+    font-family: var(--font-head);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--g);
+    margin-bottom: 0.4rem;
+    text-align: center;
+}
+.b-pc-amount {
+    font-family: var(--font-head);
+    font-size: 1.85rem;
+    line-height: 1;
+    margin-bottom: 0.15rem;
+    text-align: center;
+}
+.b-pc-period {
+    font-size: 0.7rem;
+    color: var(--tx2);
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+.b-pc-was { text-decoration: line-through; color: var(--tx3); }
+.b-pc-hr { height: 1px; background: rgba(255, 255, 255, 0.06); margin-bottom: 1rem; }
+.b-pc-feats {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+.b-pc-feats li {
+    font-size: 0.78rem;
+    color: var(--tx2);
+    display: flex;
+    gap: 0.4rem;
+    align-items: flex-start;
+    line-height: 1.4;
+}
+.b-pc-feats li::before {
+    content: '✓';
+    color: var(--g);
+    font-size: 0.72rem;
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+}
+.b-pc-cta {
+    display: block;
+    text-align: center;
+    padding: 0.7rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s;
+    margin-top: auto;
+    letter-spacing: 0.02em;
+}
+.b-pc-cta.primary { background: var(--g); color: #030404; }
+.b-pc-cta.primary:hover { opacity: 0.88; }
+.b-pc-cta.outline { border: 1px solid var(--g3); color: var(--tx); }
+.b-pc-cta.outline:hover { border-color: var(--g); color: var(--g); }
+.b-pc-cta.locked { border: 1px solid rgba(255, 255, 255, 0.07); color: var(--tx3); cursor: default; }
+.b-pricing-note {
+    margin-top: 1.25rem;
+    font-size: 0.7rem;
+    color: var(--tx3);
+    font-style: italic;
+}
+
+/* ============================================================
+   FOUNDING MEMBER CALLOUT
+   ============================================================ */
+.b-founding {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 3.5rem;
+    align-items: center;
+    margin-top: 3rem;
+    padding: 2.5rem 2rem;
+    background: rgba(212, 175, 55, 0.04);
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    border-radius: 14px;
+}
+.b-founding-logo img {
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
+}
+.b-founding-tag {
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--g);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+.b-founding h3 {
+    font-family: var(--font-head);
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    margin: 0 0 1rem;
+    line-height: 1.1;
+}
+.b-founding p {
+    font-size: 0.92rem;
+    color: var(--tx2);
+    line-height: 1.68;
+    margin: 0 0 0.75rem;
+    max-width: 520px;
+}
+.b-founding p:last-of-type { margin-bottom: 0; }
 
 /* ============================================================
    FINAL CTA
    ============================================================ */
-.b-final{padding:10vh 6vw;text-align:center;position:relative;overflow:hidden;}
-.b-final::before{
-    content:'BRANDR';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-    font-family:'Syne',sans-serif;font-size:clamp(5rem,18vw,14rem);font-weight:800;
-    color:rgba(212,175,55,0.025);letter-spacing:-0.05em;white-space:nowrap;pointer-events:none;
+.b-final {
+    padding: 10vh clamp(1.25rem, 6vw, 5rem);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
-.b-final h2{font-family:'Syne',sans-serif;font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;margin-bottom:0.75rem;position:relative;}
-.b-final .b-lead{margin:0 auto;text-align:center;position:relative;}
-.b-final .b-ctas{justify-content:center;position:relative;}
+.b-final::before {
+    content: 'BRANDR';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-head);
+    font-size: clamp(5rem, 18vw, 14rem);
+    color: rgba(212, 175, 55, 0.022);
+    letter-spacing: -0.04em;
+    white-space: nowrap;
+    pointer-events: none;
+}
+.b-final h2 {
+    font-family: var(--font-head);
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    margin: 0 0 0.75rem;
+    position: relative;
+}
+.b-final .b-lead { margin: 0 auto; text-align: center; position: relative; }
+.b-final .b-ctas { justify-content: center; position: relative; }
 
 /* ============================================================
    ECOSYSTEM + FOOTER
    ============================================================ */
-.b-eco{padding:2.5rem 6vw;background:rgba(212,175,55,0.03);border-top:1px solid var(--g3);}
-.b-eco-lbl{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--tx3);margin-bottom:0.85rem;}
-.b-eco-links{display:flex;gap:2rem;flex-wrap:wrap;}
-.b-eco-links a{text-decoration:none;color:var(--tx2);font-size:0.875rem;font-weight:500;transition:color .2s;}
-.b-eco-links a:hover{color:var(--g);}
-.b-footer{padding:1.75rem 6vw;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;}
-.b-footer p{font-size:0.75rem;color:var(--tx3);}
-.b-footer a{color:var(--g);text-decoration:none;font-size:0.75rem;}
+.b-eco {
+    padding: 2.25rem clamp(1.25rem, 6vw, 5rem);
+    background: rgba(212, 175, 55, 0.025);
+    border-top: 1px solid var(--g3);
+}
+.b-eco-lbl {
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--tx3);
+    margin-bottom: 0.85rem;
+}
+.b-eco-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+.b-eco-links a {
+    text-decoration: none;
+    color: var(--tx2);
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+.b-eco-links a:hover { color: var(--g); }
+.b-footer {
+    padding: 1.75rem clamp(1.25rem, 6vw, 5rem);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.b-footer p { font-size: 0.75rem; color: var(--tx3); margin: 0; }
+.b-footer a { color: var(--g); text-decoration: none; font-size: 0.75rem; }
 
 /* ============================================================
    RESPONSIVE
    ============================================================ */
-@media(max-width:1100px){.b-pricing{grid-template-columns:repeat(3,1fr);}}
-@media(max-width:900px){
-    .b-hero{grid-template-columns:1fr;min-height:auto;padding:12vh 5vw 6vh;}
-    .b-hero-right{display:none;}
-    .b-origin-grid{grid-template-columns:1fr;}
-    .b-gallery-sub{grid-template-columns:1fr 1fr;}
-    .b-cards{grid-template-columns:1fr;}
-    .b-pricing{grid-template-columns:1fr 1fr;}
+@media (max-width: 1100px) {
+    .b-pricing { grid-template-columns: repeat(3, 1fr); }
 }
-@media(max-width:600px){
-    .b-logos-grid{grid-template-columns:repeat(3,1fr);}
-    .b-pricing{grid-template-columns:1fr;}
-    .b-gallery-sub{grid-template-columns:1fr;}
-    .b-cards{grid-template-columns:1fr;}
+@media (max-width: 980px) {
+    .v2-nav { align-items: flex-start; flex-direction: column; gap: 0.8rem; }
+    .v2-links { justify-content: flex-start; font-size: 0.85rem; }
+    .b-hero { grid-template-columns: 1fr; min-height: auto; padding: 10vh 1.5rem 5vh; }
+    .b-hero-right { display: none; }
+    .b-origin-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .b-gallery-sub { grid-template-columns: 1fr 1fr; }
+    .b-cards { grid-template-columns: 1fr; }
+    .b-pricing { grid-template-columns: repeat(2, 1fr); }
+    .b-founding { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+    .b-founding p { margin-left: auto; margin-right: auto; }
+}
+@media (max-width: 600px) {
+    .b-logos-grid { grid-template-columns: repeat(3, 1fr); }
+    .b-pricing { grid-template-columns: 1fr; }
+    .b-gallery-sub { grid-template-columns: 1fr; }
+    .b-workflow { flex-direction: column; }
+    .b-wf-step { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+    .b-wf-step:last-child { border-bottom: none; }
 }
     </style>
 </head>
 <body>
 
+<div class="b-page-bg" aria-hidden="true"></div>
+
 <!-- NAV -->
-<nav class="main-nav">
-    <div class="nav-container">
-        <a href="index.html" class="nav-logo">
-            <img src="assets/watermark/watchthefall_watermark.png" alt="WatchTheFall">
-        </a>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="donate.html">Support</a></li>
-            <li><a href="index.html#worldcup">World Cup</a></li>
-            <li><a href="wtfcreations.html">Shop</a></li>
-            <li><a href="index.html#directory">Directory</a></li>
-            <li><a href="fall-map.html">Fall Map</a></li>
-            <li><a href="brandr.html" class="active">Brandr</a></li>
-            <li><a href="wtfrecords.html">WTF Records</a></li>
-            <li class="nav-dropdown">
-                <a href="philosophy.html">Philosophy</a>
-                <ul class="dropdown-menu">
-                    <li><a href="philosophy.html">Philosophy</a></li>
-                    <li><a href="regional/pages/roadmap.html">Roadmap</a></li>
-                </ul>
-            </li>
-        </ul>
+<nav class="v2-nav" aria-label="Primary navigation">
+    <a class="v2-logo" href="index.html">
+        <img src="assets/watermark/watchthefall_watermark.png" alt="WatchTheFall">
+    </a>
+    <div class="v2-links">
+        <a href="index.html">Home</a>
+        <a href="donate.html">Support</a>
+        <a href="index.html#worldcup">World Cup</a>
+        <a href="wtfcreations.html">Shop</a>
+        <a href="index.html#directory">Directory</a>
+        <a href="fall-map.html">Fall Map</a>
+        <a class="active" href="brandr.html">Brandr</a>
+        <a href="wtfrecords.html">WTF Records</a>
+        <a href="philosophy.html">Philosophy</a>
     </div>
 </nav>
 
 <!-- =========================================================
-     HERO
+     01 · HERO
      ========================================================= -->
 <section class="b-hero">
     <div class="b-hero-left">
@@ -423,20 +695,20 @@ body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;}
         </div>
         <div>
             <div class="b-logos-grid">
-                <div class="b-logo-tile"><img src="assets/logos/scotland-wtf-logo.png" alt="ScotlandWTF"></div>
-                <div class="b-logo-tile"><img src="assets/logos/england-wtf-logo.png" alt="EnglandWTF"></div>
-                <div class="b-logo-tile"><img src="assets/logos/britain-wtf-logo.png" alt="BritainWTF"></div>
-                <div class="b-logo-tile"><img src="assets/logos/ireland-wtf-logo.png" alt="IrelandWTF"></div>
-                <div class="b-logo-tile"><img src="assets/logos/wales-wtf-logo.png" alt="WalesWTF"></div>
-                <div class="b-logo-tile"><img src="assets/logos/europe-wtf-logo.png" alt="EuropeWTF"></div>
-                <div class="b-logo-tile"><img src="assets/logos/france-wtf-logo.png" alt="FranceWTF" onerror="this.src='assets/logos/wtf-logo.png'"></div>
-                <div class="b-logo-tile"><img src="assets/logos/spain-wtf-logo.png" alt="SpainWTF"></div>
-                <div class="b-logo-tile"><img src="assets/logos/poland-wtf-logo.png" alt="PolandWTF"></div>
-                <div class="b-logo-tile"><img src="assets/logos/sweden-wtf-logo.png" alt="SwedenWTF"></div>
-                <div class="b-logo-tile"><img src="assets/logos/netherlands-wtf-logo.png" alt="NetherlandsWTF"></div>
-                <div class="b-logo-tile"><img src="assets/logos/canada-wtf-logo.png" alt="CanadaWTF"></div>
+                <div class="b-logo-tile"><img src="assets/logos/scotland-wtf-logo.webp" alt="ScotlandWTF"></div>
+                <div class="b-logo-tile"><img src="assets/logos/england-wtf-logo.webp" alt="EnglandWTF"></div>
+                <div class="b-logo-tile"><img src="assets/logos/britain-wtf-logo.webp" alt="BritainWTF"></div>
+                <div class="b-logo-tile"><img src="assets/logos/ireland-wtf-logo.webp" alt="IrelandWTF"></div>
+                <div class="b-logo-tile"><img src="assets/logos/wales-wtf-logo.webp" alt="WalesWTF"></div>
+                <div class="b-logo-tile"><img src="assets/logos/europe-wtf-logo.webp" alt="EuropeWTF"></div>
+                <div class="b-logo-tile"><img src="assets/logos/france-wtf-logo.webp" alt="FranceWTF" onerror="this.src='assets/logos/wtf-logo.png'"></div>
+                <div class="b-logo-tile"><img src="assets/logos/spain-wtf-logo.webp" alt="SpainWTF"></div>
+                <div class="b-logo-tile"><img src="assets/logos/poland-wtf-logo.webp" alt="PolandWTF"></div>
+                <div class="b-logo-tile"><img src="assets/logos/sweden-wtf-logo.webp" alt="SwedenWTF"></div>
+                <div class="b-logo-tile"><img src="assets/logos/netherlands-wtf-logo.webp" alt="NetherlandsWTF"></div>
+                <div class="b-logo-tile"><img src="assets/logos/canada-wtf-logo.webp" alt="CanadaWTF"></div>
             </div>
-            <p class="b-logo-caption">One network · Many page identities · The same repeated branding work</p>
+            <p class="b-logo-caption">One network &nbsp;·&nbsp; Many page identities &nbsp;·&nbsp; The same repeated branding work</p>
         </div>
     </div>
 </div>
@@ -447,7 +719,7 @@ body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;}
      ========================================================= -->
 <div class="bw">
     <div class="b-label">03 · The Product</div>
-    <h2 class="b-h2">Brandr turns repeated<br>creative work into <span class="b-gold">software.</span></h2>
+    <h2 class="b-h2">Repeated creative work<br>turned into <span class="b-gold">software.</span></h2>
     <p class="b-lead">Paste a link, choose a brand identity, render, publish. Four steps — regardless of how many pages you're running.</p>
 
     <div class="b-workflow">
@@ -472,7 +744,7 @@ body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;}
             <div class="b-wf-desc">Download and post. Your content. Your brand. Everywhere.</div>
         </div>
     </div>
-    <p class="b-workflow-note">Workflow observed under two minutes · live at brandr.online</p>
+    <p class="b-workflow-note">Observed under two minutes &nbsp;·&nbsp; live at brandr.online</p>
 </div>
 
 <!-- =========================================================
@@ -483,40 +755,32 @@ body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;}
     <div class="b-label">04 · Inside Brandr</div>
     <h2 class="b-h2">Every page. One tool.</h2>
 
-    <!-- Featured screenshot: Format canvas preview -->
-    <div class="b-gallery-hero b-gallery-hero--photo">
+    <div class="b-gallery-hero">
         <img src="assets/brandr/brandr_online_formatsetting.png"
              alt="Brandr — Format canvas preview with WTF logo branding applied"
              loading="lazy">
     </div>
     <span class="b-gallery-cap">Format Settings — live canvas preview with your brand applied. Switch between aspect ratios in one click.</span>
 
-    <!-- Sub-screenshots row: Create / Library / Profile -->
-    <div class="b-gallery-sub" style="margin-top:2rem;">
-
-        <!-- Create flow -->
+    <div class="b-gallery-sub">
         <div>
-            <div class="b-gallery-card b-gallery-card--photo">
+            <div class="b-gallery-card">
                 <img src="assets/brandr/brandr_online_create.png"
                      alt="Brandr — Create flow with paste links interface"
                      loading="lazy">
             </div>
             <p class="b-gallery-label">Create — paste a link from TikTok, Instagram, or YouTube to fetch source content</p>
         </div>
-
-        <!-- Library -->
         <div>
-            <div class="b-gallery-card b-gallery-card--photo">
+            <div class="b-gallery-card">
                 <img src="assets/brandr/brandr_online_library.png"
                      alt="Brandr — Library showing finished renders ready to download"
                      loading="lazy">
             </div>
             <p class="b-gallery-label">Library — finished renders organised and ready to download</p>
         </div>
-
-        <!-- Profile -->
         <div>
-            <div class="b-gallery-card b-gallery-card--photo">
+            <div class="b-gallery-card">
                 <img src="assets/brandr/brandr_online_profile.png"
                      alt="Brandr — Profile page showing usage limits and Platinum tier"
                      loading="lazy">
@@ -525,7 +789,7 @@ body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;}
         </div>
     </div>
 
-    <p style="margin-top:2rem;font-size:.78rem;color:var(--tx3);font-style:italic;">Screenshots from the live Brandr app at <a href="https://brandr.online" target="_blank" rel="noopener" style="color:var(--g);text-decoration:none;">brandr.online</a></p>
+    <p style="margin-top:1.75rem;font-size:.76rem;color:var(--tx3);font-style:italic;">Screenshots from the live Brandr app at <a href="https://brandr.online" target="_blank" rel="noopener" style="color:var(--g);text-decoration:none;">brandr.online</a></p>
 </div>
 </div>
 
@@ -538,17 +802,17 @@ body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;}
     <div class="b-cards">
         <div class="b-card lead">
             <div class="b-card-lead-tag">Primary use case</div>
-            <div class="b-card-icon">🌐</div>
+            <div class="b-card-marker"></div>
             <div class="b-card-title">Multi-page operators</div>
             <div class="b-card-desc">Running regional pages, niche accounts, or a content network? Brandr was built for this exact workflow — it's what powers the WatchTheFall network across 20+ pages. One tool, every identity, consistent output.</div>
         </div>
         <div class="b-card">
-            <div class="b-card-icon">📱</div>
+            <div class="b-card-marker"></div>
             <div class="b-card-title">Content creators</div>
             <div class="b-card-desc">You post daily across multiple platforms. Brandr makes sure every post looks intentional — without adding hours to your workflow. Set your brand once, apply it forever.</div>
         </div>
         <div class="b-card">
-            <div class="b-card-icon">🏢</div>
+            <div class="b-card-marker"></div>
             <div class="b-card-title">Agencies &amp; small businesses</div>
             <div class="b-card-desc">No design team, but clients or followers still expect professional output. Brandr gives you brand-consistent, platform-ready content without the overhead of a full production workflow.</div>
         </div>
@@ -562,11 +826,15 @@ body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;}
 <div id="pricing" class="bw">
     <div class="b-label">06 · Pricing</div>
     <h2 class="b-h2">Start free.<br>Scale when you need to.</h2>
-    <p class="b-lead">Brandr is in early access. Explorer is free. Creator, Studio and Platinum are for heavier workflows. Elite is invite-only.</p>
+    <p class="b-lead">Brandr is in early access. Explorer is free to try. Paid tiers are for operators who move volume. Elite is invite-only.</p>
 
     <div class="b-pricing">
 
+        <!-- EXPLORER -->
         <div class="b-pc">
+            <div class="b-pc-logo">
+                <img src="assets/brandr/brandr_logo_explorer.png" alt="Brandr Explorer">
+            </div>
             <div class="b-pc-tier">Explorer</div>
             <div class="b-pc-amount">Free</div>
             <div class="b-pc-period">No card required</div>
@@ -580,7 +848,11 @@ body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;}
             <a href="https://brandr.online" class="b-pc-cta outline" target="_blank" rel="noopener">Get started</a>
         </div>
 
+        <!-- CREATOR -->
         <div class="b-pc">
+            <div class="b-pc-logo">
+                <img src="assets/brandr/brandr_logo_creator.png" alt="Brandr Creator">
+            </div>
             <div class="b-pc-tier">Creator</div>
             <div class="b-pc-amount">£9</div>
             <div class="b-pc-period">/ month &nbsp;<span class="b-pc-was">£12</span>&nbsp; founding price</div>
@@ -595,8 +867,12 @@ body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;}
             <a href="https://brandr.online" class="b-pc-cta outline" target="_blank" rel="noopener">Get started</a>
         </div>
 
+        <!-- STUDIO -->
         <div class="b-pc featured">
             <div class="b-pc-badge">Most popular</div>
+            <div class="b-pc-logo">
+                <img src="assets/brandr/brandr_logo_studio.png" alt="Brandr Studio">
+            </div>
             <div class="b-pc-tier">Studio</div>
             <div class="b-pc-amount">£19</div>
             <div class="b-pc-period">/ month &nbsp;<span class="b-pc-was">£25</span>&nbsp; founding price</div>
@@ -611,7 +887,11 @@ body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;}
             <a href="https://brandr.online" class="b-pc-cta primary" target="_blank" rel="noopener">Get started</a>
         </div>
 
+        <!-- PLATINUM -->
         <div class="b-pc">
+            <div class="b-pc-logo">
+                <img src="assets/brandr/brandr_logo_platinum.png" alt="Brandr Platinum">
+            </div>
             <div class="b-pc-tier">Platinum</div>
             <div class="b-pc-amount">£49</div>
             <div class="b-pc-period">/ month &nbsp;<span class="b-pc-was">£59</span>&nbsp; founding price</div>
@@ -626,9 +906,13 @@ body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;}
             <a href="https://brandr.online" class="b-pc-cta outline" target="_blank" rel="noopener">Get started</a>
         </div>
 
+        <!-- ELITE -->
         <div class="b-pc dimmed">
+            <div class="b-pc-logo">
+                <div class="b-pc-logo-placeholder">Elite</div>
+            </div>
             <div class="b-pc-tier">Elite</div>
-            <div class="b-pc-amount" style="font-size:1.25rem;">Invite<br>only</div>
+            <div class="b-pc-amount" style="font-size:1.3rem;line-height:1.2;">Invite<br>only</div>
             <div class="b-pc-period">Custom limits</div>
             <div class="b-pc-hr"></div>
             <ul class="b-pc-feats">
@@ -640,7 +924,21 @@ body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;}
         </div>
 
     </div>
-    <p class="b-pricing-note">Founding prices lock for 12 months. Founding member status is attached to your account permanently.</p>
+
+    <p class="b-pricing-note">Founding prices are locked to your account for 12 months. Founding Member status is permanent.</p>
+
+    <!-- FOUNDING MEMBER CALLOUT -->
+    <div class="b-founding">
+        <div class="b-founding-logo">
+            <img src="assets/brandr/brandr_logo_foundingmember.png" alt="Brandr Founding Member">
+        </div>
+        <div>
+            <p class="b-founding-tag">Early access</p>
+            <h3>Founding Member status</h3>
+            <p>Sign up during Brandr's early access period and your account carries Founding Member status permanently. The price you start on is the price you keep — no retroactive increases when standard pricing goes live.</p>
+            <p>Founding Members are the people Brandr was designed for: operators who understand the workflow problem and don't want to solve it twice. This tier is for them.</p>
+        </div>
+    </div>
 </div>
 </div>
 
@@ -677,4 +975,3 @@ body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;}
 
 </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
