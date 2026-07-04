@@ -449,8 +449,8 @@
       "display_name": "Brandr",
       "type": "product",
       "status": "active",
-      "tiktok": null,
-      "tiktok_url": null,
+      "tiktok": "@brandr_online",
+      "tiktok_url": "https://tiktok.com/@brandr_online",
       "x": null,
       "x_url": null,
       "instagram": "@brandr_online",
@@ -459,7 +459,7 @@
       "youtube_url": null,
       "threads": null,
       "facebook": null,
-      "notes": "Brandr product account. Keep separate from WatchTheFall regional network."
+      "notes": "Brandr product account. TikTok and Instagram both @brandr_online. Keep separate from WatchTheFall regional network. Candidate for own subpage under WTF ecosystem."
     }
   ]
 }

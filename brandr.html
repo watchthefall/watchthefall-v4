@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brandr — The branding engine behind WatchTheFall</title>
+    <meta name="description" content="Brandr turns repeated branding work into software. Built for creators, multi-page operators and small businesses.">
+    <meta property="og:title" content="Brandr — Built by WatchTheFall">
+    <meta property="og:description" content="Turn raw content into branded, publish-ready posts. Built internally to run 20+ WatchTheFall pages.">
+    <meta property="og:url" content="https://watchthefall.com/brandr.html">
+    <meta name="twitter:site" content="@WatchTheFallWTF">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="assets/logos/wtf-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/app.css">
+    <style>
+/* ============================================================
+   BRANDR PAGE — v2 Visual Redesign
+   Dark premium product UI. Public-safe.
+   ============================================================ */
+:root{
+    --g:#d4af37; --g2:rgba(212,175,55,0.18); --g3:rgba(212,175,55,0.28);
+    --bg:#0d0d0d; --bg2:rgba(255,255,255,0.025); --bg3:rgba(255,255,255,0.05);
+    --tx:#f3e7d3; --tx2:rgba(243,231,211,0.55); --tx3:rgba(243,231,211,0.35);
+    --app-bg:#111118; --app-bg2:#1a1a26;
+    --green:#22c55e;
+}
+body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;}
+
+/* ---- SECTION SCAFFOLDING ---- */
+.bw{max-width:1200px;margin:0 auto;padding:8vh 6vw;}
+.bw--sm{max-width:1200px;margin:0 auto;padding:6vh 6vw;}
+.b-stripe{background:var(--bg2);border-top:1px solid var(--bg3);border-bottom:1px solid var(--bg3);}
+.b-stripe .bw{padding:8vh 6vw;}
+
+/* ---- SECTION LABEL (build-page style) ---- */
+.b-label{
+    display:inline-flex;align-items:center;gap:0.5rem;
+    border:1px solid var(--g3);border-radius:4px;
+    padding:0.3rem 0.75rem;
+    font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--g);margin-bottom:1.5rem;
+}
+.b-h1{font-family:'Syne',sans-serif;font-size:clamp(4rem,11vw,8.5rem);font-weight:800;line-height:0.88;letter-spacing:-0.035em;margin-bottom:1.25rem;}
+.b-h2{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:800;line-height:1.05;margin-bottom:1rem;}
+.b-h3{font-family:'Syne',sans-serif;font-size:clamp(1.3rem,2.5vw,1.75rem);font-weight:800;line-height:1.1;margin-bottom:0.75rem;}
+.b-lead{font-size:clamp(1rem,1.8vw,1.15rem);line-height:1.7;color:var(--tx2);max-width:580px;}
+.b-muted{color:var(--tx2);}
+.b-gold{color:var(--g);}
+
+/* ---- CTA BUTTONS ---- */
+.b-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.25rem;}
+.b-btn{display:inline-flex;align-items:center;gap:0.4rem;padding:.875rem 1.75rem;font-family:'Inter',sans-serif;font-size:.88rem;font-weight:600;text-decoration:none;border-radius:4px;transition:all 0.2s;}
+.b-btn--gold{background:var(--g);color:#0d0d0d;}
+.b-btn--gold:hover{opacity:.88;transform:translateY(-1px);}
+.b-btn--outline{border:1px solid var(--g3);color:var(--tx);}
+.b-btn--outline:hover{border-color:var(--g);color:var(--g);}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.b-hero{
+    min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
+    align-items:center;gap:4rem;padding:12vh 6vw 8vh;position:relative;overflow:hidden;
+}
+.b-hero::before{
+    content:'';position:absolute;top:-20%;right:-5%;
+    width:700px;height:700px;
+    background:radial-gradient(circle,rgba(212,175,55,0.07) 0%,transparent 65%);
+    pointer-events:none;
+}
+.b-hero-left{position:relative;z-index:1;}
+.b-hero-title{font-family:'Syne',sans-serif;font-size:clamp(4.5rem,10vw,9rem);font-weight:800;line-height:0.87;letter-spacing:-0.04em;margin-bottom:1.5rem;}
+.b-hero-title span{color:var(--g);}
+.b-hero-sub{font-size:clamp(1rem,2vw,1.2rem);line-height:1.65;color:var(--tx2);max-width:480px;margin-bottom:0.5rem;}
+.b-hero-note{margin-top:2.25rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.07);font-size:0.78rem;color:var(--tx3);max-width:400px;line-height:1.6;}
+.b-hero-note a{color:var(--g);text-decoration:none;}
+
+/* ---- HERO APP MOCKUP ---- */
+.b-hero-right{position:relative;z-index:1;}
+.b-mock{
+    background:var(--app-bg);border:1px solid rgba(255,255,255,0.08);
+    border-radius:12px;overflow:hidden;
+    box-shadow:0 40px 80px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.04),inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.b-mock-bar{
+    background:var(--app-bg2);border-bottom:1px solid rgba(255,255,255,0.07);
+    padding:0.75rem 1rem;display:flex;align-items:center;gap:1rem;
+}
+.b-mock-logo{
+    width:28px;height:28px;background:var(--g);border-radius:5px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Syne',sans-serif;font-size:0.75rem;font-weight:800;color:#0d0d0d;flex-shrink:0;
+}
+.b-mock-tabs{display:flex;gap:0;margin-right:auto;}
+.b-mock-tab{padding:0.3rem 0.9rem;font-size:0.72rem;font-weight:500;color:rgba(255,255,255,0.4);cursor:default;border-radius:4px;}
+.b-mock-tab.active{color:#fff;background:rgba(255,255,255,0.08);}
+.b-mock-acct{font-size:0.7rem;color:rgba(255,255,255,0.35);}
+.b-mock-body{padding:1.25rem;}
+.b-mock-title{font-size:1rem;font-weight:600;color:#fff;margin-bottom:0.25rem;}
+.b-mock-formats{display:flex;gap:1rem;margin-bottom:1rem;border-bottom:1px solid rgba(255,255,255,0.07);padding-bottom:0.75rem;}
+.b-mock-fmt{font-size:0.72rem;color:rgba(255,255,255,0.35);padding-bottom:0.35rem;cursor:default;}
+.b-mock-fmt.active{color:var(--g);border-bottom:1.5px solid var(--g);}
+.b-mock-grid{display:flex;gap:1rem;}
+.b-mock-main{flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:1rem;min-height:130px;}
+.b-mock-brand-name{font-size:0.85rem;font-weight:600;color:#fff;margin-bottom:0.35rem;}
+.b-mock-badge{display:inline-flex;align-items:center;gap:0.3rem;background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.3);border-radius:4px;padding:0.1rem 0.5rem;font-size:0.62rem;font-weight:600;color:var(--green);margin-bottom:0.75rem;}
+.b-mock-layers{display:flex;flex-direction:column;gap:0.4rem;}
+.b-mock-layer{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:5px;padding:0.4rem 0.6rem;display:flex;align-items:center;gap:0.5rem;font-size:0.68rem;color:rgba(255,255,255,0.6);}
+.b-mock-layer-icon{width:20px;height:20px;background:rgba(255,255,255,0.08);border-radius:3px;flex-shrink:0;}
+.b-mock-sidebar{width:120px;display:flex;flex-direction:column;gap:0.5rem;}
+.b-mock-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:6px;padding:0.6rem;display:flex;align-items:center;gap:0.5rem;}
+.b-mock-card-logo{width:24px;height:24px;border-radius:50%;flex-shrink:0;background:rgba(255,255,255,0.1);}
+.b-mock-card-info{flex:1;min-width:0;}
+.b-mock-card-name{font-size:0.65rem;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.b-mock-card-badge{font-size:0.55rem;color:var(--green);margin-top:0.1rem;}
+/* logo circle colors from WTF pages */
+.logo-scot{background:url('assets/logos/scotland-wtf-logo.png') center/cover;}
+.logo-brit{background:url('assets/logos/britain-wtf-logo.png') center/cover;}
+.logo-aus{background:url('assets/logos/australia-wtf-logo.png') center/cover;}
+.logo-ire{background:url('assets/logos/ireland-wtf-logo.png') center/cover;}
+
+/* ============================================================
+   ORIGIN SECTION
+   ============================================================ */
+.b-origin-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.b-blockquote{
+    border-left:3px solid var(--g);padding-left:1.5rem;
+    font-size:clamp(1rem,2vw,1.1rem);line-height:1.7;color:var(--tx2);
+    font-style:italic;margin:1.5rem 0;
+}
+.b-logos-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0.6rem;
+}
+.b-logo-tile{
+    aspect-ratio:1;border-radius:10px;overflow:hidden;
+    border:1px solid rgba(255,255,255,0.06);
+    transition:transform 0.2s,border-color 0.2s;
+}
+.b-logo-tile:hover{transform:scale(1.04);border-color:var(--g3);}
+.b-logo-tile img{width:100%;height:100%;object-fit:cover;display:block;}
+.b-logo-caption{
+    margin-top:1rem;font-size:0.65rem;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--tx3);text-align:center;
+}
+
+/* ============================================================
+   WORKFLOW STRIP
+   ============================================================ */
+.b-workflow{
+    display:flex;align-items:center;gap:0;
+    background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);
+    border-radius:8px;overflow:hidden;margin:2rem 0;
+}
+.b-wf-step{
+    flex:1;padding:1.25rem 1.5rem;text-align:left;
+    border-right:1px solid rgba(255,255,255,0.06);
+    position:relative;
+}
+.b-wf-step:last-child{border-right:none;}
+.b-wf-arrow{
+    position:absolute;right:-0.75rem;top:50%;transform:translateY(-50%);
+    color:var(--g);font-size:0.85rem;z-index:1;
+    background:var(--bg);padding:0 2px;
+}
+.b-wf-num{font-size:0.6rem;letter-spacing:0.12em;color:var(--g);opacity:0.55;margin-bottom:0.25rem;font-weight:700;text-transform:uppercase;}
+.b-wf-title{font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:700;color:#fff;margin-bottom:0.25rem;}
+.b-wf-desc{font-size:0.75rem;color:var(--tx3);line-height:1.5;}
+.b-workflow-note{font-size:0.72rem;color:var(--tx3);font-style:italic;text-align:right;margin-top:0.5rem;}
+
+/* ============================================================
+   INSIDE BRANDR — SCREENSHOT GALLERY
+   ============================================================ */
+.b-gallery-hero{
+    background:var(--app-bg);border:1px solid rgba(255,255,255,0.08);
+    border-radius:12px;overflow:hidden;margin-bottom:1.25rem;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+.b-gallery-hero .b-mock-bar{justify-content:flex-start;}
+.b-gallery-body{padding:1.5rem;}
+.b-gallery-sub{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.b-gallery-card{
+    background:var(--app-bg);border:1px solid rgba(255,255,255,0.08);
+    border-radius:10px;overflow:hidden;
+    box-shadow:0 8px 24px rgba(0,0,0,0.4);
+    cursor:default;transition:border-color 0.2s;
+}
+.b-gallery-card:hover{border-color:var(--g3);}
+.b-gallery-label{
+    font-size:0.7rem;color:var(--tx3);margin-top:0.65rem;
+    font-style:italic;line-height:1.4;
+}
+.b-gallery-cap{
+    display:block;text-align:center;
+    font-size:0.7rem;color:var(--tx3);margin-top:0.6rem;font-style:italic;
+}
+
+/* Brand cards grid mock */
+.b-brand-list{display:flex;flex-direction:column;gap:0.5rem;padding:0.5rem;}
+.b-bl-item{
+    background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);
+    border-radius:6px;padding:0.6rem 0.75rem;display:flex;align-items:center;gap:0.6rem;
+}
+.b-bl-logo{width:28px;height:28px;border-radius:50%;flex-shrink:0;}
+.b-bl-info{flex:1;}
+.b-bl-name{font-size:0.72rem;font-weight:600;color:#fff;}
+.b-bl-badge{font-size:0.58rem;color:var(--green);}
+.b-bl-edit{font-size:0.62rem;color:rgba(255,255,255,0.3);padding:0.2rem 0.4rem;border:1px solid rgba(255,255,255,0.1);border-radius:3px;}
+
+/* Create flow mock */
+.b-create-card{padding:1rem;}
+.b-create-tabs-row{display:flex;gap:0.4rem;margin-bottom:0.75rem;}
+.b-create-tab{font-size:0.65rem;padding:0.25rem 0.6rem;border-radius:4px;color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.1);}
+.b-create-tab.active{background:rgba(255,255,255,0.1);color:#fff;border-color:rgba(255,255,255,0.2);}
+.b-create-input{
+    background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);
+    border-radius:6px;padding:0.6rem 0.75rem;
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:0.68rem;color:rgba(255,255,255,0.3);margin-bottom:0.5rem;
+}
+.b-create-input span.btn{
+    background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);
+    border-radius:4px;padding:0.2rem 0.6rem;font-size:0.62rem;font-weight:600;
+}
+.b-stepper{display:flex;align-items:center;gap:0;font-size:0.62rem;color:rgba(255,255,255,0.3);margin-bottom:0.75rem;}
+.b-stepper-step{display:flex;align-items:center;gap:0.3rem;}
+.b-stepper-step.active{color:rgba(255,255,255,0.7);}
+.b-stepper-circle{width:18px;height:18px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:0.6rem;}
+.b-stepper-circle.active{background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.4);}
+.b-stepper-line{flex:1;height:1px;background:rgba(255,255,255,0.1);margin:0 0.4rem;}
+
+/* Library mock */
+.b-library{padding:0.75rem;}
+.b-lib-tabs{display:flex;gap:1rem;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:0.75rem;padding-bottom:0.5rem;}
+.b-lib-tab{font-size:0.65rem;color:rgba(255,255,255,0.35);}
+.b-lib-tab.active{color:#fff;border-bottom:1.5px solid var(--g);padding-bottom:0.3rem;}
+.b-lib-count{font-size:0.62rem;color:var(--tx2);margin-bottom:0.6rem;}
+.b-lib-cards{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;}
+.b-lib-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:6px;padding:0.6rem;}
+.b-lib-card-name{font-size:0.68rem;font-weight:600;color:#fff;margin-bottom:0.25rem;}
+.b-lib-card-tag{display:inline-block;background:rgba(59,130,246,0.2);color:rgba(147,197,253,0.8);font-size:0.55rem;padding:0.1rem 0.4rem;border-radius:3px;margin-bottom:0.3rem;}
+.b-lib-card-meta{font-size:0.58rem;color:rgba(255,255,255,0.3);}
+.b-lib-card-actions{display:flex;gap:0.35rem;margin-top:0.4rem;}
+.b-lib-card-btn{font-size:0.58rem;padding:0.2rem 0.4rem;border:1px solid rgba(255,255,255,0.12);border-radius:3px;color:rgba(255,255,255,0.5);}
+
+/* Profile mock */
+.b-profile{padding:1rem;text-align:center;}
+.b-profile-avatar{width:40px;height:40px;border-radius:50%;border:2px solid var(--g);margin:0 auto 0.5rem;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--g);}
+.b-profile-badges{display:flex;gap:0.4rem;justify-content:center;margin-bottom:0.75rem;}
+.b-profile-badge{font-size:0.58rem;padding:0.15rem 0.5rem;border-radius:3px;font-weight:600;}
+.b-profile-badge.admin{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);}
+.b-profile-badge.plat{background:rgba(212,175,55,0.2);color:var(--g);border:1px solid rgba(212,175,55,0.3);}
+.b-profile-limits{display:grid;grid-template-columns:repeat(2,1fr);gap:0.4rem;text-align:left;}
+.b-profile-limit{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:5px;padding:0.5rem 0.6rem;}
+.b-profile-limit-lbl{font-size:0.55rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:0.2rem;}
+.b-profile-limit-val{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:#fff;}
+
+/* ============================================================
+   WHO IT'S FOR
+   ============================================================ */
+.b-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem;}
+.b-card{
+    background:var(--bg2);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:2rem 1.5rem;
+    transition:border-color 0.25s,transform 0.25s;
+}
+.b-card:hover{border-color:var(--g3);transform:translateY(-2px);}
+.b-card.lead{border-color:var(--g3);background:rgba(212,175,55,0.04);}
+.b-card-icon{font-size:1.75rem;margin-bottom:1rem;}
+.b-card-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:0.5rem;}
+.b-card-lead-tag{font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--g);margin-bottom:0.35rem;font-weight:600;}
+.b-card-desc{font-size:0.875rem;color:var(--tx2);line-height:1.65;}
+
+/* ============================================================
+   PRICING
+   ============================================================ */
+.b-pricing{display:grid;grid-template-columns:repeat(5,1fr);gap:0.875rem;margin-top:3rem;}
+.b-pc{
+    background:var(--bg2);border:1px solid rgba(255,255,255,0.06);border-radius:10px;
+    padding:1.75rem 1.25rem;display:flex;flex-direction:column;
+    transition:border-color 0.25s,transform 0.25s;position:relative;
+}
+.b-pc:hover{border-color:var(--g3);transform:translateY(-2px);}
+.b-pc.featured{border-color:var(--g3);background:rgba(212,175,55,0.04);}
+.b-pc.dimmed{opacity:0.55;}
+.b-pc-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--g);color:#0d0d0d;font-size:0.6rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:.2rem .7rem;border-radius:0 0 5px 5px;white-space:nowrap;}
+.b-pc-tier{font-family:'Syne',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--g);margin-bottom:0.5rem;}
+.b-pc-amount{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;line-height:1;margin-bottom:0.2rem;}
+.b-pc-period{font-size:0.75rem;color:var(--tx2);margin-bottom:1.25rem;}
+.b-pc-was{text-decoration:line-through;color:var(--tx3);font-size:0.72rem;}
+.b-pc-hr{height:1px;background:rgba(255,255,255,0.07);margin-bottom:1rem;}
+.b-pc-feats{list-style:none;padding:0;margin:0 0 1.5rem;flex-grow:1;display:flex;flex-direction:column;gap:0.5rem;}
+.b-pc-feats li{font-size:0.8rem;color:var(--tx2);display:flex;gap:0.45rem;align-items:flex-start;}
+.b-pc-feats li::before{content:'✓';color:var(--g);font-size:0.75rem;flex-shrink:0;margin-top:0.05rem;}
+.b-pc-cta{display:block;text-align:center;padding:.7rem;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;text-decoration:none;border-radius:4px;transition:all .2s;margin-top:auto;}
+.b-pc-cta.primary{background:var(--g);color:#0d0d0d;}
+.b-pc-cta.primary:hover{opacity:.88;}
+.b-pc-cta.outline{border:1px solid var(--g3);color:var(--tx);}
+.b-pc-cta.outline:hover{border-color:var(--g);color:var(--g);}
+.b-pc-cta.locked{border:1px solid rgba(255,255,255,0.08);color:var(--tx3);cursor:default;}
+.b-pricing-note{margin-top:1rem;font-size:0.72rem;color:var(--tx3);font-style:italic;font-family:'Inter',monospace;}
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+.b-final{padding:10vh 6vw;text-align:center;position:relative;overflow:hidden;}
+.b-final::before{
+    content:'BRANDR';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    font-family:'Syne',sans-serif;font-size:clamp(5rem,18vw,14rem);font-weight:800;
+    color:rgba(212,175,55,0.025);letter-spacing:-0.05em;white-space:nowrap;pointer-events:none;
+}
+.b-final h2{font-family:'Syne',sans-serif;font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;margin-bottom:0.75rem;position:relative;}
+.b-final .b-lead{margin:0 auto;text-align:center;position:relative;}
+.b-final .b-ctas{justify-content:center;position:relative;}
+
+/* ============================================================
+   ECOSYSTEM + FOOTER
+   ============================================================ */
+.b-eco{padding:2.5rem 6vw;background:rgba(212,175,55,0.03);border-top:1px solid var(--g3);}
+.b-eco-lbl{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--tx3);margin-bottom:0.85rem;}
+.b-eco-links{display:flex;gap:2rem;flex-wrap:wrap;}
+.b-eco-links a{text-decoration:none;color:var(--tx2);font-size:0.875rem;font-weight:500;transition:color .2s;}
+.b-eco-links a:hover{color:var(--g);}
+.b-footer{padding:1.75rem 6vw;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;}
+.b-footer p{font-size:0.75rem;color:var(--tx3);}
+.b-footer a{color:var(--g);text-decoration:none;font-size:0.75rem;}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:1100px){.b-pricing{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:900px){
+    .b-hero{grid-template-columns:1fr;min-height:auto;padding:12vh 5vw 6vh;}
+    .b-hero-right{display:none;}
+    .b-origin-grid{grid-template-columns:1fr;}
+    .b-gallery-sub{grid-template-columns:1fr 1fr;}
+    .b-cards{grid-template-columns:1fr;}
+    .b-pricing{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){
+    .b-logos-grid{grid-template-columns:repeat(3,1fr);}
+    .b-pricing{grid-template-columns:1fr;}
+    .b-gallery-sub{grid-template-columns:1fr;}
+    .b-cards{grid-template-columns:1fr;}
+}
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="main-nav">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <img src="assets/watermark/watchthefall_watermark.png" alt="WatchTheFall">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="donate.html">Support</a></li>
+            <li><a href="index.html#worldcup">World Cup</a></li>
+            <li><a href="wtfcreations.html">Shop</a></li>
+            <li><a href="index.html#directory">Directory</a></li>
+            <li><a href="fall-map.html">Fall Map</a></li>
+            <li><a href="brandr.html" class="active">Brandr</a></li>
+            <li><a href="wtfrecords.html">WTF Records</a></li>
+            <li class="nav-dropdown">
+                <a href="philosophy.html">Philosophy</a>
+                <ul class="dropdown-menu">
+                    <li><a href="philosophy.html">Philosophy</a></li>
+                    <li><a href="regional/pages/roadmap.html">Roadmap</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+<section class="b-hero">
+    <div class="b-hero-left">
+        <div class="b-label">WatchTheFall &nbsp;/&nbsp; Product</div>
+        <h1 class="b-hero-title">Brandr<span>.</span></h1>
+        <p class="b-hero-sub">The branding engine behind WatchTheFall. Turn raw content into consistent, branded, publish-ready posts — faster.</p>
+        <div class="b-ctas">
+            <a href="https://brandr.online" class="b-btn b-btn--gold" target="_blank" rel="noopener">Try Brandr ↗</a>
+            <a href="#pricing" class="b-btn b-btn--outline">View pricing</a>
+        </div>
+        <p class="b-hero-note">Built internally to run the WatchTheFall network. Now available at <a href="https://brandr.online" target="_blank" rel="noopener">brandr.online</a> for creators, operators, and small teams.</p>
+    </div>
+
+    <div class="b-hero-right">
+        <!-- CSS App Mockup — Brand Settings view -->
+        <div class="b-mock">
+            <div class="b-mock-bar">
+                <div class="b-mock-logo">B</div>
+                <div class="b-mock-tabs">
+                    <div class="b-mock-tab">Create</div>
+                    <div class="b-mock-tab active">Brands</div>
+                    <div class="b-mock-tab">Library</div>
+                </div>
+                <div class="b-mock-acct">Account ▾</div>
+            </div>
+            <div class="b-mock-body">
+                <div class="b-mock-title">Brand Settings</div>
+                <div class="b-mock-formats">
+                    <div class="b-mock-fmt active">Vertical 9:16</div>
+                    <div class="b-mock-fmt">Square 1:1 <span style="font-size:.55rem;background:rgba(34,197,94,.15);color:#22c55e;padding:.1rem .3rem;border-radius:3px;">Active</span></div>
+                </div>
+                <div class="b-mock-grid">
+                    <div class="b-mock-main">
+                        <div class="b-mock-brand-name">ScotlandWTF</div>
+                        <div class="b-mock-badge">✓ Ready to render</div>
+                        <div class="b-mock-layers">
+                            <div class="b-mock-layer"><div class="b-mock-layer-icon"></div>Main Logo &nbsp;<span style="color:rgba(255,255,255,.3);font-size:.6rem;">Select to adjust</span></div>
+                            <div class="b-mock-layer"><div class="b-mock-layer-icon"></div>Watermark &nbsp;<span style="color:rgba(255,255,255,.3);font-size:.6rem;">Select to adjust</span></div>
+                        </div>
+                    </div>
+                    <div class="b-mock-sidebar">
+                        <div class="b-mock-card"><div class="b-mock-card-logo logo-scot"></div><div class="b-mock-card-info"><div class="b-mock-card-name">Scotland</div><div class="b-mock-card-badge">✓ Ready</div></div></div>
+                        <div class="b-mock-card"><div class="b-mock-card-logo logo-brit"></div><div class="b-mock-card-info"><div class="b-mock-card-name">Britain</div><div class="b-mock-card-badge">✓ Ready</div></div></div>
+                        <div class="b-mock-card"><div class="b-mock-card-logo logo-aus"></div><div class="b-mock-card-info"><div class="b-mock-card-name">Australia</div><div class="b-mock-card-badge">✓ Ready</div></div></div>
+                        <div class="b-mock-card"><div class="b-mock-card-logo logo-ire"></div><div class="b-mock-card-info"><div class="b-mock-card-name">Ireland</div><div class="b-mock-card-badge">✓ Ready</div></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================================================
+     02 · ORIGIN
+     ========================================================= -->
+<div class="b-stripe">
+<div class="bw">
+    <div class="b-label">02 · The Origin · Why it exists</div>
+    <div class="b-origin-grid">
+        <div>
+            <h2 class="b-h2">The problem<br>found me first.</h2>
+            <blockquote class="b-blockquote">
+                "I didn't start with a theoretical SaaS idea. I was running multiple WatchTheFall pages and kept hitting the same wall: every piece of source content had to be downloaded, branded, captioned, formatted and published — again and again, across page after page. Brandr came from that real workflow pain. I built the product because I was the first user of the problem."
+            </blockquote>
+            <p class="b-lead">WatchTheFall Media created the problem at scale — many pages, many identities, the same branding work repeated daily. That made it the perfect place to feel the pain, then test the fix. The media network isn't a side project; it's the proving ground the product was born in.</p>
+        </div>
+        <div>
+            <div class="b-logos-grid">
+                <div class="b-logo-tile"><img src="assets/logos/scotland-wtf-logo.png" alt="ScotlandWTF"></div>
+                <div class="b-logo-tile"><img src="assets/logos/england-wtf-logo.png" alt="EnglandWTF"></div>
+                <div class="b-logo-tile"><img src="assets/logos/britain-wtf-logo.png" alt="BritainWTF"></div>
+                <div class="b-logo-tile"><img src="assets/logos/ireland-wtf-logo.png" alt="IrelandWTF"></div>
+                <div class="b-logo-tile"><img src="assets/logos/wales-wtf-logo.png" alt="WalesWTF"></div>
+                <div class="b-logo-tile"><img src="assets/logos/europe-wtf-logo.png" alt="EuropeWTF"></div>
+                <div class="b-logo-tile"><img src="assets/logos/france-wtf-logo.png" alt="FranceWTF" onerror="this.src='assets/logos/wtf-logo.png'"></div>
+                <div class="b-logo-tile"><img src="assets/logos/spain-wtf-logo.png" alt="SpainWTF"></div>
+                <div class="b-logo-tile"><img src="assets/logos/poland-wtf-logo.png" alt="PolandWTF"></div>
+                <div class="b-logo-tile"><img src="assets/logos/sweden-wtf-logo.png" alt="SwedenWTF"></div>
+                <div class="b-logo-tile"><img src="assets/logos/netherlands-wtf-logo.png" alt="NetherlandsWTF"></div>
+                <div class="b-logo-tile"><img src="assets/logos/canada-wtf-logo.png" alt="CanadaWTF"></div>
+            </div>
+            <p class="b-logo-caption">One network · Many page identities · The same repeated branding work</p>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- =========================================================
+     03 · PRODUCT / WORKFLOW
+     ========================================================= -->
+<div class="bw">
+    <div class="b-label">03 · The Product</div>
+    <h2 class="b-h2">Brandr turns repeated<br>creative work into <span class="b-gold">software.</span></h2>
+    <p class="b-lead">Paste a link, choose a brand identity, render, publish. Four steps — regardless of how many pages you're running.</p>
+
+    <div class="b-workflow">
+        <div class="b-wf-step">
+            <div class="b-wf-num">Step 01</div>
+            <div class="b-wf-title">Fetch</div>
+            <div class="b-wf-desc">Paste a TikTok, Instagram or YouTube link — or upload your own clip.</div>
+        </div>
+        <div class="b-wf-step">
+            <div class="b-wf-num">Step 02</div>
+            <div class="b-wf-title">Apply Brand</div>
+            <div class="b-wf-desc">Select the brand preset. Logo position, watermark, overlay — all saved.</div>
+        </div>
+        <div class="b-wf-step">
+            <div class="b-wf-num">Step 03</div>
+            <div class="b-wf-title">Render</div>
+            <div class="b-wf-desc">Brandr processes and outputs a clean, format-correct file.</div>
+        </div>
+        <div class="b-wf-step">
+            <div class="b-wf-num">Step 04</div>
+            <div class="b-wf-title">Publish</div>
+            <div class="b-wf-desc">Download and post. Your content. Your brand. Everywhere.</div>
+        </div>
+    </div>
+    <p class="b-workflow-note">Workflow observed under two minutes · live at brandr.online</p>
+</div>
+
+<!-- =========================================================
+     04 · INSIDE BRANDR
+     ========================================================= -->
+<div class="b-stripe">
+<div class="bw">
+    <div class="b-label">04 · Inside Brandr</div>
+    <h2 class="b-h2">Every page. One tool.</h2>
+
+    <!-- Featured mock: Brands view with real WTF logos -->
+    <div class="b-gallery-hero">
+        <div class="b-mock-bar">
+            <div class="b-mock-logo">B</div>
+            <div class="b-mock-tabs">
+                <div class="b-mock-tab">Create</div>
+                <div class="b-mock-tab active">Brands</div>
+                <div class="b-mock-tab">Library</div>
+            </div>
+            <div style="margin-left:auto;background:rgba(255,255,255,0.08);color:#fff;font-size:.7rem;padding:.3rem .8rem;border-radius:4px;font-weight:600;">+ Create Brand</div>
+        </div>
+        <div class="b-gallery-body">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start;">
+                <div style="display:flex;flex-direction:column;gap:0.6rem;">
+                    <div style="font-size:.8rem;font-weight:600;color:#fff;margin-bottom:.25rem;">Brand Settings</div>
+                    <div class="b-bl-item">
+                        <div class="b-bl-logo logo-scot"></div>
+                        <div class="b-bl-info"><div class="b-bl-name">ScotlandWTF</div><div class="b-bl-badge">✓ Ready to render</div></div>
+                        <div class="b-bl-edit">Edit</div>
+                    </div>
+                    <div class="b-bl-item">
+                        <div class="b-bl-logo logo-brit"></div>
+                        <div class="b-bl-info"><div class="b-bl-name">BritainWTF</div><div class="b-bl-badge">✓ Ready to render</div></div>
+                        <div class="b-bl-edit">Edit</div>
+                    </div>
+                    <div class="b-bl-item">
+                        <div class="b-bl-logo logo-aus"></div>
+                        <div class="b-bl-info"><div class="b-bl-name">AustraliaWTF</div><div class="b-bl-badge">✓ Ready to render</div></div>
+                        <div class="b-bl-edit">Edit</div>
+                    </div>
+                    <div class="b-bl-item">
+                        <div class="b-bl-logo logo-ire"></div>
+                        <div class="b-bl-info"><div class="b-bl-name">IrelandWTF</div><div class="b-bl-badge">✓ Ready to render</div></div>
+                        <div class="b-bl-edit">Edit</div>
+                    </div>
+                    <div class="b-bl-item" style="opacity:.6;">
+                        <div class="b-bl-logo" style="background:url('assets/logos/canada-wtf-logo.png') center/cover;"></div>
+                        <div class="b-bl-info"><div class="b-bl-name">CanadaWTF</div><div class="b-bl-badge">✓ Ready to render</div></div>
+                        <div class="b-bl-edit">Edit</div>
+                    </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:0.5rem;">
+                    <div style="display:flex;gap:.75rem;font-size:.72rem;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:.5rem;margin-bottom:.25rem;">
+                        <span style="color:rgba(255,255,255,.4);">Vertical 9:16</span>
+                        <span style="color:var(--g);border-bottom:1.5px solid var(--g);">Square 1:1</span>
+                        <span style="background:rgba(34,197,94,.15);color:#22c55e;font-size:.58rem;padding:.1rem .4rem;border-radius:3px;align-self:center;">Active</span>
+                    </div>
+                    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:1rem;min-height:180px;display:flex;flex-direction:column;justify-content:space-between;">
+                        <div>
+                            <div style="font-size:.75rem;font-weight:600;color:#fff;margin-bottom:.25rem;">ScotlandWTF</div>
+                            <div style="display:flex;gap:.4rem;margin-bottom:.75rem;">
+                                <span class="b-mock-badge" style="margin:0;">✓ Ready</span>
+                                <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:4px;padding:.1rem .5rem;font-size:.6rem;color:rgba(255,255,255,.5);">Watermark</span>
+                            </div>
+                        </div>
+                        <div style="background:rgba(0,0,0,.3);border-radius:6px;height:80px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                            <img src="assets/logos/scotland-wtf-logo.png" alt="" style="width:42px;height:42px;object-fit:contain;opacity:.7;position:absolute;bottom:6px;right:6px;">
+                            <span style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:rgba(255,255,255,.15);letter-spacing:.05em;">WTF</span>
+                        </div>
+                        <div style="font-size:.62rem;color:rgba(255,255,255,.3);margin-top:.5rem;font-style:italic;">Viewing: Square 1:1 · Default layout saved</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span class="b-gallery-cap">Brand Settings — every page's logo and watermark, ready to render. Switch between format presets.</span>
+
+    <!-- Sub-screenshots row: Create / Library / Profile -->
+    <div class="b-gallery-sub" style="margin-top:2rem;">
+
+        <!-- Create flow -->
+        <div>
+            <div class="b-gallery-card">
+                <div class="b-mock-bar" style="padding:.5rem .75rem;">
+                    <div class="b-mock-logo" style="width:22px;height:22px;font-size:.62rem;">B</div>
+                    <div class="b-mock-tabs">
+                        <div class="b-mock-tab active" style="font-size:.62rem;">Create</div>
+                        <div class="b-mock-tab" style="font-size:.62rem;">Brands</div>
+                        <div class="b-mock-tab" style="font-size:.62rem;">Library</div>
+                    </div>
+                </div>
+                <div class="b-create-card">
+                    <div style="text-align:center;font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;color:#fff;margin-bottom:.75rem;">CREATE</div>
+                    <div class="b-stepper">
+                        <div class="b-stepper-step active"><div class="b-stepper-circle active">1</div><span>Downloadr</span></div>
+                        <div class="b-stepper-line"></div>
+                        <div class="b-stepper-step"><div class="b-stepper-circle">2</div><span>Studio</span></div>
+                        <div class="b-stepper-line"></div>
+                        <div class="b-stepper-step"><div class="b-stepper-circle">3</div><span>Results</span></div>
+                    </div>
+                    <div style="font-size:.68rem;font-weight:600;color:#fff;margin-bottom:.5rem;">Selected Video</div>
+                    <div class="b-create-tabs-row">
+                        <div class="b-create-tab active">Paste Links</div>
+                        <div class="b-create-tab">From Library</div>
+                        <div class="b-create-tab">Upload New</div>
+                    </div>
+                    <div class="b-create-input">
+                        <span style="flex:1;">Paste a TikTok, Instagram, or YouTube link...</span>
+                        <span class="btn">Get Media</span>
+                    </div>
+                </div>
+            </div>
+            <p class="b-gallery-label">Create — fetch source content from a link or upload directly</p>
+        </div>
+
+        <!-- Library -->
+        <div>
+            <div class="b-gallery-card">
+                <div class="b-mock-bar" style="padding:.5rem .75rem;">
+                    <div class="b-mock-logo" style="width:22px;height:22px;font-size:.62rem;">B</div>
+                    <div class="b-mock-tabs">
+                        <div class="b-mock-tab" style="font-size:.62rem;">Create</div>
+                        <div class="b-mock-tab" style="font-size:.62rem;">Brands</div>
+                        <div class="b-mock-tab active" style="font-size:.62rem;">Library</div>
+                    </div>
+                </div>
+                <div class="b-library">
+                    <div class="b-lib-tabs">
+                        <div class="b-lib-tab">Source Videos</div>
+                        <div class="b-lib-tab active">Finished Renders</div>
+                    </div>
+                    <div class="b-lib-count">Finished renders ready for download</div>
+                    <div class="b-lib-cards">
+                        <div class="b-lib-card">
+                            <div class="b-lib-card-name">BritainWTF</div>
+                            <span class="b-lib-card-tag">Vertical 9:16</span>
+                            <div class="b-lib-card-meta">720×1280 · Rendered</div>
+                            <div class="b-lib-card-actions"><span class="b-lib-card-btn">Download</span><span class="b-lib-card-btn">Save</span></div>
+                        </div>
+                        <div class="b-lib-card">
+                            <div class="b-lib-card-name">EnglandWTF</div>
+                            <span class="b-lib-card-tag">Vertical 9:16</span>
+                            <div class="b-lib-card-meta">720×1280 · Rendered</div>
+                            <div class="b-lib-card-actions"><span class="b-lib-card-btn">Download</span><span class="b-lib-card-btn">Save</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="b-gallery-label">Library — finished renders organised and ready to download</p>
+        </div>
+
+        <!-- Profile -->
+        <div>
+            <div class="b-gallery-card">
+                <div class="b-mock-bar" style="padding:.5rem .75rem;">
+                    <div class="b-mock-logo" style="width:22px;height:22px;font-size:.62rem;">B</div>
+                    <div style="font-size:.65rem;color:rgba(255,255,255,.4);margin-right:auto;">Account</div>
+                </div>
+                <div class="b-profile">
+                    <div class="b-profile-avatar">J</div>
+                    <div class="b-profile-badges">
+                        <span class="b-profile-badge admin">ADMIN</span>
+                        <span class="b-profile-badge plat">Platinum</span>
+                    </div>
+                    <div class="b-profile-limits">
+                        <div class="b-profile-limit"><div class="b-profile-limit-lbl">Branding Jobs</div><div class="b-profile-limit-val">300<span style="font-size:.55rem;color:var(--tx2);font-family:'Inter',sans-serif;font-weight:400;"> /day</span></div></div>
+                        <div class="b-profile-limit"><div class="b-profile-limit-lbl">Brands / Job</div><div class="b-profile-limit-val">50</div></div>
+                        <div class="b-profile-limit"><div class="b-profile-limit-lbl">Brand Configs</div><div class="b-profile-limit-val" style="font-size:1.4rem;">∞</div></div>
+                        <div class="b-profile-limit"><div class="b-profile-limit-lbl">Fetches</div><div class="b-profile-limit-val">500<span style="font-size:.55rem;color:var(--tx2);font-family:'Inter',sans-serif;font-weight:400;"> /day</span></div></div>
+                    </div>
+                </div>
+            </div>
+            <p class="b-gallery-label">Profile — usage limits and account tier visible at a glance</p>
+        </div>
+    </div>
+
+    <p style="margin-top:2rem;font-size:.78rem;color:var(--tx3);font-style:italic;">Screenshots from the live Brandr app at <a href="https://brandr.online" target="_blank" rel="noopener" style="color:var(--g);text-decoration:none;">brandr.online</a></p>
+</div>
+</div>
+
+<!-- =========================================================
+     05 · WHO IT'S FOR
+     ========================================================= -->
+<div class="bw">
+    <div class="b-label">05 · Who it's for</div>
+    <h2 class="b-h2">Built for people<br>who post at scale.</h2>
+    <div class="b-cards">
+        <div class="b-card lead">
+            <div class="b-card-lead-tag">Primary use case</div>
+            <div class="b-card-icon">🌐</div>
+            <div class="b-card-title">Multi-page operators</div>
+            <div class="b-card-desc">Running regional pages, niche accounts, or a content network? Brandr was built for this exact workflow — it's what powers the WatchTheFall network across 20+ pages. One tool, every identity, consistent output.</div>
+        </div>
+        <div class="b-card">
+            <div class="b-card-icon">📱</div>
+            <div class="b-card-title">Content creators</div>
+            <div class="b-card-desc">You post daily across multiple platforms. Brandr makes sure every post looks intentional — without adding hours to your workflow. Set your brand once, apply it forever.</div>
+        </div>
+        <div class="b-card">
+            <div class="b-card-icon">🏢</div>
+            <div class="b-card-title">Agencies &amp; small businesses</div>
+            <div class="b-card-desc">No design team, but clients or followers still expect professional output. Brandr gives you brand-consistent, platform-ready content without the overhead of a full production workflow.</div>
+        </div>
+    </div>
+</div>
+
+<!-- =========================================================
+     06 · PRICING
+     ========================================================= -->
+<div class="b-stripe">
+<div id="pricing" class="bw">
+    <div class="b-label">06 · Pricing</div>
+    <h2 class="b-h2">Start free.<br>Scale when you need to.</h2>
+    <p class="b-lead">Brandr is in early access. Explorer is free. Creator, Studio and Platinum are for heavier workflows. Elite is invite-only.</p>
+
+    <div class="b-pricing">
+
+        <div class="b-pc">
+            <div class="b-pc-tier">Explorer</div>
+            <div class="b-pc-amount">Free</div>
+            <div class="b-pc-period">No card required</div>
+            <div class="b-pc-hr"></div>
+            <ul class="b-pc-feats">
+                <li>Core branding tools</li>
+                <li>Single brand preset</li>
+                <li>Standard export quality</li>
+                <li>Community access</li>
+            </ul>
+            <a href="https://brandr.online" class="b-pc-cta outline" target="_blank" rel="noopener">Get started</a>
+        </div>
+
+        <div class="b-pc">
+            <div class="b-pc-tier">Creator</div>
+            <div class="b-pc-amount">£9</div>
+            <div class="b-pc-period">/ month &nbsp;<span class="b-pc-was">£12</span>&nbsp; founding price</div>
+            <div class="b-pc-hr"></div>
+            <ul class="b-pc-feats">
+                <li>Everything in Explorer</li>
+                <li>8 brands per job</li>
+                <li>60 branding jobs / day</li>
+                <li>100 brand configs</li>
+                <li>200 fetches / day</li>
+            </ul>
+            <a href="https://brandr.online" class="b-pc-cta outline" target="_blank" rel="noopener">Get started</a>
+        </div>
+
+        <div class="b-pc featured">
+            <div class="b-pc-badge">Most popular</div>
+            <div class="b-pc-tier">Studio</div>
+            <div class="b-pc-amount">£19</div>
+            <div class="b-pc-period">/ month &nbsp;<span class="b-pc-was">£25</span>&nbsp; founding price</div>
+            <div class="b-pc-hr"></div>
+            <ul class="b-pc-feats">
+                <li>Everything in Creator</li>
+                <li>20 brands per job</li>
+                <li>120 branding jobs / day</li>
+                <li>Unlimited brand configs</li>
+                <li>200 fetches / day</li>
+            </ul>
+            <a href="https://brandr.online" class="b-pc-cta primary" target="_blank" rel="noopener">Get started</a>
+        </div>
+
+        <div class="b-pc">
+            <div class="b-pc-tier">Platinum</div>
+            <div class="b-pc-amount">£49</div>
+            <div class="b-pc-period">/ month &nbsp;<span class="b-pc-was">£59</span>&nbsp; founding price</div>
+            <div class="b-pc-hr"></div>
+            <ul class="b-pc-feats">
+                <li>Everything in Studio</li>
+                <li>50 brands per job</li>
+                <li>300 branding jobs / day</li>
+                <li>Unlimited brand configs</li>
+                <li>500 fetches / day</li>
+            </ul>
+            <a href="https://brandr.online" class="b-pc-cta outline" target="_blank" rel="noopener">Get started</a>
+        </div>
+
+        <div class="b-pc dimmed">
+            <div class="b-pc-tier">Elite</div>
+            <div class="b-pc-amount" style="font-size:1.25rem;">Invite<br>only</div>
+            <div class="b-pc-period">Custom limits</div>
+            <div class="b-pc-hr"></div>
+            <ul class="b-pc-feats">
+                <li>Custom everything</li>
+                <li>Priority onboarding</li>
+                <li>Direct access</li>
+            </ul>
+            <a href="https://brandr.online" class="b-pc-cta locked">By invitation</a>
+        </div>
+
+    </div>
+    <p class="b-pricing-note">Founding prices lock for 12 months. Founding member status is attached to your account permanently.</p>
+</div>
+</div>
+
+<!-- =========================================================
+     FINAL CTA
+     ========================================================= -->
+<div class="b-final">
+    <h2>Managing multiple pages?</h2>
+    <p class="b-lead">Brand content faster. Stay consistent everywhere.</p>
+    <div class="b-ctas">
+        <a href="https://brandr.online" class="b-btn b-btn--gold" target="_blank" rel="noopener">Open Brandr ↗</a>
+        <a href="https://brandr.online" class="b-btn b-btn--outline" target="_blank" rel="noopener">brandr.online</a>
+    </div>
+</div>
+
+<!-- ECOSYSTEM STRIP -->
+<div class="b-eco">
+    <p class="b-eco-lbl">WatchTheFall Ecosystem</p>
+    <div class="b-eco-links">
+        <a href="index.html">WatchTheFall</a>
+        <a href="https://brandr.online" target="_blank" rel="noopener">Brandr ↗</a>
+        <a href="wtfrecords.html">WTF Records</a>
+        <a href="fall-map.html">Fall Map</a>
+        <a href="regional/pages/roadmap.html">Roadmap</a>
+        <a href="ai.html">AI WTF</a>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div class="b-footer">
+    <p>© 2026 WatchTheFall. Brandr is a product of the WatchTheFall ecosystem.</p>
+    <a href="https://brandr.online" target="_blank" rel="noopener">brandr.online ↗</a>
+</div>
+
+</body>
+</html>
