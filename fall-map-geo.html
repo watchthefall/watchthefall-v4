@@ -29,10 +29,10 @@
     <div id="map-tooltip" role="tooltip" aria-hidden="true"></div>
 
     <!-- Top-left wordmark -->
-    <div id="map-wordmark" aria-hidden="true">
+    <a id="map-wordmark" href="index.html" aria-label="WatchTheFall — back to home">
         <div class="wm-title">WatchTheFall</div>
         <div class="wm-sub">Network Map</div>
-    </div>
+    </a>
 
     <!-- Bottom-left legend -->
     <nav id="map-legend" aria-label="Map legend">
@@ -112,9 +112,4 @@
         document.getElementById('info-panel').classList.remove('open');
         document.querySelectorAll('.pin-group').forEach(function (p) {
             p.classList.remove('pin-active');
-        });
-    });
-</script>
-
-</body>
-</html>
+        }

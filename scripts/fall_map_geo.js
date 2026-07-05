@@ -1,5 +1,5 @@
 /* ============================================================
-   Fall Map — Geographic v2.1
+   Fall Map — Geographic v2.2
    scripts/fall_map_geo.js
 
    Stack: D3 v7 + topojson-client v3 (CDN)
@@ -15,7 +15,7 @@
   let projection, pathGen;
   let svg, mapGroup, pinsGroup;
   let zoomBehavior;
-  let currentTransform = { k: 1, x: 0, y: 0 };
+  let currentTransform = d3.zoomIdentity;
   let hubExpanded = false;
   let mapDataCache = null;
   let topoDataCache = null;
@@ -46,6 +46,7 @@
 
     svg.call(zoomBehavior);
 
+    // Click bare map → close panel, collapse hub
     svg.on('click', function (event) {
       if (
         event.target === this ||
@@ -54,6 +55,11 @@
         closeInfoPanel();
         if (hubExpanded) collapseHub();
       }
+    });
+
+    // Escape key → close panel
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeInfoPanel();
     });
 
     window.addEventListener('resize', debounce(onResize, 200));
@@ -78,6 +84,9 @@
       initControls();
 
       document.getElementById('map-loading').style.display = 'none';
+
+      // Hub opens after a short delay so user sees the map first
+      setTimeout(expandHub, 800);
     })
     .catch(function (err) {
       console.error('[FallMap] Load error:', err);
@@ -117,6 +126,15 @@
 
   /* ── Pins ─────────────────────────────────────────────────── */
 
+  function pinScreenPos(d) {
+    // Returns current screen position of a pin given current zoom transform
+    const [px, py] = projection([d.lng, d.lat]);
+    return [
+      currentTransform.applyX(px),
+      currentTransform.applyY(py)
+    ];
+  }
+
   function drawPins(mapData) {
     const nodes = mapData.nodes.filter(function (n) {
       return n.display === 'map' && n.lat != null && n.lng != null;
@@ -132,8 +150,8 @@
         })
         .attr('data-id', function (d) { return d.id; })
         .attr('transform', function (d) {
-          const [x, y] = projection([d.lng, d.lat]);
-          return 'translate(' + x + ',' + y + ')';
+          const [sx, sy] = pinScreenPos(d);
+          return 'translate(' + sx + ',' + sy + ')';
         })
         .on('click', function (event, d) {
           event.stopPropagation();
@@ -156,27 +174,53 @@
       .append('circle')
         .attr('class', 'pin-pulse')
         .attr('r', function (d) {
-          if (d.parent) return 9;
-          return d.type === 'region' ? 13 : 11;
+          return d.parent ? 9 : (d.type === 'region' ? 13 : 11);
         });
 
-    // Main circle
+    // Main circle — fixed visual size, no scale needed
     groups.append('circle')
       .attr('class', 'pin-circle')
       .attr('r', function (d) {
-        if (d.parent) return d.type === 'region' ? 9 : 6;
-        return d.type === 'region-hub' ? 12 : d.type === 'region' ? 11 : 8;
+        if (d.parent) return d.type === 'region' ? 9 : 7;
+        return d.type === 'region-hub' ? 12 : d.type === 'region' ? 11 : 9;
       });
+
+    // Invisible larger hit area so pins are always easy to click
+    groups.append('circle')
+      .attr('class', 'pin-hit')
+      .attr('r', 18)
+      .attr('fill', 'transparent')
+      .attr('stroke', 'none');
 
     // Initials text
     groups.append('text')
       .attr('class', 'pin-initials')
       .attr('text-anchor', 'middle')
       .attr('dy', '0.35em')
-      .style('font-size', function(d) { return d.parent ? '4px' : '5px'; })
+      .style('font-size', function (d) { return d.parent ? '4.5px' : '5px'; })
       .text(function (d) {
         const s = d.initials || d.id.substring(0, 3).toUpperCase();
         return s.length > 4 ? s.substring(0, 3) : s;
+      });
+  }
+
+  /* ── Zoom ─────────────────────────────────────────────────── */
+
+  function onZoom(event) {
+    const t = event.transform;
+    currentTransform = t;
+
+    // Map group pans/zooms normally
+    mapGroup.attr('transform', t);
+
+    // Pins: translate to current screen position — NO scale applied.
+    // Since pinsGroup is a sibling of mapGroup (not a child), it doesn't
+    // inherit the zoom. We simply recompute each pin's screen coordinate.
+    // The circle radii are in screen pixels and stay constant at all zoom levels.
+    pinsGroup.selectAll('.pin-group')
+      .attr('transform', function (d) {
+        const [sx, sy] = pinScreenPos(d);
+        return 'translate(' + sx + ',' + sy + ')';
       });
   }
 
@@ -208,7 +252,7 @@
     const cx = (x0 + x1) / 2;
     const cy = (y0 + y1) / 2;
 
-    const scale = Math.max(0.5, Math.min(12, 0.82 * Math.min(W / dx, H / dy)));
+    const scale = Math.max(0.5, Math.min(10, 0.82 * Math.min(W / dx, H / dy)));
 
     svg.transition().duration(820).ease(d3.easeCubicInOut).call(
       zoomBehavior.transform,
@@ -219,22 +263,6 @@
     );
 
     if (hubExpanded) collapseHub();
-  }
-
-  /* ── Zoom ─────────────────────────────────────────────────── */
-
-  function onZoom(event) {
-    const t = event.transform;
-    currentTransform = t;
-
-    mapGroup.attr('transform', t);
-
-    pinsGroup.selectAll('.pin-group')
-      .attr('transform', function (d) {
-        const sx = t.applyX(projection([d.lng, d.lat])[0]);
-        const sy = t.applyY(projection([d.lng, d.lat])[1]);
-        return 'translate(' + sx + ',' + sy + ') scale(' + (1 / t.k) + ')';
-      });
   }
 
   /* ── Info Panel ───────────────────────────────────────────── */
@@ -295,8 +323,8 @@
     const hubNode = mapData.nodes.find(function (n) { return n.id === 'watchthefall'; });
     if (!hubNode) return;
 
-    const childIds  = hubNode.hubChildren || [];
-    const children  = childIds
+    const childIds = hubNode.hubChildren || [];
+    const children = childIds
       .map(function (id) { return mapData.nodes.find(function (n) { return n.id === id; }); })
       .filter(Boolean);
 
@@ -339,9 +367,6 @@
       e.stopPropagation();
       hubExpanded ? collapseHub() : expandHub();
     });
-
-    // Start expanded on load
-    expandHub();
   }
 
   function expandHub() {
@@ -391,12 +416,11 @@
     });
 
     document.getElementById('ctrl-reset').addEventListener('click', function () {
-      svg.transition().duration(650).call(
-        zoomBehavior.transform,
-        d3.zoomIdentity
-      );
+      svg.transition().duration(650).call(zoomBehavior.transform, d3.zoomIdentity);
       closeInfoPanel();
-      if (!hubExpanded) expandHub();
+      setTimeout(function () {
+        if (!hubExpanded) expandHub();
+      }, 400);
     });
   }
 
@@ -426,8 +450,8 @@
 
     pinsGroup.selectAll('.pin-group')
       .attr('transform', function (d) {
-        const [x, y] = projection([d.lng, d.lat]);
-        return 'translate(' + x + ',' + y + ') scale(' + (1 / currentTransform.k) + ')';
+        const [sx, sy] = pinScreenPos(d);
+        return 'translate(' + sx + ',' + sy + ')';
       });
   }
 

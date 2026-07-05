@@ -494,7 +494,17 @@ html, body {
   top: 22px;
   left: 22px;
   z-index: 70;
-  pointer-events: none;
+  pointer-events: auto;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#map-wordmark:hover .wm-title {
+  color: rgba(255, 255, 255, 0.90);
+}
+
+#map-wordmark:hover .wm-sub {
+  color: rgba(255, 255, 255, 0.40);
 }
 
 #map-wordmark .wm-title {
@@ -520,16 +530,4 @@ html, body {
   position: fixed;
   bottom: 36px;
   left: 22px;
-  z-index: 70;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 9px;
-  font-weight: 500;
-  color: rg
+  z-i
