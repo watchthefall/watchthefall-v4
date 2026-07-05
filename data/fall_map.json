@@ -1,6 +1,6 @@
 {
-  "version": "2.0.0",
-  "lastUpdated": "2026-07-04",
+  "version": "2.1.0",
+  "lastUpdated": "2026-07-05",
   "title": "The Fall Map",
   "description": "Geographic world map of the WatchTheFall network. Geographic nodes are pinned at real lat/lng. Theme nodes live under the WTF home button.",
   "nodes": [
@@ -10,7 +10,12 @@
       "type": "hub",
       "status": "live",
       "display": "hub",
-      "hubChildren": ["ai", "gadgets", "comedy", "dark-humour", "concepts"],
+      "hubChildren": [
+        "ai",
+        "gadgets",
+        "dark-humour",
+        "concepts"
+      ],
       "philosophyTitle": "The Signal",
       "thesis": "The global hub watches the whole pattern: culture, power, technology, collapse, and renewal.",
       "pageUrl": "index.html",
@@ -30,12 +35,13 @@
       "pageUrl": "regional/pages/scotland.html",
       "philosophyUrl": "regional/philosophy/scotland.html",
       "logo": "assets/logos/scotland-wtf-logo.webp",
-      "initials": "SCO"
+      "initials": "SCO",
+      "parent": "britain"
     },
     {
       "id": "britain",
       "label": "BritainWTF",
-      "type": "country",
+      "type": "region-hub",
       "status": "coming-soon",
       "display": "map",
       "lat": 54.2,
@@ -44,7 +50,13 @@
       "thesis": "Britain is the old system trying to remember what it promised and who it was built to serve.",
       "pageUrl": "regional/pages/britain.html",
       "logo": "assets/logos/britain-wtf-logo.webp",
-      "initials": "BR"
+      "initials": "BR",
+      "regionChildren": [
+        "scotland",
+        "england",
+        "wales",
+        "northern-ireland"
+      ]
     },
     {
       "id": "england",
@@ -58,7 +70,8 @@
       "thesis": "England is the centre that became invisible to itself while carrying the weight of everyone else's story.",
       "pageUrl": "regional/pages/england.html",
       "logo": "assets/logos/england-wtf-logo.webp",
-      "initials": "ENG"
+      "initials": "ENG",
+      "parent": "britain"
     },
     {
       "id": "wales",
@@ -72,7 +85,8 @@
       "thesis": "Wales holds the tension between cultural memory, economic neglect, and the need for a living future.",
       "pageUrl": "regional/pages/wales.html",
       "logo": "assets/logos/wales-wtf-logo.webp",
-      "initials": "WAL"
+      "initials": "WAL",
+      "parent": "britain"
     },
     {
       "id": "northern-ireland",
@@ -86,7 +100,8 @@
       "thesis": "Northern Ireland exposes how unresolved history keeps shaping the present long after everyone claims to have moved on.",
       "pageUrl": "",
       "logo": "assets/logos/northern-ireland-wtf-logo.webp",
-      "initials": "NI"
+      "initials": "NI",
+      "parent": "britain"
     },
     {
       "id": "ireland",
@@ -100,12 +115,13 @@
       "thesis": "Ireland asks what independence means when economic, cultural, and institutional pressures arrive from everywhere at once.",
       "pageUrl": "regional/pages/ireland.html",
       "logo": "assets/logos/ireland-wtf-logo.webp",
-      "initials": "IRE"
+      "initials": "IRE",
+      "parent": "europe"
     },
     {
       "id": "europe",
       "label": "EuropeWTF",
-      "type": "region",
+      "type": "region-hub",
       "status": "coming-soon",
       "display": "map",
       "lat": 47.0,
@@ -114,7 +130,17 @@
       "thesis": "Europe is the experiment in distance: power moving upward while ordinary life becomes harder to steer.",
       "pageUrl": "regional/pages/europe.html",
       "logo": "assets/logos/europe-wtf-logo.webp",
-      "initials": "EU"
+      "initials": "EU",
+      "regionChildren": [
+        "france",
+        "germany",
+        "netherlands",
+        "poland",
+        "sweden",
+        "spain",
+        "italy",
+        "ireland"
+      ]
     },
     {
       "id": "france",
@@ -128,7 +154,8 @@
       "thesis": "France reveals what happens when civic ideals, street reality, and state authority pull against each other.",
       "pageUrl": "regional/pages/france.html",
       "logo": "assets/logos/france-wtf-logo.webp",
-      "initials": "FR"
+      "initials": "FR",
+      "parent": "europe"
     },
     {
       "id": "germany",
@@ -142,7 +169,8 @@
       "thesis": "Germany tests whether order can survive when confidence, energy, industry, and identity lose their old alignment.",
       "pageUrl": "regional/pages/germany.html",
       "logo": "assets/logos/germany-wtf-logo.webp",
-      "initials": "DE"
+      "initials": "DE",
+      "parent": "europe"
     },
     {
       "id": "netherlands",
@@ -156,7 +184,8 @@
       "thesis": "The Netherlands turns planning into a worldview, then asks what happens when people feel planned around.",
       "pageUrl": "regional/pages/netherlands.html",
       "logo": "assets/logos/netherlands-wtf-logo.webp",
-      "initials": "NL"
+      "initials": "NL",
+      "parent": "europe"
     },
     {
       "id": "poland",
@@ -170,7 +199,8 @@
       "thesis": "Poland carries the memory of pressure from both directions and turns survival into cultural instinct.",
       "pageUrl": "regional/pages/poland.html",
       "logo": "assets/logos/poland-wtf-logo.webp",
-      "initials": "PL"
+      "initials": "PL",
+      "parent": "europe"
     },
     {
       "id": "sweden",
@@ -184,7 +214,8 @@
       "thesis": "Sweden shows how high-trust societies break differently: quietly at first, then all at once.",
       "pageUrl": "regional/pages/sweden.html",
       "logo": "assets/logos/sweden-wtf-logo.webp",
-      "initials": "SE"
+      "initials": "SE",
+      "parent": "europe"
     },
     {
       "id": "spain",
@@ -198,7 +229,8 @@
       "thesis": "Spain tracks the gap between beauty, memory, youth pressure, and a state struggling to hold the centre.",
       "pageUrl": "regional/pages/spain.html",
       "logo": "assets/logos/spain-wtf-logo.webp",
-      "initials": "ES"
+      "initials": "ES",
+      "parent": "europe"
     },
     {
       "id": "italy",
@@ -212,7 +244,8 @@
       "thesis": "Italy understands decline aesthetically before it understands it administratively.",
       "pageUrl": "regional/pages/italy.html",
       "logo": "assets/logos/italy-wtf-logo.webp",
-      "initials": "IT"
+      "initials": "IT",
+      "parent": "europe"
     },
     {
       "id": "the-west",
@@ -293,18 +326,6 @@
       "pageUrl": "",
       "logo": "assets/logos/gadgets-wtf-logo.png",
       "initials": "GAD"
-    },
-    {
-      "id": "comedy",
-      "label": "ComedyWTF",
-      "type": "theme",
-      "status": "coming-soon",
-      "display": "hub-child",
-      "philosophyTitle": "The Pressure Valve",
-      "thesis": "Comedy is what remains when official language can no longer carry reality honestly.",
-      "pageUrl": "",
-      "logo": "assets/logos/c0medy-wtf-logo.png",
-      "initials": "COM"
     },
     {
       "id": "dark-humour",

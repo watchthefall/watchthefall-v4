@@ -1,5 +1,5 @@
 /* ============================================================
-   Fall Map — Geographic v2.0
+   Fall Map — Geographic v2.1
    scripts/fall_map_geo.js
 
    Stack: D3 v7 + topojson-client v3 (CDN)
@@ -37,17 +37,15 @@
 
     pathGen = d3.geoPath().projection(projection);
 
-    // Two groups: map behind, pins in front (both respond to zoom independently)
     mapGroup  = svg.append('g').attr('id', 'map-group');
     pinsGroup = svg.append('g').attr('id', 'pins-group');
 
     zoomBehavior = d3.zoom()
-      .scaleExtent([0.5, 10])
+      .scaleExtent([0.5, 12])
       .on('zoom', onZoom);
 
     svg.call(zoomBehavior);
 
-    // Click on bare map → close panel / collapse hub
     svg.on('click', function (event) {
       if (
         event.target === this ||
@@ -95,26 +93,22 @@
     const land    = topojson.feature(topo, topo.objects.land);
     const borders = topojson.mesh(topo, topo.objects.countries, (a, b) => a !== b);
 
-    // Sphere (ocean fill via CSS)
     mapGroup.append('path')
       .datum({ type: 'Sphere' })
       .attr('class', 'sphere')
       .attr('d', pathGen);
 
-    // Graticule grid
     const graticule = d3.geoGraticule()();
     mapGroup.append('path')
       .datum(graticule)
       .attr('class', 'graticule')
       .attr('d', pathGen);
 
-    // Land mass
     mapGroup.append('path')
       .datum(land)
       .attr('class', 'land')
       .attr('d', pathGen);
 
-    // Country borders
     mapGroup.append('path')
       .datum(borders)
       .attr('class', 'country-border')
@@ -132,7 +126,9 @@
       .data(nodes, function (d) { return d.id; })
       .join('g')
         .attr('class', function (d) {
-          return 'pin-group pin-type-' + d.type + ' pin-status-' + d.status;
+          var cls = 'pin-group pin-type-' + d.type + ' pin-status-' + d.status;
+          if (d.parent) cls += ' pin-child';
+          return cls;
         })
         .attr('data-id', function (d) { return d.id; })
         .attr('transform', function (d) {
@@ -141,10 +137,17 @@
         })
         .on('click', function (event, d) {
           event.stopPropagation();
-          openInfoPanel(d);
+          if (d.type === 'region-hub') {
+            zoomToRegion(d);
+          } else {
+            openInfoPanel(d);
+          }
         })
         .on('mousemove', function (event, d) {
-          showTooltip(d.label, event.clientX, event.clientY);
+          var tip = d.type === 'region-hub'
+            ? d.label + ' — click to zoom'
+            : d.label;
+          showTooltip(tip, event.clientX, event.clientY);
         })
         .on('mouseleave', hideTooltip);
 
@@ -152,22 +155,70 @@
     groups.filter(function (d) { return d.status === 'live'; })
       .append('circle')
         .attr('class', 'pin-pulse')
-        .attr('r', function (d) { return d.type === 'region' ? 13 : 11; });
+        .attr('r', function (d) {
+          if (d.parent) return 9;
+          return d.type === 'region' ? 13 : 11;
+        });
 
     // Main circle
     groups.append('circle')
       .attr('class', 'pin-circle')
-      .attr('r', function (d) { return d.type === 'region' ? 11 : 8; });
+      .attr('r', function (d) {
+        if (d.parent) return d.type === 'region' ? 9 : 6;
+        return d.type === 'region-hub' ? 12 : d.type === 'region' ? 11 : 8;
+      });
 
     // Initials text
     groups.append('text')
       .attr('class', 'pin-initials')
       .attr('text-anchor', 'middle')
       .attr('dy', '0.35em')
+      .style('font-size', function(d) { return d.parent ? '4px' : '5px'; })
       .text(function (d) {
         const s = d.initials || d.id.substring(0, 3).toUpperCase();
         return s.length > 4 ? s.substring(0, 3) : s;
       });
+  }
+
+  /* ── Zoom to Region ───────────────────────────────────────── */
+
+  function zoomToRegion(regionNode) {
+    if (!mapDataCache) return;
+
+    const children = mapDataCache.nodes.filter(function (n) {
+      return n.parent === regionNode.id && n.lat != null && n.lng != null;
+    });
+    if (!children.length) return;
+
+    const W = +svg.attr('width');
+    const H = +svg.attr('height');
+    const padding = 140;
+
+    const points = children.map(function (n) {
+      return projection([n.lng, n.lat]);
+    });
+
+    const x0 = d3.min(points, function (p) { return p[0]; });
+    const x1 = d3.max(points, function (p) { return p[0]; });
+    const y0 = d3.min(points, function (p) { return p[1]; });
+    const y1 = d3.max(points, function (p) { return p[1]; });
+
+    const dx = (x1 - x0) + padding * 2;
+    const dy = (y1 - y0) + padding * 2;
+    const cx = (x0 + x1) / 2;
+    const cy = (y0 + y1) / 2;
+
+    const scale = Math.max(0.5, Math.min(12, 0.82 * Math.min(W / dx, H / dy)));
+
+    svg.transition().duration(820).ease(d3.easeCubicInOut).call(
+      zoomBehavior.transform,
+      d3.zoomIdentity
+        .translate(W / 2, H / 2)
+        .scale(scale)
+        .translate(-cx, -cy)
+    );
+
+    if (hubExpanded) collapseHub();
   }
 
   /* ── Zoom ─────────────────────────────────────────────────── */
@@ -178,7 +229,6 @@
 
     mapGroup.attr('transform', t);
 
-    // Counter-scale pins so they stay visually constant size
     pinsGroup.selectAll('.pin-group')
       .attr('transform', function (d) {
         const sx = t.applyX(projection([d.lng, d.lat])[0]);
@@ -190,7 +240,6 @@
   /* ── Info Panel ───────────────────────────────────────────── */
 
   function openInfoPanel(node) {
-    // Fill content
     const logo = document.getElementById('info-logo');
     if (node.logo) {
       logo.src = node.logo;
@@ -217,7 +266,6 @@
 
     document.getElementById('info-panel').classList.add('open');
 
-    // Highlight pin
     pinsGroup.selectAll('.pin-group').classed('pin-active', false);
     pinsGroup.select('.pin-group[data-id="' + node.id + '"]').classed('pin-active', true);
   }
@@ -254,7 +302,7 @@
 
     const layer = document.getElementById('hub-satellite-layer');
 
-    children.forEach(function (child, i) {
+    children.forEach(function (child) {
       const sat = document.createElement('div');
       sat.className = 'hub-satellite';
       sat.dataset.id = child.id;
@@ -291,6 +339,9 @@
       e.stopPropagation();
       hubExpanded ? collapseHub() : expandHub();
     });
+
+    // Start expanded on load
+    expandHub();
   }
 
   function expandHub() {
@@ -300,8 +351,8 @@
     const sats = Array.from(document.querySelectorAll('.hub-satellite'));
     const n = sats.length;
     const radius = 120;
-    const spread = 160; // degrees of arc, centred at straight-up (-90°)
-    const startAngle = -90 - spread / 2; // -170°
+    const spread = 160;
+    const startAngle = -90 - spread / 2;
 
     sats.forEach(function (sat, i) {
       const angleDeg = startAngle + (i / Math.max(n - 1, 1)) * spread;
@@ -340,10 +391,12 @@
     });
 
     document.getElementById('ctrl-reset').addEventListener('click', function () {
-      svg.transition().duration(600).call(
+      svg.transition().duration(650).call(
         zoomBehavior.transform,
         d3.zoomIdentity
       );
+      closeInfoPanel();
+      if (!hubExpanded) expandHub();
     });
   }
 
@@ -364,7 +417,6 @@
 
     pathGen = d3.geoPath().projection(projection);
 
-    // Redraw map paths
     mapGroup.select('.sphere').attr('d', pathGen);
     mapGroup.select('.graticule').attr('d', pathGen(d3.geoGraticule()()));
     mapGroup.select('.land').attr('d', pathGen(topojson.feature(topoDataCache, topoDataCache.objects.land)));
@@ -372,7 +424,6 @@
       topojson.mesh(topoDataCache, topoDataCache.objects.countries, function (a, b) { return a !== b; })
     ));
 
-    // Reposition pins (reset transform first)
     pinsGroup.selectAll('.pin-group')
       .attr('transform', function (d) {
         const [x, y] = projection([d.lng, d.lat]);

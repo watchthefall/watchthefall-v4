@@ -130,6 +130,28 @@ html, body {
   stroke: #3d2855;
 }
 
+/* Region-hub pins — dashed border signals "click to zoom in" */
+.pin-type-region-hub .pin-circle {
+  fill: rgba(232, 39, 58, 0.08);
+  stroke: #e8273a;
+  stroke-width: 1.5px;
+  stroke-dasharray: 4 2.5;
+}
+
+.pin-type-region-hub:hover .pin-circle {
+  fill: rgba(232, 39, 58, 0.20);
+  filter: brightness(1.4);
+}
+
+/* Child pins — slightly dimmer at world scale */
+.pin-child .pin-circle {
+  opacity: 0.75;
+}
+
+.pin-child:hover .pin-circle {
+  opacity: 1;
+}
+
 /* Active */
 .pin-group.pin-active .pin-circle {
   stroke-width: 2px;
@@ -510,19 +532,4 @@ html, body {
   gap: 8px;
   font-size: 9px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.26);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.legend-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  border: 1.5px solid;
-  flex-shrink: 0;
-}
-
-.legend-dot.ld-live        { border-color: #e8273a; background: rgba(232,39,58,0.18); }
-.legend-dot.ld-region      { border-color: #6b4090; background: rgba(107,64,144,0.18); }
-.legend-dot.ld-coming-soon { border-color: #4a3060; background: rgba(74,48,96,0.18); }
+  color: rg
