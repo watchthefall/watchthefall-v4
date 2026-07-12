@@ -3,132 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fall Map — WatchTheFall Network</title>
-    <meta name="description" content="The WatchTheFall network, pinned to the world. Geographic ecosystem map.">
-    <meta name="robots" content="noindex">
-
-    <!-- Fonts -->
+    <title>The Fall Map | WatchTheFall</title>
+    <meta name="description" content="An editorial worldview map for the WatchTheFall network. Not a ranking. A pressure map. Click a node, read the world.">
+    <meta name="theme-color" content="#d4af37">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="WatchTheFall">
+    <meta property="og:title" content="The Fall Map — WatchTheFall">
+    <meta property="og:description" content="Not a ranking. A pressure map. Explore the WatchTheFall worldview — one node at a time.">
+    <meta property="og:url" content="https://watchthefall.com/fall-map.html">
+    <meta property="og:image" content="https://watchthefall.com/assets/logos/WatchTheFall_logo.png">
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@WatchTheFallWTF">
+    <meta name="twitter:title" content="The Fall Map — WatchTheFall">
+    <meta name="twitter:description" content="Not a ranking. A pressure map. Explore the WatchTheFall worldview — one node at a time.">
+    <meta name="twitter:image" content="https://watchthefall.com/assets/logos/WatchTheFall_logo.png">
+    <link rel="icon" type="image/png" href="assets/logos/wtf-logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Map CSS -->
-    <link rel="stylesheet" href="styles/fall-map-geo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/fall-map-v2.css">
 </head>
 <body>
+    <div class="v2-page-bg" aria-hidden="true"></div>
 
-<!-- Site Navigation -->
-<nav class="main-nav">
-    <div class="nav-container">
-        <a href="index.html" class="nav-logo">
+    <nav class="v2-nav" aria-label="Primary navigation">
+        <a class="v2-logo" href="index.html">
             <img src="assets/watermark/watchthefall_watermark.png" alt="WatchTheFall">
         </a>
-        <ul class="nav-links">
-            <li class="nav-keep"><a href="index.html">Home</a></li>
-            <li><a href="donate.html">Support</a></li>
-            <li><a href="index.html#worldcup">World Cup</a></li>
-            <li><a href="wtfcreations.html">Shop</a></li>
-            <li><a href="index.html#directory">Directory</a></li>
-            <li class="nav-keep"><a href="fall-map.html" class="active">Fall Map</a></li>
-            <li class="nav-keep"><a href="brandr.html">Brandr</a></li>
-            <li><a href="wtfrecords.html">WTF Records</a></li>
-            <li class="nav-keep"><a href="philosophy.html">Philosophy</a></li>
-        </ul>
-    </div>
-</nav>
-
-<div id="map-container">
-
-    <!-- D3 renders the SVG map here -->
-    <svg id="world-map" role="img" aria-label="WatchTheFall geographic network map"></svg>
-
-    <!-- Loading / error state -->
-    <div id="map-loading">Loading map…</div>
-
-    <!-- Floating tooltip (shown on pin hover) -->
-    <div id="map-tooltip" role="tooltip" aria-hidden="true"></div>
-
-    <!-- Bottom-left legend -->
-    <nav id="map-legend" aria-label="Map legend">
-        <div class="legend-item">
-            <span class="legend-dot ld-live"        aria-hidden="true"></span>
-            Live
-        </div>
-        <div class="legend-item">
-            <span class="legend-dot ld-region"      aria-hidden="true"></span>
-            Region
-        </div>
-        <div class="legend-item">
-            <span class="legend-dot ld-coming-soon" aria-hidden="true"></span>
-            Coming Soon
+        <div class="v2-links">
+            <a href="index.html">Home</a>
+            <a href="donate.html">Support</a>
+            <a href="index.html#worldcup">World Cup</a>
+            <a href="wtfcreations.html">Shop</a>
+            <a href="feed.html">Directory</a>
+            <a class="active" href="fall-map.html">Fall Map</a>
+            <a href="brandr.html">Brandr</a>
+            <a href="wtfrecords.html">WTF Records</a>
+            <a href="philosophy.html">Philosophy</a>
         </div>
     </nav>
 
-    <!-- Bottom-right zoom controls -->
-    <div id="map-controls" role="group" aria-label="Map controls">
-        <button id="ctrl-zoom-in"  class="map-ctrl-btn" title="Zoom in"   aria-label="Zoom in">+</button>
-        <button id="ctrl-zoom-out" class="map-ctrl-btn" title="Zoom out"  aria-label="Zoom out">−</button>
-        <button id="ctrl-reset"    class="map-ctrl-btn" title="Reset view" aria-label="Reset view">⊙</button>
-    </div>
+    <main class="v2-main">
+        <section class="v2-hero">
+            <p class="v2-kicker">WatchTheFall / Worldview</p>
+            <h1>The Fall Map</h1>
+            <p>A pressure map for the WatchTheFall network. Not a ranking. A worldview.</p>
+        </section>
 
-    <!-- Right-side info panel (slides in on pin click) -->
-    <aside id="info-panel" aria-live="polite" aria-label="Region details">
-        <button class="info-close" id="info-close-btn" aria-label="Close panel">×</button>
+        <section class="v2-shell" aria-label="Fall Map atlas">
+            <div class="v2-stage-card">
+                <div class="v2-stage-toolbar">
+                    <button class="v2-world-button" type="button" data-map-action="world">World View</button>
+                    <span id="v2-view-label">World</span>
+                </div>
+                <div id="fall-map-v2-stage" class="v2-stage" aria-label="Coded Fall Map atlas"></div>
+            </div>
 
-        <img id="info-logo" src="" alt="" aria-hidden="true">
+            <aside id="fall-map-v2-panel" class="v2-panel" aria-live="polite"></aside>
+        </section>
+    </main>
 
-        <div id="info-status" class="info-status status-coming-soon">Coming Soon</div>
+    <footer class="v2-footer">
+        <p>WatchTheFall &mdash; Mapping the fall, one pressure point at a time.</p>
+    </footer>
 
-        <h2 id="info-label"></h2>
-        <p  id="info-philosophy-title"></p>
-        <p  id="info-thesis"></p>
-
-        <a id="info-link" href="#" target="_blank" rel="noopener noreferrer" style="display:none;">
-            Visit
-        </a>
-    </aside>
-
-    <!-- Bottom-centre WTF home button -->
-    <div id="wtf-hub" role="navigation" aria-label="WatchTheFall hub">
-
-        <!-- Satellites bloom out of this layer (injected by JS) -->
-        <div id="hub-satellite-layer" aria-hidden="true"></div>
-
-        <button id="wtf-hub-btn" aria-label="WatchTheFall open theme channels" aria-expanded="false">
-            <img
-                class="hub-icon-collapsed"
-                src="assets/watermark/wtfman.png"
-                alt="WTF"
-                draggable="false">
-            <img
-                class="hub-logo-expanded"
-                src="assets/watermark/watchthefall_watermark.png"
-                alt="WatchTheFall"
-                draggable="false">
-        </button>
-
-    </div>
-
-</div><!-- /#map-container -->
-
-
-<!-- D3 v7 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
-
-<!-- TopoJSON client v3 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
-
-<!-- Fall Map App -->
-<script src="scripts/fall_map_geo.js"></script>
-
-<script>
-    document.getElementById('info-close-btn').addEventListener('click', function () {
-        document.getElementById('info-panel').classList.remove('open');
-        document.querySelectorAll('.pin-group').forEach(function (p) {
-            p.classList.remove('pin-active');
-        });
-    });
-</script>
-
+    <script src="scripts/fall_map_v2.js"></script>
 </body>
 </html>

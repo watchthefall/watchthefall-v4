@@ -33,3 +33,24 @@ desktop.ini
 # Temporary files
 *.tmp
 .cache/
+
+.claude/
+logo-deploy.patch
+clear-git-locks.ps1
+start-preview.bat
+
+# Claude session temp screenshots (UUID-named PNGs in root)
+????????-????-????-????-????????????.png
+
+# Internal planning and business documents (not for repo)
+AGENTS.md
+FALL_MAP_GEO_PLAN.md
+Build_the_Machine_Handbook_FULL_MASTER.md
+Handbook_Status_Report.md
+
+# Utility/temp scripts
+scripts/fall_map_geo_tmp.js
+logo_diagnostic.py
+promote-brandr.bat
+cleanup_safe.ps1
+cleanup_report.txt

@@ -14,7 +14,7 @@
         threads: []
     };
     
-    let currentPlatform = 'tiktok'; // Default active platform
+    let currentPlatform = 'instagram'; // Default active platform
     let observer = null;
     let regionRank = null; // Store region's World Cup rank
     
@@ -271,19 +271,19 @@
         let platformToggles = '';
         const availablePlatforms = [];
         
-        if (regionData.tiktok.length > 0) {
-            availablePlatforms.push('tiktok');
-            platformToggles += `<button class="platform-toggle active" data-platform="tiktok">
-                <span class="toggle-icon">${PLATFORM_CONFIG.tiktok.icon}</span>
-                <span class="toggle-name">${PLATFORM_CONFIG.tiktok.name}</span>
+        if (regionData.instagram.length > 0) {
+            availablePlatforms.push('instagram');
+            platformToggles += `<button class="platform-toggle active" data-platform="instagram">
+                <span class="toggle-icon">${PLATFORM_CONFIG.instagram.icon}</span>
+                <span class="toggle-name">${PLATFORM_CONFIG.instagram.name}</span>
             </button>`;
         }
         
-        if (regionData.instagram.length > 0) {
-            availablePlatforms.push('instagram');
-            platformToggles += `<button class="platform-toggle" data-platform="instagram">
-                <span class="toggle-icon">${PLATFORM_CONFIG.instagram.icon}</span>
-                <span class="toggle-name">${PLATFORM_CONFIG.instagram.name}</span>
+        if (regionData.tiktok.length > 0) {
+            availablePlatforms.push('tiktok');
+            platformToggles += `<button class="platform-toggle" data-platform="tiktok">
+                <span class="toggle-icon">${PLATFORM_CONFIG.tiktok.icon}</span>
+                <span class="toggle-name">${PLATFORM_CONFIG.tiktok.name}</span>
             </button>`;
         }
         

@@ -481,3 +481,184 @@
     .reel-embed-shell { width: 100%; }
     .carousel-nav { width: 36px; height: 36px; font-size: 1.3rem; }
 }
+
+/* =====================================================================
+   ScotlandWTF Reels Section
+   ===================================================================== */
+
+.scotland-reels-section {
+    padding: 4rem 0;
+    background: linear-gradient(180deg,
+        rgba(0, 61, 130, 0.08) 0%,
+        rgba(0, 0, 0, 0.0) 100%);
+}
+
+.reels-latest-block {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.reels-latest-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-scotland-gold);
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+}
+
+.section-title .accent {
+    color: var(--color-scotland-gold);
+}
+
+/* Latest embed — portrait iframe, centred */
+.reels-latest-embed {
+    display: flex;
+    justify-content: center;
+}
+
+.reel-embed-shell {
+    width: 328px;
+    max-width: 100%;
+    aspect-ratio: 9 / 16;
+    background: #111;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 101, 189, 0.25);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.reel-embed-shell iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* Featured carousel */
+.reels-featured-block {
+    margin-bottom: 2.5rem;
+}
+
+.reels-featured-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+    text-align: center;
+}
+
+.reels-featured-subtitle {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    margin-bottom: 1.8rem;
+}
+
+.reels-carousel-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.carousel-nav {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: rgba(0, 101, 189, 0.25);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-nav:hover {
+    background: rgba(0, 101, 189, 0.5);
+    border-color: var(--color-scotland-gold);
+}
+
+.reels-carousel-viewport {
+    flex: 1;
+    overflow: hidden;
+}
+
+.reels-carousel-track {
+    display: flex;
+    transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.reel-cell {
+    flex: 0 0 calc(100% / var(--reel-visible, 1));
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+}
+
+.reel-cell iframe {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    border: none;
+    border-radius: 10px;
+    background: #111;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    display: block;
+}
+
+/* Dot pagination */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.2rem;
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    padding: 0;
+}
+
+.carousel-dot.active {
+    background: var(--color-scotland-gold);
+    transform: scale(1.3);
+}
+
+/* CTA */
+.reels-cta {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.reels-follow-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    padding: 0.75rem 2rem;
+}
+
+/* Responsive visible count via CSS custom property */
+@media (min-width: 640px) {
+    .reels-carousel-track { --reel-visible: 2; }
+    .reel-cell { flex-basis: 50%; }
+}
+
+@media (min-width: 1024px) {
+    .reels-carousel-track { --reel-visible: 3; }
+    .reel-cell { flex-basis: 33.333%; }
+}
+
+@media (max-width: 480px) {
+    .reel-embed-shell { width: 100%; }
+    .carousel-nav { width: 36px; height: 36px; font-size: 1.3rem; }
+}

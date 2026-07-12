@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Cup Event History - WatchTheFall</title>
+    <link rel="stylesheet" href="styles/app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .history-section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+        
+        .history-card {
+            background: var(--color-card);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .history-title {
+            font-family: var(--font-primary);
+            font-size: 1.8rem;
+            color: var(--color-gold);
+        }
+        
+        .event-date {
+            color: var(--color-gold);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .event-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .event-detail {
+            background: rgba(15, 15, 15, 0.5);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--color-gold);
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: var(--color-gold);
+            margin-bottom: 0.25rem;
+        }
+        
+        .detail-value {
+            color: var(--color-text);
+            opacity: 0.9;
+        }
+        
+        .no-events {
+            text-align: center;
+            padding: 3rem;
+            color: var(--color-text);
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/watermark/wtfman.png" alt="WatchTheFall Logo">
+                <span>WATCH THE FALL</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#worldcup">World Cup</a></li>
+                <li><a href="#support">Support</a></li>
+                <li><a href="donate.html">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="history-section">
+        <div class="container">
+            <h1 class="page-title">World Cup Event History</h1>
+            <p class="page-subtitle">Past events that shaped the leaderboard</p>
+            
+            <div id="history-container">
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Loading event history...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/watermark/wtfman.png" alt="WatchTheFall Logo" style="height: 50px;">
+                    <p>WatchTheFall Network</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#worldcup">World Cup</a></li>
+                        <li><a href="#support">Support</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 WatchTheFall Network. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load event history
+        async function loadEventHistory() {
+            try {
+                const response = await fetch('data/event-history.json');
+                const data = await response.json();
+                
+                const container = document.getElementById('history-container');
+                
+                if (!data.archivedEvents || data.archivedEvents.length === 0) {
+                    container.innerHTML = `
+                        <div class="no-events">
+                            <h3>No event history available</h3>
+                            <p>Past events will appear here once they expire</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                const historyHtml = data.archivedEvents
+                    .sort((a, b) => new Date(b.end) - new Date(a.end)) // Sort by most recent first
+                    .map(event => `
+                        <div class="history-card">
+                            <div class="history-header">
+                                <h3 class="history-title">${event.name}</h3>
+                                <div class="event-date">${formatDate(event.start)} - ${formatDate(event.end)}</div>
+                            </div>
+                            <p>${event.description || 'No description available.'}</p>
+                            
+                            <div class="event-details">
+                                <div class="event-detail">
+                                    <div class="detail-label">Event Type</div>
+                                    <div class="detail-value">${event.type}</div>
+                                </div>
+                                <div class="event-detail">
+                                    <div class="detail-label">Target</div>
+                                    <div class="detail-value">${event.target}</div>
+                                </div>
+                                <div class="event-detail">
+                                    <div class="detail-label">Multiplier</div>
+                                    <div class="detail-value">${event.multiplier}x</div>
+                                </div>
+                                <div class="event-detail">
+                                    <div class="detail-label">Impact</div>
+                                    <div class="detail-value">${event.impact || 'Unknown'}</div>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+                
+                container.innerHTML = historyHtml;
+                
+            } catch (error) {
+                console.error('Error loading event history:', error);
+                document.getElementById('history-container').innerHTML = `
+                    <div class="error-state">
+                        <h3>Error Loading Event History</h3>
+                        <p>Please try refreshing the page</p>
+                    </div>
+                `;
+            }
+        }
+        
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'short', 
+                day: 'numeric' 
+            });
+        }
+        
+        // Load when page loads
+        document.addEventListener('DOMContentLoaded', loadEventHistory);
+    </script>
+</body>
+</html>
