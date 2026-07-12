@@ -1,510 +1,658 @@
-/* ============================================================
-   Fall Map — Geographic Prototype (Phase 1)
-   styles/fall-map-geo.css
-   ============================================================ */
+/* ============================================
+   FALL MAP GEO — WatchTheFall Network Map
+   v2.2.0
+   ============================================ */
 
 :root {
-    --geo-gold:        #d4af37;
-    --geo-gold-soft:   rgba(212, 175, 55, 0.22);
-    --geo-gold-dim:    rgba(212, 175, 55, 0.08);
-    --geo-text:        #f3e7d3;
-    --geo-muted:       rgba(243, 231, 211, 0.62);
-    --geo-muted-faint: rgba(243, 231, 211, 0.35);
-    --geo-bg:          #030404;
-    --geo-panel-bg:    rgba(7, 7, 7, 0.9);
-    --geo-font-head:   "Archivo Black", Impact, sans-serif;
-    --geo-font-body:   "Inter", Arial, sans-serif;
-    --geo-nav-h:       5.5rem;
+  --nav-h: 72px;
+  --color-gold: #d4af37;
+  --color-glow: rgba(212, 175, 55, 0.25);
+  --color-text: #f3e7d3;
 }
 
-*, *::before, *::after { box-sizing: border-box; }
-
-body {
-    margin: 0;
-    background: var(--geo-bg);
-    color: var(--geo-text);
-    font-family: var(--geo-font-body);
-    min-height: 100vh;
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* ── Page background ─────────────────────────────────────── */
-.geo-page-bg {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background:
-        radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.08), transparent 30%),
-        radial-gradient(circle at 70% 75%, rgba(8, 91, 103, 0.1), transparent 28%),
-        #030404;
-    pointer-events: none;
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #06060e;
+  color: #e8e8f0;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ── Navigation (canonical v2-nav) ──────────────────────── */
-.v2-nav {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    padding: 0.75rem clamp(1rem, 4vw, 3rem);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.7);
-    background: rgba(3, 3, 3, 0.94);
-    backdrop-filter: blur(12px);
-}
-.v2-logo img { width: 58px; height: auto; display: block; }
-.v2-links {
-    display: flex;
-    flex: 1;
-    justify-content: flex-end;
-    gap: clamp(0.8rem, 2vw, 1.6rem);
-    flex-wrap: wrap;
-}
-.v2-links a {
-    color: var(--geo-text);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.9rem;
-    transition: color 0.15s;
-}
-.v2-links a.active,
-.v2-links a:hover { color: var(--geo-gold); }
+/* ── Site Nav ───────────────────────────── */
 
-/* ── Hero ────────────────────────────────────────────────── */
-.geo-hero {
-    padding: 1.4rem 0 0.9rem;
-    text-align: center;
-}
-.geo-kicker {
-    margin: 0;
-    color: var(--geo-gold);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-}
-.geo-hero h1 {
-    margin: 0.35rem 0 0.25rem;
-    font-family: var(--geo-font-head);
-    font-size: clamp(2rem, 4.6vw, 3.8rem);
-    line-height: 0.95;
-}
-.geo-hero p {
-    margin: 0 auto;
-    max-width: 680px;
-    color: var(--geo-muted);
-    font-size: 0.95rem;
-}
-.geo-proto-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    margin-top: 0.65rem;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    border-radius: 999px;
-    padding: 0.25rem 0.8rem;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--geo-gold);
-    opacity: 0.75;
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-h);
+  background: rgba(6, 6, 14, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-gold);
+  z-index: 1000;
 }
 
-/* ── Shell layout ────────────────────────────────────────── */
-.geo-shell {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(320px, 400px);
-    gap: 1.25rem;
-    align-items: start;
-    width: min(1800px, calc(100% - 2rem));
-    margin: 0 auto;
-    padding: 0.5rem 0 2.5rem;
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* ── Stage card ──────────────────────────────────────────── */
-.geo-stage-card {
-    border: 1px solid var(--geo-gold-soft);
-    border-radius: 10px;
-    background: rgba(6, 6, 6, 0.82);
-    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.38);
-    overflow: hidden;
+.nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
-.geo-stage-toolbar {
-    display: flex;
-    align-items: center;
+.nav-logo img {
+  height: 38px;
+  filter: drop-shadow(0 0 8px var(--color-glow));
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-gold);
+  transition: width 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--color-gold);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
     gap: 1rem;
-    padding: 0.65rem 0.9rem;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.14);
-    background: rgba(0, 0, 0, 0.3);
+  }
+  .nav-links a {
+    font-size: 0.78rem;
+  }
 }
 
-.geo-world-btn {
-    border: 1px solid rgba(212, 175, 55, 0.55);
-    border-radius: 999px;
-    background: rgba(0, 0, 0, 0.72);
-    color: var(--geo-gold);
-    cursor: pointer;
-    font: 700 0.72rem var(--geo-font-body);
-    letter-spacing: 0.09em;
-    padding: 0.5rem 0.85rem;
-    text-transform: uppercase;
-    transition: background 0.15s, border-color 0.15s;
-    flex-shrink: 0;
-}
-.geo-world-btn:hover {
-    background: rgba(212, 175, 55, 0.12);
-    border-color: var(--geo-gold);
-}
-
-#geo-view-label {
-    color: var(--geo-muted);
-    font-size: 0.88rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* ── Map stage (SVG container) ───────────────────────────── */
-#geo-stage {
-    position: relative;
-    min-height: clamp(500px, 70vh, 820px);
-    background: #020303;
-    overflow: hidden;
-    cursor: default;
-}
-
-#geo-stage svg {
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-
-/* ── SVG: world geography ────────────────────────────────── */
-.geo-sphere {
-    fill: #020303;
-    stroke: rgba(212, 175, 55, 0.18);
-    stroke-width: 0.8;
-}
-
-.geo-graticule {
-    fill: none;
-    stroke: rgba(212, 175, 55, 0.055);
-    stroke-width: 0.35;
-    pointer-events: none;
-}
-
-.geo-country {
-    fill: #070706;
-    stroke: rgba(212, 175, 55, 0.1);
-    stroke-width: 0.45;
-    transition: fill 0.35s ease;
-    cursor: default;
-}
-
-.geo-country--wtf {
-    fill: #0d0b08;
-    stroke: rgba(212, 175, 55, 0.24);
-    stroke-width: 0.6;
-}
-
-.geo-country--active {
-    fill: rgba(212, 175, 55, 0.05);
-    stroke: rgba(212, 175, 55, 0.36);
-    stroke-width: 0.7;
-}
-
-/* ── SVG: node markers ───────────────────────────────────── */
-.geo-node { cursor: pointer; }
-
-.node-ring {
-    fill: none;
-    stroke: rgba(212, 175, 55, 0.42);
-    stroke-width: 1;
-    stroke-dasharray: 4 3;
-    transition: stroke 0.2s, stroke-opacity 0.2s;
-}
-
-.geo-node.cluster .node-ring {
-    stroke: rgba(212, 175, 55, 0.62);
-    stroke-width: 1.5;
-    stroke-dasharray: none;
-}
-
-.geo-node:hover .node-ring,
-.geo-node.active .node-ring {
-    stroke: var(--geo-gold);
-    stroke-opacity: 1;
-    stroke-dasharray: none;
-}
-
-.node-body {
-    fill: rgba(4, 4, 4, 0.9);
-    stroke: rgba(212, 175, 55, 0.65);
-    stroke-width: 1;
-    transition: fill 0.2s, stroke 0.2s;
-}
-
-.geo-node:hover .node-body,
-.geo-node.active .node-body {
-    fill: rgba(212, 175, 55, 0.1);
-    stroke: var(--geo-gold);
-}
-
-.geo-node.coming-soon .node-body {
-    stroke-dasharray: 3 2;
-    opacity: 0.82;
-}
-
-.node-logo {
-    pointer-events: none;
-    border-radius: 3px;
-}
-
-.node-initials {
-    fill: var(--geo-gold);
-    font-family: var(--geo-font-head);
-    font-size: 8px;
-    pointer-events: none;
-}
-
-.geo-node.cluster .node-initials {
-    font-size: 10px;
-}
-
-.node-label {
-    fill: rgba(243, 231, 211, 0.82);
-    font-family: var(--geo-font-body);
-    font-size: 10px;
-    font-weight: 700;
-    pointer-events: none;
-    paint-order: stroke;
-    stroke: rgba(2, 3, 3, 0.92);
-    stroke-width: 3px;
-    stroke-linejoin: round;
-}
-
-.geo-node.cluster .node-label {
-    font-size: 11px;
-    fill: var(--geo-text);
-}
-
-.geo-node.active .node-label,
-.geo-node:hover .node-label {
-    fill: var(--geo-gold);
-}
-
-/* ── Australia offset badge ──────────────────────────────── */
-.geo-aus-note {
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.75);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    border-radius: 4px;
-    padding: 0.3rem 0.7rem;
-    font-size: 0.65rem;
-    color: var(--geo-muted-faint);
-    white-space: nowrap;
-    pointer-events: none;
+@media (max-width: 560px) {
+  /* On small screens hide secondary nav items, keep essential ones */
+  .nav-links li:not(.nav-keep) {
     display: none;
-}
-.geo-stage-card.view-the-west .geo-aus-note { display: block; }
-
-/* ── Error ───────────────────────────────────────────────── */
-.geo-load-error {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 300px;
-    color: #ffcf6b;
-    font-size: 0.9rem;
-    padding: 2rem;
-    text-align: center;
+  }
 }
 
-/* ── Panel ───────────────────────────────────────────────── */
-.geo-panel {
-    position: sticky;
-    top: calc(var(--geo-nav-h) + 0.75rem);
-    max-height: calc(100vh - var(--geo-nav-h) - 1.5rem);
-    overflow-y: auto;
-    border: 1px solid var(--geo-gold-soft);
-    border-radius: 10px;
-    background: var(--geo-panel-bg);
-    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.36);
-    padding: 1.4rem;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(212, 175, 55, 0.25) transparent;
+/* ── Map Container ──────────────────────── */
+
+#map-container {
+  position: fixed;
+  top: var(--nav-h);
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - var(--nav-h));
+  overflow: hidden;
 }
 
-.geo-panel-kicker {
-    margin: 0;
-    color: var(--geo-gold);
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+#world-map {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
 }
 
-.geo-panel h2 {
-    margin: 0.4rem 0 0.65rem;
-    font-family: var(--geo-font-head);
-    font-size: clamp(1.35rem, 2.2vw, 1.85rem);
-    line-height: 1.1;
+#world-map:active {
+  cursor: grabbing;
 }
 
-.geo-panel p {
-    color: var(--geo-muted);
-    line-height: 1.58;
-    font-size: 0.9rem;
-    margin: 0 0 1rem;
+/* ── Geographic SVG Layers ──────────────── */
+
+.sphere {
+  fill: #06060e;
+  stroke: rgba(255, 255, 255, 0.06);
+  stroke-width: 0.8px;
 }
 
-.geo-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 0 0 1rem;
+.graticule {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.035);
+  stroke-width: 0.4px;
 }
 
-.geo-meta span {
-    border: 1px solid rgba(212, 175, 55, 0.25);
-    border-radius: 999px;
-    color: var(--geo-muted);
-    font-size: 0.75rem;
-    padding: 0.3rem 0.6rem;
-    text-transform: capitalize;
+.land {
+  fill: #0f0f1c;
 }
 
-.geo-actions {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.7rem;
-    margin: 0 0 1.4rem;
+.country-border {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 0.4px;
 }
 
-.geo-action {
-    border: 1px solid rgba(212, 175, 55, 0.5);
-    border-radius: 7px;
-    background: var(--geo-gold);
-    color: #060606;
-    font-weight: 800;
-    font-size: 0.8rem;
-    padding: 0.7rem 0.75rem;
-    text-align: center;
-    text-decoration: none;
-    transition: opacity 0.15s;
+/* ── Loading ────────────────────────────── */
+
+#map-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255, 255, 255, 0.28);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  pointer-events: none;
 }
 
-.geo-action:hover { opacity: 0.85; }
+/* ── Pins ───────────────────────────────── */
 
-.geo-action.disabled {
-    background: transparent;
-    color: rgba(212, 175, 55, 0.45);
-    cursor: default;
+.pin-group {
+  cursor: pointer;
 }
 
-/* ── Panel cluster cards ─────────────────────────────────── */
-.geo-cluster {
-    border-top: 1px solid rgba(212, 175, 55, 0.14);
-    padding-top: 1rem;
-    margin-top: 0.25rem;
+.pin-group:hover .pin-circle {
+  filter: brightness(1.5);
 }
 
-.geo-cluster h3 {
-    margin: 0 0 0.75rem;
-    font-family: var(--geo-font-head);
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--geo-gold);
+/* Pulse ring — live nodes */
+.pin-pulse {
+  fill: none;
+  stroke-width: 1px;
+  animation: pinPulse 2.4s ease-out infinite;
+  pointer-events: none;
 }
 
-.geo-child-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.6rem;
+.pin-status-live.pin-type-country .pin-pulse { stroke: #e8273a; }
+.pin-status-live.pin-type-region  .pin-pulse { stroke: #9b59b6; }
+
+@keyframes pinPulse {
+  0%   { r: 11; opacity: 0.7; }
+  100% { r: 26; opacity: 0; }
 }
 
-.geo-child-card {
-    border: 1px solid rgba(212, 175, 55, 0.24);
-    border-radius: 7px;
-    background: rgba(0, 0, 0, 0.35);
-    color: var(--geo-text);
-    cursor: pointer;
-    font-family: var(--geo-font-body);
-    padding: 0.75rem;
-    text-align: left;
-    transition: border-color 0.15s, background 0.15s;
+/* Main circles */
+.pin-circle {
+  stroke-width: 1.5px;
+  transition: filter 0.15s ease;
 }
 
-.geo-child-card strong {
-    display: block;
-    font-size: 0.8rem;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
+.pin-status-live.pin-type-country .pin-circle {
+  fill: rgba(232, 39, 58, 0.14);
+  stroke: #e8273a;
 }
 
-.geo-child-card span {
-    display: block;
-    color: var(--geo-gold);
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+.pin-status-live.pin-type-region .pin-circle {
+  fill: rgba(155, 89, 182, 0.14);
+  stroke: #9b59b6;
 }
 
-.geo-child-card:hover,
-.geo-child-card.active {
-    border-color: var(--geo-gold);
-    background: rgba(212, 175, 55, 0.08);
+.pin-status-coming-soon.pin-type-country .pin-circle {
+  fill: rgba(74, 48, 90, 0.22);
+  stroke: #4a3060;
 }
 
-/* ── System layer note ───────────────────────────────────── */
-.geo-system-note {
-    font-size: 0.75rem;
-    color: var(--geo-muted-faint);
-    font-style: italic;
-    margin: 0 0 1rem;
-    padding: 0.65rem 0.9rem;
-    border-left: 2px solid rgba(212, 175, 55, 0.2);
-    background: rgba(212, 175, 55, 0.03);
-    border-radius: 0 4px 4px 0;
-    line-height: 1.5;
+.pin-status-coming-soon.pin-type-region .pin-circle {
+  fill: rgba(55, 35, 75, 0.22);
+  stroke: #3d2855;
 }
 
-/* ── Footer ──────────────────────────────────────────────── */
-.geo-footer {
-    border-top: 1px solid rgba(212, 175, 55, 0.15);
-    color: var(--geo-muted-faint);
-    font-size: 0.75rem;
-    padding: 1.75rem 2rem;
-    text-align: center;
+/* Region-hub pins — dashed border signals "click to zoom in" */
+.pin-type-region-hub .pin-circle {
+  fill: rgba(232, 39, 58, 0.08);
+  stroke: #e8273a;
+  stroke-width: 1.5px;
+  stroke-dasharray: 4 2.5;
 }
 
-/* ── Responsive ──────────────────────────────────────────── */
-@media (max-width: 980px) {
-    .v2-nav {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 0.8rem;
-    }
-    .v2-links { justify-content: flex-start; font-size: 0.85rem; }
-    --geo-nav-h: 9rem;
-
-    .geo-shell { grid-template-columns: 1fr; }
-
-    .geo-panel {
-        position: static;
-        max-height: none;
-    }
+.pin-type-region-hub:hover .pin-circle {
+  fill: rgba(232, 39, 58, 0.20);
+  filter: brightness(1.4);
 }
 
-@media (max-width: 640px) {
-    .geo-actions { grid-template-columns: 1fr; }
-    .geo-child-grid { grid-template-columns: 1fr; }
-    #geo-stage { min-height: 380px; }
+/* Child pins — slightly dimmer at world scale */
+.pin-child .pin-circle {
+  opacity: 0.75;
 }
+
+.pin-child:hover .pin-circle {
+  opacity: 1;
+}
+
+/* Active */
+.pin-group.pin-active .pin-circle {
+  stroke-width: 2px;
+  filter: brightness(1.4);
+}
+
+/* Initials */
+.pin-initials {
+  fill: rgba(255, 255, 255, 0.48);
+  font-size: 5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.pin-status-live .pin-initials      { fill: rgba(255, 255, 255, 0.88); }
+.pin-group.pin-active .pin-initials { fill: #ffffff; }
+
+/* ── Tooltip ────────────────────────────── */
+
+#map-tooltip {
+  position: fixed;
+  display: none;
+  background: rgba(8, 6, 18, 0.93);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  color: #e8e8f0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 5px 10px;
+  border-radius: 5px;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 200;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* ── Info Panel ─────────────────────────── */
+
+#info-panel {
+  position: fixed;
+  top: 50%;
+  right: -420px;
+  transform: translateY(-50%);
+  width: 310px;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: rgba(7, 5, 16, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  padding: 24px 22px 22px;
+  z-index: 80;
+  transition: right 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  scrollbar-width: none;
+}
+
+#info-panel::-webkit-scrollbar { display: none; }
+
+#info-panel.open { right: 20px; }
+
+.info-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.28);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 6px;
+  transition: color 0.15s;
+}
+
+.info-close:hover { color: rgba(255, 255, 255, 0.72); }
+
+#info-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.info-status {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+
+.status-live {
+  background: rgba(232, 39, 58, 0.13);
+  color: #e8273a;
+  border: 1px solid rgba(232, 39, 58, 0.27);
+}
+
+.status-coming-soon {
+  background: rgba(155, 89, 182, 0.10);
+  color: #9b59b6;
+  border: 1px solid rgba(155, 89, 182, 0.22);
+}
+
+#info-label {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+#info-philosophy-title {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+  margin-bottom: 12px;
+}
+
+#info-thesis {
+  font-size: 13px;
+  line-height: 1.68;
+  color: rgba(255, 255, 255, 0.58);
+  margin-bottom: 20px;
+}
+
+#info-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(232, 39, 58, 0.09);
+  border: 1px solid rgba(232, 39, 58, 0.22);
+  color: #e8273a;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 7px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+#info-link:hover {
+  background: rgba(232, 39, 58, 0.18);
+  border-color: rgba(232, 39, 58, 0.42);
+}
+
+#info-link::after { content: ' →'; }
+
+/* ── WTF Hub Button ─────────────────────── */
+
+#wtf-hub {
+  position: fixed;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 90;
+}
+
+/* Satellite origin — centered at button */
+#hub-satellite-layer {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.hub-satellite {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(8, 6, 18, 0.95);
+  border: 1.5px solid rgba(155, 89, 182, 0.38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  pointer-events: none;
+  /* centre the circle at (0,0) */
+  margin-left: -23px;
+  margin-top: -23px;
+  /* collapsed */
+  transform: translate(0px, 0px) scale(0);
+  opacity: 0;
+  transition:
+    transform 0.48s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity   0.38s ease,
+    border-color 0.18s ease,
+    box-shadow   0.18s ease;
+}
+
+.hub-satellite:hover {
+  border-color: rgba(155, 89, 182, 0.82);
+  box-shadow: 0 0 18px rgba(155, 89, 182, 0.26);
+}
+
+.hub-satellite img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.hub-satellite-initials {
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  pointer-events: none;
+}
+
+/* Hub button */
+#wtf-hub-btn {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(5, 3, 12, 0.96);
+  border: 2px solid rgba(232, 39, 58, 0.36);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  overflow: hidden;
+  transition:
+    width  0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease,
+    box-shadow   0.3s ease;
+  box-shadow:
+    0 0 22px rgba(232, 39, 58, 0.10),
+    0 4px 28px rgba(0, 0, 0, 0.65);
+}
+
+#wtf-hub-btn:hover {
+  border-color: rgba(232, 39, 58, 0.60);
+  box-shadow:
+    0 0 32px rgba(232, 39, 58, 0.20),
+    0 4px 28px rgba(0, 0, 0, 0.70);
+}
+
+#wtf-hub.expanded #wtf-hub-btn {
+  width: 80px;
+  height: 80px;
+  border-color: rgba(232, 39, 58, 0.72);
+  box-shadow:
+    0 0 44px rgba(232, 39, 58, 0.28),
+    0 6px 34px rgba(0, 0, 0, 0.75);
+}
+
+.hub-icon-collapsed {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.26s ease, transform 0.26s ease;
+}
+
+.hub-logo-expanded {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.30s ease 0.10s, transform 0.30s ease 0.10s;
+}
+
+#wtf-hub.expanded .hub-icon-collapsed {
+  opacity: 0;
+  transform: scale(0.45);
+}
+
+#wtf-hub.expanded .hub-logo-expanded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── Zoom Controls ──────────────────────── */
+
+#map-controls {
+  position: fixed;
+  bottom: 36px;
+  right: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 70;
+}
+
+.map-ctrl-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(6, 4, 14, 0.90);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  line-height: 1;
+}
+
+.map-ctrl-btn:hover {
+  background: rgba(18, 14, 32, 0.96);
+  color: rgba(255, 255, 255, 0.82);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* ── Wordmark ───────────────────────────── */
+
+#map-wordmark {
+  position: fixed;
+  top: 22px;
+  left: 22px;
+  z-index: 70;
+  pointer-events: auto;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#map-wordmark:hover .wm-title {
+  color: rgba(255, 255, 255, 0.90);
+}
+
+#map-wordmark:hover .wm-sub {
+  color: rgba(255, 255, 255, 0.40);
+}
+
+#map-wordmark .wm-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.60);
+}
+
+#map-wordmark .wm-sub {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.22);
+  margin-top: 3px;
+}
+
+/* ── Legend ─────────────────────────────── */
+
+#map-legend {
+  position: fixed;
+  bottom: 36px;
+  left: 22px;
+  z-index: 70;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 9px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.26);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid;
+  flex-shrink: 0;
+}
+
+.legend-dot.ld-live        { border-color: #e8273a; background: rgba(232,39,58,0.18); }
+.legend-dot.ld-region      { border-color: #6b4090; background: rgba(107,64,144,0.18); }
+.legend-dot.ld-coming-soon { border-color: #4a3060; background: rgba(74,48,96,0.18); }

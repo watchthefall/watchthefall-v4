@@ -184,7 +184,81 @@ body {
 }
 .b-hero-left { position: relative; z-index: 1; }
 .b-hero-title { font-family: var(--font-head); font-size: clamp(5rem, 11vw, 9.5rem); line-height: 0.86; letter-spacing: -0.03em; margin: 0 0 1.4rem; }
-.b-hero-title span { color: var(--g); }
+.b-title-text { display: none; }
+.b-title-wm { display: none; width: 100%; max-width: 520px; height: auto; }
+.b-title-wm[data-wm="explorer"] { display: block; }
+.b-hero[data-tier] .b-title-text { display: none; }
+.b-hero[data-tier="explorer"] .b-title-wm[data-wm="explorer"] { display: block; }
+.b-hero[data-tier="creator"]  .b-title-wm[data-wm="creator"]  { display: block; }
+.b-hero[data-tier="studio"]   .b-title-wm[data-wm="studio"]   { display: block; }
+.b-hero[data-tier="platinum"] .b-title-wm[data-wm="platinum"] { display: block; }
+.b-hero-tiers {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+.b-hero-tiers img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 12px;
+    border: 1px solid rgba(212,175,55,0.2);
+    background: rgba(255,255,255,0.04);
+    padding: 4px;
+    cursor: pointer;
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.15s;
+}
+.b-hero-tiers img:hover { border-color: rgba(212,175,55,0.6); transform: scale(1.07); }
+
+/* ── Tier theme switcher ───────────────────────────────────── */
+.b-hero { position: relative; }
+.b-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    transition: background 0.55s ease;
+}
+.b-hero-left { position: relative; z-index: 1; }
+
+/* Dot accent transitions */
+.b-hero-title span { transition: color 0.4s ease; }
+
+/* Explorer — electric green */
+.b-hero[data-tier="explorer"]::before  { background: radial-gradient(ellipse at 12% 65%, rgba(34,197,94,0.13), transparent 48%); }
+.b-hero[data-tier="explorer"] .b-hero-title span { color: #22c55e; }
+.b-hero[data-tier="explorer"] .b-hero-tiers img[data-tier="explorer"] { border-color: #22c55e; box-shadow: 0 0 16px rgba(34,197,94,0.55); transform: scale(1.12); }
+.b-hero[data-tier="explorer"] .b-label { border-color: rgba(34,197,94,0.45); color: #22c55e; }
+
+/* Creator — deep purple */
+.b-hero[data-tier="creator"]::before   { background: radial-gradient(ellipse at 12% 65%, rgba(168,85,247,0.13), transparent 48%); }
+.b-hero[data-tier="creator"] .b-hero-title span { color: #a855f7; }
+.b-hero[data-tier="creator"] .b-hero-tiers img[data-tier="creator"] { border-color: #a855f7; box-shadow: 0 0 16px rgba(168,85,247,0.55); transform: scale(1.12); }
+.b-hero[data-tier="creator"] .b-label { border-color: rgba(168,85,247,0.45); color: #a855f7; }
+
+/* Studio — forge orange */
+.b-hero[data-tier="studio"]::before    { background: radial-gradient(ellipse at 12% 65%, rgba(249,115,22,0.13), transparent 48%); }
+.b-hero[data-tier="studio"] .b-hero-title span { color: #f97316; }
+.b-hero[data-tier="studio"] .b-hero-tiers img[data-tier="studio"] { border-color: #f97316; box-shadow: 0 0 16px rgba(249,115,22,0.55); transform: scale(1.12); }
+.b-hero[data-tier="studio"] .b-label { border-color: rgba(249,115,22,0.45); color: #f97316; }
+
+/* Platinum — sapphire blue */
+.b-hero[data-tier="platinum"]::before  { background: radial-gradient(ellipse at 12% 65%, rgba(59,130,246,0.13), transparent 48%); }
+.b-hero[data-tier="platinum"] .b-hero-title span { color: #3b82f6; }
+.b-hero[data-tier="platinum"] .b-hero-tiers img[data-tier="platinum"] { border-color: #3b82f6; box-shadow: 0 0 16px rgba(59,130,246,0.55); transform: scale(1.12); }
+.b-hero[data-tier="platinum"] .b-label { border-color: rgba(59,130,246,0.45); color: #3b82f6; }
+.b-hero-tiers-label {
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--tx3);
+    width: 100%;
+    margin-bottom: -0.25rem;
+}
 .b-hero-sub {
     font-size: clamp(1rem, 2vw, 1.18rem);
     line-height: 1.65;
@@ -201,15 +275,77 @@ body {
     line-height: 1.6;
 }
 .b-hero-note a { color: var(--g); text-decoration: none; }
-.b-hero-right { position: relative; z-index: 1; }
+.b-hero-right {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .b-screenshot-frame {
     border-radius: 12px;
     overflow: hidden;
     box-shadow:
         0 40px 80px rgba(0, 0, 0, 0.65),
         0 0 0 1px rgba(212, 175, 55, 0.12);
+    transition: opacity 0.45s ease;
+    width: 100%;
 }
 .b-screenshot-frame img { display: block; width: 100%; height: auto; }
+
+/* ── Tier wordmark panel ───────────────────────────────────── */
+.b-hero-wordmark {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s ease;
+    user-select: none;
+    padding: 2rem;
+    gap: 1.25rem;
+}
+/* All wordmark images hidden by default */
+.b-wm-img {
+    display: none;
+    width: 90%;
+    max-width: 480px;
+    height: auto;
+}
+.b-hero-wordmark-tier {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.65;
+    color: var(--tx2);
+}
+
+/* Wordmark panel visible when tier active, screenshot fades out */
+.b-hero[data-tier] .b-screenshot-frame { opacity: 0; pointer-events: none; }
+.b-hero[data-tier] .b-hero-wordmark    { opacity: 1; pointer-events: auto; }
+
+/* Show correct image per tier */
+.b-hero[data-tier="explorer"] .b-wm-img[data-wm="explorer"] { display: block; }
+.b-hero[data-tier="creator"]  .b-wm-img[data-wm="creator"]  { display: block; }
+.b-hero[data-tier="studio"]   .b-wm-img[data-wm="studio"]   { display: block; }
+.b-hero[data-tier="platinum"] .b-wm-img[data-wm="platinum"] { display: block; }
+
+/* Tier label: show correct one */
+.b-hero-wordmark-tier span[data-tier-label] { display: none; }
+.b-hero[data-tier="explorer"] .b-hero-wordmark-tier span[data-tier-label="explorer"] { display: inline; }
+.b-hero[data-tier="creator"]  .b-hero-wordmark-tier span[data-tier-label="creator"]  { display: inline; }
+.b-hero[data-tier="studio"]   .b-hero-wordmark-tier span[data-tier-label="studio"]   { display: inline; }
+.b-hero[data-tier="platinum"] .b-hero-wordmark-tier span[data-tier-label="platinum"] { display: inline; }
+
+/* Tier label colour matches tier accent */
+.b-hero[data-tier="explorer"] .b-hero-wordmark-tier { color: #22c55e; }
+.b-hero[data-tier="creator"]  .b-hero-wordmark-tier { color: #a855f7; }
+.b-hero[data-tier="studio"]   .b-hero-wordmark-tier { color: #f97316; }
+.b-hero[data-tier="platinum"] .b-hero-wordmark-tier { color: #60a5fa; }
 
 /* ============================================================
    ORIGIN
@@ -661,11 +797,24 @@ body {
 <section class="b-hero">
     <div class="b-hero-left">
         <div class="b-label">WatchTheFall &nbsp;/&nbsp; Product</div>
-        <h1 class="b-hero-title">Brandr<span>.</span></h1>
+        <h1 class="b-hero-title">
+            <span class="b-title-text">Brandr</span>
+            <img class="b-title-wm" data-wm="explorer"  src="assets/brandr/brandr_wordmark_explorer.png"  alt="Brandr Explorer">
+            <img class="b-title-wm" data-wm="creator"   src="assets/brandr/brandr_wordmark_creator.png"   alt="Brandr Creator">
+            <img class="b-title-wm" data-wm="studio"    src="assets/brandr/brandr_wordmark_studio.png"    alt="Brandr Studio">
+            <img class="b-title-wm" data-wm="platinum"  src="assets/brandr/brandr_wordmark_platinum.png"  alt="Brandr Platinum">
+        </h1>
         <p class="b-hero-sub">The branding engine behind WatchTheFall. Turn raw content into consistent, branded, publish-ready posts — faster.</p>
         <div class="b-ctas">
             <a href="https://brandr.online" class="b-btn b-btn--gold" target="_blank" rel="noopener">Try Brandr ↗</a>
             <a href="#pricing" class="b-btn b-btn--outline">View pricing</a>
+        </div>
+        <div class="b-hero-tiers">
+            <span class="b-hero-tiers-label">Pick a tier to preview its theme</span>
+            <img src="assets/brandr/brandr_logo_explorer.png" alt="Explorer tier" data-tier="explorer" title="Explorer — Free">
+            <img src="assets/brandr/brandr_logo_creator.png" alt="Creator tier" data-tier="creator" title="Creator — £9/mo">
+            <img src="assets/brandr/brandr_logo_studio.png" alt="Studio tier" data-tier="studio" title="Studio — £19/mo">
+            <img src="assets/brandr/brandr_logo_platinum.png" alt="Platinum tier" data-tier="platinum" title="Platinum — £49/mo">
         </div>
         <p class="b-hero-note">Built internally to run the WatchTheFall network. Now available at <a href="https://brandr.online" target="_blank" rel="noopener">brandr.online</a> for creators, operators, and small teams.</p>
     </div>
@@ -675,6 +824,18 @@ body {
             <img src="assets/brandr/brandr_online_brandsettings.png"
                  alt="Brandr — Brand Settings showing WTF regional pages ready to render"
                  loading="lazy">
+        </div>
+        <div class="b-hero-wordmark" aria-hidden="true">
+            <img class="b-wm-img" data-wm="explorer"  src="assets/brandr/tier-explorer.png"  alt="Brandr Explorer tier — Free">
+            <img class="b-wm-img" data-wm="creator"   src="assets/brandr/tier-creator.png"   alt="Brandr Creator tier — £9/mo">
+            <img class="b-wm-img" data-wm="studio"    src="assets/brandr/tier-studio.png"    alt="Brandr Studio tier — £19/mo">
+            <img class="b-wm-img" data-wm="platinum"  src="assets/brandr/tier-platinum.png"  alt="Brandr Platinum tier — £49/mo">
+            <div class="b-hero-wordmark-tier">
+                <span data-tier-label="explorer">Explorer &mdash; Free</span>
+                <span data-tier-label="creator">Creator &mdash; £9/mo</span>
+                <span data-tier-label="studio">Studio &mdash; £19/mo</span>
+                <span data-tier-label="platinum">Platinum &mdash; £49/mo</span>
+            </div>
         </div>
     </div>
 </section>
@@ -972,6 +1133,24 @@ body {
     <p>© 2026 WatchTheFall. Brandr is a product of the WatchTheFall ecosystem.</p>
     <a href="https://brandr.online" target="_blank" rel="noopener">brandr.online ↗</a>
 </div>
+
+
+<script>
+(function () {
+    var hero = document.querySelector('.b-hero');
+    var imgs = document.querySelectorAll('.b-hero-tiers img[data-tier]');
+    imgs.forEach(function (img) {
+        img.addEventListener('click', function () {
+            var tier = img.dataset.tier;
+            if (hero.dataset.tier === tier) {
+                delete hero.dataset.tier;   // toggle off → back to gold
+            } else {
+                hero.dataset.tier = tier;   // apply theme
+            }
+        });
+    });
+})();
+</script>
 
 </body>
 </html>
