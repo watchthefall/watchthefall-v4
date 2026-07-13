@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-12T00:00:00Z",
+  "last_updated": "2026-07-13T00:00:00Z",
   "regions": [
     {
       "region": "ScotlandWTF",
@@ -176,13 +176,13 @@
       "region": "GermanyWTF",
       "followers": {
         "tiktok": 17,
-        "instagram": 761,
+        "instagram": 769,
         "youtube": 0,
         "x": 0
       },
       "previous": {
         "tiktok": 15,
-        "instagram": 70,
+        "instagram": 761,
         "youtube": 0,
         "x": 0
       },
@@ -347,13 +347,13 @@
       "region": "SpainWTF",
       "followers": {
         "tiktok": 0,
-        "instagram": 462,
+        "instagram": 551,
         "youtube": 0,
         "x": 0
       },
       "previous": {
         "tiktok": 0,
-        "instagram": 27,
+        "instagram": 462,
         "youtube": 0,
         "x": 0
       },
@@ -366,13 +366,13 @@
       "region": "ItalyWTF",
       "followers": {
         "tiktok": 0,
-        "instagram": 659,
+        "instagram": 1759,
         "youtube": 0,
         "x": 0
       },
       "previous": {
         "tiktok": 0,
-        "instagram": 27,
+        "instagram": 659,
         "youtube": 0,
         "x": 0
       },
@@ -385,13 +385,13 @@
       "region": "NetherlandsWTF",
       "followers": {
         "tiktok": 0,
-        "instagram": 2436,
+        "instagram": 2452,
         "youtube": 0,
         "x": 0
       },
       "previous": {
         "tiktok": 0,
-        "instagram": 27,
+        "instagram": 2436,
         "youtube": 0,
         "x": 0
       },
@@ -442,13 +442,13 @@
       "region": "DarkHumourWTF",
       "followers": {
         "tiktok": 0,
-        "instagram": 18,
+        "instagram": 19,
         "youtube": 0,
         "x": 0
       },
       "previous": {
         "tiktok": 0,
-        "instagram": 15,
+        "instagram": 18,
         "youtube": 0,
         "x": 0
       },
