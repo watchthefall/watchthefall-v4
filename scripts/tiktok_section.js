@@ -1,18 +1,32 @@
 // =====================================================================
-// WatchTheFall v4.5 - Content Hub with Lazy-Load Optimization
-// TikTok & Instagram only | 10 slots (8 videos + ads at 6,9)
+// WatchTheFall v4.6 - Content Hub with Cross-Network Instagram Shuffle
+// TikTok: 10 slots (8 videos + ads at 6,9) | Instagram: shuffled regional reels
 // =====================================================================
 
 (function() {
     'use strict';
-    
+
     let currentPlatform = 'tiktok';
     let contentData = null;
     let observer = null;
-    
+
+    // All regional Instagram libraries — new ones auto-join the shuffle
+    const REGIONAL_LIBRARIES = [
+        'data/scotlandwtf_library.json',
+        'data/germanywtf_library.json',
+        'data/netherlandswtf_library.json',
+        'data/spainwtf_library.json',
+        'data/waleswtf_library.json',
+        'data/swedenwtf_library.json',
+        'data/britainwtf_library.json',
+        'data/australiawtf_library.json',
+    ];
+
+    const AD_POSITIONS = [6, 9];
+
     const PLATFORMS = {
         tiktok: { name: 'TikTok', icon: '📱', color: '#fe2c55' },
-        instagram: { name: 'Instagram', icon: '📷', color: '#e4405f' }
+        instagram: { name: 'Network Mix', icon: '📷', color: '#e4405f' }
     };
     
     async function loadContentData() {
@@ -71,37 +85,118 @@
     }
     
     function renderContentSlider() {
+        if (currentPlatform === 'instagram') {
+            renderInstagramShuffle();
+            return;
+        }
+
         const slider = document.getElementById('content-slider');
         if (!slider || !contentData) return;
-        
+
         const platformData = contentData[currentPlatform];
         if (!platformData) {
             slider.innerHTML = '<div class="error-state"><p>No content available</p></div>';
             return;
         }
-        
+
         const videos = platformData.videos || platformData.reels || [];
         const adPositions = platformData.ad_positions || [];
-        
+
         // Create 10 slots: 8 videos + 2 ads at positions 6 and 9
         const boxes = [];
         let videoIndex = 0;
-        
+
         for (let pos = 1; pos <= 10; pos++) {
             if (adPositions.includes(pos)) {
                 boxes.push(createAdBox(pos));
             } else if (videoIndex < videos.length) {
-                boxes.push(createContentBox(videos[videoIndex], currentPlatform, false)); // Changed to false - no preload
+                boxes.push(createContentBox(videos[videoIndex], currentPlatform, false));
                 videoIndex++;
             } else {
                 boxes.push(createPlaceholderBox(currentPlatform));
             }
         }
-        
+
         slider.innerHTML = boxes.join('');
-        
-        // Initialize lazy loading for videos
         initLazyLoad();
+    }
+
+    async function renderInstagramShuffle() {
+        const slider = document.getElementById('content-slider');
+        if (!slider) return;
+
+        slider.innerHTML = `
+            <div class="content-box placeholder-box" style="--platform-color:#e4405f;grid-column:1/-1;min-height:80px;display:flex;align-items:center;justify-content:center;">
+                <div class="placeholder-content">
+                    <span class="placeholder-icon">📷</span>
+                    <p class="placeholder-text">Shuffling reels from across the network…</p>
+                </div>
+            </div>`;
+
+        // Fetch all regional libraries in parallel
+        const results = await Promise.allSettled(
+            REGIONAL_LIBRARIES.map(url => fetch(url).then(r => r.json()))
+        );
+
+        let allReels = [];
+        results.forEach(r => {
+            if (r.status === 'fulfilled' && Array.isArray(r.value.featured)) {
+                allReels = allReels.concat(r.value.featured);
+            }
+        });
+
+        // Fisher-Yates shuffle
+        for (let i = allReels.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [allReels[i], allReels[j]] = [allReels[j], allReels[i]];
+        }
+
+        const boxes = [];
+        let reelIndex = 0;
+
+        for (let pos = 1; pos <= 10; pos++) {
+            if (AD_POSITIONS.includes(pos)) {
+                boxes.push(createAdBox(pos));
+            } else if (reelIndex < allReels.length) {
+                boxes.push(createReelIframeBox(allReels[reelIndex++]));
+            } else {
+                boxes.push(createPlaceholderBox('instagram'));
+            }
+        }
+
+        slider.innerHTML = boxes.join('');
+
+        // Inject reshuffle button above slider
+        const reshuffleId = 'ig-reshuffle-btn';
+        if (!document.getElementById(reshuffleId)) {
+            const btn = document.createElement('button');
+            btn.id = reshuffleId;
+            btn.className = 'platform-btn';
+            btn.style.cssText = 'margin:0 auto 1rem;display:block;--platform-color:#e4405f;';
+            btn.innerHTML = '<span class="platform-icon">🔀</span><span class="platform-name">Reshuffle</span>';
+            btn.addEventListener('click', renderInstagramShuffle);
+            slider.parentNode.insertBefore(btn, slider);
+        }
+
+        console.log(`✅ Instagram Network Mix | ${allReels.length} reels from ${results.filter(r => r.status === 'fulfilled').length} regions`);
+    }
+
+    function createReelIframeBox(url) {
+        const id = (url.match(/\/reel\/([^/?#]+)/) || [])[1];
+        if (!id) return createPlaceholderBox('instagram');
+        return `
+            <div class="content-box instagram-box">
+                <iframe
+                    src="https://www.instagram.com/reel/${id}/embed/"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allowfullscreen="true"
+                    frameborder="0"
+                    loading="lazy"
+                    style="width:100%;min-height:480px;border:none;border-radius:8px;">
+                </iframe>
+            </div>
+        `;
     }
     
     function createContentBox(item, platform, preload = false) {
