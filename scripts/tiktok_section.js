@@ -20,6 +20,8 @@
         'data/swedenwtf_library.json',
         'data/britainwtf_library.json',
         'data/australiawtf_library.json',
+        'data/englandwtf_library.json',
+        'data/canadawtf_library.json',
     ];
 
     const AD_POSITIONS = [6, 9];
