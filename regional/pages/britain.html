@@ -224,8 +224,212 @@
     })();
     </script>
 
+    <!-- Britain Reels Carousel -->
+    <section class="section britain-reels-section" id="britain-reels">
+        <div class="container">
+            <div class="reels-latest-block">
+                <h2 class="section-title">Latest from <span class="accent">@britainwtf</span></h2>
+                <div class="reels-latest-embed" id="reels-latest-embed">
+                    <div class="reel-embed-shell">
+                        <iframe id="latest-reel-iframe" src="" scrolling="no" allowtransparency="true" allowfullscreen="true" frameborder="0" loading="lazy" title="Latest BritainWTF reel" style="width:100%;max-width:400px;min-height:480px;border:none;border-radius:12px;display:block;margin:0 auto;"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="reels-featured-block">
+                <div class="reels-carousel-wrap">
+                    <button class="carousel-nav carousel-prev" id="carousel-prev">&#8249;</button>
+                    <div class="reels-carousel-viewport" id="reels-carousel-viewport">
+                        <div class="reels-carousel-track" id="reels-carousel-track"></div>
+                    </div>
+                    <button class="carousel-nav carousel-next" id="carousel-next">&#8250;</button>
+                </div>
+                <div class="carousel-dots" id="carousel-dots"></div>
+            </div>
+            <div class="reels-cta" style="text-align:center;margin-top:1.5rem;">
+                <a href="https://www.instagram.com/britainwtf/" target="_blank" rel="noopener" class="action-btn instagram-btn" style="display:inline-flex;">
+                    <span class="btn-icon"><i class="fab fa-instagram"></i></span>
+                    <span class="btn-text">Follow @britainwtf</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Social & Support Actions -->
     <section class="section social-actions-section">
         <div class="container">
             <h2 class="section-title">Connect & Support</h2>
-         
+            <div class="action-buttons">
+                <a href="https://www.instagram.com/britainwtf/" target="_blank" class="action-btn instagram-btn">
+                    <span class="btn-icon"><i class="fab fa-instagram"></i></span>
+                    <span class="btn-text">Instagram</span>
+                </a>
+                <a href="https://www.tiktok.com/@britain.wtf" target="_blank" class="action-btn tiktok-btn">
+                    <span class="btn-icon"><i class="fab fa-tiktok"></i></span>
+                    <span class="btn-text">TikTok</span>
+                </a>
+                <a href="https://x.com/britainwtf" target="_blank" class="action-btn x-btn">
+                    <span class="btn-icon"><i class="fab fa-x-twitter"></i></span>
+                    <span class="btn-text">X</span>
+                </a>
+                <a href="https://www.youtube.com/@britainwtf" target="_blank" class="action-btn youtube-btn">
+                    <span class="btn-icon"><i class="fab fa-youtube"></i></span>
+                    <span class="btn-text">YouTube</span>
+                </a>
+                <a href="https://www.threads.net/@britainwtf" target="_blank" class="action-btn threads-btn">
+                    <span class="btn-icon"><i class="fab fa-threads"></i></span>
+                    <span class="btn-text">Threads</span>
+                </a>
+                <a href="../../wtfcreations.html" class="action-btn shop-btn">
+                    <span class="btn-icon"><i class="fas fa-shopping-cart"></i></span>
+                    <span class="btn-text">WTF Creations</span>
+                </a>
+                <a href="#support" class="action-btn support-btn">
+                    <span class="btn-icon"><i class="fas fa-hand-holding-usd"></i></span>
+                    <span class="btn-text">Support Us</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Console -->
+    <section id="content-console" class="section content-console-section">
+        <div class="container">
+            <!-- Content loaded dynamically by content_console.js -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="../../assets/logos/britain-wtf-logo.webp" alt="Britain WTF" loading="lazy">
+                    <p>Recording Britain's decline</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../../wtfcreations.html">Shop</a></li>
+                        <li><a href="../../feed.html">Directory</a></li>
+                    </ul>
+                </div>
+                <div class="footer-info">
+                    <h4>Britain WTF</h4>
+                    <p>Part of WatchTheFall Network</p>
+                    <p>United Kingdom</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 WatchTheFall.wtf - Britain Regional Hub</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Britain Reels Library -->
+    <script>
+    (function () {
+        var LIBRARY_URL = '../../data/britainwtf_library.json';
+        function getReelId(url) { var m = url.match(/\/reel\/([^/?#]+)/); return m ? m[1] : null; }
+        function embedUrl(u) { var id = getReelId(u); return id ? 'https://www.instagram.com/reel/' + id + '/embed/' : null; }
+        function getVisible() { return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1; }
+        var track, dotsEl, prevBtn, nextBtn, items = [], current = 0, visible = 1;
+        function renderTrack() {
+            track.innerHTML = '';
+            items.forEach(function(url, i) {
+                var cell = document.createElement('div'); cell.className = 'reel-cell'; cell.dataset.index = i;
+                var iframe = document.createElement('iframe');
+                iframe.src = embedUrl(url) || ''; iframe.scrolling = 'no'; iframe.allowTransparency = true;
+                iframe.allowFullscreen = true; iframe.frameBorder = '0'; iframe.loading = 'lazy';
+                iframe.title = 'BritainWTF reel ' + (i+1);
+                cell.appendChild(iframe); track.appendChild(cell);
+            });
+        }
+        function renderDots() {
+            var pages = Math.ceil(items.length / visible); dotsEl.innerHTML = '';
+            for (var i = 0; i < pages; i++) {
+                var d = document.createElement('button');
+                d.className = 'carousel-dot' + (i === Math.floor(current/visible) ? ' active' : '');
+                d.setAttribute('aria-label', 'Page ' + (i+1));
+                (function(p){ d.addEventListener('click', function(){ goTo(p*visible); }); })(i);
+                dotsEl.appendChild(d);
+            }
+        }
+        function goTo(idx) {
+            var max = Math.max(0, items.length - visible);
+            current = Math.min(Math.max(0, idx), max);
+            var cellWidth = track.parentElement.offsetWidth / visible;
+            track.style.transform = 'translateX(-' + (current * cellWidth) + 'px)';
+            renderDots();
+        }
+        function initCarousel(featured) {
+            items = featured;
+            track = document.getElementById('reels-carousel-track');
+            dotsEl = document.getElementById('carousel-dots');
+            prevBtn = document.getElementById('carousel-prev');
+            nextBtn = document.getElementById('carousel-next');
+            visible = getVisible();
+            renderTrack(); renderDots(); goTo(0);
+            prevBtn.addEventListener('click', function(){ goTo(current - visible); });
+            nextBtn.addEventListener('click', function(){ goTo(current + visible); });
+            window.addEventListener('resize', function(){ visible = getVisible(); renderDots(); goTo(current); });
+        }
+        fetch(LIBRARY_URL)
+            .then(function(r){ return r.json(); })
+            .then(function(lib){
+                var latestIframe = document.getElementById('latest-reel-iframe');
+                if (latestIframe && lib.latest) latestIframe.src = embedUrl(lib.latest) || '';
+                if (lib.featured && lib.featured.length) initCarousel(lib.featured);
+            })
+            .catch(function(err){ console.warn('BritainWTF library failed to load:', err); });
+    })();
+    </script>
+
+    <!-- Scripts (deferred for better performance) -->
+    <script src="../../scripts/utils/version.js" defer></script>
+    <script src="../../scripts/network.js" defer></script>
+    <script src="../../scripts/content_console.js" defer></script>
+    
+    <!-- Britain Stats Dynamic Loading (inline for immediate execution) -->
+    <script>
+        async function loadBritainStats() {
+            try {
+                const response = await fetch('../../data/worldcup.json');
+                const data = await response.json();
+                
+                const britainHub = data.regions.find(c => c.region === 'BritainWTF');
+                
+                if (britainHub) {
+                    const tiktokFollowers = britainHub.followers.tiktok || 0;
+                    const instagramFollowers = britainHub.followers.instagram || 0;
+                    const totalFollowers = tiktokFollowers + instagramFollowers;
+                    
+                    document.getElementById('total-followers-stat').textContent = 
+                        totalFollowers >= 1000000 ? (totalFollowers / 1000000).toFixed(1) + 'M' :
+                        totalFollowers >= 1000 ? (totalFollowers / 1000).toFixed(1) + 'K' :
+                        totalFollowers.toString();
+                }
+                
+                const baseWeeklyGrowth = 1200;
+                const variance = Math.floor(Math.random() * 600) - 300;
+                const weeklyGrowth = baseWeeklyGrowth + variance;
+                
+                document.getElementById('growth-stat').textContent = 
+                    '+' + (weeklyGrowth >= 1000 ? (weeklyGrowth / 1000).toFixed(1) + 'K' : weeklyGrowth);
+                
+                const baseContent = 25;
+                const contentVariance = Math.floor(Math.random() * 10) - 5;
+                const weeklyContent = baseContent + contentVariance;
+                
+                document.getElementById('weekly-content-stat').textContent = weeklyContent + '+';
+                
+            } catch (error) {
+                console.error('Failed to load Britain stats:', error);
+                document.getElementById('total-followers-stat').textContent = '571';
+            }
+        }
+        
+        loadBritainStats();
+    </script>
+</body>
+</html>
