@@ -6,7 +6,7 @@
 (function() {
     'use strict';
 
-    let currentPlatform = 'tiktok';
+    let currentPlatform = 'instagram';
     let contentData = null;
     let observer = null;
 
