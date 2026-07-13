@@ -125,6 +125,38 @@
         </div>
     </section>
 
+    <!-- GermanyWTF Reels Section -->
+    <section class="section germany-reels-section" id="germany-reels">
+        <div class="container">
+            <div class="reels-latest-block">
+                <h2 class="section-title">Latest from <span class="accent">@germany.wtf</span></h2>
+                <p class="reels-latest-label">Most recent post</p>
+                <div class="reels-latest-embed" id="reels-latest-embed">
+                    <div class="reel-embed-shell">
+                        <iframe id="latest-reel-iframe" src="" scrolling="no" allowtransparency="true" allowfullscreen="true" frameborder="0" title="Latest GermanyWTF reel" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="reels-featured-block">
+                <h3 class="reels-featured-title">Top Reels</h3>
+                <p class="reels-featured-subtitle">Highest-performing content from GermanyWTF</p>
+                <div class="reels-carousel-wrap">
+                    <button class="carousel-nav carousel-prev" id="carousel-prev" aria-label="Previous reels">&#8249;</button>
+                    <div class="reels-carousel-viewport" id="reels-carousel-viewport">
+                        <div class="reels-carousel-track" id="reels-carousel-track"></div>
+                    </div>
+                    <button class="carousel-nav carousel-next" id="carousel-next" aria-label="Next reels">&#8250;</button>
+                </div>
+                <div class="carousel-dots" id="carousel-dots"></div>
+            </div>
+            <div class="reels-cta">
+                <a href="https://www.instagram.com/germany.wtf/" target="_blank" rel="noopener noreferrer" class="btn btn-primary reels-follow-btn">
+                    <i class="fab fa-instagram"></i> Follow @germany.wtf
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Social & Support Actions -->
     <section class="section social-actions-section">
         <div class="container">
@@ -196,6 +228,69 @@
             </div>
         </div>
     </footer>
+
+    <!-- Germany Reels Library -->
+    <script>
+    (function () {
+        var LIBRARY_URL = '../../data/germanywtf_library.json';
+        function getReelId(url) { var m = url.match(/\/reel\/([^/?#]+)/); return m ? m[1] : null; }
+        function embedUrl(u) { var id = getReelId(u); return id ? 'https://www.instagram.com/reel/' + id + '/embed/' : null; }
+        function shuffle(arr) { var a = arr.slice(); for (var i = a.length-1; i > 0; i--) { var j = Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+        function getVisible() { return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1; }
+        var track, dotsEl, prevBtn, nextBtn, items = [], current = 0, visible = 1;
+        function renderTrack() {
+            track.innerHTML = '';
+            items.forEach(function(url, i) {
+                var cell = document.createElement('div'); cell.className = 'reel-cell'; cell.dataset.index = i;
+                var iframe = document.createElement('iframe');
+                iframe.src = embedUrl(url) || ''; iframe.scrolling = 'no'; iframe.allowTransparency = true;
+                iframe.allowFullscreen = true; iframe.frameBorder = '0'; iframe.loading = 'lazy';
+                iframe.title = 'GermanyWTF reel ' + (i+1);
+                cell.appendChild(iframe); track.appendChild(cell);
+            });
+        }
+        function renderDots() {
+            var pages = Math.ceil(items.length / visible); dotsEl.innerHTML = '';
+            for (var i = 0; i < pages; i++) {
+                var d = document.createElement('button');
+                d.className = 'carousel-dot' + (i === Math.floor(current/visible) ? ' active' : '');
+                d.setAttribute('aria-label', 'Page ' + (i+1));
+                (function(p){ d.addEventListener('click', function(){ goTo(p*visible); }); })(i);
+                dotsEl.appendChild(d);
+            }
+        }
+        function goTo(idx) {
+            var max = Math.max(0, items.length - visible);
+            current = Math.min(Math.max(0, idx), max);
+            var cellWidth = track.parentElement.offsetWidth / visible;
+            track.style.transform = 'translateX(-' + (current * cellWidth) + 'px)';
+            renderDots();
+        }
+        function initCarousel(featured) {
+            var PINNED_ID = 'DRZRdckjoJM';
+            var pinned = featured.filter(function(u){ return u.indexOf(PINNED_ID) !== -1; });
+            var rest   = featured.filter(function(u){ return u.indexOf(PINNED_ID) === -1; });
+            items = pinned.concat(rest);
+            track = document.getElementById('reels-carousel-track');
+            dotsEl = document.getElementById('carousel-dots');
+            prevBtn = document.getElementById('carousel-prev');
+            nextBtn = document.getElementById('carousel-next');
+            visible = getVisible();
+            renderTrack(); renderDots(); goTo(0);
+            prevBtn.addEventListener('click', function(){ goTo(current - visible); });
+            nextBtn.addEventListener('click', function(){ goTo(current + visible); });
+            window.addEventListener('resize', function(){ visible = getVisible(); renderDots(); goTo(current); });
+        }
+        fetch(LIBRARY_URL)
+            .then(function(r){ return r.json(); })
+            .then(function(lib){
+                var latestIframe = document.getElementById('latest-reel-iframe');
+                if (latestIframe && lib.latest) latestIframe.src = embedUrl(lib.latest) || '';
+                if (lib.featured && lib.featured.length) initCarousel(lib.featured);
+            })
+            .catch(function(err){ console.warn('GermanyWTF library failed to load:', err); });
+    })();
+    </script>
 
     <!-- Scripts (deferred for better performance) -->
     <script src="../../scripts/utils/version.js" defer></script>
