@@ -7,7 +7,8 @@
     "reels": 320,
     "posts": 9,
     "note": "latest = most recent reel from last sweep. featured = curated shortlist for the Scotland subpage carousel. Edit featured manually to swap in your favourite reels from the 'reels' array.",
-    "featured_note": "Top 15 by Instagram likes (real counts from page meta). Updated 2026-07-05."
+    "featured_note": "Top 15 by Instagram likes (real counts from page meta). Updated 2026-07-05.",
+    "last_sweep": "2026-07-13"
   },
   "reels": [
     "https://www.instagram.com/scotlandwtf/reel/DaaKzXWoyle/",
@@ -673,7 +674,7 @@
     "https://www.instagram.com/scotlandwtf/p/DJ_xZMtoo8G/",
     "https://www.instagram.com/scotlandwtf/p/DIUT8d2oa7q/"
   ],
-  "latest": "https://www.instagram.com/scotlandwtf/reel/DaaKzXWoyle/",
+  "latest": "https://www.instagram.com/scotlandwtf/reel/DauXwnoolvT/",
   "featured": [
     "https://www.instagram.com/scotlandwtf/reel/DHls-urI5rC/",
     "https://www.instagram.com/scotlandwtf/reel/DZX6NYmIvN1/",
