@@ -1,5 +1,5 @@
 // =====================================================================
-// WatchTheFall v4.6 - Content Hub with Cross-Network Instagram Shuffle
+// WatchTheFall v4.7 - Content Hub with Cross-Network Instagram Shuffle
 // TikTok: 10 slots (8 videos + ads at 6,9) | Instagram: shuffled regional reels
 // =====================================================================
 
@@ -22,6 +22,11 @@
         'data/australiawtf_library.json',
         'data/englandwtf_library.json',
         'data/canadawtf_library.json',
+        'data/europewtf_library.json',
+        'data/francewtf_library.json',
+        'data/irelandwtf_library.json',
+        'data/polandwtf_library.json',
+        'data/usamericawtf_library.json',
     ];
 
     const AD_POSITIONS = [6, 9];
