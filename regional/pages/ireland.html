@@ -124,12 +124,191 @@
         </div>
     </section>
 
+    <!-- IrelandWTF Reels Section -->
+    <section class="section ireland-reels-section" id="ireland-reels">
+        <div class="container">
+            <div class="reels-latest-block">
+                <h2 class="section-title">Latest from <span class="accent">@irelandwtf</span></h2>
+                <p class="reels-latest-label">Most recent post</p>
+                <div class="reels-latest-embed" id="reels-latest-embed">
+                    <div class="reel-embed-shell" id="latest-reel-shell"></div>
+                </div>
+            </div>
+            <div class="reels-featured-block">
+                <h3 class="reels-featured-title">Top Reels</h3>
+                <p class="reels-featured-subtitle">Randomised from our highest-performing content</p>
+                <div class="reels-carousel-wrap">
+                    <button class="carousel-nav carousel-prev" id="carousel-prev" aria-label="Previous reels">&#8249;</button>
+                    <div class="reels-carousel-viewport" id="reels-carousel-viewport">
+                        <div class="reels-carousel-track" id="reels-carousel-track"></div>
+                    </div>
+                    <button class="carousel-nav carousel-next" id="carousel-next" aria-label="Next reels">&#8250;</button>
+                </div>
+                <div class="carousel-dots" id="carousel-dots"></div>
+            </div>
+            <div class="reels-cta">
+                <a href="https://www.tiktok.com/@irelandwtf" target="_blank" rel="noopener noreferrer" class="btn btn-primary reels-follow-btn">
+                    <i class="fab fa-tiktok"></i> Follow @irelandwtf
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- IrelandWTF TikTok Library -->
+    <script>
+    (function () {
+        var LIBRARY_URL = '../../data/irelandwtf_tiktok_library.json';
+        function getVideoId(url) { var m = url.match(/\/video\/([^/?#]+)/); return m ? m[1] : null; }
+        function makeBQ(url) {
+            var id = getVideoId(url); if (!id) return null;
+            var bq = document.createElement('blockquote');
+            bq.className = 'tiktok-embed';
+            bq.setAttribute('cite', url);
+            bq.setAttribute('data-video-id', id);
+            bq.style.maxWidth = '325px'; bq.style.minWidth = '325px';
+            bq.innerHTML = '<section></section>';
+            return bq;
+        }
+        function shuffle(arr) { var a = arr.slice(); for (var i = a.length-1; i > 0; i--) { var j = Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+        function getVisible() { return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1; }
+        var track, dotsEl, prevBtn, nextBtn, items = [], current = 0, visible = 1;
+        function renderTrack() {
+            track.innerHTML = '';
+            items.forEach(function(url, i) {
+                var bq = makeBQ(url); if (!bq) return;
+                var cell = document.createElement('div'); cell.className = 'reel-cell'; cell.dataset.index = i;
+                cell.appendChild(bq); track.appendChild(cell);
+            });
+        }
+        function renderDots() {
+            var pages = Math.ceil(items.length / visible); dotsEl.innerHTML = '';
+            for (var i = 0; i < pages; i++) {
+                var d = document.createElement('button');
+                d.className = 'carousel-dot' + (i === Math.floor(current/visible) ? ' active' : '');
+                d.setAttribute('aria-label', 'Page ' + (i+1));
+                (function(p){ d.addEventListener('click', function(){ goTo(p*visible); }); })(i);
+                dotsEl.appendChild(d);
+            }
+        }
+        function goTo(idx) {
+            var max = Math.max(0, items.length - visible);
+            current = Math.min(Math.max(0, idx), max);
+            var cellWidth = track.parentElement.offsetWidth / visible;
+            track.style.transform = 'translateX(-' + (current * cellWidth) + 'px)';
+            renderDots();
+        }
+        function loadTikTokScript() {
+            if (document.querySelector('script[src*="tiktok.com/embed.js"]')) return;
+            var s = document.createElement('script'); s.src = 'https://www.tiktok.com/embed.js'; s.async = true;
+            document.body.appendChild(s);
+        }
+        function initCarousel(featured) {
+            items = shuffle(featured);
+            track = document.getElementById('reels-carousel-track');
+            dotsEl = document.getElementById('carousel-dots');
+            prevBtn = document.getElementById('carousel-prev');
+            nextBtn = document.getElementById('carousel-next');
+            visible = getVisible();
+            renderTrack(); renderDots(); goTo(0);
+            prevBtn.addEventListener('click', function(){ goTo(current - visible); });
+            nextBtn.addEventListener('click', function(){ goTo(current + visible); });
+            window.addEventListener('resize', function(){ visible = getVisible(); renderDots(); goTo(current); });
+            loadTikTokScript();
+        }
+        fetch(LIBRARY_URL)
+            .then(function(r){ return r.json(); })
+            .then(function(lib){
+                var shell = document.getElementById('latest-reel-shell');
+                if (shell && lib.latest) { var bq = makeBQ(lib.latest); if (bq) shell.appendChild(bq); }
+                if (lib.featured && lib.featured.length) initCarousel(lib.featured);
+            })
+            .catch(function(err){ console.warn('IrelandWTF library failed to load:', err); });
+    })();
+    </script>
+
+    <!-- IrelandWTF Instagram Reels Section -->
+    <section class="section ireland-ig-reels-section" id="ireland-ig-reels">
+        <div class="container">
+            <div class="reels-latest-block">
+                <h2 class="section-title">Latest from <span class="accent">@irelandwtf</span></h2>
+                <div class="reels-latest-embed" id="reels-latest-embed-ig">
+                    <div class="reel-embed-shell">
+                        <iframe id="latest-reel-iframe-ig" src="" scrolling="no" allowtransparency="true" allowfullscreen="true" frameborder="0" loading="lazy" title="Latest IrelandWTF reel" style="width:100%;max-width:400px;min-height:480px;border:none;border-radius:12px;display:block;margin:0 auto;"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="reels-featured-block">
+                <div class="reels-carousel-wrap">
+                    <button class="carousel-nav carousel-prev" id="carousel-prev-ig">&#8249;</button>
+                    <div class="reels-carousel-viewport" id="reels-carousel-viewport-ig">
+                        <div class="reels-carousel-track" id="reels-carousel-track-ig"></div>
+                    </div>
+                    <button class="carousel-nav carousel-next" id="carousel-next-ig">&#8250;</button>
+                </div>
+                <div class="carousel-dots" id="carousel-dots-ig"></div>
+            </div>
+            <div class="reels-cta" style="text-align:center;margin-top:1.5rem;">
+                <a href="https://www.instagram.com/irelandwtf/" target="_blank" rel="noopener" class="action-btn instagram-btn" style="display:inline-flex;">
+                    <span class="btn-icon"><i class="fab fa-instagram"></i></span>
+                    <span class="btn-text">Follow @irelandwtf</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <script>
+    (function() {
+        var LIBRARY_URL = '../../data/irelandwtf_library.json';
+        var iframe = document.getElementById('latest-reel-iframe-ig');
+        var track = document.getElementById('reels-carousel-track-ig');
+        var dotsEl = document.getElementById('carousel-dots-ig');
+        var prevBtn = document.getElementById('carousel-prev-ig');
+        var nextBtn = document.getElementById('carousel-next-ig');
+        var items = [], current = 0;
+        function getVisible() { return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1; }
+        function reelId(url) { var m = url.match(/\/reel\/([^/?#]+)/); return m ? m[1] : null; }
+        function renderTrack() {
+            track.innerHTML = '';
+            items.forEach(function(url) {
+                var id = reelId(url); if (!id) return;
+                var cell = document.createElement('div'); cell.className = 'reel-cell';
+                cell.innerHTML = '<iframe src="https://www.instagram.com/reel/' + id + '/embed/" scrolling="no" allowtransparency="true" allowfullscreen="true" frameborder="0" loading="lazy" style="width:100%;min-height:480px;border:none;border-radius:8px;"></iframe>';
+                track.appendChild(cell);
+            });
+        }
+        function renderDots() {
+            var visible = getVisible(), pages = Math.ceil(items.length / visible); dotsEl.innerHTML = '';
+            for (var i = 0; i < pages; i++) {
+                var d = document.createElement('button'); d.className = 'carousel-dot' + (i === Math.floor(current/visible) ? ' active' : '');
+                d.setAttribute('aria-label', 'Page ' + (i+1));
+                (function(p){ d.addEventListener('click', function(){ goTo(p*visible); }); })(i);
+                dotsEl.appendChild(d);
+            }
+        }
+        function goTo(idx) {
+            var visible = getVisible(), max = Math.max(0, items.length - visible);
+            current = Math.min(Math.max(0, idx), max);
+            var cellWidth = track.parentElement.offsetWidth / visible;
+            track.style.transform = 'translateX(-' + (current * cellWidth) + 'px)';
+            renderDots();
+        }
+        fetch(LIBRARY_URL).then(function(r){ return r.json(); }).then(function(lib) {
+            if (iframe && lib.latest) { var id = reelId(lib.latest); if (id) iframe.src = 'https://www.instagram.com/reel/' + id + '/embed/'; }
+            if (lib.featured && lib.featured.length) {
+                items = lib.featured;
+                renderTrack(); renderDots(); goTo(0);
+                prevBtn.addEventListener('click', function(){ goTo(current - getVisible()); });
+                nextBtn.addEventListener('click', function(){ goTo(current + getVisible()); });
+                window.addEventListener('resize', function(){ renderDots(); goTo(current); });
+            }
+        }).catch(function(e){ console.warn('IrelandWTF IG library failed:', e); });
+    })();
+    </script>
+
     <!-- Social & Support Actions -->
     <section class="section social-actions-section">
         <div class="container">
             <h2 class="section-title">Connect & Support</h2>
             <div class="action-buttons">
-                <a href="https://www.instagram.com/ireland.wtf" target="_blank" class="action-btn instagram-btn">
+                <a href="https://www.instagram.com/irelandwtf/" target="_blank" class="action-btn instagram-btn">
                     <span class="btn-icon"><i class="fab fa-instagram"></i></span>
                     <span class="btn-text">Instagram</span>
                 </a>
@@ -187,7 +366,7 @@
                 <div class="footer-info">
                     <h4>Ireland WTF</h4>
                     <p>Part of WatchTheFall Network</p>
-                    <p>Éire - The Emerald Unravels</p>
+                    <p>ï¿½ire - The Emerald Unravels</p>
                 </div>
             </div>
             <div class="footer-bottom">

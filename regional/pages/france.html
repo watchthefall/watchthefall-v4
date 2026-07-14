@@ -127,12 +127,90 @@
         </div>
     </section>
 
+    <!-- FranceWTF Instagram Reels Section -->
+    <section class="section france-reels-section" id="france-reels">
+        <div class="container">
+            <div class="reels-latest-block">
+                <h2 class="section-title">Latest from <span class="accent">@france_wtf</span></h2>
+                <div class="reels-latest-embed" id="reels-latest-embed">
+                    <div class="reel-embed-shell">
+                        <iframe id="latest-reel-iframe" src="" scrolling="no" allowtransparency="true" allowfullscreen="true" frameborder="0" loading="lazy" title="Latest FranceWTF reel" style="width:100%;max-width:400px;min-height:480px;border:none;border-radius:12px;display:block;margin:0 auto;"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="reels-featured-block">
+                <div class="reels-carousel-wrap">
+                    <button class="carousel-nav carousel-prev" id="carousel-prev">&#8249;</button>
+                    <div class="reels-carousel-viewport" id="reels-carousel-viewport">
+                        <div class="reels-carousel-track" id="reels-carousel-track"></div>
+                    </div>
+                    <button class="carousel-nav carousel-next" id="carousel-next">&#8250;</button>
+                </div>
+                <div class="carousel-dots" id="carousel-dots"></div>
+            </div>
+            <div class="reels-cta" style="text-align:center;margin-top:1.5rem;">
+                <a href="https://www.instagram.com/france_wtf/" target="_blank" rel="noopener" class="action-btn instagram-btn" style="display:inline-flex;">
+                    <span class="btn-icon"><i class="fab fa-instagram"></i></span>
+                    <span class="btn-text">Follow @france_wtf</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <script>
+    (function() {
+        var LIBRARY_URL = '../../data/francewtf_library.json';
+        var iframe = document.getElementById('latest-reel-iframe');
+        var track = document.getElementById('reels-carousel-track');
+        var dotsEl = document.getElementById('carousel-dots');
+        var prevBtn = document.getElementById('carousel-prev');
+        var nextBtn = document.getElementById('carousel-next');
+        var items = [], current = 0;
+        function getVisible() { return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1; }
+        function reelId(url) { var m = url.match(/\/reel\/([^/?#]+)/); return m ? m[1] : null; }
+        function renderTrack() {
+            track.innerHTML = '';
+            items.forEach(function(url) {
+                var id = reelId(url); if (!id) return;
+                var cell = document.createElement('div'); cell.className = 'reel-cell';
+                cell.innerHTML = '<iframe src="https://www.instagram.com/reel/' + id + '/embed/" scrolling="no" allowtransparency="true" allowfullscreen="true" frameborder="0" loading="lazy" style="width:100%;min-height:480px;border:none;border-radius:8px;"></iframe>';
+                track.appendChild(cell);
+            });
+        }
+        function renderDots() {
+            var visible = getVisible(), pages = Math.ceil(items.length / visible); dotsEl.innerHTML = '';
+            for (var i = 0; i < pages; i++) {
+                var d = document.createElement('button'); d.className = 'carousel-dot' + (i === Math.floor(current/visible) ? ' active' : '');
+                d.setAttribute('aria-label', 'Page ' + (i+1));
+                (function(p){ d.addEventListener('click', function(){ goTo(p*visible); }); })(i);
+                dotsEl.appendChild(d);
+            }
+        }
+        function goTo(idx) {
+            var visible = getVisible(), max = Math.max(0, items.length - visible);
+            current = Math.min(Math.max(0, idx), max);
+            var cellWidth = track.parentElement.offsetWidth / visible;
+            track.style.transform = 'translateX(-' + (current * cellWidth) + 'px)';
+            renderDots();
+        }
+        fetch(LIBRARY_URL).then(function(r){ return r.json(); }).then(function(lib) {
+            if (iframe && lib.latest) { var id = reelId(lib.latest); if (id) iframe.src = 'https://www.instagram.com/reel/' + id + '/embed/'; }
+            if (lib.featured && lib.featured.length) {
+                items = lib.featured;
+                renderTrack(); renderDots(); goTo(0);
+                prevBtn.addEventListener('click', function(){ goTo(current - getVisible()); });
+                nextBtn.addEventListener('click', function(){ goTo(current + getVisible()); });
+                window.addEventListener('resize', function(){ renderDots(); goTo(current); });
+            }
+        }).catch(function(e){ console.warn('FranceWTF IG library failed:', e); });
+    })();
+    </script>
+
     <!-- Social & Support Actions -->
     <section class="section social-actions-section">
         <div class="container">
             <h2 class="section-title">Connect & Support</h2>
             <div class="action-buttons">
-                <a href="https://www.instagram.com/france.wtf" target="_blank" class="action-btn instagram-btn">
+                <a href="https://www.instagram.com/france_wtf/" target="_blank" class="action-btn instagram-btn">
                     <span class="btn-icon"><i class="fab fa-instagram"></i></span>
                     <span class="btn-text">Instagram</span>
                 </a>

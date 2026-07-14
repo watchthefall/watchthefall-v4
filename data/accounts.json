@@ -1,0 +1,311 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "last_updated": "2026-07-14",
+    "note": "Canonical account registry for the WatchTheFall network. Handles marked needs_confirmation require verification before use in HTML/libraries."
+  },
+
+  "regional": [
+    {
+      "id": "scotland",
+      "name": "ScotlandWTF",
+      "instagram": "scotlandwtf",
+      "instagram_url": "https://www.instagram.com/scotlandwtf/",
+      "instagram_note": "Following list confirms scotlandwtf (no dot). Library was built using scotland.wtf URLs — may need re-scraping if reel embeds 404.",
+      "tiktok": "scotland.wtf",
+      "tiktok_url": "https://www.tiktok.com/@scotland.wtf",
+      "library": "data/scotlandwtf_library.json",
+      "confirmed": true
+    },
+    {
+      "id": "england",
+      "name": "EnglandWTF",
+      "instagram": "england.wtf",
+      "instagram_url": "https://www.instagram.com/england.wtf/",
+      "tiktok": "englandwtf",
+      "tiktok_url": "https://www.tiktok.com/@englandwtf",
+      "library": "data/englandwtf_library.json",
+      "confirmed": true
+    },
+    {
+      "id": "britain",
+      "name": "BritainWTF",
+      "instagram": "britainwtf",
+      "instagram_url": "https://www.instagram.com/britainwtf/",
+      "instagram_note": "User inventory shows @britain.wtf but this 404'd during scraping — library built from @britainwtf",
+      "tiktok": "britainwtf",
+      "tiktok_url": "https://www.tiktok.com/@britainwtf",
+      "library": "data/britainwtf_library.json",
+      "confirmed": true
+    },
+    {
+      "id": "wales",
+      "name": "WalesWTF",
+      "instagram": "waleswtf",
+      "instagram_url": "https://www.instagram.com/waleswtf/",
+      "instagram_note": "User inventory shows @wales.wtf but this 404'd during scraping — library built from @waleswtf",
+      "tiktok": "wales_wtf",
+      "tiktok_url": "https://www.tiktok.com/@wales_wtf",
+      "library": "data/waleswtf_library.json",
+      "confirmed": true
+    },
+    {
+      "id": "ireland",
+      "name": "IrelandWTF",
+      "instagram": "irelandwtf",
+      "instagram_url": "https://www.instagram.com/irelandwtf/",
+      "instagram_note": "Confirmed as irelandwtf (no dot) from following list — was incorrectly set to ireland.wtf",
+      "tiktok": "irelandwtf",
+      "tiktok_url": "https://www.tiktok.com/@irelandwtf",
+      "library": "data/irelandwtf_library.json",
+      "confirmed": true
+    },
+    {
+      "id": "northern_ireland",
+      "name": "NorthernIrelandWTF",
+      "instagram": "northernirelandwtf",
+      "instagram_url": "https://www.instagram.com/northernirelandwtf/",
+      "tiktok": null,
+      "tiktok_url": null,
+      "library": null,
+      "confirmed": true,
+      "needs_confirmation": ["tiktok"]
+    },
+    {
+      "id": "europe",
+      "name": "EuropeWTF",
+      "instagram": "europewtf",
+      "instagram_url": "https://www.instagram.com/europewtf/",
+      "instagram_note": "User inventory shows @europe.wtf but profile username confirmed as europewtf",
+      "tiktok": "europewtf",
+      "tiktok_url": "https://www.tiktok.com/@europewtf",
+      "library": "data/europewtf_library.json",
+      "confirmed": true
+    },
+    {
+      "id": "france",
+      "name": "FranceWTF",
+      "instagram": "france_wtf",
+      "instagram_url": "https://www.instagram.com/france_wtf/",
+      "instagram_note": "Confirmed as france_wtf (underscore) from following list — was incorrectly set to france.wtf",
+      "tiktok": "france.wtf",
+      "tiktok_url": "https://www.tiktok.com/@france.wtf",
+      "library": "data/francewtf_library.json",
+      "confirmed": true
+    },
+    {
+      "id": "germany",
+      "name": "GermanyWTF",
+      "instagram": "germany.wtf",
+      "instagram_url": "https://www.instagram.com/germany.wtf/",
+      "tiktok": "germanywtf",
+      "tiktok_url": "https://www.tiktok.com/@germanywtf",
+      "library": "data/germanywtf_library.json",
+      "confirmed": true
+    },
+    {
+      "id": "netherlands",
+      "name": "NetherlandsWTF",
+      "instagram": "netherlands.wtf",
+      "instagram_url": "https://www.instagram.com/netherlands.wtf/",
+      "tiktok": "netherlandswtf",
+      "tiktok_url": "https://www.tiktok.com/@netherlandswtf",
+      "library": "data/netherlandswtf_library.json",
+      "confirmed": true
+    },
+    {
+      "id": "spain",
+      "name": "SpainWTF",
+      "instagram": "spainwtf",
+      "instagram_url": "https://www.instagram.com/spainwtf/",
+      "instagram_note": "User inventory shows @spain.wtf but this 404'd during scraping — library built from @spainwtf",
+      "tiktok": "spainwtf",
+      "tiktok_url": "https://www.tiktok.com/@spainwtf",
+      "library": "data/spainwtf_library.json",
+      "confirmed": true
+    },
+    {
+      "id": "italy",
+      "name": "ItalyWTF",
+      "instagram": "italy_wtf",
+      "instagram_url": "https://www.instagram.com/italy_wtf/",
+      "tiktok": "italywtf",
+      "tiktok_url": "https://www.tiktok.com/@italywtf",
+      "library": "data/italywtf_library.json",
+      "confirmed": true
+    },
+    {
+      "id": "sweden",
+      "name": "SwedenWTF",
+      "instagram": "swedenwtf",
+      "instagram_url": "https://www.instagram.com/swedenwtf/",
+      "instagram_note": "User inventory shows @sweden.wtf but this 404'd during scraping — library built from @swedenwtf",
+      "tiktok": "swedenwtf",
+      "tiktok_url": "https://www.tiktok.com/@swedenwtf",
+      "library": "data/swedenwtf_library.json",
+      "confirmed": true
+    },
+    {
+      "id": "poland",
+      "name": "PolandWTF",
+      "instagram": "polandwtf",
+      "instagram_url": "https://www.instagram.com/polandwtf/",
+      "instagram_note": "Confirmed as polandwtf (no dot) from following list — was incorrectly set to poland.wtf",
+      "tiktok": "polandwtf",
+      "tiktok_url": "https://www.tiktok.com/@polandwtf",
+      "library": "data/polandwtf_library.json",
+      "confirmed": true
+    },
+    {
+      "id": "usa",
+      "name": "USAmericaWTF",
+      "instagram": "usamericawtf",
+      "instagram_url": "https://www.instagram.com/usamericawtf/",
+      "instagram_note": "Confirmed as usamericawtf from following list — HTML had usa.wtf as incorrect placeholder",
+      "tiktok": "usa_wtf",
+      "tiktok_url": "https://www.tiktok.com/@usa_wtf",
+      "library": "data/usamericawtf_library.json",
+      "confirmed": true
+    },
+    {
+      "id": "canada",
+      "name": "CanadaWTF",
+      "instagram": "canadawtf_",
+      "instagram_url": "https://www.instagram.com/canadawtf_/",
+      "tiktok": "canadawtf_",
+      "tiktok_url": "https://www.tiktok.com/@canadawtf_",
+      "library": "data/canadawtf_library.json",
+      "confirmed": true
+    },
+    {
+      "id": "australia",
+      "name": "AustraliaWTF",
+      "instagram": "australiawtf_",
+      "instagram_url": "https://www.instagram.com/australiawtf_/",
+      "tiktok": "australiawtf",
+      "tiktok_url": "https://www.tiktok.com/@australiawtf",
+      "library": "data/australiawtf_library.json",
+      "confirmed": true
+    },
+    {
+      "id": "thewest",
+      "name": "TheWestWTF",
+      "instagram": "thewestwtf",
+      "instagram_url": "https://www.instagram.com/thewestwtf/",
+      "tiktok": "thewestwtf",
+      "tiktok_url": "https://www.tiktok.com/@thewestwtf",
+      "library": null,
+      "confirmed": true
+    }
+  ],
+
+  "network": [
+    {
+      "id": "watchthefall",
+      "name": "Watch The Fall",
+      "instagram": "watchthefall.wtf",
+      "instagram_url": "https://www.instagram.com/watchthefall.wtf/",
+      "tiktok": "watchthefall_wtf",
+      "tiktok_url": "https://www.tiktok.com/@watchthefall_wtf",
+      "confirmed": true
+    }
+  ],
+
+  "other_wtf": [
+    {
+      "id": "aiwtf",
+      "name": "A.I.WTF",
+      "instagram": "artificialintelwtf",
+      "instagram_url": "https://www.instagram.com/artificialintelwtf/",
+      "tiktok": "a.i.wtf",
+      "tiktok_url": "https://www.tiktok.com/@a.i.wtf",
+      "confirmed": true
+    },
+    {
+      "id": "conceptswtf",
+      "name": "ConceptsWTF",
+      "instagram": "conceptswtf",
+      "instagram_url": "https://www.instagram.com/conceptswtf/",
+      "tiktok": "conceptswtf",
+      "tiktok_url": "https://www.tiktok.com/@conceptswtf",
+      "confirmed": true
+    },
+    {
+      "id": "darkhumourwtf",
+      "name": "DarkHumourWTF",
+      "instagram": "darkhumourwtf",
+      "instagram_url": "https://www.instagram.com/darkhumourwtf/",
+      "tiktok": null,
+      "tiktok_url": null,
+      "confirmed": false,
+      "needs_confirmation": ["instagram", "tiktok"]
+    },
+    {
+      "id": "gadgetswtf",
+      "name": "GadgetsWTF",
+      "instagram": "gadgets.wtf",
+      "instagram_url": "https://www.instagram.com/gadgets.wtf/",
+      "tiktok": null,
+      "tiktok_url": null,
+      "confirmed": true,
+      "needs_confirmation": ["tiktok"]
+    },
+    {
+      "id": "anindependentscotland",
+      "name": "An Independent Scotland",
+      "instagram": "anindependentscotland",
+      "instagram_url": "https://www.instagram.com/anindependentscotland/",
+      "tiktok": null,
+      "tiktok_url": null,
+      "confirmed": true,
+      "needs_confirmation": ["tiktok"]
+    }
+  ],
+
+  "creator_product": [
+    {
+      "id": "brandr",
+      "name": "Brandr",
+      "instagram": "brandr_online",
+      "instagram_url": "https://www.instagram.com/brandr_online/",
+      "instagram_note": "Confirmed as brandr_online (underscore) from following list — was incorrectly set to brandr.online",
+      "tiktok": "brandr_online",
+      "tiktok_url": "https://www.tiktok.com/@brandr_online",
+      "confirmed": true
+    },
+    {
+      "id": "jamaig",
+      "name": "JamAI G",
+      "instagram": "jamai.g",
+      "instagram_url": "https://www.instagram.com/jamai.g/",
+      "tiktok": "jamaig",
+      "tiktok_url": "https://www.tiktok.com/@jamaig",
+      "confirmed": false,
+      "needs_confirmation": ["tiktok"]
+    },
+    {
+      "id": "wtfrecords",
+      "name": "WTF Records",
+      "instagram": "watchthefallrecords",
+      "instagram_url": "https://www.instagram.com/watchthefallrecords/",
+      "tiktok": null,
+      "tiktok_url": null,
+      "confirmed": true,
+      "needs_confirmation": ["tiktok"]
+    }
+  ],
+
+  "retired": [
+    {
+      "id": "comedywtf",
+      "name": "ComedyWTF",
+      "status": "retired"
+    },
+    {
+      "id": "aitechwtf",
+      "name": "AITechWTF",
+      "status": "retired",
+      "note": "TikTok repurposed as @italywtf"
+    }
+  ]
+}
