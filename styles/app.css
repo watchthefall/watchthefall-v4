@@ -169,8 +169,10 @@ body.modal-open { overflow: hidden; }
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: clamp(0.6rem, 1.4vw, 1.6rem);
     list-style: none;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 
 .nav-links a {
