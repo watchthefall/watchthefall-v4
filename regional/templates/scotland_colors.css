@@ -45,6 +45,7 @@
 .region-hero-badge {
     width: clamp(160px, 26vw, 260px);
     height: auto;
+    border-radius: 50%;
     filter:
         drop-shadow(0 0 40px rgba(0, 101, 189, 0.55))
         drop-shadow(0 0 80px rgba(0, 101, 189, 0.25));
