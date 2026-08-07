@@ -175,10 +175,10 @@
   /* ── ACTIVE STATE ────────────────────────────────────────── */
   function isActive(href) {
     const path = window.location.pathname;
+    // Hash-only links (e.g. /#worldcup) are never marked active
+    if (href.includes('#')) return false;
     if (href === '/') return path === '/' || path === '/index.html';
-    // Strip hash from href for comparison
-    const hrefPath = href.split('#')[0];
-    return path === hrefPath || path.endsWith(hrefPath);
+    return path === href || path.endsWith(href);
   }
 
   /* ── BUILD HTML ──────────────────────────────────────────── */
