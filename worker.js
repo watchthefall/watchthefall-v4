@@ -1,0 +1,1593 @@
+addEventListener('fetch', event => {
+  event.respondWith(handleRequest(event.request))
+})
+async function handleRequest(request) {
+  const url = new URL(request.url)
+  if (url.pathname.startsWith('/assets/')) {
+    const assetUrl = 'https://watchthefall.com' + url.pathname
+    return fetch(assetUrl)
+  }
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build The Machine — WatchTheFall Enterprises</title>
+  <meta name="description" content="WatchTheFall Enterprises. Media proof. AI leverage. Brandr as the commercial engine.">
+  <meta property="og:title" content="Build The Machine — WatchTheFall Enterprises">
+  <meta property="og:url" content="https://build.watchthefall.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="https://watchthefall.com/assets/logos/wtf-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+/* ============================================================
+   BUILD THE MACHINE — Enhanced with Restricted Access Sections
+   WatchTheFall Enterprises
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --g:  #d4af37;
+  --g2: rgba(212,175,55,0.18);
+  --g3: rgba(212,175,55,0.28);
+  --g4: rgba(212,175,55,0.06);
+  --bg: #030404;
+  --bg2: rgba(255,255,255,0.025);
+  --bg3: rgba(255,255,255,0.05);
+  --tx: #f3e7d3;
+  --tx2: rgba(243,231,211,0.62);
+  --tx3: rgba(243,231,211,0.35);
+  --green: #22c55e;
+  --red: #ef4444;
+  --font-head: "Bebas Neue", Impact, sans-serif;
+  --font-body: "Inter", Arial, sans-serif;
+  --nav-h: 5.5rem;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--tx);
+  font-family: var(--font-body);
+  min-height: 100vh;
+}
+
+/* PAGE BG */
+.page-bg {
+  position: fixed; inset: 0; z-index: -1;
+  background:
+    radial-gradient(circle at 72% 18%, rgba(212,175,55,0.07), transparent 32%),
+    radial-gradient(circle at 20% 75%, rgba(212,175,55,0.05), transparent 28%),
+    #030404;
+  pointer-events: none;
+}
+
+/* NAV */
+.v2-nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; gap: 2rem;
+  padding: 0.75rem clamp(1rem,4vw,3rem);
+  border-bottom: 1px solid rgba(212,175,55,0.7);
+  background: rgba(3,3,3,0.94);
+  backdrop-filter: blur(12px);
+}
+.v2-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+.v2-logo img { width: 42px; height: auto; }
+.v2-logo-txt { font-family: var(--font-head); font-size: 0.75rem; letter-spacing: 0.18em; color: var(--tx); }
+.v2-links { display: flex; flex: 1; justify-content: flex-end; gap: clamp(0.8rem,2vw,1.6rem); flex-wrap: wrap; align-items: center; }
+.v2-links a { color: var(--tx); text-decoration: none; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em; transition: color 0.2s; }
+.v2-links a:hover { color: var(--g); }
+.btn-gold { background: var(--g); color: #030404; padding: 0.6rem 1.3rem; border-radius: 4px; font-weight: 700; font-size: 0.85rem; text-decoration: none; transition: opacity 0.2s; }
+.btn-gold:hover { opacity: 0.85; }
+
+/* LAYOUT */
+.bw  { max-width: 1200px; margin: 0 auto; padding: 8vh clamp(1.25rem,5vw,5rem); }
+.bw--sm { max-width: 1200px; margin: 0 auto; padding: 5vh clamp(1.25rem,5vw,5rem); }
+.stripe { background: rgba(255,255,255,0.018); border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04); }
+
+/* TYPE */
+.label {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  border: 1px solid var(--g3); border-radius: 4px;
+  padding: 0.28rem 0.75rem; font-size: 0.67rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--g);
+  margin-bottom: 1.5rem;
+}
+.h1 { font-family: var(--font-head); font-size: clamp(4rem,10vw,8.5rem); line-height: 0.87; letter-spacing: -0.03em; margin: 0 0 1.25rem; }
+.h2 { font-family: var(--font-head); font-size: clamp(1.8rem,4.5vw,3.2rem); line-height: 1; margin: 0 0 1rem; }
+.h3 { font-family: var(--font-head); font-size: clamp(1.1rem,2.2vw,1.6rem); line-height: 1.1; margin: 0 0 0.75rem; }
+.lead { font-size: clamp(0.95rem,1.8vw,1.1rem); line-height: 1.7; color: var(--tx2); max-width: 580px; }
+.gold { color: var(--g); }
+.muted { color: var(--tx2); }
+.small { font-size: 0.82rem; color: var(--tx3); }
+
+/* BUTTONS */
+.ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+.b-btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.875rem 1.75rem; font-family: var(--font-body); font-size: 0.875rem; font-weight: 700; text-decoration: none; border-radius: 4px; transition: all 0.2s; letter-spacing: 0.02em; }
+.b-btn--gold { background: var(--g); color: #030404; }
+.b-btn--gold:hover { opacity: 0.88; transform: translateY(-1px); }
+.b-btn--outline { border: 1px solid var(--g3); color: var(--tx); }
+.b-btn--outline:hover { border-color: var(--g); color: var(--g); }
+
+/* HERO */
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; text-align: center;
+  padding: 12vh clamp(1.25rem,6vw,5rem) 8vh;
+  position: relative; overflow: hidden;
+}
+.hero-sub { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--g); margin-bottom: 1.5rem; }
+.hero-title {
+  font-family: var(--font-head);
+  font-size: clamp(3rem, 9vw, 7.5rem);
+  line-height: 0.92;
+  letter-spacing: 0.04em;
+  margin: 0 0 1.2rem;
+  text-align: center;
+  color: #ffffff;
+}
+.hero-title span {
+  display: block;
+  color: #c9941a;
+}
+.hero-tagline { font-size: clamp(1rem,2vw,1.2rem); color: var(--tx2); line-height: 1.6; max-width: 520px; margin: 0 auto 2rem; }
+.hero-scroll { margin-top: 4rem; color: var(--tx3); font-size: 0.8rem; letter-spacing: 0.1em; }
+.hero-scroll span { display: block; font-size: 1.2rem; margin-top: 0.5rem; animation: bounce 2s infinite; }
+@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+
+/* LOGO MARQUEE */
+.marquee-wrap { overflow: hidden; padding: 2.5rem 0; background: rgba(255,255,255,0.02); border-top: 1px solid rgba(212,175,55,0.12); border-bottom: 1px solid rgba(212,175,55,0.12); }
+.marquee-label { text-align:center; font-size:0.65rem; letter-spacing:0.25em; color:var(--tx3); text-transform:uppercase; margin-bottom:1.5rem; }
+.marquee-track { display: flex; gap: 2.5rem; animation: marquee 35s linear infinite; width: max-content; }
+.marquee-track img { height: 3.5rem; width: auto; object-fit: contain; filter: grayscale(20%); opacity: 0.85; transition: opacity 0.2s; flex-shrink: 0; }
+.marquee-track img:hover { opacity: 1; filter: none; }
+@keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* BRANDR SCREENSHOTS */
+.screen-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.screen-grid img { width: 100%; border-radius: 8px; border: 1px solid rgba(212,175,55,0.15); box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+@media(max-width:600px) { .screen-grid { grid-template-columns: 1fr; } }
+
+/* POSTER GALLERY */
+.poster-scroll { display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem; scrollbar-width: thin; scrollbar-color: var(--g3) transparent; }
+.poster-scroll img { height: 280px; width: auto; border-radius: 6px; flex-shrink: 0; object-fit: cover; }
+.poster-scroll::-webkit-scrollbar { height: 4px; }
+.poster-scroll::-webkit-scrollbar-track { background: transparent; }
+.poster-scroll::-webkit-scrollbar-thumb { background: var(--g3); border-radius: 2px; }
+
+/* MERCH STRIP */
+.merch-strip { display: flex; gap: 1.5rem; overflow-x: auto; padding-bottom: 1rem; }
+.merch-strip img { height: 320px; width: auto; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
+
+/* MAP BG */
+.map-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background-image: url('https://watchthefall.com/assets/fall-map/map-global.png');
+  background-size: cover; background-position: center;
+  opacity: 0.35; pointer-events: none;
+}
+.hero > *:not(.map-bg) { position: relative; z-index: 1; }
+
+/* SECTION NUMBERS */
+.sec-num { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; color: var(--g); text-transform: uppercase; margin-bottom: 0.5rem; }
+.sec-rule { border: none; border-top: 1px solid rgba(212,175,55,0.2); margin: 0 0 3rem; }
+
+/* CARDS */
+.card { background: var(--bg2); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 1.75rem; }
+.card--gold { border-color: var(--g3); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+@media(max-width:768px) { .grid-2,.grid-3 { grid-template-columns: 1fr; } }
+
+/* PRICING TABLE */
+.pricing-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 1rem; }
+@media(max-width:900px) { .pricing-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width:480px) { .pricing-grid { grid-template-columns: 1fr; } }
+@media(max-width:700px) { .tier-ui-grid { grid-template-columns: 1fr 1fr !important; } }
+@media(max-width:420px) { .tier-ui-grid { grid-template-columns: 1fr !important; } }
+.price-card { background: var(--bg2); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 1.5rem 1.25rem; text-align: center; }
+.price-card--featured { border-color: var(--g3); background: rgba(212,175,55,0.04); }
+.price-tier { font-family: var(--font-head); font-size: 1.1rem; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+.price-amount { font-family: var(--font-head); font-size: 2rem; color: var(--g); }
+.price-period { font-size: 0.75rem; color: var(--tx3); }
+.price-desc { font-size: 0.8rem; color: var(--tx2); margin-top: 0.75rem; }
+
+/* ROADMAP */
+.roadmap-steps { display: flex; flex-direction: column; gap: 0; position: relative; }
+.roadmap-step { display: grid; grid-template-columns: 2rem 1fr; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.roadmap-dot { width: 0.75rem; height: 0.75rem; border-radius: 50%; margin-top: 0.35rem; flex-shrink: 0; }
+.dot-live { background: var(--green); box-shadow: 0 0 8px rgba(34,197,94,0.5); }
+.dot-prog { background: var(--g); box-shadow: 0 0 8px rgba(212,175,55,0.5); }
+.dot-next { background: var(--tx3); }
+
+/* MOMENTUM STATS */
+.stat-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
+@media(max-width:640px) { .stat-row { grid-template-columns: 1fr; gap: 1rem; } }
+.stat { text-align: center; }
+.stat-num { font-family: var(--font-head); font-size: clamp(2rem,5vw,3.5rem); color: var(--g); }
+.stat-label { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tx3); margin-top: 0.25rem; }
+
+/* FEATURES LIST */
+ul.feat { list-style: none; padding: 0; margin: 1rem 0 0; }
+ul.feat li { padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--tx2); font-size: 0.9rem; }
+ul.feat li::before { content: "→ "; color: var(--g); }
+
+/* ============================================================
+   ACCESS PORTAL
+   ============================================================ */
+.access-portal { padding: 8vh clamp(1.25rem,5vw,5rem); max-width: 1200px; margin: 0 auto; }
+.access-portal-header { text-align: center; margin-bottom: 4rem; }
+.access-portal-header .label { margin: 0 auto 1.5rem; }
+.access-cards-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+@media(max-width:900px) { .access-cards-grid { grid-template-columns: 1fr; } }
+
+.access-card {
+  background: var(--bg2);
+  border: 1px solid rgba(212,175,55,0.25);
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex; flex-direction: column; gap: 1rem;
+  transition: border-color 0.3s;
+}
+.access-card:hover { border-color: rgba(212,175,55,0.5); }
+.access-card-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+.access-card-tag { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--g); background: var(--g4); border: 1px solid var(--g2); padding: 0.2rem 0.6rem; border-radius: 3px; display: inline-block; width: fit-content; }
+.access-card-title { font-family: var(--font-head); font-size: 1.2rem; line-height: 1.1; }
+.access-card-desc { font-size: 0.85rem; color: var(--tx2); line-height: 1.6; flex: 1; }
+.access-card-topics { font-size: 0.78rem; color: var(--tx3); }
+.access-btn {
+  background: transparent;
+  border: 1px solid var(--g3);
+  color: var(--g);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.7rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: auto;
+}
+.access-btn:hover { background: var(--g4); border-color: var(--g); }
+.access-btn.unlocked { border-color: var(--green); color: var(--green); background: rgba(34,197,94,0.06); }
+
+/* PASSWORD FORM */
+.pw-form {
+  display: none; flex-direction: column; gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+.pw-form.visible { display: flex; }
+.pw-form input {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--g3);
+  border-radius: 4px;
+  color: var(--tx);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  padding: 0.65rem 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+  letter-spacing: 0.1em;
+}
+.pw-form input:focus { border-color: var(--g); }
+.pw-form input::placeholder { color: var(--tx3); letter-spacing: 0.04em; }
+.pw-unlock-btn {
+  background: var(--g);
+  border: none;
+  color: #030404;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.65rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.pw-unlock-btn:hover { opacity: 0.85; }
+.pw-error { font-size: 0.78rem; color: var(--red); display: none; }
+.pw-error.visible { display: block; }
+
+/* ============================================================
+   GATED SECTIONS
+   ============================================================ */
+.gated-section {
+  display: none;
+  border-top: 2px solid rgba(212,175,55,0.4);
+  animation: reveal 0.5s ease;
+}
+.gated-section.unlocked { display: block; }
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.section-header {
+  background: linear-gradient(180deg, rgba(212,175,55,0.08) 0%, transparent 100%);
+  padding: 4rem clamp(1.25rem,5vw,5rem) 3rem;
+  border-bottom: 1px solid rgba(212,175,55,0.15);
+  max-width: 1200px; margin: 0 auto;
+}
+.section-clearance {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--g);
+  border: 1px solid var(--g3); padding: 0.3rem 0.8rem; border-radius: 3px;
+  margin-bottom: 2rem;
+}
+.section-clearance::before { content: "●"; font-size: 0.5rem; color: var(--green); }
+
+/* DATA TABLES */
+table.data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+table.data-table th { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--g); border-bottom: 1px solid var(--g3); padding: 0.75rem 1rem; text-align: left; }
+table.data-table td { padding: 0.65rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--tx2); }
+table.data-table tr:hover td { background: rgba(255,255,255,0.02); color: var(--tx); }
+table.data-table td.num { font-family: var(--font-head); color: var(--g); }
+table.data-table td.lead-acct { color: var(--tx); font-weight: 600; }
+
+/* STATUS BADGES */
+.badge { display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 3px; }
+.badge--live    { background: rgba(34,197,94,0.12);  color: var(--green); border: 1px solid rgba(34,197,94,0.3); }
+.badge--dev     { background: rgba(212,175,55,0.1); color: var(--g);     border: 1px solid var(--g2); }
+.badge--planned { background: rgba(255,255,255,0.04); color: var(--tx3);  border: 1px solid rgba(255,255,255,0.1); }
+.badge--vision  { background: rgba(255,255,255,0.02); color: var(--tx3);  border: 1px solid rgba(255,255,255,0.06); border-style: dashed; }
+
+/* ECOSYSTEM DIVISIONS */
+.division-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+@media(max-width:768px) { .division-grid { grid-template-columns: 1fr; } }
+.division-card { background: var(--bg2); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 1.5rem; }
+.division-card--core { border-color: var(--g3); background: rgba(212,175,55,0.04); }
+.division-name { font-family: var(--font-head); font-size: 1rem; margin: 0.75rem 0 0.5rem; }
+.division-role { font-size: 0.82rem; color: var(--tx2); line-height: 1.5; }
+
+/* QUOTE BLOCK */
+.quote-block {
+  border-left: 3px solid var(--g);
+  padding: 1.25rem 1.5rem;
+  background: var(--g4);
+  border-radius: 0 6px 6px 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--tx);
+  font-style: italic;
+  margin: 2rem 0;
+}
+
+/* PHASE STEPS */
+.phase { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; padding: 1.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.phase-num { font-family: var(--font-head); font-size: 1.5rem; color: var(--g); opacity: 0.4; }
+
+/* VALUE PILLARS */
+.pillar { border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; }
+.pillar-title { font-family: var(--font-head); font-size: 0.95rem; color: var(--g); margin: 0 0 0.5rem; }
+.pillar-body { font-size: 0.87rem; color: var(--tx2); line-height: 1.6; }
+
+/* FOOTER */
+.site-footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 3rem clamp(1.25rem,5vw,5rem); text-align: center; color: var(--tx3); font-size: 0.8rem; letter-spacing: 0.06em; }
+.site-footer a { color: var(--g); text-decoration: none; }
+
+/* SCROLL REVEAL SMOOTH */
+html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+<div class="page-bg"></div>
+
+<!-- ============================================================ NAV -->
+<nav class="v2-nav">
+  <a class="v2-logo" href="#hero">
+    <img src="https://watchthefall.com/assets/logos/wtf-logo.png" alt="WTF">
+    <span class="v2-logo-txt">BUILD THE MACHINE</span>
+  </a>
+  <div class="v2-links">
+    <a href="#problem">Problem</a>
+    <a href="#product">Brandr</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#founding">Founding</a>
+    <a href="#access" class="gold" style="color:var(--g)">Access</a>
+    <a href="https://watchthefall.com" style="color:var(--tx2);font-size:0.8rem">← watchthefall.com</a>
+    <a href="https://brandr.online/waitlist" class="btn-gold">Request access</a>
+  </div>
+</nav>
+
+<!-- ============================================================ HERO -->
+<section id="hero" class="hero">
+  <div class="map-bg"></div>
+  <div style="margin-bottom:2rem;display:flex;flex-direction:column;align-items:center;gap:0.4rem">
+    <img src="https://watchthefall.com/assets/logos/wtf-logo.png" alt="WTF" style="height:3rem;width:auto;opacity:0.9">
+    <span style="font-size:0.6rem;letter-spacing:0.28em;color:rgba(243,231,211,0.5);text-transform:uppercase;font-family:var(--font-body)">Watch The Fall</span>
+  </div>
+  <div class="hero-sub">WatchTheFall Enterprises</div>
+  <h1 class="hero-title">BUILD THE<br><span>MACHINE</span></h1>
+  <p class="hero-tagline">Media proof. AI leverage. <strong style="color:var(--g)">Brandr</strong> as the commercial engine.</p>
+  <div class="ctas" style="justify-content:center">
+    <a href="https://brandr.online/waitlist" class="b-btn b-btn--gold">REQUEST BETA ACCESS</a>
+    <a href="#problem" class="b-btn b-btn--outline">SEE THE STORY</a>
+  </div>
+  <div class="hero-scroll">
+    <span>▼</span>
+    <p style="margin:0;margin-top:0.5rem;font-size:0.72rem;letter-spacing:0.12em">This is not random posting. It is a structured business machine.</p>
+  </div>
+</section>
+
+<!-- ============================================================ LOGO MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-label">The WatchTheFall Network · 20+ Channels · Global Reach</div>
+  <div class="marquee-track" id="mq">
+    <img src="https://watchthefall.com/assets/logos/britain-wtf-logo.webp" alt="Britain WTF">
+    <img src="https://watchthefall.com/assets/logos/scotland-wtf-logo.webp" alt="Scotland WTF">
+    <img src="https://watchthefall.com/assets/logos/ireland-wtf-logo.webp" alt="Ireland WTF">
+    <img src="https://watchthefall.com/assets/logos/northern-ireland-wtf-logo.webp" alt="Northern Ireland WTF">
+    <img src="https://watchthefall.com/assets/logos/wales-wtf-logo.webp" alt="Wales WTF">
+    <img src="https://watchthefall.com/assets/logos/england-wtf-logo.webp" alt="England WTF">
+    <img src="https://watchthefall.com/assets/logos/europe-wtf-logo.webp" alt="Europe WTF">
+    <img src="https://watchthefall.com/assets/logos/france-wtf-logo.webp" alt="France WTF">
+    <img src="https://watchthefall.com/assets/logos/germany-wtf-logo.webp" alt="Germany WTF">
+    <img src="https://watchthefall.com/assets/logos/spain-wtf-logo.webp" alt="Spain WTF">
+    <img src="https://watchthefall.com/assets/logos/italy-wtf-logo.webp" alt="Italy WTF">
+    <img src="https://watchthefall.com/assets/logos/netherlands-wtf-logo.webp" alt="Netherlands WTF">
+    <img src="https://watchthefall.com/assets/logos/poland-wtf-logo.webp" alt="Poland WTF">
+    <img src="https://watchthefall.com/assets/logos/sweden-wtf-logo.webp" alt="Sweden WTF">
+    <img src="https://watchthefall.com/assets/logos/australia-wtf-logo.webp" alt="Australia WTF">
+    <img src="https://watchthefall.com/assets/logos/canada-wtf-logo.webp" alt="Canada WTF">
+    <img src="https://watchthefall.com/assets/logos/usa-wtf-logo.webp" alt="USA WTF">
+    <img src="https://watchthefall.com/assets/logos/the-west-wtf-logo.webp" alt="The West WTF">
+    <img src="https://watchthefall.com/assets/logos/ai-wtf-logo.webp" alt="AI WTF">
+    <img src="https://watchthefall.com/assets/logos/dark-humour-wtf-logo.webp" alt="Dark Humour WTF">
+    <img src="https://watchthefall.com/assets/logos/concepts-wtf-logo.webp" alt="Concepts WTF">
+    <!-- duplicate for seamless loop -->
+    <img src="https://watchthefall.com/assets/logos/britain-wtf-logo.webp" alt="">
+    <img src="https://watchthefall.com/assets/logos/scotland-wtf-logo.webp" alt="">
+    <img src="https://watchthefall.com/assets/logos/ireland-wtf-logo.webp" alt="">
+    <img src="https://watchthefall.com/assets/logos/northern-ireland-wtf-logo.webp" alt="">
+    <img src="https://watchthefall.com/assets/logos/wales-wtf-logo.webp" alt="">
+    <img src="https://watchthefall.com/assets/logos/england-wtf-logo.webp" alt="">
+    <img src="https://watchthefall.com/assets/logos/europe-wtf-logo.webp" alt="">
+    <img src="https://watchthefall.com/assets/logos/france-wtf-logo.webp" alt="">
+    <img src="https://watchthefall.com/assets/logos/germany-wtf-logo.webp" alt="">
+    <img src="https://watchthefall.com/assets/logos/spain-wtf-logo.webp" alt="">
+    <img src="https://watchthefall.com/assets/logos/italy-wtf-logo.webp" alt="">
+    <img src="https://watchthefall.com/assets/logos/netherlands-wtf-logo.webp" alt="">
+    <img src="https://watchthefall.com/assets/logos/poland-wtf-logo.webp" alt="">
+    <img src="https://watchthefall.com/assets/logos/sweden-wtf-logo.webp" alt="">
+    <img src="https://watchthefall.com/assets/logos/australia-wtf-logo.webp" alt="">
+    <img src="https://watchthefall.com/assets/logos/canada-wtf-logo.webp" alt="">
+    <img src="https://watchthefall.com/assets/logos/usa-wtf-logo.webp" alt="">
+    <img src="https://watchthefall.com/assets/logos/the-west-wtf-logo.webp" alt="">
+    <img src="https://watchthefall.com/assets/logos/ai-wtf-logo.webp" alt="">
+    <img src="https://watchthefall.com/assets/logos/dark-humour-wtf-logo.webp" alt="">
+    <img src="https://watchthefall.com/assets/logos/concepts-wtf-logo.webp" alt="">
+  </div>
+</div>
+
+<!-- ============================================================ 01 PROBLEM -->
+<section id="problem" class="stripe">
+  <div class="bw">
+    <div class="sec-num">01 · THE PROBLEM</div>
+    <hr class="sec-rule">
+    <div class="grid-2" style="align-items:center;gap:4rem">
+      <div>
+        <h2 class="h2">Making content is easy now.<br>Making it <span class="gold">consistent</span> is not.</h2>
+        <p class="lead">Creators and small businesses can produce more content than ever — but they still lose hours turning it into consistent, branded, publish-ready output. Logo, watermark, format, caption, export, repeat.</p>
+        <p class="lead">The AI paradox makes this worse, not better: the easier content becomes to create, the more workflow piles up behind it. The bottleneck moves from making content to <em>preparing it.</em> That preparation work is repetitive, unglamorous, and never stops — which is exactly the shape of a problem software should own.</p>
+      </div>
+      <div class="card card--gold" style="text-align:center;padding:3rem 2rem">
+        <div style="font-size:3rem;margin-bottom:1rem">⚙️</div>
+        <div class="h3" style="color:var(--g)">The Bottleneck</div>
+        <p style="color:var(--tx2);font-size:0.9rem;line-height:1.7">It doesn't disappear when AI helps you create faster. It moves. From <em>making content</em> → to <em>preparing it</em>. That's the gap Brandr fills.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 02 ORIGIN -->
+<section id="origin">
+  <div class="bw">
+    <div class="sec-num">02 · THE ORIGIN · BUILT IN SCOTLAND</div>
+    <hr class="sec-rule">
+    <div class="grid-2" style="align-items:start;gap:4rem">
+      <div>
+        <h2 class="h2">The problem<br>found me first.</h2>
+        <div class="quote-block">
+          "I didn't start with a theoretical SaaS idea. I was running multiple WatchTheFall pages and kept hitting the same wall: every piece of source content had to be downloaded, branded, captioned, formatted and published — again and again, across page after page. Brandr came from that real workflow pain. I built the product because I was the first user of the problem."
+        </div>
+        <p class="muted" style="font-size:0.85rem">A solo founder building from the Highlands of Scotland — WatchTheFall Media created the branding problem at scale, and became the proving ground where Brandr was born and tested daily.</p>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:1rem">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;color:var(--g);text-transform:uppercase;margin-bottom:0.75rem">One Network · Many Page Identities · The Same Repeated Branding Work</div>
+          <p style="color:var(--tx2);font-size:0.88rem;line-height:1.7;margin:0">WatchTheFall Media was the origin. It exposed the bottleneck. Brandr is the product built to solve it — and the infrastructure strong enough to make the wider vision executable.</p>
+        </div>
+        <div class="card card--gold">
+          <div class="h3" style="margin-bottom:0.5rem">Historically, WatchTheFall Media came first.</div>
+          <div class="h3" style="color:var(--g)">Strategically, Brandr now comes first.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 03 PRODUCT -->
+<section id="product" class="stripe">
+  <div class="bw">
+    <div class="sec-num">03 · THE PRODUCT</div>
+    <hr class="sec-rule">
+
+    <!-- Brandr hero logo -->
+    <div style="text-align:center;margin-bottom:3rem">
+      <img src="https://watchthefall.com/assets/brandr/brandr_wordmark_founding.png" alt="Brandr" style="max-width:min(700px,90%);width:100%;border-radius:4px">
+    </div>
+
+    <h2 class="h2" style="text-align:center">Brandr turns repeated creative work<br>into <span class="gold">software.</span></h2>
+    <div class="grid-2" style="margin-top:3rem;gap:3rem;align-items:start">
+      <div>
+        <div class="label">WHAT IT IS</div>
+        <p class="lead">Brandr helps people make their social posts look professional and on-brand — fast — without editing everything by hand every time.</p>
+        <div class="label" style="margin-top:2rem">HOW IT WORKS</div>
+        <p class="lead">Paste a clip, pick a brand, and Brandr applies the logo, watermark and format and renders a publish-ready video in vertical 9:16 or square 1:1 — ready for TikTok, Reels, Shorts and feed.</p>
+        <div style="font-family:var(--font-head);font-size:0.85rem;letter-spacing:0.08em;color:var(--g);margin-top:1.5rem">Fetch → Apply brand → Render → Publish</div>
+        <div style="font-size:0.78rem;color:var(--tx3);margin-top:0.3rem">live at brandr.online · workflow observed under two minutes</div>
+      </div>
+      <div class="screen-grid">
+        <img src="https://watchthefall.com/assets/brandr/brandr_online_create.png" alt="Brandr — Create">
+        <img src="https://watchthefall.com/assets/brandr/brandr_online_brandsettings.png" alt="Brandr — Brand Settings">
+        <img src="https://watchthefall.com/assets/brandr/brandr_online_library.png" alt="Brandr — Library">
+        <img src="https://watchthefall.com/assets/brandr/brandr_online_profile.png" alt="Brandr — Profile">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CONTENT PROOF -->
+<section style="padding:5rem 0;background:rgba(255,255,255,0.01)">
+  <div class="bw">
+    <div class="sec-num">THE CONTENT MACHINE IN ACTION</div>
+    <hr class="sec-rule">
+    <h2 class="h2" style="margin-bottom:0.5rem">Hundreds of posts.<br><span class="gold">Every week. Across every channel.</span></h2>
+    <p class="lead" style="margin-bottom:2rem">This is what the machine produces. Not mockups. Real content, real output, real channels.</p>
+    <div class="poster-scroll">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_GLOBAL_01.png" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_GLOBAL_03.png" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_GLOBAL_05.png" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_GLOBAL_07.png" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_Scotland_01.png" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_Scotland_03.png" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_USA_01.png" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_USA_02.png" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_France_01.png" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_Britain_01.png" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_GLOBAL_10.jpg" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_GLOBAL_15.png" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_Germany_01.png" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_Australia_01.png" alt="WTF Post">
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ MERCH -->
+<section style="padding:5rem 0">
+  <div class="bw">
+    <div class="sec-num">THE BRAND EXTENDS BEYOND DIGITAL</div>
+    <hr class="sec-rule">
+    <h2 class="h2" style="margin-bottom:0.5rem">Merch. Physical proof.<br><span class="gold">The brand lives in the real world.</span></h2>
+    <p class="lead" style="margin-bottom:2rem">WTF merchandise lines built on the same content machine — physical products from the same brand system.</p>
+    <div class="merch-strip">
+      <img src="https://watchthefall.com/assets/Mockups/lion_collapse_tee.png" alt="Lion Collapse Tee">
+      <img src="https://watchthefall.com/assets/Mockups/signal_distortion_hoodie.png" alt="Signal Distortion Hoodie">
+      <img src="https://watchthefall.com/assets/Mockups/world_breakdown_tee.png" alt="World Breakdown Tee">
+      <img src="https://watchthefall.com/assets/Mockups/ai_ascendant_hoodie.png" alt="AI Ascendant Hoodie">
+      <img src="https://watchthefall.com/assets/Mockups/cipher_code_tee.png" alt="Cipher Code Tee">
+      <img src="https://watchthefall.com/assets/Mockups/signal_distortion_tee.png" alt="Signal Distortion Tee">
+      <img src="https://watchthefall.com/assets/Mockups/lion_collapse_hoodie.png" alt="Lion Collapse Hoodie">
+      <img src="https://watchthefall.com/assets/Mockups/world_breakdown_hoodie.png" alt="World Breakdown Hoodie">
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 04 PRICING -->
+<section id="pricing">
+  <div class="bw">
+    <div class="sec-num">04 · PRICING</div>
+    <hr class="sec-rule">
+    <h2 class="h2">Simple plans.<br><span class="gold">Founder pricing</span> for early members.</h2>
+    <p class="lead" style="margin:1rem 0 2rem">Start free. Founding members lock in exclusive Founder pricing and benefits, kept for life. <strong style="color:var(--g)">Paid launch: 5 August 2026.</strong></p>
+    <!-- Founder tier cards -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-bottom:1rem">
+
+      <!-- EXPLORER -->
+      <div style="background:rgba(74,222,128,0.05);border:1px solid rgba(74,222,128,0.25);border-radius:12px;overflow:hidden">
+        <div style="height:180px;display:flex;align-items:center;justify-content:center;background:#000;padding:1rem">
+          <img src="https://watchthefall.com/assets/brandr/brandr_wordmark_explorer.png" alt="Brandr Explorer" style="max-height:100%;max-width:100%;object-fit:contain">
+        </div>
+        <div style="padding:1.25rem 1rem">
+          <div style="font-family:var(--font-head);font-size:1rem;letter-spacing:0.1em;color:#4ade80;margin-bottom:0.25rem">EXPLORER</div>
+          <div style="font-family:var(--font-head);font-size:2rem;color:#4ade80;line-height:1">FREE</div>
+          <div style="font-size:0.7rem;color:var(--tx3);margin-bottom:1rem">forever</div>
+          <ul style="list-style:none;padding:0;margin:0;font-size:0.8rem;color:var(--tx2);line-height:2">
+            <li>✦ 3 brand configs</li>
+            <li>✦ 10 daily credits</li>
+            <li>✦ Vertical &amp; square output</li>
+            <li>✦ Try Brandr free</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CREATOR -->
+      <div style="background:rgba(167,139,250,0.05);border:1px solid rgba(167,139,250,0.25);border-radius:12px;overflow:hidden">
+        <div style="height:180px;display:flex;align-items:center;justify-content:center;background:#000;padding:1rem">
+          <img src="https://watchthefall.com/assets/brandr/brandr_wordmark_creator.png" alt="Brandr Creator" style="max-height:100%;max-width:100%;object-fit:contain">
+        </div>
+        <div style="padding:1.25rem 1rem">
+          <div style="font-family:var(--font-head);font-size:1rem;letter-spacing:0.1em;color:#a78bfa;margin-bottom:0.25rem">CREATOR</div>
+          <div style="font-family:var(--font-head);font-size:2rem;color:#a78bfa;line-height:1">£4.99<span style="font-size:1rem">/mo</span></div>
+          <div style="font-size:0.7rem;color:var(--tx3);margin-bottom:1rem">founder price · locked for life</div>
+          <ul style="list-style:none;padding:0;margin:0;font-size:0.8rem;color:var(--tx2);line-height:2">
+            <li>✦ 7 brand configs</li>
+            <li>✦ 35 daily credits</li>
+            <li>✦ Vertical &amp; square output</li>
+            <li>✦ Growing creators &amp; pages</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- STUDIO -->
+      <div style="background:rgba(251,146,60,0.05);border:1px solid rgba(251,146,60,0.35);border-radius:12px;overflow:hidden;box-shadow:0 0 24px rgba(251,146,60,0.08)">
+        <div style="height:180px;display:flex;align-items:center;justify-content:center;background:#000;padding:1rem">
+          <img src="https://watchthefall.com/assets/brandr/brandr_wordmark_studio.png" alt="Brandr Studio" style="max-height:100%;max-width:100%;object-fit:contain">
+        </div>
+        <div style="padding:1.25rem 1rem">
+          <div style="font-family:var(--font-head);font-size:1rem;letter-spacing:0.1em;color:#fb923c;margin-bottom:0.25rem">STUDIO</div>
+          <div style="font-family:var(--font-head);font-size:2rem;color:#fb923c;line-height:1">£9.99<span style="font-size:1rem">/mo</span></div>
+          <div style="font-size:0.7rem;color:var(--tx3);margin-bottom:1rem">founder price · locked for life</div>
+          <ul style="list-style:none;padding:0;margin:0;font-size:0.8rem;color:var(--tx2);line-height:2">
+            <li>✦ 12 brand configs</li>
+            <li>✦ 75 daily credits</li>
+            <li>✦ Vertical &amp; square output</li>
+            <li>✦ Serious multi-page operators</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PLATINUM -->
+      <div style="background:rgba(148,163,184,0.05);border:1px solid rgba(148,163,184,0.25);border-radius:12px;overflow:hidden">
+        <div style="height:180px;display:flex;align-items:center;justify-content:center;background:#000;padding:1rem">
+          <img src="https://watchthefall.com/assets/brandr/brandr_wordmark_platinum.png" alt="Brandr Platinum" style="max-height:100%;max-width:100%;object-fit:contain">
+        </div>
+        <div style="padding:1.25rem 1rem">
+          <div style="font-family:var(--font-head);font-size:1rem;letter-spacing:0.1em;color:#94a3b8;margin-bottom:0.25rem">PLATINUM</div>
+          <div style="font-family:var(--font-head);font-size:2rem;color:#94a3b8;line-height:1">£19.99<span style="font-size:1rem">/mo</span></div>
+          <div style="font-size:0.7rem;color:var(--tx3);margin-bottom:1rem">founder price · locked for life</div>
+          <ul style="list-style:none;padding:0;margin:0;font-size:0.8rem;color:var(--tx2);line-height:2">
+            <li>✦ 30 brand configs</li>
+            <li>✦ 250 daily credits</li>
+            <li>✦ Vertical &amp; square output</li>
+            <li>✦ Agencies &amp; power users</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <p class="small" style="text-align:center">Founder rates locked for life · billed monthly · upgrade or cancel anytime</p>
+  </div>
+</section>
+
+<!-- ============================================================ 05 FOUNDING MEMBERS -->
+<section id="founding" class="stripe">
+  <div class="bw">
+    <div class="sec-num">05 · FOUNDING MEMBERS</div>
+    <hr class="sec-rule">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem">
+      <img src="https://watchthefall.com/assets/brandr/founding-status.png" alt="Brandr Founding Member Status" style="width:100%;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.6)">
+      <img src="https://watchthefall.com/assets/brandr/founding-pricing.png" alt="Brandr Founder Pricing" style="width:100%;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.6)">
+    </div>
+    <div style="text-align:center">
+      <a href="https://brandr.online/waitlist" class="b-btn b-btn--gold">Request beta access</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 06 ROADMAP -->
+<section id="roadmap">
+  <div class="bw">
+    <div class="sec-num">06 · THE ROADMAP</div>
+    <hr class="sec-rule">
+    <h2 class="h2">Where Brandr is,<br>and where it's <span class="gold">going next.</span></h2>
+    <p class="lead" style="margin:0.5rem 0 3rem">Nothing skipped, nothing claimed early.</p>
+    <div class="roadmap-steps">
+      <div class="roadmap-step">
+        <div>
+          <div class="roadmap-dot dot-live" style="margin:0 auto"></div>
+          <div style="width:1px;background:rgba(34,197,94,0.3);height:calc(100% - 1rem);margin:0.5rem auto 0"></div>
+        </div>
+        <div>
+          <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.15em;color:var(--green);text-transform:uppercase;margin-bottom:0.5rem">● CURRENT — Foundation built</div>
+          <ul class="feat">
+            <li>Brandr live at brandr.online</li>
+            <li>WatchTheFall Media active</li>
+            <li>Pricing &amp; limits confirmed</li>
+          </ul>
+        </div>
+      </div>
+      <div class="roadmap-step">
+        <div>
+          <div class="roadmap-dot dot-prog" style="margin:0 auto"></div>
+          <div style="width:1px;background:rgba(212,175,55,0.3);height:calc(100% - 1rem);margin:0.5rem auto 0"></div>
+        </div>
+        <div>
+          <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.15em;color:var(--g);text-transform:uppercase;margin-bottom:0.5rem">● IN PROGRESS — Beta concluding · July 2026</div>
+          <ul class="feat">
+            <li>Beta users onboarded and active</li>
+            <li>Feedback collected and workflow refined</li>
+            <li>Preparing for paid launch</li>
+          </ul>
+        </div>
+      </div>
+      <div class="roadmap-step" style="border-bottom:none">
+        <div>
+          <div class="roadmap-dot dot-next" style="margin:0 auto"></div>
+        </div>
+        <div>
+          <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.15em;color:var(--tx3);text-transform:uppercase;margin-bottom:0.5rem">● NEXT — Paid launch · <span style="color:var(--g)">5 August 2026</span></div>
+          <ul class="feat">
+            <li>First paid members</li>
+            <li>Founding-member pricing live</li>
+            <li>Fast, reliable branded output at scale</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p class="small" style="margin-top:2rem">More creator tools are planned after launch — building outward from Brandr as the core. We'll share what's next as it's ready.</p>
+  </div>
+</section>
+
+<!-- ============================================================ 07 EARLY MOMENTUM -->
+<section id="momentum" class="stripe">
+  <div class="bw">
+    <div class="sec-num">07 · EARLY MOMENTUM</div>
+    <hr class="sec-rule">
+    <h2 class="h2">A growing community<br>of <span class="gold">multi-page creators.</span></h2>
+    <p class="lead" style="margin:0.5rem 0 3rem">Organic interest, no paid ads — creators running multiple pages are joining the waitlist ahead of launch.</p>
+    <div class="stat-row" style="margin-bottom:3rem">
+      <div class="stat">
+        <div class="stat-num">8.38M</div>
+        <div class="stat-label">Reel views · 30 days · Instagram only</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5M+</div>
+        <div class="stat-label">Unique accounts reached · 30 days</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">19</div>
+        <div class="stat-label">Active accounts · organic · no ad spend</div>
+      </div>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="h3" style="color:var(--green)">Live Product</div>
+        <ul class="feat">
+          <li>Brandr working at brandr.online</li>
+          <li>In active daily use</li>
+          <li>Vertical &amp; square output, ready to post</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="h3" style="color:var(--g)">Waitlist Growing</div>
+        <ul class="feat">
+          <li>Organic signups, no ads</li>
+          <li>Skewed to multi-page operators</li>
+          <li>Now open at brandr.online/waitlist</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="h3">Owned Distribution</div>
+        <ul class="feat">
+          <li>19 themed accounts · WatchTheFall network</li>
+          <li>8.38M reel views in 30 days · no paid ads</li>
+          <li>Built-in launch &amp; distribution channel</li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:4rem">
+      <p style="color:var(--tx2);font-size:1rem">Paste clips. Brand them.<br>Build from there — with a smaller, stronger machine.</p>
+      <div class="ctas" style="justify-content:center;margin-top:1.5rem">
+        <a href="https://brandr.online/waitlist" class="b-btn b-btn--gold">REQUEST BETA ACCESS</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ ACCESS PORTAL -->
+<section id="access" style="background:rgba(212,175,55,0.03);border-top:1px solid rgba(212,175,55,0.15);border-bottom:1px solid rgba(212,175,55,0.15)">
+  <div class="access-portal">
+    <div class="access-portal-header">
+      <div class="label" style="display:block;width:fit-content;margin:0 auto 1.5rem">RESTRICTED ACCESS</div>
+      <h2 class="h2">Deeper sections available<br>to <span class="gold">authorised readers.</span></h2>
+      <p class="lead" style="margin:1rem auto 0;text-align:center">This document extends further. The sections below contain the full business strategy, investor data, financial model, and internal operating framework — each accessible with the relevant access code.</p>
+    </div>
+
+    <div class="access-cards-grid">
+
+      <!-- INV CARD -->
+      <div class="access-card" id="card-inv">
+        <div class="access-card-icon">📊</div>
+        <div class="access-card-tag">INV — Investor &amp; Advisor</div>
+        <div class="access-card-title">Investor &amp; Advisor Briefing</div>
+        <div class="access-card-desc">Full commercial picture: ecosystem architecture, network traction data, market opportunity, revenue model, pricing strategy, and funding overview.</div>
+        <div class="access-card-topics">Includes: Network stats · Market analysis · Revenue model · Ecosystem overview · Funding strategy</div>
+        <button class="access-btn" onclick="togglePW('inv')">ENTER ACCESS CODE →</button>
+        <div class="pw-form" id="pw-form-inv">
+          <input type="password" id="pw-input-inv" placeholder="ACCESS CODE" onkeydown="if(event.key==='Enter')checkPW('inv')">
+          <button class="pw-unlock-btn" onclick="checkPW('inv')">UNLOCK SECTION</button>
+          <div class="pw-error" id="pw-error-inv">Incorrect code. Try again.</div>
+        </div>
+      </div>
+
+      <!-- BG/HIE CARD -->
+      <div class="access-card" id="card-bg">
+        <div class="access-card-icon">🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
+        <div class="access-card-tag">BG · HIE — Funding Bodies</div>
+        <div class="access-card-title">Business Gateway &amp; HIE Reference</div>
+        <div class="access-card-desc">Formal documentation aligned with Business Gateway and Highlands &amp; Islands Enterprise requirements. Scottish context, social value, and grant-readiness content.</div>
+        <div class="access-card-topics">Includes: Highland origin · Social value · Formal business facts · Grant readiness · Fair work</div>
+        <button class="access-btn" onclick="togglePW('bg')">ENTER ACCESS CODE →</button>
+        <div class="pw-form" id="pw-form-bg">
+          <input type="password" id="pw-input-bg" placeholder="ACCESS CODE" onkeydown="if(event.key==='Enter')checkPW('bg')">
+          <button class="pw-unlock-btn" onclick="checkPW('bg')">UNLOCK SECTION</button>
+          <div class="pw-error" id="pw-error-bg">Incorrect code. Try again.</div>
+        </div>
+      </div>
+
+      <!-- OPS CARD -->
+      <div class="access-card" id="card-ops">
+        <div class="access-card-icon">⚙️</div>
+        <div class="access-card-tag">OPS — Internal</div>
+        <div class="access-card-title">Operating Framework</div>
+        <div class="access-card-desc">The internal machine: operating thesis, Build the Machine philosophy, division status tracker, decision rules, and the strategic sequencing logic behind the ecosystem.</div>
+        <div class="access-card-topics">Includes: Operating thesis · Division status · Decision rules · Core values · KPI framework</div>
+        <button class="access-btn" onclick="togglePW('ops')">ENTER ACCESS CODE →</button>
+        <div class="pw-form" id="pw-form-ops">
+          <input type="password" id="pw-input-ops" placeholder="ACCESS CODE" onkeydown="if(event.key==='Enter')checkPW('ops')">
+          <button class="pw-unlock-btn" onclick="checkPW('ops')">UNLOCK SECTION</button>
+          <div class="pw-error" id="pw-error-ops">Incorrect code. Try again.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ INV SECTION -->
+<section id="section-inv" class="gated-section">
+  <div class="section-header">
+    <div class="section-clearance">INV · INVESTOR &amp; ADVISOR BRIEFING · AUTHORISED ACCESS</div>
+    <h2 class="h2">WatchTheFall Enterprises<br><span class="gold">Commercial Overview</span></h2>
+    <p class="lead">Full strategic picture for investors and advisors. This section covers the ecosystem architecture, media network traction, market opportunity, revenue model, and funding approach.</p>
+  </div>
+
+  <div class="bw">
+    <!-- ECOSYSTEM -->
+    <div style="margin-bottom:5rem">
+      <div class="sec-num">THE MACHINE: 6-DIVISION ECOSYSTEM</div>
+      <hr class="sec-rule">
+      <p class="lead" style="margin-bottom:2rem">WatchTheFall Enterprises is not launching six businesses simultaneously. It is building one ecosystem in carefully sequenced phases, with Brandr as the commercial engine.</p>
+      <div style="margin-bottom:2.5rem;border-radius:12px;overflow:hidden;border:1px solid rgba(212,175,55,0.2)">
+        <img src="https://watchthefall.com/assets/brandr/ecosystem-diagram.jpg" alt="Build The Machine — WatchTheFall Ecosystem Diagram" style="width:100%;display:block">
+      </div>
+      <div class="division-grid">
+        <div class="division-card division-card--core">
+          <div><span class="badge badge--live">CURRENT — CORE</span></div>
+          <div class="division-name">Brandr</div>
+          <div class="division-role">The commercial engine. Branded content production software — turns raw content into consistent, publish-ready output. Live at brandr.online.</div>
+        </div>
+        <div class="division-card division-card--core">
+          <div><span class="badge badge--live">CURRENT — ACTIVE</span></div>
+          <div class="division-name">WatchTheFall Media</div>
+          <div class="division-role">The origin and distribution layer. Multi-account social media network — real-world proof environment, testing ground, and built-in acquisition channel.</div>
+        </div>
+        <div class="division-card">
+          <div><span class="badge badge--dev">IN DEVELOPMENT</span></div>
+          <div class="division-name">Creator Profiles</div>
+          <div class="division-role">The strategic wedge. Extends Brandr's value beyond individual content outputs into the creator or business's wider online presence.</div>
+        </div>
+        <div class="division-card">
+          <div><span class="badge badge--planned">PLANNED</span></div>
+          <div class="division-name">WTF Learn</div>
+          <div class="division-role">The education layer. Turns the company's own systems, workflows, Brandr tutorials, AI methods, and operating lessons into structured learning products.</div>
+        </div>
+        <div class="division-card">
+          <div><span class="badge badge--planned">PLANNED</span></div>
+          <div class="division-name">WTF Labs</div>
+          <div class="division-role">The innovation layer. Formalises experimentation around AI, automation, internal tooling, and product improvements that feed back into Brandr.</div>
+        </div>
+        <div class="division-card">
+          <div><span class="badge badge--vision">LONG-TERM VISION</span></div>
+          <div class="division-name">WTF Records</div>
+          <div class="division-role">The creative proof layer. Demonstrates the ecosystem through real campaigns, music releases, artist branding, and audience-building case studies.</div>
+        </div>
+      </div>
+      <div class="quote-block" style="margin-top:2rem">
+        Creative ambition no longer has to die in the gap between idea and execution. With the right systems, a small operation can create, brand, publish, learn, test, and improve at a level that once required a much larger team.
+      </div>
+    </div>
+
+    <!-- NETWORK TRACTION -->
+    <div style="margin-bottom:5rem">
+      <div class="sec-num">MEDIA NETWORK — TRACTION DATA</div>
+      <hr class="sec-rule">
+      <p class="lead" style="margin-bottom:0.5rem">WatchTheFall Media is the real-world proof environment: an owned network of social accounts where Brandr was built, tested, and validated internally before commercial launch.</p>
+      <p style="font-size:0.8rem;color:var(--tx3);margin-bottom:2rem">Official Instagram Insights export · 16 Jun – 16 Jul 2026 · Organic only, no paid promotion. @scotlandwtf not included in this export batch — figure sourced separately.</p>
+
+      <div class="stat-row" style="margin-bottom:3rem">
+        <div class="stat">
+          <div class="stat-num">~52K</div>
+          <div class="stat-label">Instagram followers across network</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">7.2M</div>
+          <div class="stat-label">Reel views — 30 days (18 accounts)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">4.6M</div>
+          <div class="stat-label">Unique viewers reached — 30 days</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:2rem;overflow-x:auto">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Account</th>
+              <th>Followers (official)</th>
+              <th>Reel Views (30 days)</th>
+              <th>Viewers (30 days)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="lead-acct">@scotlandwtf</td><td class="num">~16,600</td><td class="num">—</td><td style="color:var(--tx3);font-size:0.78rem">not in this export</td></tr>
+            <tr><td class="lead-acct">@australiawtf_</td><td class="num">17,181</td><td class="num">297,000</td><td class="num">141,000</td></tr>
+            <tr><td class="lead-acct">@italy_wtf</td><td class="num">3,368</td><td class="num">3,100,000</td><td class="num">2,000,000</td></tr>
+            <tr><td class="lead-acct">@usamericawtf</td><td class="num">3,307</td><td class="num">269,000</td><td class="num">206,000</td></tr>
+            <tr><td>@netherlands.wtf</td><td class="num">2,400</td><td class="num">1,000,000</td><td class="num">669,000</td></tr>
+            <tr><td>@canadawtf_</td><td class="num">1,500</td><td class="num">7,000</td><td class="num">5,700</td></tr>
+            <tr><td>@spainwtf</td><td class="num">1,469</td><td class="num">1,100,000</td><td class="num">632,000</td></tr>
+            <tr><td>@watchthefall.wtf</td><td class="num">1,139</td><td class="num">267</td><td class="num">131</td></tr>
+            <tr><td>@europewtf</td><td class="num">1,100</td><td class="num">306,000</td><td class="num">185,000</td></tr>
+            <tr><td>@germany.wtf</td><td class="num">862</td><td class="num">947,000</td><td class="num">578,000</td></tr>
+            <tr><td>@thewestwtf</td><td class="num">596</td><td class="num">90,000</td><td class="num">65,000</td></tr>
+            <tr><td>@britainwtf</td><td class="num">577</td><td class="num">16,000</td><td class="num">12,000</td></tr>
+            <tr><td>@northernirelandwtf</td><td class="num">231</td><td class="num">3,300</td><td class="num">2,400</td></tr>
+            <tr><td>@france_wtf</td><td class="num">121</td><td class="num">40,000</td><td class="num">28,000</td></tr>
+            <tr><td>@england.wtf</td><td class="num">82</td><td class="num">43,000</td><td class="num">36,000</td></tr>
+            <tr><td>@irelandwtf</td><td class="num">69</td><td class="num">6,200</td><td class="num">3,800</td></tr>
+            <tr><td>@polandwtf</td><td class="num">54</td><td class="num">3,700</td><td class="num">3,000</td></tr>
+            <tr><td>@swedenwtf</td><td class="num">47</td><td class="num">6,800</td><td class="num">5,200</td></tr>
+            <tr><td>@waleswtf</td><td class="num">34</td><td class="num">2,100</td><td class="num">1,500</td></tr>
+            <tr style="background:rgba(212,175,55,0.05)"><td style="color:var(--g);font-weight:700">TOTALS (18 accounts)</td><td class="num">34,137 <span style="color:var(--tx3);font-size:0.75rem">+ scotlandwtf</span></td><td class="num">7,237,367</td><td class="num">4,573,731</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2" style="gap:1.5rem;margin-bottom:1.5rem">
+        <div class="card card--gold">
+          <div class="h3">The Real Headline: Reach vs Followers</div>
+          <p style="color:var(--tx2);font-size:0.88rem;line-height:1.7">Several accounts with small follower bases are generating outsized reach. <strong style="color:var(--g)">@italy_wtf: 3.1M views with 3,368 followers. @netherlands.wtf: 1M views with 2,400 followers.</strong> This is content quality and distribution strength — not a paid audience.</p>
+        </div>
+        <div class="card">
+          <div class="h3">Organic Only — No Paid Promotion</div>
+          <p style="color:var(--tx2);font-size:0.88rem;line-height:1.7">All 7.2M reel views and 4.6M unique viewers were reached organically. No advertising spend. The network is a genuinely earned owned-distribution channel — not a bought one.</p>
+        </div>
+      </div>
+      <div class="card card--gold">
+        <div class="h3">Brandr Proof Point</div>
+        <p style="color:var(--tx2);font-size:0.88rem;line-height:1.7">One operator, supported by Brandr, produced <strong style="color:var(--g)">37+ posts across 25+ accounts in a single day</strong>. The same software that powered this output is now being commercialised. The network is not just an audience — it is the live proof environment for the product.</p>
+      </div>
+    </div>
+
+    <!-- MARKET OPPORTUNITY -->
+    <div style="margin-bottom:5rem">
+      <div class="sec-num">MARKET OPPORTUNITY</div>
+      <hr class="sec-rule">
+      <h3 class="h3">Brandr sits at the intersection of several large and growing behaviours</h3>
+      <p class="lead" style="margin-bottom:2rem">Not one market — the workflow gap between them.</p>
+      <div class="grid-3" style="margin-bottom:2rem">
+        <div class="card"><div class="h3" style="font-size:1rem">Social Content Production</div><p class="muted" style="font-size:0.83rem">Every creator, business, and operator needs consistent, branded, publish-ready output at volume.</p></div>
+        <div class="card"><div class="h3" style="font-size:1rem">Creator Economy Tools</div><p class="muted" style="font-size:0.83rem">A growing market of creators and multi-account operators needing workflow software.</p></div>
+        <div class="card"><div class="h3" style="font-size:1rem">AI Content Paradox</div><p class="muted" style="font-size:0.83rem">AI creates more raw content, but not branded output. The bottleneck moves — and Brandr fills it.</p></div>
+        <div class="card"><div class="h3" style="font-size:1rem">Small Business Marketing</div><p class="muted" style="font-size:0.83rem">SMEs need professional content without a marketing team or agency spend.</p></div>
+        <div class="card"><div class="h3" style="font-size:1rem">Agency &amp; Multi-Brand Ops</div><p class="muted" style="font-size:0.83rem">Freelance social managers and small agencies managing content across many clients.</p></div>
+        <div class="card"><div class="h3" style="font-size:1rem">Music &amp; Creative Campaigns</div><p class="muted" style="font-size:0.83rem">Musicians and artists needing release assets and campaign visuals repeatedly.</p></div>
+      </div>
+      <div class="quote-block">
+        AI has made creation easier — which means people produce far more raw output than before. But raw output is not finished output. More material creates more need for sorting, formatting, branding, and publishing. The bottleneck moves — and Brandr sits exactly in that finishing layer.
+      </div>
+      <p class="small">Note: specific market-size figures (creator economy total, SME social spend, AI tool adoption rates) should be added with verified sources before external use. Placeholders mark where sourced data belongs.</p>
+    </div>
+
+    <!-- REVENUE MODEL -->
+    <div style="margin-bottom:5rem">
+      <div class="sec-num">REVENUE MODEL</div>
+      <hr class="sec-rule">
+      <div class="grid-2" style="gap:3rem;align-items:start">
+        <div>
+          <h3 class="h3">Core Model: SaaS Subscription</h3>
+          <p class="lead" style="font-size:0.9rem">Brandr's primary revenue is monthly subscription. Simple, recurring, scalable. The model begins with Brandr and expands only into additional streams that strengthen the core.</p>
+          <div style="margin-top:2rem">
+            <div class="phase">
+              <div class="phase-num">1</div>
+              <div><strong style="color:var(--g)">Brandr Subscriptions</strong><br><span class="muted" style="font-size:0.87rem">Primary near-term revenue. Monthly SaaS. Founder pricing active until standard rates confirmed.</span></div>
+            </div>
+            <div class="phase">
+              <div class="phase-num">2</div>
+              <div><strong>Creator Profiles</strong><br><span class="muted" style="font-size:0.87rem">Future add-on or premium tier extending into broader creator presence infrastructure.</span></div>
+            </div>
+            <div class="phase">
+              <div class="phase-num">3</div>
+              <div><strong>WTF Learn</strong><br><span class="muted" style="font-size:0.87rem">Future education products: courses, guides, and systems built from WTF's own workflows.</span></div>
+            </div>
+            <div class="phase" style="border-bottom:none">
+              <div class="phase-num">4</div>
+              <div><strong>Wider Ecosystem</strong><br><span class="muted" style="font-size:0.87rem">Labs, Records, partnerships, and potential media income — phased, contingent on Brandr success.</span></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="h3">Pricing Summary</h3>
+          <div class="card" style="overflow-x:auto">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Tier</th>
+                  <th>Founder Price</th>
+                  <th>Target Customer</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Explorer</td><td class="num">Free</td><td>Trial users</td></tr>
+                <tr><td>Creator</td><td class="num">£4.99/mo</td><td>Solo creators</td></tr>
+                <tr><td>Studio</td><td class="num">£9.99/mo</td><td>Multi-page operators</td></tr>
+                <tr><td>Platinum</td><td class="num">£19.99/mo</td><td>Agencies &amp; power users</td></tr>
+                <tr><td>Elite</td><td class="num">Invite</td><td>High-volume / strategic</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="small" style="margin-top:1rem">Founder prices are locked for life for founding members. Standard prices TBC and will be higher. Pricing strategy and unit economics are developed in full in Sections 15–16 of the complete handbook.</p>
+          <div class="card card--gold" style="margin-top:1.5rem">
+            <div style="font-size:0.75rem;font-weight:700;color:var(--g);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem">Revenue Discipline</div>
+            <p style="color:var(--tx2);font-size:0.85rem;margin:0;line-height:1.6">The company will not chase multiple revenue streams before proving subscriptions. Revenue validates strategy. Traction before expansion.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPETITIVE POSITION -->
+    <div style="margin-bottom:5rem">
+      <div class="sec-num">COMPETITIVE POSITION</div>
+      <hr class="sec-rule">
+      <p class="lead" style="margin-bottom:2rem">Brandr does not compete with Canva, CapCut, or general-purpose AI tools. It occupies the gap between them.</p>
+      <div class="grid-3">
+        <div class="card">
+          <div class="h3" style="font-size:0.95rem;color:var(--tx3)">What Brandr Is NOT</div>
+          <ul class="feat" style="margin-top:0.5rem">
+            <li>A blank-canvas design tool</li>
+            <li>A general AI content generator</li>
+            <li>A social media scheduler</li>
+            <li>A video editor from scratch</li>
+            <li>A creator profile / link-in-bio tool</li>
+          </ul>
+        </div>
+        <div class="card card--gold">
+          <div class="h3" style="font-size:0.95rem;color:var(--g)">What Brandr IS</div>
+          <ul class="feat" style="margin-top:0.5rem">
+            <li>A branded-content workflow layer</li>
+            <li>Repeatable output at speed</li>
+            <li>Brand consistency across accounts</li>
+            <li>Multi-account production tool</li>
+            <li>Proven internally on 25+ real accounts</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="h3" style="font-size:0.95rem">Defensible Advantage</div>
+          <ul class="feat" style="margin-top:0.5rem">
+            <li>Internal proof environment</li>
+            <li>Real operator as first user</li>
+            <li>Focus over breadth</li>
+            <li>Owned media as distribution</li>
+            <li>Built by the pain, not by theory</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- FUNDING -->
+    <div style="margin-bottom:3rem">
+      <div class="sec-num">FUNDING OVERVIEW</div>
+      <hr class="sec-rule">
+      <div class="grid-2" style="gap:3rem">
+        <div>
+          <h3 class="h3">Current Position</h3>
+          <p class="lead" style="font-size:0.9rem">Bootstrapped. Solo founder. Product live and in active daily use. Paid commercial launch confirmed for <strong style="color:var(--g)">5 August 2026</strong>. The business is at the point where targeted funding accelerates growth from a working foundation — it does not create viability.</p>
+          <div class="quote-block" style="margin-top:1.5rem">
+            Funding accelerates execution; it does not create viability by itself.
+          </div>
+        </div>
+        <div>
+          <h3 class="h3">Funding Principles</h3>
+          <ul class="feat">
+            <li>Revenue comes before expansion</li>
+            <li>Traction validates strategy, not the reverse</li>
+            <li>Brandr first — every other division is phased</li>
+            <li>Funding sought at the right stage, not before proof</li>
+            <li>Honest status always — current vs. planned vs. vision</li>
+          </ul>
+          <p class="small" style="margin-top:1rem">Specific funding ask, use of funds, and financial projections are held in Section 24–25 of the complete handbook. For full financial model, contact the founder directly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ BG/HIE SECTION -->
+<section id="section-bg" class="gated-section">
+  <div class="section-header">
+    <div class="section-clearance">BG · HIE · BUSINESS GATEWAY &amp; HIGHLAND ENTERPRISE REFERENCE</div>
+    <h2 class="h2">WatchTheFall Enterprises<br><span class="gold">Scotland &amp; Highlands Context</span></h2>
+    <p class="lead">Formal documentation aligned with Business Gateway and Highlands &amp; Islands Enterprise requirements. Origin, context, social value, and grant-readiness content.</p>
+  </div>
+
+  <div class="bw">
+    <!-- ORIGIN -->
+    <div style="margin-bottom:5rem">
+      <div class="sec-num">HIGHLAND ORIGIN</div>
+      <hr class="sec-rule">
+      <div class="grid-2" style="gap:3rem;align-items:start">
+        <div>
+          <h3 class="h3">Built in Scotland, from the Highlands</h3>
+          <p class="lead" style="font-size:0.9rem">WatchTheFall Enterprises is a Highland Scotland-based digital business. The company is digital-first and location-independent — demonstrating that high-value, software-led work can be built and scaled from a smaller regional base without proximity to a traditional business centre.</p>
+          <p style="color:var(--tx2);font-size:0.87rem;line-height:1.7;margin-top:1rem">This is not incidental to the company's identity — it is integral to the narrative. The founder's experience in the Highlands shaped the problem (running a media network from a remote location), the product (built to create operational leverage for one person), and the mission (demonstrating that a small, AI-supported team can now operate at a scale that previously required much larger infrastructure).</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1rem">
+          <div class="card card--gold">
+            <div class="h3" style="font-size:1rem">Business Type</div>
+            <p class="muted" style="font-size:0.87rem;margin:0.5rem 0 0">Digital software business (SaaS). Sole founder. Scotland / Highlands and Islands.</p>
+          </div>
+          <div class="card">
+            <div class="h3" style="font-size:1rem">Product Status</div>
+            <p class="muted" style="font-size:0.87rem;margin:0.5rem 0 0">Brandr is live and in active daily use. Beta phase concluding. Paid commercial launch: <strong style="color:var(--g)">5 August 2026.</strong></p>
+          </div>
+          <div class="card">
+            <div class="h3" style="font-size:1rem">Stage</div>
+            <p class="muted" style="font-size:0.87rem;margin:0.5rem 0 0">Early-stage. Bootstrapped. Internal traction established. Commercial launch confirmed <strong style="color:var(--g)">5 August 2026</strong>. Funding sought to accelerate growth from launch.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOCIAL VALUE -->
+    <div style="margin-bottom:5rem">
+      <div class="sec-num">SOCIAL VALUE &amp; REGIONAL IMPACT</div>
+      <hr class="sec-rule">
+      <p class="lead" style="margin-bottom:2rem">Social value claims are made carefully, as potential and direction of travel — not as outcomes that have not yet been achieved.</p>
+      <div class="grid-2" style="gap:1.5rem">
+        <div class="pillar">
+          <div class="pillar-title">Digital Skills &amp; Creator Empowerment</div>
+          <div class="pillar-body">Brandr gives creators, small businesses, musicians, and independent operators in Scotland access to professional branding tools that previously required design teams or agency spend. Over time, WTF Learn will turn the company's own AI and content systems into accessible learning pathways.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-title">Small Business Competitiveness</div>
+          <div class="pillar-body">Scottish and Highland SMEs face the same content demands as businesses in major cities, with fewer resources to meet them. Brandr reduces the cost of producing professional, branded social content — a practical equaliser for businesses competing beyond their immediate geography.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-title">Location-Independent, High-Value Work</div>
+          <div class="pillar-body">The company demonstrates that software-led, AI-assisted businesses can operate at a national and international level from Highland Scotland — a credible model for digital-first economic development in the region.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-title">Creator Economy Access</div>
+          <div class="pillar-body">As more people seek income from creative and digital activity outside traditional employment, Brandr provides tools to make that output more professional, consistent, and commercially viable. A direction consistent with HIE's digital economy priorities.</div>
+        </div>
+      </div>
+      <p class="small" style="margin-top:1.5rem">Social value is presented as credible direction of travel, consistent with the company's tools and context. No outcome claims are made beyond what has been demonstrated. Full development of this theme is in Section 28 of the complete handbook.</p>
+    </div>
+
+    <!-- FAIR WORK -->
+    <div style="margin-bottom:5rem">
+      <div class="sec-num">FAIR WORK PRINCIPLES</div>
+      <hr class="sec-rule">
+      <div class="grid-3">
+        <div class="card">
+          <div class="h3" style="font-size:1rem">Voice</div>
+          <p class="muted" style="font-size:0.85rem">As the team grows, employee voice and feedback will be built into operations. Sole-founder stage currently; principles applied to how the founder manages time and decision-making.</p>
+        </div>
+        <div class="card">
+          <div class="h3" style="font-size:1rem">Opportunity</div>
+          <p class="muted" style="font-size:0.85rem">The company is committed to creating opportunity for people in Scotland, particularly in digital and creative sectors, as it grows beyond the solo-founder stage.</p>
+        </div>
+        <div class="card">
+          <div class="h3" style="font-size:1rem">Security</div>
+          <p class="muted" style="font-size:0.85rem">Future hiring will prioritise fair pay, clear role expectations, and sustainable workloads. The company does not intend to build an operation that requires exploitative working conditions.</p>
+        </div>
+        <div class="card">
+          <div class="h3" style="font-size:1rem">Fulfilment</div>
+          <p class="muted" style="font-size:0.85rem">Work should be meaningful. The WatchTheFall Enterprises ecosystem is built to create roles that exercise genuine skill: software development, content strategy, creative production, and operational systems.</p>
+        </div>
+        <div class="card">
+          <div class="h3" style="font-size:1rem">Respect</div>
+          <p class="muted" style="font-size:0.85rem">Mutual respect between founder, collaborators, and future employees is a design principle — not an afterthought. The company's operating documentation reflects this from the start.</p>
+        </div>
+        <div class="card card--gold">
+          <div class="h3" style="font-size:1rem">Stage Note</div>
+          <p class="muted" style="font-size:0.85rem">These are principles and commitments, not yet evidenced hiring practice. The company is at solo-founder stage. Fair work is a framework to grow into, not a claim about current employment.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRANT READINESS -->
+    <div style="margin-bottom:3rem">
+      <div class="sec-num">GRANT READINESS &amp; BG/HIE ALIGNMENT</div>
+      <hr class="sec-rule">
+      <div class="grid-2" style="gap:3rem">
+        <div>
+          <h3 class="h3">Alignment with Business Gateway</h3>
+          <ul class="feat">
+            <li>Clear business concept with internal proof (Brandr working)</li>
+            <li>Defined market and customer segments</li>
+            <li>Realistic revenue model with honest traction</li>
+            <li>Solo founder with relevant lived experience</li>
+            <li>Highland Scotland based — eligible for regional support</li>
+            <li>Documented strategy (this handbook)</li>
+            <li>Product differentiated from general tools</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="h3">Alignment with HIE Priorities</h3>
+          <ul class="feat">
+            <li>Digital economy business — scalable beyond the region</li>
+            <li>Demonstrates location-independent high-value work</li>
+            <li>Social value: tools for creators, SMEs, and digital skills</li>
+            <li>AI-assisted — aligned with innovation economy priorities</li>
+            <li>Potential future employer in the Highlands</li>
+            <li>Owned media network: built-in regional presence</li>
+            <li>Documented and evidenced — professionally structured application readiness</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card card--gold" style="margin-top:2rem">
+        <div class="h3" style="font-size:1rem">On Use of Funding</div>
+        <p style="color:var(--tx2);font-size:0.87rem;line-height:1.7;margin:0.5rem 0 0">Funding sought at this stage is to accelerate what is already working: scaling Brandr from its confirmed paid launch on <strong style="color:var(--g)">5 August 2026</strong>, building the first paying customer base, and investing in the infrastructure to sustain growth. The business is viable without funding. Funding creates the conditions to scale faster. Full use-of-funds breakdown available on request.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ OPS SECTION -->
+<section id="section-ops" class="gated-section">
+  <div class="section-header">
+    <div class="section-clearance">OPS · INTERNAL OPERATING FRAMEWORK · AUTHORISED ACCESS</div>
+    <h2 class="h2">The Machine:<br><span class="gold">Operating Framework</span></h2>
+    <p class="lead">Internal documentation: the operating thesis, core philosophy, division status, values, and decision rules that govern how WatchTheFall Enterprises runs.</p>
+  </div>
+
+  <div class="bw">
+    <!-- OPERATING THESIS -->
+    <div style="margin-bottom:5rem">
+      <div class="sec-num">OPERATING THESIS</div>
+      <hr class="sec-rule">
+      <div class="quote-block" style="font-size:1.1rem">
+        Creative ambition no longer has to die in the gap between idea and execution. With the right systems, a small operation can create, brand, publish, learn, test, and improve at a level that once required a much larger team.
+      </div>
+      <p class="lead" style="margin-top:2rem">This thesis shapes every decision. It means:</p>
+      <div class="grid-2" style="gap:1.5rem;margin-top:1.5rem">
+        <div class="card">
+          <div class="h3" style="font-size:0.95rem">Brandr comes first commercially</div>
+          <p class="muted" style="font-size:0.85rem">The product with the clearest commercial purpose. Everything else is sequenced behind it.</p>
+        </div>
+        <div class="card">
+          <div class="h3" style="font-size:0.95rem">WatchTheFall Media is proof and distribution</div>
+          <p class="muted" style="font-size:0.85rem">Not a side project. The testing ground, distribution layer, and evidence environment.</p>
+        </div>
+        <div class="card">
+          <div class="h3" style="font-size:0.95rem">Revenue before expansion</div>
+          <p class="muted" style="font-size:0.85rem">No new division opens without the previous one creating capacity, proof, or revenue to support it.</p>
+        </div>
+        <div class="card">
+          <div class="h3" style="font-size:0.95rem">Funding accelerates, not creates</div>
+          <p class="muted" style="font-size:0.85rem">Money accelerates what is working. It does not create what isn't.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUILD THE MACHINE PHILOSOPHY -->
+    <div style="margin-bottom:5rem">
+      <div class="sec-num">BUILD THE MACHINE PHILOSOPHY</div>
+      <hr class="sec-rule">
+      <div class="quote-block">
+        Do not repeat work indefinitely. Build the system that does the work, then improve the system.
+      </div>
+      <p class="lead" style="margin:2rem 0 1.5rem">Work inside the company divides into two categories:</p>
+      <div class="grid-2" style="gap:1.5rem;margin-bottom:2rem">
+        <div class="card card--gold">
+          <div class="h3" style="font-size:1rem;color:var(--g)">Human Work — Protected</div>
+          <p class="muted" style="font-size:0.85rem;line-height:1.7">Taste, strategic decision-making, creative judgement, relationship-building, ethics, context, original thinking. This stays close to the founder and trusted collaborators.</p>
+        </div>
+        <div class="card">
+          <div class="h3" style="font-size:1rem">System Work — Converted</div>
+          <p class="muted" style="font-size:0.85rem;line-height:1.7">Repeated tasks, patterns, consistency work. These become software, automation, templates, prompts, documentation, checklists, or SOPs.</p>
+        </div>
+      </div>
+      <p class="lead" style="font-size:0.9rem">The rule: before doing a recurring task manually a third time, ask whether it should be built once and reused.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:2rem">
+        <div style="text-align:center;padding:1.25rem;border:1px solid rgba(255,255,255,0.06);border-radius:6px">
+          <div style="font-size:0.75rem;color:var(--g);font-weight:700;letter-spacing:0.1em;text-transform:uppercase">Repeated workflow</div>
+          <div style="font-size:1.5rem;margin:0.5rem 0">→</div>
+          <div style="font-size:0.82rem;color:var(--tx2)">Brandr feature</div>
+        </div>
+        <div style="text-align:center;padding:1.25rem;border:1px solid rgba(255,255,255,0.06);border-radius:6px">
+          <div style="font-size:0.75rem;color:var(--g);font-weight:700;letter-spacing:0.1em;text-transform:uppercase">Recurring question</div>
+          <div style="font-size:1.5rem;margin:0.5rem 0">→</div>
+          <div style="font-size:0.82rem;color:var(--tx2)">Documentation</div>
+        </div>
+        <div style="text-align:center;padding:1.25rem;border:1px solid rgba(255,255,255,0.06);border-radius:6px">
+          <div style="font-size:0.75rem;color:var(--g);font-weight:700;letter-spacing:0.1em;text-transform:uppercase">Successful process</div>
+          <div style="font-size:1.5rem;margin:0.5rem 0">→</div>
+          <div style="font-size:0.82rem;color:var(--tx2)">SOP / template</div>
+        </div>
+        <div style="text-align:center;padding:1.25rem;border:1px solid rgba(255,255,255,0.06);border-radius:6px">
+          <div style="font-size:0.75rem;color:var(--g);font-weight:700;letter-spacing:0.1em;text-transform:uppercase">Useful prompt</div>
+          <div style="font-size:1.5rem;margin:0.5rem 0">→</div>
+          <div style="font-size:0.82rem;color:var(--tx2)">Prompt library</div>
+        </div>
+        <div style="text-align:center;padding:1.25rem;border:1px solid rgba(255,255,255,0.06);border-radius:6px">
+          <div style="font-size:0.75rem;color:var(--g);font-weight:700;letter-spacing:0.1em;text-transform:uppercase">Campaign lesson</div>
+          <div style="font-size:1.5rem;margin:0.5rem 0">→</div>
+          <div style="font-size:0.82rem;color:var(--tx2)">Case study / IP</div>
+        </div>
+        <div style="text-align:center;padding:1.25rem;border:1px solid rgba(255,255,255,0.06);border-radius:6px">
+          <div style="font-size:0.75rem;color:var(--g);font-weight:700;letter-spacing:0.1em;text-transform:uppercase">Founder task</div>
+          <div style="font-size:1.5rem;margin:0.5rem 0">→</div>
+          <div style="font-size:0.82rem;color:var(--tx2)">Automation candidate</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIVISION STATUS -->
+    <div style="margin-bottom:5rem">
+      <div class="sec-num">DIVISION STATUS TRACKER</div>
+      <hr class="sec-rule">
+      <div class="card" style="overflow-x:auto">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Division</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Condition to advance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="lead-acct">Brandr</td>
+              <td>Commercial engine</td>
+              <td><span class="badge badge--live">CURRENT — CORE</span></td>
+              <td>Achieve paid launch; first revenue</td>
+            </tr>
+            <tr>
+              <td class="lead-acct">WatchTheFall Media</td>
+              <td>Origin &amp; distribution layer</td>
+              <td><span class="badge badge--live">CURRENT — ACTIVE</span></td>
+              <td>Maintain; grow audience; feed Brandr</td>
+            </tr>
+            <tr>
+              <td>Creator Profiles</td>
+              <td>Strategic wedge</td>
+              <td><span class="badge badge--dev">IN DEVELOPMENT</span></td>
+              <td>Brandr has paying users; profiles extend value</td>
+            </tr>
+            <tr>
+              <td>WTF Learn</td>
+              <td>Education layer</td>
+              <td><span class="badge badge--planned">PLANNED</span></td>
+              <td>Brandr commercial; documented workflows exist</td>
+            </tr>
+            <tr>
+              <td>WTF Labs</td>
+              <td>Innovation layer</td>
+              <td><span class="badge badge--planned">PLANNED</span></td>
+              <td>Brandr stable; internal experiments worth formalising</td>
+            </tr>
+            <tr>
+              <td>WTF Records</td>
+              <td>Creative proof layer</td>
+              <td><span class="badge badge--vision">LONG-TERM VISION</span></td>
+              <td>Brandr live; campaigns demonstrate ecosystem; capacity allows</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- CORE VALUES -->
+    <div style="margin-bottom:5rem">
+      <div class="sec-num">CORE VALUES — OPERATING RULES</div>
+      <hr class="sec-rule">
+      <p class="lead" style="margin-bottom:2rem">Written as operating rules, not slogans. Each is something the company can be held to in practice.</p>
+      <div style="display:flex;flex-direction:column;gap:1rem">
+        <div class="pillar">
+          <div class="pillar-title">1. Build the Machine</div>
+          <div class="pillar-body">Repeated work should become a system — software, automation, a template, a prompt, or a documented procedure. Before doing a recurring task manually a third time, ask whether it should be built once and reused.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-title">2. Leverage Over Noise</div>
+          <div class="pillar-body">Output should be the result of process, not chaotic effort. Volume without consistency is not a win. The company measures itself on repeatable, consistent output — not on bursts of unsustainable activity.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-title">3. Creativity With Structure</div>
+          <div class="pillar-body">Creativity matters most when it can be reliably branded, repeated, and distributed. Taste sets direction; systems carry it. Creative decisions are protected as human work; the production around them is systemised.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-title">4. Honest Status</div>
+          <div class="pillar-body">Current, in development, planned, and long-term vision must always be clearly separated. No document, pitch, or page implies a future capability already exists. Credibility is treated as an asset worth protecting.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-title">5. Sequence Before Scale</div>
+          <div class="pillar-body">The company should not expand because an idea is exciting. It should expand because the previous layer has created the proof, systems, revenue, or capacity required to support the next one.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-title">6. Documentation Is Product</div>
+          <div class="pillar-body">Every process written down, refined, and reused becomes part of the machine. Documentation is not admin — it is intellectual property. Every operational lesson from WatchTheFall Media can improve Brandr.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KPI FRAMEWORK -->
+    <div style="margin-bottom:3rem">
+      <div class="sec-num">KPI FRAMEWORK</div>
+      <hr class="sec-rule">
+      <p class="lead" style="margin-bottom:2rem">What the business measures, at this stage. Metrics evolve as the commercial stage advances.</p>
+      <div class="grid-3">
+        <div class="card">
+          <div class="h3" style="font-size:0.9rem;color:var(--g)">Brandr — Product</div>
+          <ul class="feat" style="font-size:0.82rem">
+            <li>Active beta users</li>
+            <li>Renders per user per week</li>
+            <li>Time from sign-up to first render</li>
+            <li>Activation rate (first branded output)</li>
+            <li>Retention at 30 days</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="h3" style="font-size:0.9rem;color:var(--g)">Brandr — Commercial</div>
+          <ul class="feat" style="font-size:0.82rem">
+            <li>Free → paid conversion rate</li>
+            <li>Monthly recurring revenue</li>
+            <li>Founding members count</li>
+            <li>Churn rate</li>
+            <li>Average revenue per user</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="h3" style="font-size:0.9rem;color:var(--g)">WatchTheFall Media</div>
+          <ul class="feat" style="font-size:0.82rem">
+            <li>Total network followers</li>
+            <li>Posts produced per week</li>
+            <li>Output via Brandr (as % of total)</li>
+            <li>Waitlist referrals from media</li>
+            <li>Engagement rate by account</li>
+          </ul>
+        </div>
+      </div>
+      <p class="small" style="margin-top:1.5rem">Full KPI dashboard and measurement framework in Appendix K of the complete handbook. Current KPIs focus on product validation and first commercial revenue — pre-launch metrics tracked manually.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FOOTER -->
+<footer class="site-footer">
+  <p>BRANDR · WATCHTHEFALL ENTERPRISES · BUILT IN SCOTLAND</p>
+  <p style="margin-top:0.5rem"><a href="https://brandr.online/waitlist">brandr.online</a> · <a href="https://watchthefall.com">watchthefall.com</a></p>
+  <p style="margin-top:1rem;font-size:0.72rem;color:var(--tx3)">Restricted sections are password-protected. Content is confidential and intended only for authorised readers.</p>
+</footer>
+
+<!-- ============================================================ JAVASCRIPT -->
+<script>
+  // ─────────────────────────────────────────────
+  // ACCESS CODES — change these before deploying
+  // ─────────────────────────────────────────────
+  const CODES = {
+    inv: 'WTFINVESTOR',   // Investor & Advisor section
+    bg:  'WTFHIGHLAND',   // Business Gateway / HIE section
+    ops: 'WTFMACHINE'     // Internal / Ops section
+  };
+
+  function togglePW(section) {
+    const form = document.getElementById('pw-form-' + section);
+    const isVisible = form.classList.contains('visible');
+    // Hide all forms first
+    document.querySelectorAll('.pw-form').forEach(f => f.classList.remove('visible'));
+    document.querySelectorAll('.pw-error').forEach(e => e.classList.remove('visible'));
+    if (!isVisible) {
+      form.classList.add('visible');
+      setTimeout(() => document.getElementById('pw-input-' + section).focus(), 50);
+    }
+  }
+
+  function checkPW(section) {
+    const input = document.getElementById('pw-input-' + section);
+    const error = document.getElementById('pw-error-' + section);
+    const target = document.getElementById('section-' + section);
+    const card   = document.getElementById('card-' + section);
+    const btn    = card.querySelector('.access-btn');
+
+    if (input.value.trim().toUpperCase() === CODES[section].toUpperCase()) {
+      // Unlock
+      error.classList.remove('visible');
+      target.classList.add('unlocked');
+      btn.textContent = '✓ SECTION UNLOCKED';
+      btn.classList.add('unlocked');
+      document.getElementById('pw-form-' + section).classList.remove('visible');
+      // Smooth scroll to section
+      setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 200);
+    } else {
+      error.classList.add('visible');
+      input.value = '';
+      input.focus();
+    }
+  }
+
+  // Restore unlocked sections from sessionStorage
+  ['inv','bg','ops'].forEach(s => {
+    if (sessionStorage.getItem('unlocked-' + s)) {
+      const target = document.getElementById('section-' + s);
+      const card   = document.getElementById('card-' + s);
+      if (target) target.classList.add('unlocked');
+      if (card) {
+        const btn = card.querySelector('.access-btn');
+        if (btn) { btn.textContent = '✓ SECTION UNLOCKED'; btn.classList.add('unlocked'); }
+      }
+    }
+  });
+
+  // Persist unlocked state in sessionStorage
+  const observer = new MutationObserver(mutations => {
+    mutations.forEach(m => {
+      if (m.type === 'attributes' && m.attributeName === 'class') {
+        const el = m.target;
+        ['inv','bg','ops'].forEach(s => {
+          const target = document.getElementById('section-' + s);
+          if (el === target && el.classList.contains('unlocked')) {
+            sessionStorage.setItem('unlocked-' + s, '1');
+          }
+        });
+      }
+    });
+  });
+  ['section-inv','section-bg','section-ops'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el, { attributes: true });
+  });
+
+  // Active nav highlighting
+  const navLinks = document.querySelectorAll('.v2-links a[href^="#"]');
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--g)' : '';
+    });
+  });
+</script>
+</body>
+</html>
+`
+  return new Response(html, {
+    headers: {'Content-Type': 'text/html;charset=UTF-8','Cache-Control': 'no-cache'}
+  })
+}

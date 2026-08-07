@@ -1,0 +1,415 @@
+{
+  "_meta": {
+    "account": "@europewtf",
+    "platform": "tiktok",
+    "totalVideos": 55,
+    "builtAt": "2026-07-06T15:00:00.000Z"
+  },
+  "latest": "https://www.tiktok.com/@europewtf/video/7579186943179640096",
+  "featured": [
+    "https://www.tiktok.com/@europewtf/video/7531125174897233174",
+    "https://www.tiktok.com/@europewtf/video/7547630052997975318",
+    "https://www.tiktok.com/@europewtf/video/7513031576918199574",
+    "https://www.tiktok.com/@europewtf/video/7578262986431696161",
+    "https://www.tiktok.com/@europewtf/video/7570648900319644961",
+    "https://www.tiktok.com/@europewtf/video/7570716635988888865",
+    "https://www.tiktok.com/@europewtf/video/7493950648040312086",
+    "https://www.tiktok.com/@europewtf/video/7570680279157722400",
+    "https://www.tiktok.com/@europewtf/video/7513107437247794454",
+    "https://www.tiktok.com/@europewtf/video/7570729196398398753",
+    "https://www.tiktok.com/@europewtf/video/7499366392718757142",
+    "https://www.tiktok.com/@europewtf/video/7512180004717858070",
+    "https://www.tiktok.com/@europewtf/video/7569604487992577313",
+    "https://www.tiktok.com/@europewtf/video/7499384996789046560",
+    "https://www.tiktok.com/@europewtf/video/7579186943179640096"
+  ],
+  "_scored": [
+    {
+      "id": "7531125174897233174",
+      "url": "https://www.tiktok.com/@europewtf/video/7531125174897233174",
+      "views": 5029,
+      "pinned": false
+    },
+    {
+      "id": "7547630052997975318",
+      "url": "https://www.tiktok.com/@europewtf/video/7547630052997975318",
+      "views": 2098,
+      "pinned": false
+    },
+    {
+      "id": "7513031576918199574",
+      "url": "https://www.tiktok.com/@europewtf/video/7513031576918199574",
+      "views": 885,
+      "pinned": false
+    },
+    {
+      "id": "7578262986431696161",
+      "url": "https://www.tiktok.com/@europewtf/video/7578262986431696161",
+      "views": 866,
+      "pinned": false
+    },
+    {
+      "id": "7570648900319644961",
+      "url": "https://www.tiktok.com/@europewtf/video/7570648900319644961",
+      "views": 816,
+      "pinned": false
+    },
+    {
+      "id": "7570716635988888865",
+      "url": "https://www.tiktok.com/@europewtf/video/7570716635988888865",
+      "views": 799,
+      "pinned": false
+    },
+    {
+      "id": "7493950648040312086",
+      "url": "https://www.tiktok.com/@europewtf/video/7493950648040312086",
+      "views": 767,
+      "pinned": false
+    },
+    {
+      "id": "7570680279157722400",
+      "url": "https://www.tiktok.com/@europewtf/video/7570680279157722400",
+      "views": 750,
+      "pinned": false
+    },
+    {
+      "id": "7513107437247794454",
+      "url": "https://www.tiktok.com/@europewtf/video/7513107437247794454",
+      "views": 749,
+      "pinned": false
+    },
+    {
+      "id": "7570729196398398753",
+      "url": "https://www.tiktok.com/@europewtf/video/7570729196398398753",
+      "views": 695,
+      "pinned": false
+    },
+    {
+      "id": "7499366392718757142",
+      "url": "https://www.tiktok.com/@europewtf/video/7499366392718757142",
+      "views": 694,
+      "pinned": false
+    },
+    {
+      "id": "7512180004717858070",
+      "url": "https://www.tiktok.com/@europewtf/video/7512180004717858070",
+      "views": 675,
+      "pinned": false
+    },
+    {
+      "id": "7569604487992577313",
+      "url": "https://www.tiktok.com/@europewtf/video/7569604487992577313",
+      "views": 556,
+      "pinned": false
+    },
+    {
+      "id": "7499384996789046560",
+      "url": "https://www.tiktok.com/@europewtf/video/7499384996789046560",
+      "views": 383,
+      "pinned": false
+    },
+    {
+      "id": "7579186943179640096",
+      "url": "https://www.tiktok.com/@europewtf/video/7579186943179640096",
+      "views": 362,
+      "pinned": false
+    },
+    {
+      "id": "7570403514577440032",
+      "url": "https://www.tiktok.com/@europewtf/video/7570403514577440032",
+      "views": 313,
+      "pinned": false
+    },
+    {
+      "id": "7499121988607151382",
+      "url": "https://www.tiktok.com/@europewtf/video/7499121988607151382",
+      "views": 310,
+      "pinned": false
+    },
+    {
+      "id": "7571442627195718944",
+      "url": "https://www.tiktok.com/@europewtf/video/7571442627195718944",
+      "views": 308,
+      "pinned": false
+    },
+    {
+      "id": "7569600921752063265",
+      "url": "https://www.tiktok.com/@europewtf/video/7569600921752063265",
+      "views": 268,
+      "pinned": false
+    },
+    {
+      "id": "7569571831850585376",
+      "url": "https://www.tiktok.com/@europewtf/video/7569571831850585376",
+      "views": 254,
+      "pinned": false
+    },
+    {
+      "id": "7569566596780363041",
+      "url": "https://www.tiktok.com/@europewtf/video/7569566596780363041",
+      "views": 249,
+      "pinned": false
+    },
+    {
+      "id": "7515474742070054166",
+      "url": "https://www.tiktok.com/@europewtf/video/7515474742070054166",
+      "views": 204,
+      "pinned": false
+    },
+    {
+      "id": "7499408819143904534",
+      "url": "https://www.tiktok.com/@europewtf/video/7499408819143904534",
+      "views": 175,
+      "pinned": false
+    },
+    {
+      "id": "7539474012313767190",
+      "url": "https://www.tiktok.com/@europewtf/video/7539474012313767190",
+      "views": 168,
+      "pinned": false
+    },
+    {
+      "id": "7571508517442555168",
+      "url": "https://www.tiktok.com/@europewtf/video/7571508517442555168",
+      "views": 167,
+      "pinned": false
+    },
+    {
+      "id": "7569535631366376736",
+      "url": "https://www.tiktok.com/@europewtf/video/7569535631366376736",
+      "views": 124,
+      "pinned": false
+    },
+    {
+      "id": "7571148275064114464",
+      "url": "https://www.tiktok.com/@europewtf/video/7571148275064114464",
+      "views": 116,
+      "pinned": false
+    },
+    {
+      "id": "7492212120080174358",
+      "url": "https://www.tiktok.com/@europewtf/video/7492212120080174358",
+      "views": 116,
+      "pinned": false
+    },
+    {
+      "id": "7512979238270668054",
+      "url": "https://www.tiktok.com/@europewtf/video/7512979238270668054",
+      "views": 104,
+      "pinned": false
+    },
+    {
+      "id": "7569636718643547424",
+      "url": "https://www.tiktok.com/@europewtf/video/7569636718643547424",
+      "views": 95,
+      "pinned": false
+    },
+    {
+      "id": "7490701197880413462",
+      "url": "https://www.tiktok.com/@europewtf/video/7490701197880413462",
+      "views": 66,
+      "pinned": false
+    },
+    {
+      "id": "7569539983418199329",
+      "url": "https://www.tiktok.com/@europewtf/video/7569539983418199329",
+      "views": 39,
+      "pinned": false
+    },
+    {
+      "id": "7493413720735993110",
+      "url": "https://www.tiktok.com/@europewtf/video/7493413720735993110",
+      "views": 35,
+      "pinned": false
+    },
+    {
+      "id": "7514106834635001110",
+      "url": "https://www.tiktok.com/@europewtf/video/7514106834635001110",
+      "views": 32,
+      "pinned": false
+    },
+    {
+      "id": "7570277807050312993",
+      "url": "https://www.tiktok.com/@europewtf/video/7570277807050312993",
+      "views": 31,
+      "pinned": false
+    },
+    {
+      "id": "7569906811227131169",
+      "url": "https://www.tiktok.com/@europewtf/video/7569906811227131169",
+      "views": 27,
+      "pinned": false
+    },
+    {
+      "id": "7569907537332522272",
+      "url": "https://www.tiktok.com/@europewtf/video/7569907537332522272",
+      "views": 21,
+      "pinned": false
+    },
+    {
+      "id": "7569659961970642209",
+      "url": "https://www.tiktok.com/@europewtf/video/7569659961970642209",
+      "views": 21,
+      "pinned": false
+    },
+    {
+      "id": "7569938604340907297",
+      "url": "https://www.tiktok.com/@europewtf/video/7569938604340907297",
+      "views": 17,
+      "pinned": false
+    },
+    {
+      "id": "7513328736062672150",
+      "url": "https://www.tiktok.com/@europewtf/video/7513328736062672150",
+      "views": 17,
+      "pinned": false
+    },
+    {
+      "id": "7570371180738120993",
+      "url": "https://www.tiktok.com/@europewtf/video/7570371180738120993",
+      "views": 16,
+      "pinned": false
+    },
+    {
+      "id": "7570308119704767777",
+      "url": "https://www.tiktok.com/@europewtf/video/7570308119704767777",
+      "views": 15,
+      "pinned": false
+    },
+    {
+      "id": "7569937446767480096",
+      "url": "https://www.tiktok.com/@europewtf/video/7569937446767480096",
+      "views": 15,
+      "pinned": false
+    },
+    {
+      "id": "7570760901872143649",
+      "url": "https://www.tiktok.com/@europewtf/video/7570760901872143649",
+      "views": 14,
+      "pinned": false
+    },
+    {
+      "id": "7570744945791765793",
+      "url": "https://www.tiktok.com/@europewtf/video/7570744945791765793",
+      "views": 14,
+      "pinned": false
+    },
+    {
+      "id": "7570741581272075552",
+      "url": "https://www.tiktok.com/@europewtf/video/7570741581272075552",
+      "views": 14,
+      "pinned": false
+    },
+    {
+      "id": "7570346795180559648",
+      "url": "https://www.tiktok.com/@europewtf/video/7570346795180559648",
+      "views": 12,
+      "pinned": false
+    },
+    {
+      "id": "7569668730175655200",
+      "url": "https://www.tiktok.com/@europewtf/video/7569668730175655200",
+      "views": 11,
+      "pinned": false
+    },
+    {
+      "id": "7569628184493247777",
+      "url": "https://www.tiktok.com/@europewtf/video/7569628184493247777",
+      "views": 11,
+      "pinned": false
+    },
+    {
+      "id": "7570031585383255328",
+      "url": "https://www.tiktok.com/@europewtf/video/7570031585383255328",
+      "views": 10,
+      "pinned": false
+    },
+    {
+      "id": "7532287057226468630",
+      "url": "https://www.tiktok.com/@europewtf/video/7532287057226468630",
+      "views": 10,
+      "pinned": false
+    },
+    {
+      "id": "7571068003270331680",
+      "url": "https://www.tiktok.com/@europewtf/video/7571068003270331680",
+      "views": 9,
+      "pinned": false
+    },
+    {
+      "id": "7570038542617906465",
+      "url": "https://www.tiktok.com/@europewtf/video/7570038542617906465",
+      "views": 7,
+      "pinned": false
+    },
+    {
+      "id": "7570002816035491105",
+      "url": "https://www.tiktok.com/@europewtf/video/7570002816035491105",
+      "views": 6,
+      "pinned": false
+    },
+    {
+      "id": "7569999238235426080",
+      "url": "https://www.tiktok.com/@europewtf/video/7569999238235426080",
+      "views": 6,
+      "pinned": false
+    }
+  ],
+  "videos": [
+    "https://www.tiktok.com/@europewtf/video/7579186943179640096",
+    "https://www.tiktok.com/@europewtf/video/7578262986431696161",
+    "https://www.tiktok.com/@europewtf/video/7571508517442555168",
+    "https://www.tiktok.com/@europewtf/video/7571442627195718944",
+    "https://www.tiktok.com/@europewtf/video/7571148275064114464",
+    "https://www.tiktok.com/@europewtf/video/7571068003270331680",
+    "https://www.tiktok.com/@europewtf/video/7570760901872143649",
+    "https://www.tiktok.com/@europewtf/video/7570744945791765793",
+    "https://www.tiktok.com/@europewtf/video/7570741581272075552",
+    "https://www.tiktok.com/@europewtf/video/7570729196398398753",
+    "https://www.tiktok.com/@europewtf/video/7570716635988888865",
+    "https://www.tiktok.com/@europewtf/video/7570680279157722400",
+    "https://www.tiktok.com/@europewtf/video/7570648900319644961",
+    "https://www.tiktok.com/@europewtf/video/7570403514577440032",
+    "https://www.tiktok.com/@europewtf/video/7570371180738120993",
+    "https://www.tiktok.com/@europewtf/video/7570346795180559648",
+    "https://www.tiktok.com/@europewtf/video/7570308119704767777",
+    "https://www.tiktok.com/@europewtf/video/7570277807050312993",
+    "https://www.tiktok.com/@europewtf/video/7570038542617906465",
+    "https://www.tiktok.com/@europewtf/video/7570031585383255328",
+    "https://www.tiktok.com/@europewtf/video/7570002816035491105",
+    "https://www.tiktok.com/@europewtf/video/7569999238235426080",
+    "https://www.tiktok.com/@europewtf/video/7569938604340907297",
+    "https://www.tiktok.com/@europewtf/video/7569937446767480096",
+    "https://www.tiktok.com/@europewtf/video/7569907537332522272",
+    "https://www.tiktok.com/@europewtf/video/7569906811227131169",
+    "https://www.tiktok.com/@europewtf/video/7569668730175655200",
+    "https://www.tiktok.com/@europewtf/video/7569659961970642209",
+    "https://www.tiktok.com/@europewtf/video/7569636718643547424",
+    "https://www.tiktok.com/@europewtf/video/7569628184493247777",
+    "https://www.tiktok.com/@europewtf/video/7569604487992577313",
+    "https://www.tiktok.com/@europewtf/video/7569600921752063265",
+    "https://www.tiktok.com/@europewtf/video/7569571831850585376",
+    "https://www.tiktok.com/@europewtf/video/7569566596780363041",
+    "https://www.tiktok.com/@europewtf/video/7569539983418199329",
+    "https://www.tiktok.com/@europewtf/video/7569535631366376736",
+    "https://www.tiktok.com/@europewtf/video/7547630052997975318",
+    "https://www.tiktok.com/@europewtf/video/7539474012313767190",
+    "https://www.tiktok.com/@europewtf/video/7532287057226468630",
+    "https://www.tiktok.com/@europewtf/video/7531125174897233174",
+    "https://www.tiktok.com/@europewtf/video/7515474742070054166",
+    "https://www.tiktok.com/@europewtf/video/7514106834635001110",
+    "https://www.tiktok.com/@europewtf/video/7513328736062672150",
+    "https://www.tiktok.com/@europewtf/video/7513107437247794454",
+    "https://www.tiktok.com/@europewtf/video/7513031576918199574",
+    "https://www.tiktok.com/@europewtf/video/7512979238270668054",
+    "https://www.tiktok.com/@europewtf/video/7512180004717858070",
+    "https://www.tiktok.com/@europewtf/video/7499408819143904534",
+    "https://www.tiktok.com/@europewtf/video/7499384996789046560",
+    "https://www.tiktok.com/@europewtf/video/7499366392718757142",
+    "https://www.tiktok.com/@europewtf/video/7499121988607151382",
+    "https://www.tiktok.com/@europewtf/video/7493950648040312086",
+    "https://www.tiktok.com/@europewtf/video/7493413720735993110",
+    "https://www.tiktok.com/@europewtf/video/7492212120080174358",
+    "https://www.tiktok.com/@europewtf/video/7490701197880413462"
+  ]
+}

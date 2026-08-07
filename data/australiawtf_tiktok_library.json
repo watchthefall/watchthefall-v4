@@ -1,0 +1,119 @@
+{
+  "_meta": {
+    "account": "@australiawtf",
+    "platform": "tiktok",
+    "totalVideos": 13,
+    "builtAt": "2026-07-06T15:00:00.000Z"
+  },
+  "latest": "https://www.tiktok.com/@australiawtf/video/7584744186750979350",
+  "featured": [
+    "https://www.tiktok.com/@australiawtf/video/7541408537977621782",
+    "https://www.tiktok.com/@australiawtf/video/7542345426477878550",
+    "https://www.tiktok.com/@australiawtf/video/7584744186750979350",
+    "https://www.tiktok.com/@australiawtf/video/7546520149604568342",
+    "https://www.tiktok.com/@australiawtf/video/7566851273362935042",
+    "https://www.tiktok.com/@australiawtf/video/7579091464169327894",
+    "https://www.tiktok.com/@australiawtf/video/7579059131579993366",
+    "https://www.tiktok.com/@australiawtf/video/7529254450054253846",
+    "https://www.tiktok.com/@australiawtf/video/7526543167852793110",
+    "https://www.tiktok.com/@australiawtf/video/7526518723788770582",
+    "https://www.tiktok.com/@australiawtf/video/7550785470838344982",
+    "https://www.tiktok.com/@australiawtf/video/7579182680139517206",
+    "https://www.tiktok.com/@australiawtf/video/7583769209574903062"
+  ],
+  "_scored": [
+    {
+      "id": "7541408537977621782",
+      "url": "https://www.tiktok.com/@australiawtf/video/7541408537977621782",
+      "views": 94600,
+      "pinned": false
+    },
+    {
+      "id": "7542345426477878550",
+      "url": "https://www.tiktok.com/@australiawtf/video/7542345426477878550",
+      "views": 1760,
+      "pinned": false
+    },
+    {
+      "id": "7584744186750979350",
+      "url": "https://www.tiktok.com/@australiawtf/video/7584744186750979350",
+      "views": 1680,
+      "pinned": false
+    },
+    {
+      "id": "7546520149604568342",
+      "url": "https://www.tiktok.com/@australiawtf/video/7546520149604568342",
+      "views": 1221,
+      "pinned": false
+    },
+    {
+      "id": "7566851273362935042",
+      "url": "https://www.tiktok.com/@australiawtf/video/7566851273362935042",
+      "views": 917,
+      "pinned": false
+    },
+    {
+      "id": "7579091464169327894",
+      "url": "https://www.tiktok.com/@australiawtf/video/7579091464169327894",
+      "views": 797,
+      "pinned": false
+    },
+    {
+      "id": "7579059131579993366",
+      "url": "https://www.tiktok.com/@australiawtf/video/7579059131579993366",
+      "views": 324,
+      "pinned": false
+    },
+    {
+      "id": "7529254450054253846",
+      "url": "https://www.tiktok.com/@australiawtf/video/7529254450054253846",
+      "views": 94,
+      "pinned": false
+    },
+    {
+      "id": "7526543167852793110",
+      "url": "https://www.tiktok.com/@australiawtf/video/7526543167852793110",
+      "views": 69,
+      "pinned": false
+    },
+    {
+      "id": "7526518723788770582",
+      "url": "https://www.tiktok.com/@australiawtf/video/7526518723788770582",
+      "views": 52,
+      "pinned": false
+    },
+    {
+      "id": "7550785470838344982",
+      "url": "https://www.tiktok.com/@australiawtf/video/7550785470838344982",
+      "views": 24,
+      "pinned": false
+    },
+    {
+      "id": "7579182680139517206",
+      "url": "https://www.tiktok.com/@australiawtf/video/7579182680139517206",
+      "views": 12,
+      "pinned": false
+    },
+    {
+      "id": "7583769209574903062",
+      "url": "https://www.tiktok.com/@australiawtf/video/7583769209574903062",
+      "views": 1,
+      "pinned": false
+    }
+  ],
+  "videos": [
+    "https://www.tiktok.com/@australiawtf/video/7584744186750979350",
+    "https://www.tiktok.com/@australiawtf/video/7583769209574903062",
+    "https://www.tiktok.com/@australiawtf/video/7579182680139517206",
+    "https://www.tiktok.com/@australiawtf/video/7579091464169327894",
+    "https://www.tiktok.com/@australiawtf/video/7579059131579993366",
+    "https://www.tiktok.com/@australiawtf/video/7566851273362935042",
+    "https://www.tiktok.com/@australiawtf/video/7550785470838344982",
+    "https://www.tiktok.com/@australiawtf/video/7546520149604568342",
+    "https://www.tiktok.com/@australiawtf/video/7542345426477878550",
+    "https://www.tiktok.com/@australiawtf/video/7541408537977621782",
+    "https://www.tiktok.com/@australiawtf/video/7529254450054253846",
+    "https://www.tiktok.com/@australiawtf/video/7526543167852793110",
+    "https://www.tiktok.com/@australiawtf/video/7526518723788770582"
+  ]
+}

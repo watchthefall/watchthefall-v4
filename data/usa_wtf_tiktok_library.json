@@ -1,0 +1,247 @@
+{
+  "_meta": {
+    "account": "@usa_wtf",
+    "platform": "tiktok",
+    "totalVideos": 31,
+    "builtAt": "2026-07-06T15:00:00.000Z"
+  },
+  "latest": "https://www.tiktok.com/@usa_wtf/video/7625348454792875286",
+  "featured": [
+    "https://www.tiktok.com/@usa_wtf/video/7531949865052425494",
+    "https://www.tiktok.com/@usa_wtf/video/7529262134602124566",
+    "https://www.tiktok.com/@usa_wtf/video/7540041489225714946",
+    "https://www.tiktok.com/@usa_wtf/video/7501367058400136480",
+    "https://www.tiktok.com/@usa_wtf/video/7550781465647172886",
+    "https://www.tiktok.com/@usa_wtf/video/7512231066841648406",
+    "https://www.tiktok.com/@usa_wtf/video/7539617730664598806",
+    "https://www.tiktok.com/@usa_wtf/video/7549279321681169686",
+    "https://www.tiktok.com/@usa_wtf/video/7501324977250061600",
+    "https://www.tiktok.com/@usa_wtf/video/7533101500860550422",
+    "https://www.tiktok.com/@usa_wtf/video/7551874071978478850",
+    "https://www.tiktok.com/@usa_wtf/video/7525226529169755414",
+    "https://www.tiktok.com/@usa_wtf/video/7500577808553446678",
+    "https://www.tiktok.com/@usa_wtf/video/7579099349792132374",
+    "https://www.tiktok.com/@usa_wtf/video/7550692818012966166"
+  ],
+  "_scored": [
+    {
+      "id": "7531949865052425494",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7531949865052425494",
+      "views": 81500,
+      "pinned": false
+    },
+    {
+      "id": "7529262134602124566",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7529262134602124566",
+      "views": 15900,
+      "pinned": false
+    },
+    {
+      "id": "7540041489225714946",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7540041489225714946",
+      "views": 6087,
+      "pinned": false
+    },
+    {
+      "id": "7501367058400136480",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7501367058400136480",
+      "views": 4195,
+      "pinned": false
+    },
+    {
+      "id": "7550781465647172886",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7550781465647172886",
+      "views": 2649,
+      "pinned": false
+    },
+    {
+      "id": "7512231066841648406",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7512231066841648406",
+      "views": 1898,
+      "pinned": false
+    },
+    {
+      "id": "7539617730664598806",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7539617730664598806",
+      "views": 1406,
+      "pinned": false
+    },
+    {
+      "id": "7549279321681169686",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7549279321681169686",
+      "views": 1138,
+      "pinned": false
+    },
+    {
+      "id": "7501324977250061600",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7501324977250061600",
+      "views": 1021,
+      "pinned": false
+    },
+    {
+      "id": "7533101500860550422",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7533101500860550422",
+      "views": 992,
+      "pinned": false
+    },
+    {
+      "id": "7551874071978478850",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7551874071978478850",
+      "views": 902,
+      "pinned": false
+    },
+    {
+      "id": "7525226529169755414",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7525226529169755414",
+      "views": 819,
+      "pinned": false
+    },
+    {
+      "id": "7500577808553446678",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7500577808553446678",
+      "views": 766,
+      "pinned": false
+    },
+    {
+      "id": "7579099349792132374",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7579099349792132374",
+      "views": 293,
+      "pinned": false
+    },
+    {
+      "id": "7550692818012966166",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7550692818012966166",
+      "views": 282,
+      "pinned": false
+    },
+    {
+      "id": "7533158593261178135",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7533158593261178135",
+      "views": 262,
+      "pinned": false
+    },
+    {
+      "id": "7501349994558000416",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7501349994558000416",
+      "views": 84,
+      "pinned": false
+    },
+    {
+      "id": "7525195262223027478",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7525195262223027478",
+      "views": 64,
+      "pinned": false
+    },
+    {
+      "id": "7513388675489598742",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7513388675489598742",
+      "views": 40,
+      "pinned": false
+    },
+    {
+      "id": "7579124064225135894",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7579124064225135894",
+      "views": 33,
+      "pinned": false
+    },
+    {
+      "id": "7532698237262777622",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7532698237262777622",
+      "views": 33,
+      "pinned": false
+    },
+    {
+      "id": "7502053868432379169",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7502053868432379169",
+      "views": 29,
+      "pinned": false
+    },
+    {
+      "id": "7502038432319851808",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7502038432319851808",
+      "views": 29,
+      "pinned": false
+    },
+    {
+      "id": "7526706562916830486",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7526706562916830486",
+      "views": 28,
+      "pinned": false
+    },
+    {
+      "id": "7513368250613533975",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7513368250613533975",
+      "views": 28,
+      "pinned": false
+    },
+    {
+      "id": "7501377970330717472",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7501377970330717472",
+      "views": 28,
+      "pinned": false
+    },
+    {
+      "id": "7532992924452179222",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7532992924452179222",
+      "views": 22,
+      "pinned": false
+    },
+    {
+      "id": "7526602688050564374",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7526602688050564374",
+      "views": 17,
+      "pinned": false
+    },
+    {
+      "id": "7579454687221452054",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7579454687221452054",
+      "views": 16,
+      "pinned": false
+    },
+    {
+      "id": "7625348454792875286",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7625348454792875286",
+      "views": 10,
+      "pinned": false
+    },
+    {
+      "id": "7513755152248032534",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7513755152248032534",
+      "views": 0,
+      "pinned": false
+    }
+  ],
+  "videos": [
+    "https://www.tiktok.com/@usa_wtf/video/7625348454792875286",
+    "https://www.tiktok.com/@usa_wtf/video/7579454687221452054",
+    "https://www.tiktok.com/@usa_wtf/video/7579124064225135894",
+    "https://www.tiktok.com/@usa_wtf/video/7579099349792132374",
+    "https://www.tiktok.com/@usa_wtf/video/7551874071978478850",
+    "https://www.tiktok.com/@usa_wtf/video/7550781465647172886",
+    "https://www.tiktok.com/@usa_wtf/video/7550692818012966166",
+    "https://www.tiktok.com/@usa_wtf/video/7549279321681169686",
+    "https://www.tiktok.com/@usa_wtf/video/7540041489225714946",
+    "https://www.tiktok.com/@usa_wtf/video/7539617730664598806",
+    "https://www.tiktok.com/@usa_wtf/video/7533158593261178135",
+    "https://www.tiktok.com/@usa_wtf/video/7533101500860550422",
+    "https://www.tiktok.com/@usa_wtf/video/7532992924452179222",
+    "https://www.tiktok.com/@usa_wtf/video/7532698237262777622",
+    "https://www.tiktok.com/@usa_wtf/video/7531949865052425494",
+    "https://www.tiktok.com/@usa_wtf/video/7529262134602124566",
+    "https://www.tiktok.com/@usa_wtf/video/7526706562916830486",
+    "https://www.tiktok.com/@usa_wtf/video/7526602688050564374",
+    "https://www.tiktok.com/@usa_wtf/video/7525226529169755414",
+    "https://www.tiktok.com/@usa_wtf/video/7525195262223027478",
+    "https://www.tiktok.com/@usa_wtf/video/7513755152248032534",
+    "https://www.tiktok.com/@usa_wtf/video/7513388675489598742",
+    "https://www.tiktok.com/@usa_wtf/video/7513368250613533975",
+    "https://www.tiktok.com/@usa_wtf/video/7512231066841648406",
+    "https://www.tiktok.com/@usa_wtf/video/7502053868432379169",
+    "https://www.tiktok.com/@usa_wtf/video/7502038432319851808",
+    "https://www.tiktok.com/@usa_wtf/video/7501377970330717472",
+    "https://www.tiktok.com/@usa_wtf/video/7501367058400136480",
+    "https://www.tiktok.com/@usa_wtf/video/7501349994558000416",
+    "https://www.tiktok.com/@usa_wtf/video/7501324977250061600",
+    "https://www.tiktok.com/@usa_wtf/video/7500577808553446678"
+  ]
+}
