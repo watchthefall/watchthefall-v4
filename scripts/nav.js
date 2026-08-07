@@ -163,7 +163,7 @@
   const NAV_LINKS = [
     { label: 'Home',        href: '/' },
     { label: 'Support',     href: '/donate.html' },
-    { label: 'World Cup',   href: '/#worldcup' },
+    { label: 'Leaderboard', href: '/#worldcup' },
     { label: 'Shop',        href: '/wtfcreations.html' },
     { label: 'Directory',   href: '/feed.html' },
     { label: 'Fall Map',    href: '/fall-map.html' },
