@@ -21,115 +21,75 @@
 
 /* Scotland hero styling */
 .scotland-hero {
-    background: linear-gradient(135deg, 
-        rgba(0, 101, 189, 0.1) 0%, 
-        transparent 100%);
-    padding-top: 8rem;
+    padding-top: 7rem;
     min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .scotland-hero .container {
     text-align: center;
-    max-width: 1100px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
-.hero-wtf-logo {
-    width: clamp(80px, 12vw, 140px);
+/* Hero identity block */
+.region-hero-identity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem 0 4rem;
+}
+
+.region-hero-badge {
+    width: clamp(160px, 26vw, 260px);
     height: auto;
-    margin: 0 auto 1.5rem;
-    display: block;
-    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4));
-    transition: var(--transition-smooth);
-    background: transparent;
-    border: none;
+    filter:
+        drop-shadow(0 0 40px rgba(0, 101, 189, 0.55))
+        drop-shadow(0 0 80px rgba(0, 101, 189, 0.25));
+    transition: filter 0.35s;
 }
 
-.hero-wtf-logo:hover {
-    filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.6));
+.region-hero-badge:hover {
+    filter:
+        drop-shadow(0 0 55px rgba(0, 101, 189, 0.75))
+        drop-shadow(0 0 100px rgba(0, 101, 189, 0.35));
 }
 
-.scotland-title {
+.region-hero-text {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    margin-bottom: 1.5rem;
 }
 
-.scotland-text {
-    font-family: 'Archivo Black', var(--font-primary), sans-serif;
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    color: var(--color-scotland-blue-light);
-    text-shadow: 0 0 30px rgba(0, 101, 189, 0.6), 
-                 0 0 60px rgba(0, 101, 189, 0.4);
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+.region-hero-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.38em;
+    color: rgba(212, 175, 55, 0.65);
+    text-transform: uppercase;
 }
 
-.scotland-flag-logo {
-    width: clamp(50px, 8vw, 90px);
-    height: auto;
-    filter: drop-shadow(0 0 15px rgba(0, 101, 189, 0.5));
-    transition: var(--transition-smooth);
-    background: transparent;
-    border: none;
-}
-
-.scotland-flag-logo:hover {
-    filter: drop-shadow(0 0 25px rgba(0, 101, 189, 0.7));
-}
-
-.wtf-text {
-    font-family: 'Archivo Black', var(--font-primary), sans-serif;
-    font-size: clamp(2.2rem, 5.5vw, 4rem);
-    font-weight: 900;
+.region-hero-name {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3.2rem, 9vw, 7.5rem);
     color: #ffffff;
-    text-shadow: 
-        0 0 15px rgba(255, 255, 255, 0.6),
-        0 0 40px rgba(255, 255, 255, 0.35),
-        2px 2px 0 rgba(255, 0, 255, 0.4),
-        -2px -2px 0 rgba(0, 255, 255, 0.4);
-    animation: glitchPulse 3s ease-in-out infinite;
+    letter-spacing: -0.02em;
+    line-height: 0.9;
+    margin: 0.2rem 0 0.4rem;
+    text-shadow:
+        0 0 60px rgba(0, 101, 189, 0.5),
+        0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-@keyframes glitchPulse {
-    0%, 100% { 
-        text-shadow: 
-            0 0 15px rgba(255, 255, 255, 0.6),
-            0 0 40px rgba(255, 255, 255, 0.35),
-            2px 2px 0 rgba(255, 0, 255, 0.4),
-            -2px -2px 0 rgba(0, 255, 255, 0.4);
-    }
-    50% { 
-        text-shadow: 
-            0 0 25px rgba(255, 255, 255, 0.8),
-            0 0 60px rgba(255, 255, 255, 0.5),
-            3px 3px 0 rgba(255, 0, 255, 0.6),
-            -3px -3px 0 rgba(0, 255, 255, 0.6);
-    }
-}
-
-.page-subtitle {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: 1rem;
-    text-shadow: 0 0 12px rgba(0, 101, 189, 0.3);
-    letter-spacing: 0.5px;
-}
-
-.page-description {
-    font-size: 1.05rem;
-    font-weight: 400;
-    color: var(--color-text);
-    opacity: 0.85;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.6;
-    letter-spacing: 0.3px;
+.region-hero-sub {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.48);
+    letter-spacing: 0.04em;
+    margin: 0;
 }
 
 /* Scotland accent colors */
