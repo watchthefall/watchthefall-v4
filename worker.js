@@ -1,12 +1,9 @@
-addEventListener('fetch', event => {
+addEventListener("fetch", event => {
   event.respondWith(handleRequest(event.request))
 })
+
 async function handleRequest(request) {
   const url = new URL(request.url)
-  if (url.pathname.startsWith('/assets/')) {
-    const assetUrl = 'https://watchthefall.com' + url.pathname
-    return fetch(assetUrl)
-  }
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -391,8 +388,8 @@ html { scroll-behavior: smooth; }
     <a href="#pricing">Pricing</a>
     <a href="#roadmap">Roadmap</a>
     <a href="#founding">Founding</a>
-    <a href="#access" class="gold" style="color:var(--g)">Access</a>
-    <a href="https://watchthefall.com" style="color:var(--tx2);font-size:0.8rem">← watchthefall.com</a>
+    <a href="#access" style="color:var(--g)">Access</a>
+    <a href="https://watchthefall.com" style="color:var(--tx2);font-size:0.8rem;opacity:0.7">← WTF</a>
     <a href="https://brandr.online/waitlist" class="btn-gold">Request access</a>
   </div>
 </nav>
@@ -552,21 +549,48 @@ html { scroll-behavior: smooth; }
     <hr class="sec-rule">
     <h2 class="h2" style="margin-bottom:0.5rem">Hundreds of posts.<br><span class="gold">Every week. Across every channel.</span></h2>
     <p class="lead" style="margin-bottom:2rem">This is what the machine produces. Not mockups. Real content, real output, real channels.</p>
+
+    <!-- REACH STATS -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1rem">
+      <div style="background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.2);border-radius:10px;padding:1.5rem 1rem;text-align:center">
+        <div style="font-family:var(--font-head);font-size:clamp(2rem,4vw,3.2rem);color:var(--g);line-height:1">8.38M</div>
+        <div style="font-size:0.78rem;font-weight:700;letter-spacing:0.1em;color:var(--tx2);margin-top:0.4rem;text-transform:uppercase">Reel Views</div>
+        <div style="font-size:0.68rem;color:var(--tx3);margin-top:0.25rem">30-day window</div>
+      </div>
+      <div style="background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.2);border-radius:10px;padding:1.5rem 1rem;text-align:center">
+        <div style="font-family:var(--font-head);font-size:clamp(2rem,4vw,3.2rem);color:var(--g);line-height:1">5.07M</div>
+        <div style="font-size:0.78rem;font-weight:700;letter-spacing:0.1em;color:var(--tx2);margin-top:0.4rem;text-transform:uppercase">Accounts Reached</div>
+        <div style="font-size:0.68rem;color:var(--tx3);margin-top:0.25rem">unique viewers</div>
+      </div>
+      <div style="background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.2);border-radius:10px;padding:1.5rem 1rem;text-align:center">
+        <div style="font-family:var(--font-head);font-size:clamp(2rem,4vw,3.2rem);color:var(--g);line-height:1">19</div>
+        <div style="font-size:0.78rem;font-weight:700;letter-spacing:0.1em;color:var(--tx2);margin-top:0.4rem;text-transform:uppercase">Regional Accounts</div>
+        <div style="font-size:0.68rem;color:var(--tx3);margin-top:0.25rem">Instagram only</div>
+      </div>
+      <div style="background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.2);border-radius:10px;padding:1.5rem 1rem;text-align:center">
+        <div style="font-family:var(--font-head);font-size:clamp(2rem,4vw,3.2rem);color:var(--g);line-height:1">192</div>
+        <div style="font-size:0.78rem;font-weight:700;letter-spacing:0.1em;color:var(--tx2);margin-top:0.4rem;text-transform:uppercase">Posts in 30 Days</div>
+        <div style="font-size:0.68rem;color:var(--tx3);margin-top:0.25rem">zero paid ads</div>
+      </div>
+    </div>
+    <p style="font-size:0.73rem;color:var(--tx3);margin-bottom:2.5rem">Instagram network · Jun–Jul 2026 · documented export data · cross-platform totals are higher</p>
+
+    <!-- CONTENT SCROLL -->
     <div class="poster-scroll">
       <img src="https://watchthefall.com/assets/posters/WTF_Poster_GLOBAL_01.png" alt="WTF Post">
-      <img src="https://watchthefall.com/assets/posters/WTF_Poster_GLOBAL_03.png" alt="WTF Post">
-      <img src="https://watchthefall.com/assets/posters/WTF_Poster_GLOBAL_05.png" alt="WTF Post">
-      <img src="https://watchthefall.com/assets/posters/WTF_Poster_GLOBAL_07.png" alt="WTF Post">
       <img src="https://watchthefall.com/assets/posters/WTF_Poster_Scotland_01.png" alt="WTF Post">
-      <img src="https://watchthefall.com/assets/posters/WTF_Poster_Scotland_03.png" alt="WTF Post">
-      <img src="https://watchthefall.com/assets/posters/WTF_Poster_USA_01.png" alt="WTF Post">
-      <img src="https://watchthefall.com/assets/posters/WTF_Poster_USA_02.png" alt="WTF Post">
-      <img src="https://watchthefall.com/assets/posters/WTF_Poster_France_01.png" alt="WTF Post">
-      <img src="https://watchthefall.com/assets/posters/WTF_Poster_Britain_01.png" alt="WTF Post">
-      <img src="https://watchthefall.com/assets/posters/WTF_Poster_GLOBAL_10.jpg" alt="WTF Post">
-      <img src="https://watchthefall.com/assets/posters/WTF_Poster_GLOBAL_15.png" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_GLOBAL_03.png" alt="WTF Post">
       <img src="https://watchthefall.com/assets/posters/WTF_Poster_Germany_01.png" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_GLOBAL_05.png" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_USA_01.png" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_France_01.png" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_GLOBAL_07.png" alt="WTF Post">
       <img src="https://watchthefall.com/assets/posters/WTF_Poster_Australia_01.png" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_Britain_01.png" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_Scotland_03.png" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_GLOBAL_10.jpg" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_USA_02.png" alt="WTF Post">
+      <img src="https://watchthefall.com/assets/posters/WTF_Poster_GLOBAL_15.png" alt="WTF Post">
     </div>
   </div>
 </section>
@@ -577,17 +601,25 @@ html { scroll-behavior: smooth; }
     <div class="sec-num">THE BRAND EXTENDS BEYOND DIGITAL</div>
     <hr class="sec-rule">
     <h2 class="h2" style="margin-bottom:0.5rem">Merch. Physical proof.<br><span class="gold">The brand lives in the real world.</span></h2>
-    <p class="lead" style="margin-bottom:2rem">WTF merchandise lines built on the same content machine — physical products from the same brand system.</p>
+    <p class="lead" style="margin-bottom:2rem">The same brand system that powers the content machine. Four art ranges — tees, hoodies, mugs. All built on WTF.</p>
     <div class="merch-strip">
       <img src="https://watchthefall.com/assets/Mockups/lion_collapse_tee.png" alt="Lion Collapse Tee">
-      <img src="https://watchthefall.com/assets/Mockups/signal_distortion_hoodie.png" alt="Signal Distortion Hoodie">
-      <img src="https://watchthefall.com/assets/Mockups/world_breakdown_tee.png" alt="World Breakdown Tee">
-      <img src="https://watchthefall.com/assets/Mockups/ai_ascendant_hoodie.png" alt="AI Ascendant Hoodie">
-      <img src="https://watchthefall.com/assets/Mockups/cipher_code_tee.png" alt="Cipher Code Tee">
-      <img src="https://watchthefall.com/assets/Mockups/signal_distortion_tee.png" alt="Signal Distortion Tee">
       <img src="https://watchthefall.com/assets/Mockups/lion_collapse_hoodie.png" alt="Lion Collapse Hoodie">
+      <img src="https://watchthefall.com/assets/Mockups/lion_collapse_mug.png" alt="Lion Collapse Mug">
+      <img src="https://watchthefall.com/assets/Mockups/signal_distortion_tee.png" alt="Signal Distortion Tee">
+      <img src="https://watchthefall.com/assets/Mockups/signal_distortion_hoodie.png" alt="Signal Distortion Hoodie">
+      <img src="https://watchthefall.com/assets/Mockups/signal_distortion_mug.png" alt="Signal Distortion Mug">
+      <img src="https://watchthefall.com/assets/Mockups/world_breakdown_tee.png" alt="World Breakdown Tee">
       <img src="https://watchthefall.com/assets/Mockups/world_breakdown_hoodie.png" alt="World Breakdown Hoodie">
+      <img src="https://watchthefall.com/assets/Mockups/world_breakdown_mug.png" alt="World Breakdown Mug">
+      <img src="https://watchthefall.com/assets/Mockups/ai_ascendant_tee.png" alt="AI Ascendant Tee">
+      <img src="https://watchthefall.com/assets/Mockups/ai_ascendant_hoodie.png" alt="AI Ascendant Hoodie">
+      <img src="https://watchthefall.com/assets/Mockups/ai_ascendant_mug.png" alt="AI Ascendant Mug">
+      <img src="https://watchthefall.com/assets/Mockups/cipher_code_tee.png" alt="Cipher Code Tee">
+      <img src="https://watchthefall.com/assets/Mockups/cipher_code_hoodie.png" alt="Cipher Code Hoodie">
+      <img src="https://watchthefall.com/assets/Mockups/cipher_code_mug.png" alt="Cipher Code Mug">
     </div>
+    <p style="margin-top:1.5rem;font-size:0.85rem;color:var(--tx2)">Shop the full range at <a href="https://watchthefall.com" style="color:var(--g);text-decoration:none;font-weight:700">watchthefall.com</a></p>
   </div>
 </section>
 
@@ -597,7 +629,7 @@ html { scroll-behavior: smooth; }
     <div class="sec-num">04 · PRICING</div>
     <hr class="sec-rule">
     <h2 class="h2">Simple plans.<br><span class="gold">Founder pricing</span> for early members.</h2>
-    <p class="lead" style="margin:1rem 0 2rem">Start free. Founding members lock in exclusive Founder pricing and benefits, kept for life. <strong style="color:var(--g)">Paid launch: 5 August 2026.</strong></p>
+    <p class="lead" style="margin:1rem 0 2rem">Start free. Founding members lock in exclusive Founder pricing and benefits, kept for life. <strong style="color:var(--g)">Paid launch: 23–30 August 2026 (TBC).</strong></p>
     <!-- Founder tier cards -->
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-bottom:1rem">
 
@@ -734,7 +766,7 @@ html { scroll-behavior: smooth; }
           <div class="roadmap-dot dot-next" style="margin:0 auto"></div>
         </div>
         <div>
-          <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.15em;color:var(--tx3);text-transform:uppercase;margin-bottom:0.5rem">● NEXT — Paid launch · <span style="color:var(--g)">5 August 2026</span></div>
+          <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.15em;color:var(--tx3);text-transform:uppercase;margin-bottom:0.5rem">● NEXT — Paid launch · <span style="color:var(--g)">23–30 August 2026 (TBC)</span></div>
           <ul class="feat">
             <li>First paid members</li>
             <li>Founding-member pricing live</li>
@@ -1112,7 +1144,7 @@ html { scroll-behavior: smooth; }
       <div class="grid-2" style="gap:3rem">
         <div>
           <h3 class="h3">Current Position</h3>
-          <p class="lead" style="font-size:0.9rem">Bootstrapped. Solo founder. Product live and in active daily use. Paid commercial launch confirmed for <strong style="color:var(--g)">5 August 2026</strong>. The business is at the point where targeted funding accelerates growth from a working foundation — it does not create viability.</p>
+          <p class="lead" style="font-size:0.9rem">Bootstrapped. Solo founder. Product live and in active daily use. Paid commercial launch confirmed for <strong style="color:var(--g)">23–30 August 2026 (TBC)</strong>. The business is at the point where targeted funding accelerates growth from a working foundation — it does not create viability.</p>
           <div class="quote-block" style="margin-top:1.5rem">
             Funding accelerates execution; it does not create viability by itself.
           </div>
@@ -1159,11 +1191,11 @@ html { scroll-behavior: smooth; }
           </div>
           <div class="card">
             <div class="h3" style="font-size:1rem">Product Status</div>
-            <p class="muted" style="font-size:0.87rem;margin:0.5rem 0 0">Brandr is live and in active daily use. Beta phase concluding. Paid commercial launch: <strong style="color:var(--g)">5 August 2026.</strong></p>
+            <p class="muted" style="font-size:0.87rem;margin:0.5rem 0 0">Brandr is live and in active daily use. Beta phase concluding. Paid commercial launch: <strong style="color:var(--g)">23–30 August 2026 (TBC).</strong></p>
           </div>
           <div class="card">
             <div class="h3" style="font-size:1rem">Stage</div>
-            <p class="muted" style="font-size:0.87rem;margin:0.5rem 0 0">Early-stage. Bootstrapped. Internal traction established. Commercial launch confirmed <strong style="color:var(--g)">5 August 2026</strong>. Funding sought to accelerate growth from launch.</p>
+            <p class="muted" style="font-size:0.87rem;margin:0.5rem 0 0">Early-stage. Bootstrapped. Internal traction established. Commercial launch confirmed <strong style="color:var(--g)">23–30 August 2026 (TBC)</strong>. Funding sought to accelerate growth from launch.</p>
           </div>
         </div>
       </div>
@@ -1259,7 +1291,7 @@ html { scroll-behavior: smooth; }
       </div>
       <div class="card card--gold" style="margin-top:2rem">
         <div class="h3" style="font-size:1rem">On Use of Funding</div>
-        <p style="color:var(--tx2);font-size:0.87rem;line-height:1.7;margin:0.5rem 0 0">Funding sought at this stage is to accelerate what is already working: scaling Brandr from its confirmed paid launch on <strong style="color:var(--g)">5 August 2026</strong>, building the first paying customer base, and investing in the infrastructure to sustain growth. The business is viable without funding. Funding creates the conditions to scale faster. Full use-of-funds breakdown available on request.</p>
+        <p style="color:var(--tx2);font-size:0.87rem;line-height:1.7;margin:0.5rem 0 0">Funding sought at this stage is to accelerate what is already working: scaling Brandr from its confirmed paid launch on <strong style="color:var(--g)">23–30 August 2026 (TBC)</strong>, building the first paying customer base, and investing in the infrastructure to sustain growth. The business is viable without funding. Funding creates the conditions to scale faster. Full use-of-funds breakdown available on request.</p>
       </div>
     </div>
   </div>
@@ -1588,6 +1620,6 @@ html { scroll-behavior: smooth; }
 </html>
 `
   return new Response(html, {
-    headers: {'Content-Type': 'text/html;charset=UTF-8','Cache-Control': 'no-cache'}
+    headers: { "Content-Type": "text/html;charset=UTF-8" }
   })
 }
