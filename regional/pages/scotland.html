@@ -26,6 +26,73 @@
     <link rel="stylesheet" href="../../styles/app.css">
     <link rel="stylesheet" href="../../styles/fall-map.css">
     <link rel="stylesheet" href="../templates/scotland_colors.css">
+    <style>
+        .scotland-worldview {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .worldview-statement {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--color-gold);
+            margin: 1.5rem 0 1rem;
+            line-height: 1.6;
+        }
+        .worldview-body {
+            font-size: 1.05rem;
+            color: var(--color-text);
+            opacity: 0.85;
+            margin-bottom: 1.75rem;
+            line-height: 1.7;
+        }
+        .worldview-themes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+        }
+        .worldview-tag {
+            background: rgba(0, 101, 189, 0.15);
+            border: 1px solid rgba(0, 101, 189, 0.4);
+            color: var(--color-scotland-blue-light, #4D9DE0);
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            letter-spacing: 0.03em;
+        }
+        .issues-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0 1.5rem;
+        }
+        .issue-card {
+            background: rgba(0, 101, 189, 0.08);
+            border: 1px solid rgba(0, 101, 189, 0.25);
+            border-radius: 10px;
+            padding: 1.25rem 1rem;
+            text-align: center;
+            opacity: 0.8;
+            cursor: default;
+        }
+        .issue-card .issue-icon {
+            font-size: 1.75rem;
+            margin-bottom: 0.6rem;
+        }
+        .issue-card h3 {
+            font-size: 0.95rem;
+            color: var(--color-text);
+            font-weight: 600;
+        }
+        .issues-coming-soon {
+            text-align: center;
+            opacity: 0.5;
+            font-size: 0.875rem;
+            font-style: italic;
+        }
+    </style>
   <script src="/scripts/nav.js"></script>
 </head>
 <body class="page-regional page-scotland">
@@ -79,6 +146,63 @@
                 <a href="../philosophy/scotland.html" class="btn btn-primary">Read Scotland Philosophy</a>
                 <a href="../../fall-map.html" class="btn btn-secondary">Open Fall Map</a>
             </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Scotland's Worldview</h2>
+            <div class="scotland-worldview">
+                <p class="worldview-statement">"A small nation with the wealth to thrive — choosing to decline."</p>
+                <p class="worldview-body">Scotland sits on oil reserves, renewable energy potential, and a highly educated population. Yet it exports talent, imports dependency, and argues about constitutional questions while its public services collapse. WatchTheFall Scotland documents the gap between what Scotland could be and what it's becoming.</p>
+                <div class="worldview-themes">
+                    <span class="worldview-tag">Resource Wealth</span>
+                    <span class="worldview-tag">Brain Drain</span>
+                    <span class="worldview-tag">NHS Collapse</span>
+                    <span class="worldview-tag">Constitutional Paralysis</span>
+                    <span class="worldview-tag">Housing Crisis</span>
+                    <span class="worldview-tag">Democratic Deficit</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">The Issues</h2>
+            <div class="issues-grid">
+                <div class="issue-card">
+                    <div class="issue-icon">🗳️</div>
+                    <h3>Democracy &amp; Power</h3>
+                </div>
+                <div class="issue-card">
+                    <div class="issue-icon">🏠</div>
+                    <h3>Housing Crisis</h3>
+                </div>
+                <div class="issue-card">
+                    <div class="issue-icon">🏥</div>
+                    <h3>NHS Scotland</h3>
+                </div>
+                <div class="issue-card">
+                    <div class="issue-icon">🌿</div>
+                    <h3>Environment</h3>
+                </div>
+                <div class="issue-card">
+                    <div class="issue-icon">🎓</div>
+                    <h3>Education</h3>
+                </div>
+                <div class="issue-card">
+                    <div class="issue-icon">🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
+                    <h3>Culture &amp; Identity</h3>
+                </div>
+                <div class="issue-card">
+                    <div class="issue-icon">💷</div>
+                    <h3>Economy &amp; Work</h3>
+                </div>
+                <div class="issue-card">
+                    <div class="issue-icon">🔗</div>
+                    <h3>The Union Trap</h3>
+                </div>
+            </div>
+            <p class="issues-coming-soon">Full issue map with linked essays and content coming soon.</p>
         </div>
     </section>
     <section class="section scotland-stats">
@@ -193,7 +317,7 @@
                 <div class="footer-info">
                     <h4>Scotland WTF</h4>
                     <p>Part of WatchTheFall Network</p>
-                    <p>Alba Gu Brath</p>
+                    <p>Alba Gu Bràth</p>
                 </div>
             </div>
             <div class="footer-bottom">
