@@ -28,6 +28,18 @@
     
     <link rel="stylesheet" href="../../styles/app.css">
     <link rel="stylesheet" href="../templates/spain_colors.css">
+    <style>
+        .spain-worldview { max-width: 800px; margin: 0 auto; text-align: center; padding: 2rem 0; }
+        .worldview-statement { font-size: 1.3rem; font-style: italic; color: var(--color-gold); margin: 1.5rem 0 1rem; line-height: 1.6; }
+        .worldview-body { font-size: 1.05rem; color: var(--color-text); opacity: 0.85; margin-bottom: 1.75rem; line-height: 1.7; }
+        .worldview-themes { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; }
+        .worldview-tag { background: rgba(170, 21, 27, 0.15); border: 1px solid rgba(170, 21, 27, 0.4); color: var(--color-spain-red-light); padding: 0.3rem 0.75rem; border-radius: 20px; font-size: 0.875rem; letter-spacing: 0.03em; }
+        .issues-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 2rem 0 1.5rem; }
+        .issue-card { background: rgba(170, 21, 27, 0.08); border: 1px solid rgba(170, 21, 27, 0.25); border-radius: 10px; padding: 1.25rem 1rem; text-align: center; opacity: 0.8; cursor: default; }
+        .issue-card .issue-icon { font-size: 1.75rem; margin-bottom: 0.6rem; }
+        .issue-card h3 { font-size: 0.95rem; color: var(--color-text); font-weight: 600; }
+        .issues-coming-soon { text-align: center; opacity: 0.5; font-size: 0.875rem; font-style: italic; }
+    </style>
   <script src="/scripts/nav.js"></script>
 </head>
 <body class="page-regional page-spain">
@@ -83,6 +95,39 @@
     </section>
 
     <!-- Scotland Stats Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Spain's Worldview</h2>
+            <div class="spain-worldview">
+                <p class="worldview-statement">"A country that survived a dictatorship — still arguing about it."</p>
+                <p class="worldview-body">Spain made a remarkable transition to democracy after Franco, built a modern welfare state, and became one of Europe's most visited countries. It's also dealing with separatism, a housing crisis, youth unemployment that hits 30%, and a political system in perpetual gridlock. WatchTheFall Spain documents the instability beneath the sunshine.</p>
+                <div class="worldview-themes">
+                    <span class="worldview-tag">Catalan Independence</span>
+                    <span class="worldview-tag">Housing Crisis</span>
+                    <span class="worldview-tag">Youth Unemployment</span>
+                    <span class="worldview-tag">Political Deadlock</span>
+                    <span class="worldview-tag">Regional Identity</span>
+                    <span class="worldview-tag">Economic Inequality</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">The Issues</h2>
+            <div class="issues-grid">
+                <div class="issue-card"><div class="issue-icon">🗳️</div><h3>Political Gridlock</h3></div>
+                <div class="issue-card"><div class="issue-icon">🏠</div><h3>Housing Crisis</h3></div>
+                <div class="issue-card"><div class="issue-icon">🏥</div><h3>Healthcare</h3></div>
+                <div class="issue-card"><div class="issue-icon">🎓</div><h3>Youth Unemployment</h3></div>
+                <div class="issue-card"><div class="issue-icon">🇪🇸</div><h3>Regional Identity</h3></div>
+                <div class="issue-card"><div class="issue-icon">💶</div><h3>Economic Inequality</h3></div>
+                <div class="issue-card"><div class="issue-icon">🌍</div><h3>Immigration</h3></div>
+                <div class="issue-card"><div class="issue-icon">🔗</div><h3>Catalan Question</h3></div>
+            </div>
+            <p class="issues-coming-soon">Full issue map with linked essays and content coming soon.</p>
+        </div>
+    </section>
     <section class="section spain-stats">
         <div class="container">
             <h2 class="section-title">Spain Network</h2>

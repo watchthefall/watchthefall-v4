@@ -1,3 +1,11 @@
+:root {
+    --color-europe-blue: #003399;
+    --color-europe-blue-dark: #001F6B;
+    --color-europe-blue-light: #3366CC;
+    --color-europe-gold: #d4af37;
+    --color-europe-glow: rgba(0, 51, 153, 0.3);
+}
+
 /* europe-specific overlays */
 .europe-overlay {
     background: linear-gradient(180deg, 

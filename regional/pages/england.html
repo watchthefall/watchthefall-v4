@@ -28,6 +28,18 @@
     
     <link rel="stylesheet" href="../../styles/app.css">
     <link rel="stylesheet" href="../templates/england_colors.css">
+    <style>
+        .england-worldview { max-width: 800px; margin: 0 auto; text-align: center; padding: 2rem 0; }
+        .worldview-statement { font-size: 1.3rem; font-style: italic; color: var(--color-gold); margin: 1.5rem 0 1rem; line-height: 1.6; }
+        .worldview-body { font-size: 1.05rem; color: var(--color-text); opacity: 0.85; margin-bottom: 1.75rem; line-height: 1.7; }
+        .worldview-themes { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; }
+        .worldview-tag { background: rgba(200, 16, 46, 0.15); border: 1px solid rgba(200, 16, 46, 0.4); color: var(--color-england-red-light); padding: 0.3rem 0.75rem; border-radius: 20px; font-size: 0.875rem; letter-spacing: 0.03em; }
+        .issues-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 2rem 0 1.5rem; }
+        .issue-card { background: rgba(200, 16, 46, 0.08); border: 1px solid rgba(200, 16, 46, 0.25); border-radius: 10px; padding: 1.25rem 1rem; text-align: center; opacity: 0.8; cursor: default; }
+        .issue-card .issue-icon { font-size: 1.75rem; margin-bottom: 0.6rem; }
+        .issue-card h3 { font-size: 0.95rem; color: var(--color-text); font-weight: 600; }
+        .issues-coming-soon { text-align: center; opacity: 0.5; font-size: 0.875rem; font-style: italic; }
+    </style>
   <script src="/scripts/nav.js"></script>
 </head>
 <body class="page-regional page-england">
@@ -83,6 +95,39 @@
     </section>
 
     <!-- Scotland Stats Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">England's Worldview</h2>
+            <div class="england-worldview">
+                <p class="worldview-statement">"The imperial hangover that won't end — a country that forgot who it was."</p>
+                <p class="worldview-body">England gave the world its language, its laws, and its football. In return it got Brexit, crumbling infrastructure, and a political class that can't stop talking about the war. WatchTheFall England documents the slow unravelling of a country still dreaming of an empire it no longer has.</p>
+                <div class="worldview-themes">
+                    <span class="worldview-tag">Brexit Legacy</span>
+                    <span class="worldview-tag">Austerity</span>
+                    <span class="worldview-tag">Housing Crisis</span>
+                    <span class="worldview-tag">NHS England</span>
+                    <span class="worldview-tag">Class Divide</span>
+                    <span class="worldview-tag">Political Decay</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">The Issues</h2>
+            <div class="issues-grid">
+                <div class="issue-card"><div class="issue-icon">🗳️</div><h3>Democracy &amp; Power</h3></div>
+                <div class="issue-card"><div class="issue-icon">🏠</div><h3>Housing Crisis</h3></div>
+                <div class="issue-card"><div class="issue-icon">🏥</div><h3>NHS England</h3></div>
+                <div class="issue-card"><div class="issue-icon">🏭</div><h3>Deindustrialisation</h3></div>
+                <div class="issue-card"><div class="issue-icon">🎓</div><h3>Education</h3></div>
+                <div class="issue-card"><div class="issue-icon">🇬🇧</div><h3>National Identity</h3></div>
+                <div class="issue-card"><div class="issue-icon">💷</div><h3>Cost of Living</h3></div>
+                <div class="issue-card"><div class="issue-icon">🌍</div><h3>Post-Empire Delusion</h3></div>
+            </div>
+            <p class="issues-coming-soon">Full issue map with linked essays and content coming soon.</p>
+        </div>
+    </section>
     <section class="section england-stats">
         <div class="container">
             <h2 class="section-title">England Network</h2>
