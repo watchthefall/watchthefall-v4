@@ -28,6 +28,18 @@
     
     <link rel="stylesheet" href="../../styles/app.css">
     <link rel="stylesheet" href="../templates/poland_colors.css">
+    <style>
+        .poland-worldview { max-width: 800px; margin: 0 auto; text-align: center; padding: 2rem 0; }
+        .worldview-statement { font-size: 1.3rem; font-style: italic; color: var(--color-gold); margin: 1.5rem 0 1rem; line-height: 1.6; }
+        .worldview-body { font-size: 1.05rem; color: var(--color-text); opacity: 0.85; margin-bottom: 1.75rem; line-height: 1.7; }
+        .worldview-themes { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; }
+        .worldview-tag { background: rgba(220, 20, 60, 0.15); border: 1px solid rgba(220, 20, 60, 0.4); color: var(--color-poland-red-light); padding: 0.3rem 0.75rem; border-radius: 20px; font-size: 0.875rem; letter-spacing: 0.03em; }
+        .issues-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 2rem 0 1.5rem; }
+        .issue-card { background: rgba(220, 20, 60, 0.08); border: 1px solid rgba(220, 20, 60, 0.25); border-radius: 10px; padding: 1.25rem 1rem; text-align: center; opacity: 0.8; cursor: default; }
+        .issue-card .issue-icon { font-size: 1.75rem; margin-bottom: 0.6rem; }
+        .issue-card h3 { font-size: 0.95rem; color: var(--color-text); font-weight: 600; }
+        .issues-coming-soon { text-align: center; opacity: 0.5; font-size: 0.875rem; font-style: italic; }
+    </style>
   <script src="/scripts/nav.js"></script>
 </head>
 <body class="page-regional page-poland">
@@ -83,6 +95,39 @@
     </section>
 
     <!-- Scotland Stats Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Poland's Worldview</h2>
+            <div class="poland-worldview">
+                <p class="worldview-statement">"Rising from ruin — and arguing about which direction to fall."</p>
+                <p class="worldview-body">Poland has one of Europe's greatest stories of economic transformation since 1989. It also had eight years under a government that systematically dismantled judicial independence, suppressed press freedom, and weaponised social division. WatchTheFall Poland documents the fight for what kind of country it wants to become.</p>
+                <div class="worldview-themes">
+                    <span class="worldview-tag">Rule of Law</span>
+                    <span class="worldview-tag">Judicial Independence</span>
+                    <span class="worldview-tag">Church &amp; State</span>
+                    <span class="worldview-tag">Media Freedom</span>
+                    <span class="worldview-tag">EU Relations</span>
+                    <span class="worldview-tag">Economic Inequality</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">The Issues</h2>
+            <div class="issues-grid">
+                <div class="issue-card"><div class="issue-icon">🗳️</div><h3>Democracy &amp; Rule of Law</h3></div>
+                <div class="issue-card"><div class="issue-icon">🏠</div><h3>Housing</h3></div>
+                <div class="issue-card"><div class="issue-icon">🏥</div><h3>Healthcare</h3></div>
+                <div class="issue-card"><div class="issue-icon">🎓</div><h3>Education</h3></div>
+                <div class="issue-card"><div class="issue-icon">⛪</div><h3>Church &amp; State</h3></div>
+                <div class="issue-card"><div class="issue-icon">🌍</div><h3>Migration</h3></div>
+                <div class="issue-card"><div class="issue-icon">💶</div><h3>Economic Inequality</h3></div>
+                <div class="issue-card"><div class="issue-icon">🇵🇱</div><h3>National Identity</h3></div>
+            </div>
+            <p class="issues-coming-soon">Full issue map with linked essays and content coming soon.</p>
+        </div>
+    </section>
     <section class="section poland-stats">
         <div class="container">
             <h2 class="section-title">Poland Network</h2>

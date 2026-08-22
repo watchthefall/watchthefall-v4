@@ -31,6 +31,18 @@
     
     <link rel="stylesheet" href="../../styles/app.css">
     <link rel="stylesheet" href="../templates/france_colors.css">
+    <style>
+        .france-worldview { max-width: 800px; margin: 0 auto; text-align: center; padding: 2rem 0; }
+        .worldview-statement { font-size: 1.3rem; font-style: italic; color: var(--color-gold); margin: 1.5rem 0 1rem; line-height: 1.6; }
+        .worldview-body { font-size: 1.05rem; color: var(--color-text); opacity: 0.85; margin-bottom: 1.75rem; line-height: 1.7; }
+        .worldview-themes { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; }
+        .worldview-tag { background: rgba(0, 85, 164, 0.15); border: 1px solid rgba(0, 85, 164, 0.4); color: var(--color-france-blue-light); padding: 0.3rem 0.75rem; border-radius: 20px; font-size: 0.875rem; letter-spacing: 0.03em; }
+        .issues-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 2rem 0 1.5rem; }
+        .issue-card { background: rgba(0, 85, 164, 0.08); border: 1px solid rgba(0, 85, 164, 0.25); border-radius: 10px; padding: 1.25rem 1rem; text-align: center; opacity: 0.8; cursor: default; }
+        .issue-card .issue-icon { font-size: 1.75rem; margin-bottom: 0.6rem; }
+        .issue-card h3 { font-size: 0.95rem; color: var(--color-text); font-weight: 600; }
+        .issues-coming-soon { text-align: center; opacity: 0.5; font-size: 0.875rem; font-style: italic; }
+    </style>
   <script src="/scripts/nav.js"></script>
 </head>
 <body class="page-regional page-france">
@@ -86,6 +98,39 @@
     </section>
 
     <!-- Scotland Stats Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">France's Worldview</h2>
+            <div class="france-worldview">
+                <p class="worldview-statement">"Liberté, Égalité, Fraternité — under construction."</p>
+                <p class="worldview-body">France invented modern democracy and gave the world the concept of revolution. Today it has an out-of-touch political class, endemic social inequality, and a population that periodically sets things on fire to get anyone to listen. WatchTheFall France documents the tension between the republic's ideals and its reality.</p>
+                <div class="worldview-themes">
+                    <span class="worldview-tag">Social Inequality</span>
+                    <span class="worldview-tag">Macronism</span>
+                    <span class="worldview-tag">Banlieue Crisis</span>
+                    <span class="worldview-tag">Pension Reform</span>
+                    <span class="worldview-tag">Immigration</span>
+                    <span class="worldview-tag">Political Instability</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">The Issues</h2>
+            <div class="issues-grid">
+                <div class="issue-card"><div class="issue-icon">🗳️</div><h3>Political Crisis</h3></div>
+                <div class="issue-card"><div class="issue-icon">🏠</div><h3>Housing</h3></div>
+                <div class="issue-card"><div class="issue-icon">🏥</div><h3>Healthcare</h3></div>
+                <div class="issue-card"><div class="issue-icon">✊</div><h3>Social Unrest</h3></div>
+                <div class="issue-card"><div class="issue-icon">🎓</div><h3>Education</h3></div>
+                <div class="issue-card"><div class="issue-icon">🇫🇷</div><h3>National Identity</h3></div>
+                <div class="issue-card"><div class="issue-icon">💶</div><h3>Cost of Living</h3></div>
+                <div class="issue-card"><div class="issue-icon">🌍</div><h3>Immigration &amp; Integration</h3></div>
+            </div>
+            <p class="issues-coming-soon">Full issue map with linked essays and content coming soon.</p>
+        </div>
+    </section>
     <section class="section france-stats">
         <div class="container">
             <h2 class="section-title">France Network</h2>

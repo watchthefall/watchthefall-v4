@@ -28,6 +28,18 @@
     
     <link rel="stylesheet" href="../../styles/app.css">
     <link rel="stylesheet" href="../templates/ireland_colors.css">
+    <style>
+        .ireland-worldview { max-width: 800px; margin: 0 auto; text-align: center; padding: 2rem 0; }
+        .worldview-statement { font-size: 1.3rem; font-style: italic; color: var(--color-gold); margin: 1.5rem 0 1rem; line-height: 1.6; }
+        .worldview-body { font-size: 1.05rem; color: var(--color-text); opacity: 0.85; margin-bottom: 1.75rem; line-height: 1.7; }
+        .worldview-themes { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; }
+        .worldview-tag { background: rgba(22, 155, 98, 0.15); border: 1px solid rgba(22, 155, 98, 0.4); color: var(--color-ireland-green-light); padding: 0.3rem 0.75rem; border-radius: 20px; font-size: 0.875rem; letter-spacing: 0.03em; }
+        .issues-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 2rem 0 1.5rem; }
+        .issue-card { background: rgba(22, 155, 98, 0.08); border: 1px solid rgba(22, 155, 98, 0.25); border-radius: 10px; padding: 1.25rem 1rem; text-align: center; opacity: 0.8; cursor: default; }
+        .issue-card .issue-icon { font-size: 1.75rem; margin-bottom: 0.6rem; }
+        .issue-card h3 { font-size: 0.95rem; color: var(--color-text); font-weight: 600; }
+        .issues-coming-soon { text-align: center; opacity: 0.5; font-size: 0.875rem; font-style: italic; }
+    </style>
   <script src="/scripts/nav.js"></script>
 </head>
 <body class="page-regional page-ireland">
@@ -83,6 +95,39 @@
     </section>
 
     <!-- Scotland Stats Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Ireland's Worldview</h2>
+            <div class="ireland-worldview">
+                <p class="worldview-statement">"The world's fastest-growing economy — that most people can't afford to live in."</p>
+                <p class="worldview-body">Ireland is one of the fastest-growing economies in the world and a tech capital of Europe. It's also facing a housing crisis that's pushing its own citizens out, a health system under perpetual strain, and the unresolved question of the border. WatchTheFall Ireland documents the gap between the boom and the reality on the ground.</p>
+                <div class="worldview-themes">
+                    <span class="worldview-tag">Housing Crisis</span>
+                    <span class="worldview-tag">Tech Economy</span>
+                    <span class="worldview-tag">The Border</span>
+                    <span class="worldview-tag">Healthcare</span>
+                    <span class="worldview-tag">Emigration</span>
+                    <span class="worldview-tag">Catholic Legacy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">The Issues</h2>
+            <div class="issues-grid">
+                <div class="issue-card"><div class="issue-icon">🗳️</div><h3>Politics &amp; Power</h3></div>
+                <div class="issue-card"><div class="issue-icon">🏠</div><h3>Housing Emergency</h3></div>
+                <div class="issue-card"><div class="issue-icon">🏥</div><h3>Healthcare</h3></div>
+                <div class="issue-card"><div class="issue-icon">☘️</div><h3>National Identity</h3></div>
+                <div class="issue-card"><div class="issue-icon">🎓</div><h3>Education</h3></div>
+                <div class="issue-card"><div class="issue-icon">💶</div><h3>Cost of Living</h3></div>
+                <div class="issue-card"><div class="issue-icon">🔗</div><h3>The Border Question</h3></div>
+                <div class="issue-card"><div class="issue-icon">🌍</div><h3>Emigration</h3></div>
+            </div>
+            <p class="issues-coming-soon">Full issue map with linked essays and content coming soon.</p>
+        </div>
+    </section>
     <section class="section ireland-stats">
         <div class="container">
             <h2 class="section-title">Ireland Network</h2>

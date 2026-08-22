@@ -31,6 +31,18 @@
     
     <link rel="stylesheet" href="../../styles/app.css">
     <link rel="stylesheet" href="../templates/wales_colors.css">
+    <style>
+        .wales-worldview { max-width: 800px; margin: 0 auto; text-align: center; padding: 2rem 0; }
+        .worldview-statement { font-size: 1.3rem; font-style: italic; color: var(--color-gold); margin: 1.5rem 0 1rem; line-height: 1.6; }
+        .worldview-body { font-size: 1.05rem; color: var(--color-text); opacity: 0.85; margin-bottom: 1.75rem; line-height: 1.7; }
+        .worldview-themes { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; }
+        .worldview-tag { background: rgba(0, 177, 64, 0.15); border: 1px solid rgba(0, 177, 64, 0.4); color: var(--color-wales-green-light); padding: 0.3rem 0.75rem; border-radius: 20px; font-size: 0.875rem; letter-spacing: 0.03em; }
+        .issues-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 2rem 0 1.5rem; }
+        .issue-card { background: rgba(0, 177, 64, 0.08); border: 1px solid rgba(0, 177, 64, 0.25); border-radius: 10px; padding: 1.25rem 1rem; text-align: center; opacity: 0.8; cursor: default; }
+        .issue-card .issue-icon { font-size: 1.75rem; margin-bottom: 0.6rem; }
+        .issue-card h3 { font-size: 0.95rem; color: var(--color-text); font-weight: 600; }
+        .issues-coming-soon { text-align: center; opacity: 0.5; font-size: 0.875rem; font-style: italic; }
+    </style>
   <script src="/scripts/nav.js"></script>
 </head>
 <body class="page-regional page-wales">
@@ -86,6 +98,39 @@
     </section>
 
     <!-- Wales Stats Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Wales's Worldview</h2>
+            <div class="wales-worldview">
+                <p class="worldview-statement">"A nation that gave its coal and its men — and got poverty in return."</p>
+                <p class="worldview-body">Wales powered the British Empire with its coal and its people. Today it has some of the highest poverty rates in the UK, chronic underinvestment, and a devolved government still finding its feet. WatchTheFall Wales documents what's left after extraction.</p>
+                <div class="worldview-themes">
+                    <span class="worldview-tag">Poverty</span>
+                    <span class="worldview-tag">Devolution</span>
+                    <span class="worldview-tag">Language Survival</span>
+                    <span class="worldview-tag">Deindustrialisation</span>
+                    <span class="worldview-tag">Rural Decline</span>
+                    <span class="worldview-tag">Westminster Control</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">The Issues</h2>
+            <div class="issues-grid">
+                <div class="issue-card"><div class="issue-icon">🗳️</div><h3>Devolution &amp; Power</h3></div>
+                <div class="issue-card"><div class="issue-icon">🏠</div><h3>Housing &amp; Poverty</h3></div>
+                <div class="issue-card"><div class="issue-icon">🏥</div><h3>NHS Wales</h3></div>
+                <div class="issue-card"><div class="issue-icon">🌿</div><h3>Rural Decline</h3></div>
+                <div class="issue-card"><div class="issue-icon">🎓</div><h3>Education</h3></div>
+                <div class="issue-card"><div class="issue-icon">🏴󠁧󠁢󠁷󠁬󠁳󠁿</div><h3>Language &amp; Culture</h3></div>
+                <div class="issue-card"><div class="issue-icon">💷</div><h3>Economy</h3></div>
+                <div class="issue-card"><div class="issue-icon">⛏️</div><h3>Industrial Legacy</h3></div>
+            </div>
+            <p class="issues-coming-soon">Full issue map with linked essays and content coming soon.</p>
+        </div>
+    </section>
     <section class="section wales-stats">
         <div class="container">
             <h2 class="section-title">Wales Network</h2>
