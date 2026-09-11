@@ -1,0 +1,55 @@
+name: Daily Follower Count Update
+
+on:
+  schedule:
+    # Runs at 02:00 UTC every day
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    # Allow manual trigger from GitHub Actions UI
+    inputs:
+      accounts:
+        description: 'Specific account(s) to update (leave blank for all)'
+        required: false
+        default: ''
+
+jobs:
+  update-followers:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run follower update
+        run: |
+          python scripts/update_network.py followers ${{ github.event.inputs.accounts }}
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "wtf-bot"
+          git config user.email "bot@watchthefall.com"
+          git add data/followers.json
+          if git diff --cached --quiet; then
+            echo "No follower count changes to commit."
+          else
+            git commit -m "chore: auto-update follower counts $(date -u '+%Y-%m-%d')"
+            git push
+          fi
+
+      - name: Trigger Render redeploy
+        if: env.RENDER_DEPLOY_HOOK != ''
+        run: |
+          curl -s -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}" \
+            -H "Content-Type: application/json" \
+            --fail || echo "Deploy hook failed (non-fatal)"
+        env:
+          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
