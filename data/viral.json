@@ -1,0 +1,148 @@
+{
+  "_meta": {
+    "note": "Curated viral posts for homepage rotation. Add new entries manually or via dispatch.",
+    "last_updated": "2026-09-11"
+  },
+  "posts": [
+    {
+      "id": "Dat5ZULqetu",
+      "account": "italywtf",
+      "handle": "@italy_wtf",
+      "logo": "assets/logos/italy-wtf-logo.webp",
+      "platform": "instagram",
+      "url": "https://www.instagram.com/p/Dat5ZULqetu/",
+      "embed_url": "https://www.instagram.com/p/Dat5ZULqetu/",
+      "stats": {
+        "views": "1.5M",
+        "likes": "28.8K",
+        "comments": "788",
+        "shares": "2,373"
+      },
+      "blurb": "ItalyWTF crossed 2,000 followers on the back of this reel — 695K monthly views from 20 posts."
+    },
+    {
+      "id": "DHls-urI5rC",
+      "account": "scotlandwtf",
+      "handle": "@scotlandwtf",
+      "logo": "assets/logos/scotland-wtf-logo.webp",
+      "platform": "instagram",
+      "url": "https://www.instagram.com/reel/DHls-urI5rC/",
+      "embed_url": "https://www.instagram.com/reel/DHls-urI5rC/",
+      "stats": {
+        "likes": "401K",
+        "comments": "13K"
+      },
+      "blurb": "ScotlandWTF's biggest Instagram reel — Scotland watching what's happening on its streets, in its own words."
+    },
+    {
+      "id": "DZX6NYmIvN1",
+      "account": "scotlandwtf",
+      "handle": "@scotlandwtf",
+      "logo": "assets/logos/scotland-wtf-logo.webp",
+      "platform": "instagram",
+      "url": "https://www.instagram.com/reel/DZX6NYmIvN1/",
+      "embed_url": "https://www.instagram.com/reel/DZX6NYmIvN1/",
+      "stats": {
+        "likes": "362K",
+        "comments": "2.3K"
+      },
+      "blurb": "POV: You were told your whole life who the bad guys were. Judge individuals, not tribes. 362K likes."
+    },
+    {
+      "id": "7491005316742548758",
+      "account": "scotlandwtf",
+      "handle": "@scotland.wtf",
+      "logo": "assets/logos/scotland-wtf-logo.webp",
+      "platform": "tiktok",
+      "url": "https://www.tiktok.com/@scotland.wtf/video/7491005316742548758",
+      "stats": {
+        "views": "856K"
+      },
+      "blurb": "ScotlandWTF's most-viewed TikTok — 856K views and counting."
+    },
+    {
+      "id": "7575907606074576160",
+      "account": "scotlandwtf",
+      "handle": "@scotland.wtf",
+      "logo": "assets/logos/scotland-wtf-logo.webp",
+      "platform": "tiktok",
+      "url": "https://www.tiktok.com/@scotland.wtf/video/7575907606074576160",
+      "stats": {
+        "views": "788K"
+      },
+      "blurb": "788K views — one of ScotlandWTF's biggest TikToks of the year."
+    },
+    {
+      "id": "7551742300418805014",
+      "account": "scotlandwtf",
+      "handle": "@scotland.wtf",
+      "logo": "assets/logos/scotland-wtf-logo.webp",
+      "platform": "tiktok",
+      "url": "https://www.tiktok.com/@scotland.wtf/video/7551742300418805014",
+      "stats": {
+        "views": "346K"
+      },
+      "blurb": "346K views on TikTok — ScotlandWTF cutting through the noise."
+    },
+    {
+      "id": "7541408537977621782",
+      "account": "australiawtf",
+      "handle": "@australiawtf",
+      "logo": "assets/logos/australia-wtf-logo.webp",
+      "platform": "tiktok",
+      "url": "https://www.tiktok.com/@australiawtf/video/7541408537977621782",
+      "stats": {
+        "views": "94.6K"
+      },
+      "blurb": "AustraliaWTF's standout TikTok — 94K views, the account's biggest post to date."
+    },
+    {
+      "id": "7531949865052425494",
+      "account": "usawtf",
+      "handle": "@usa_wtf",
+      "logo": "assets/logos/usa-wtf-logo.webp",
+      "platform": "tiktok",
+      "url": "https://www.tiktok.com/@usa_wtf/video/7531949865052425494",
+      "stats": {
+        "views": "81.5K"
+      },
+      "blurb": "USA WTF's top TikTok — 81K views on a post that clearly hit a nerve."
+    },
+    {
+      "id": "7526230419101027606",
+      "account": "irelandwtf",
+      "handle": "@irelandwtf",
+      "logo": "assets/logos/ireland-wtf-logo.webp",
+      "platform": "tiktok",
+      "url": "https://www.tiktok.com/@irelandwtf/video/7526230419101027606",
+      "stats": {
+        "views": "20.7K"
+      },
+      "blurb": "IrelandWTF's most-viewed TikTok — 20K views from a growing account."
+    },
+    {
+      "id": "7514680292875980054",
+      "account": "britainwtf",
+      "handle": "@britainwtf",
+      "logo": "assets/logos/britain-wtf-logo.webp",
+      "platform": "tiktok",
+      "url": "https://www.tiktok.com/@britainwtf/video/7514680292875980054",
+      "stats": {
+        "views": "5.2K"
+      },
+      "blurb": "BritainWTF's top TikTok — best-performing video from the UK network account."
+    },
+    {
+      "id": "7531125174897233174",
+      "account": "europewtf",
+      "handle": "@europewtf",
+      "logo": "assets/logos/europe-wtf-logo.webp",
+      "platform": "tiktok",
+      "url": "https://www.tiktok.com/@europewtf/video/7531125174897233174",
+      "stats": {
+        "views": "5K"
+      },
+      "blurb": "EuropeWTF's standout TikTok — top post from the network's continental account."
+    }
+  ]
+}
