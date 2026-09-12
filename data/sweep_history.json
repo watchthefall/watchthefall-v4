@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "description": "Append-only audit log for the hourly content-sweep queue. Each entry is one sweep attempt. Newest entries first. Keep at most the most recent 500 entries — trim from the end when writing if longer.",
+    "created": "2026-09-12"
+  },
+  "history": [
+    { "timestamp": "2026-09-12T00:00:00Z", "account": "aiwtf", "status": "SUCCESS", "videos_found": 12, "videos_added": 12, "failure_reason": null },
+    { "timestamp": "2026-09-12T00:00:00Z", "account": "conceptswtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
+    { "timestamp": "2026-09-12T00:00:00Z", "account": "gadgetswtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
+    { "timestamp": "2026-09-12T00:00:00Z", "account": "darkhumourwtf", "status": "SUCCESS", "videos_found": 12, "videos_added": 12, "failure_reason": null },
+    { "timestamp": "2026-09-12T00:00:00Z", "account": "watchthefallwtf", "status": "SUCCESS", "videos_found": 12, "videos_added": 12, "failure_reason": null },
+    { "timestamp": "2026-09-12T00:00:00Z", "account": "northernirelandwtf", "status": "SUCCESS", "videos_found": 12, "videos_added": 12, "failure_reason": null },
+    { "timestamp": "2026-09-12T00:00:00Z", "account": "thewestwtf", "status": "SUCCESS", "videos_found": 12, "videos_added": 12, "failure_reason": null }
+  ]
+}

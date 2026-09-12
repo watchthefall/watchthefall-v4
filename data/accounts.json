@@ -67,7 +67,7 @@
       "instagram_url": "https://www.instagram.com/northernirelandwtf/",
       "tiktok": null,
       "tiktok_url": null,
-      "library": null,
+      "library": "data/northernirelandwtf_library.json",
       "confirmed": true,
       "needs_confirmation": ["tiktok"]
     },
@@ -194,7 +194,7 @@
       "instagram_url": "https://www.instagram.com/thewestwtf/",
       "tiktok": "thewestwtf",
       "tiktok_url": "https://www.tiktok.com/@thewestwtf",
-      "library": null,
+      "library": "data/thewestwtf_library.json",
       "confirmed": true
     }
   ],
@@ -207,6 +207,7 @@
       "instagram_url": "https://www.instagram.com/watchthefall.wtf/",
       "tiktok": "watchthefall_wtf",
       "tiktok_url": "https://www.tiktok.com/@watchthefall_wtf",
+      "library": "data/watchthefall_wtf_library.json",
       "confirmed": true
     }
   ],
@@ -219,6 +220,7 @@
       "instagram_url": "https://www.instagram.com/artificialintelwtf/",
       "tiktok": "a.i.wtf",
       "tiktok_url": "https://www.tiktok.com/@a.i.wtf",
+      "library": "data/aiwtf_library.json",
       "confirmed": true
     },
     {
@@ -228,6 +230,7 @@
       "instagram_url": "https://www.instagram.com/conceptswtf/",
       "tiktok": "conceptswtf",
       "tiktok_url": "https://www.tiktok.com/@conceptswtf",
+      "library": "data/conceptswtf_library.json",
       "confirmed": true
     },
     {
@@ -237,8 +240,10 @@
       "instagram_url": "https://www.instagram.com/darkhumourwtf/",
       "tiktok": null,
       "tiktok_url": null,
-      "confirmed": false,
-      "needs_confirmation": ["instagram", "tiktok"]
+      "library": "data/darkhumourwtf_library.json",
+      "instagram_note": "Confirmed live 2026-09-12 during content sweep (20 posts, 18 followers).",
+      "confirmed": true,
+      "needs_confirmation": ["tiktok"]
     },
     {
       "id": "gadgetswtf",
@@ -247,6 +252,7 @@
       "instagram_url": "https://www.instagram.com/gadgets.wtf/",
       "tiktok": null,
       "tiktok_url": null,
+      "library": "data/gadgetswtf_library.json",
       "confirmed": true,
       "needs_confirmation": ["tiktok"]
     },
@@ -299,7 +305,9 @@
     {
       "id": "comedywtf",
       "name": "ComedyWTF",
-      "status": "retired"
+      "status": "retired",
+      "library": "data/comedywtf_library.json",
+      "note": "No confirmed Instagram handle — library scaffold created but excluded from the active hourly sweep queue."
     },
     {
       "id": "aitechwtf",

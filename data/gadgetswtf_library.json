@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "account": "gadgets.wtf",
+    "profile": "https://www.instagram.com/gadgets.wtf/",
+    "scraped": null,
+    "total": 0,
+    "reels": 0,
+    "posts": 0,
+    "note": "Confirmed empty on 2026-09-12: account genuinely has 0 posts (29 followers, following others, but nothing published yet). Not a scrape failure — will populate automatically once they post.",
+    "last_sweep": "2026-09-12"
+  },
+  "reels": [],
+  "posts": [],
+  "all": []
+}

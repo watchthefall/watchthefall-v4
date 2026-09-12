@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "account": "darkhumourwtf",
+    "profile": "https://www.instagram.com/darkhumourwtf/",
+    "scraped": "2026-09-12",
+    "total": 12,
+    "reels": 12,
+    "posts": 0,
+    "note": "Initial population from profile grid (most recent ~12 reels visible without pagination). Handle confirmed live during this sweep (20 posts, 18 followers) — accounts.json's needs_confirmation flag can be cleared.",
+    "last_sweep": "2026-09-12"
+  },
+  "reels": [
+    "https://www.instagram.com/darkhumourwtf/reel/Day81kgC-bk/",
+    "https://www.instagram.com/darkhumourwtf/reel/DaSSpsJCYiz/",
+    "https://www.instagram.com/darkhumourwtf/reel/DaC4TU1CpLV/",
+    "https://www.instagram.com/darkhumourwtf/reel/DaBuDr8ic4_/",
+    "https://www.instagram.com/darkhumourwtf/reel/DaBGrBqiOH6/",
+    "https://www.instagram.com/darkhumourwtf/reel/DZ-oF13C4Ak/",
+    "https://www.instagram.com/darkhumourwtf/reel/DZ-T5Wpokeb/",
+    "https://www.instagram.com/darkhumourwtf/reel/DZ8-7SOiL7x/",
+    "https://www.instagram.com/darkhumourwtf/reel/DZ5IhdvogmK/",
+    "https://www.instagram.com/darkhumourwtf/reel/DZ5H8wooJjC/",
+    "https://www.instagram.com/darkhumourwtf/reel/DOCfO_xiGMH/",
+    "https://www.instagram.com/darkhumourwtf/reel/DOCcCc9iDKU/"
+  ],
+  "posts": [],
+  "all": [
+    "https://www.instagram.com/darkhumourwtf/reel/Day81kgC-bk/",
+    "https://www.instagram.com/darkhumourwtf/reel/DaSSpsJCYiz/",
+    "https://www.instagram.com/darkhumourwtf/reel/DaC4TU1CpLV/",
+    "https://www.instagram.com/darkhumourwtf/reel/DaBuDr8ic4_/",
+    "https://www.instagram.com/darkhumourwtf/reel/DaBGrBqiOH6/",
+    "https://www.instagram.com/darkhumourwtf/reel/DZ-oF13C4Ak/",
+    "https://www.instagram.com/darkhumourwtf/reel/DZ-T5Wpokeb/",
+    "https://www.instagram.com/darkhumourwtf/reel/DZ8-7SOiL7x/",
+    "https://www.instagram.com/darkhumourwtf/reel/DZ5IhdvogmK/",
+    "https://www.instagram.com/darkhumourwtf/reel/DZ5H8wooJjC/",
+    "https://www.instagram.com/darkhumourwtf/reel/DOCfO_xiGMH/",
+    "https://www.instagram.com/darkhumourwtf/reel/DOCcCc9iDKU/"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "account": "watchthefall.wtf",
+    "profile": "https://www.instagram.com/watchthefall.wtf/",
+    "scraped": "2026-09-12",
+    "total": 12,
+    "reels": 12,
+    "posts": 0,
+    "note": "Initial population from profile grid (most recent ~12 reels visible without pagination). The hourly sweep queue will fill in older/new content over time.",
+    "last_sweep": "2026-09-12"
+  },
+  "reels": [
+    "https://www.instagram.com/watchthefall.wtf/reel/DZ0O_meooHZ/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DXaWqTjiL3h/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DWqwU8AiKab/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DRx-Uc6iGv4/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DRwW91bCD7V/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DRkWUubDxNc/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DRj599siR3z/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DRjd6uhE8Jg/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DRhw1FGDuDC/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DRg5RACiZl1/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DRfgRBJiRpB/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DRewLlkDJAq/"
+  ],
+  "posts": [],
+  "all": [
+    "https://www.instagram.com/watchthefall.wtf/reel/DZ0O_meooHZ/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DXaWqTjiL3h/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DWqwU8AiKab/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DRx-Uc6iGv4/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DRwW91bCD7V/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DRkWUubDxNc/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DRj599siR3z/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DRjd6uhE8Jg/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DRhw1FGDuDC/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DRg5RACiZl1/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DRfgRBJiRpB/",
+    "https://www.instagram.com/watchthefall.wtf/reel/DRewLlkDJAq/"
+  ]
+}
