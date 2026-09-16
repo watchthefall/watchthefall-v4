@@ -1,154 +1,403 @@
-(function() {
+/**
+ * WTF Records — Music App
+ * All releases: WatchTheFall / WTF Records.
+ * No artist personas. Discovery via type, region, genre, mood.
+ * v2.1 — September 2026
+ */
+(function () {
     'use strict';
 
     const DATA_URL = 'data/wtfrecords.json';
-    let ageVerified = sessionStorage.getItem('wtf_age_verified') === 'true';
+    const BRAND = 'WatchTheFall';
+    const LABEL = 'WTF Records';
 
-    function getFallback() {
-        return {
-            artists: {
-                jamai_g: { name: 'JamAi G', bio: 'AI-bent lyricism.', tracks: [] },
-                elaira: { name: 'Elaira Valesis', bio: 'Ethereal resistance.', tracks: [] },
-                skyea: { name: 'Skyea Caelix', bio: 'Starborne echoes.', tracks: [] },
-                watchthefall: { name: 'WatchTheFall', bio: 'Anthems of collapse.', tracks: [] }
-            },
-            tracks: {},
-            listen: { spotify: "#", youtube: "#", suno: "https://suno.com/@wtfrecords" }
-        };
-    }
+    // ── STATE ──────────────────────────────────────────────────
+    let catalogue = [];
+    let playlists = {};
+    let queue = [];
+    let queueIndex = -1;
+    let activeFilter = 'all';   // all | originals | regional | + genre string
+    let searchQuery = '';
+    let audio = new Audio();
+    let isPlaying = false;
 
+    // ── LOAD ───────────────────────────────────────────────────
     async function loadData() {
         try {
             const res = await fetch(DATA_URL);
-            if (!res.ok) throw new Error('Failed to load records data');
-            return res.json();
+            if (!res.ok) throw new Error('Failed to load');
+            return await res.json();
         } catch (e) {
-            console.error('❌ Records data error:', e);
-            return getFallback();
+            console.error('WTF Records:', e);
+            return { tracks: [], playlists: {} };
         }
     }
 
-    function showAgeGate(callback) {
-        const modal = document.getElementById('age-gate-modal');
-        const yesBtn = document.getElementById('age-confirm-yes');
-        const noBtn = document.getElementById('age-confirm-no');
-        
-        modal.setAttribute('aria-hidden', 'false');
-        
-        yesBtn.onclick = () => {
-            ageVerified = true;
-            sessionStorage.setItem('wtf_age_verified', 'true');
-            modal.setAttribute('aria-hidden', 'true');
-            callback();
-        };
-        
-        noBtn.onclick = () => {
-            modal.setAttribute('aria-hidden', 'true');
-            alert('Age-restricted content will remain hidden.');
-        };
+    function fmtTime(s) {
+        if (!s || isNaN(s)) return '0:00';
+        const m = Math.floor(s / 60);
+        const sec = Math.floor(s % 60);
+        return `${m}:${sec.toString().padStart(2, '0')}`;
     }
 
-    function renderReleases(data) {
-        const grid = document.getElementById('records-releases');
-        if (!grid) return;
-        const tracks = Object.entries(data.tracks || {});
-        
-        if (tracks.length === 0) {
-            grid.innerHTML = '<p style="opacity:.7">No releases yet. Add tracks to data/wtfrecords.json.</p>';
-            return;
-        }
-
-        grid.innerHTML = tracks.map(([id, t]) => {
-            const isRestricted = t.age_restricted === true;
-            const canShow = !isRestricted || ageVerified;
-
-            if (isRestricted && !ageVerified) {
-                return `
-                    <div class="record-card age-restricted" data-track-id="${id}">
-                        <div class="record-info">
-                            <h3 class="record-title">${t.title || 'Untitled'} <span style="opacity:0.6;font-size:0.85rem;">(18+)</span></h3>
-                            <p class="record-desc" style="opacity:0.7;">Age-restricted content. Verify to view.</p>
-                            <button class="btn btn-primary age-verify-btn" data-track-id="${id}">Verify Age (18+)</button>
-                        </div>
-                    </div>
-                `;
+    // ── FILTER ─────────────────────────────────────────────────
+    function filteredTracks() {
+        return catalogue.filter(t => {
+            let matchFilter = true;
+            if (activeFilter === 'originals') matchFilter = t.type === 'original';
+            else if (activeFilter === 'regional') matchFilter = t.type === 'regional';
+            else if (activeFilter !== 'all') {
+                // genre filter
+                matchFilter = (t.genres || []).includes(activeFilter) ||
+                              (t.moods || []).includes(activeFilter);
             }
 
-            return `
-                <div class="record-card" data-track-id="${id}">
-                    <div class="record-info">
-                        <h3 class="record-title">${t.title || 'Untitled'}</h3>
-                        ${t.description ? `<p class="record-desc">${t.description}</p>` : ''}
-                        <div class="record-actions">
-                            ${t.suno_url ? `<a href="${t.suno_url}" class="btn btn-secondary" target="_blank" rel="noopener">Play on Suno</a>` : ''}
-                            ${t.download_mp3 ? `<a href="${t.download_mp3}" class="btn btn-primary" download>Download MP3</a>` : ''}
-                        </div>
-                    </div>
-                    ${t.embed_html ? `<div class="record-embed">${t.embed_html}</div>` : ''}
-                </div>
-            `;
-        }).join('');
+            const q = searchQuery.toLowerCase();
+            const matchSearch = !q
+                || t.title.toLowerCase().includes(q)
+                || (t.region || '').toLowerCase().includes(q)
+                || (t.genres || []).some(g => g.toLowerCase().includes(q))
+                || (t.moods || []).some(m => m.toLowerCase().includes(q));
 
-        // Attach age gate listeners
-        grid.querySelectorAll('.age-verify-btn').forEach(btn => {
+            return matchFilter && matchSearch;
+        });
+    }
+
+    // ── NAV TABS ───────────────────────────────────────────────
+    // Collect distinct genres across catalogue for extra filter tabs
+    function extraGenres() {
+        const set = new Set();
+        catalogue.forEach(t => (t.genres || []).forEach(g => {
+            if (g !== 'anthem') set.add(g); // anthem covered by "regional"
+        }));
+        return Array.from(set).sort();
+    }
+
+    function renderNav() {
+        const wrap = document.getElementById('rec-tag-filters');
+        if (!wrap) return;
+
+        const fixed = [
+            { id: 'all', label: 'ALL' },
+            { id: 'regional', label: 'REGIONAL' },
+            { id: 'originals', label: 'ORIGINALS' },
+        ];
+        const genres = extraGenres().map(g => ({ id: g, label: g.toUpperCase() }));
+        const tabs = [...fixed, ...genres];
+
+        wrap.innerHTML = tabs.map(tab => `
+            <button class="rec-tag-btn${tab.id === activeFilter ? ' active' : ''}" data-filter="${tab.id}">
+                ${tab.label}
+            </button>
+        `).join('');
+
+        wrap.querySelectorAll('.rec-tag-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                showAgeGate(() => renderReleases(data));
+                activeFilter = btn.dataset.filter;
+                renderNav();
+                renderGrid();
             });
         });
     }
 
-    function renderArtists(data) {
-        const grid = document.getElementById('artist-universe');
+    // ── FEATURED ───────────────────────────────────────────────
+    function renderFeatured() {
+        const wrap = document.getElementById('rec-featured');
+        if (!wrap) return;
+        const track = catalogue.find(t => t.featured) || catalogue[0];
+        if (!track) { wrap.innerHTML = ''; return; }
+
+        const meta = [
+            ...(track.genres || []),
+            ...(track.moods || [])
+        ].map(m => `<span class="rec-tag">${m.toUpperCase()}</span>`).join('');
+
+        const canPlay = !!track.audio;
+        const hasSuno = !!track.suno_url;
+
+        wrap.innerHTML = `
+            <div class="rec-featured-card" data-id="${track.id}">
+                <img class="rec-featured-artwork"
+                     src="${track.artwork || 'assets/logos/wtf-records-logo.png'}"
+                     alt="${track.title}"
+                     onerror="this.src='assets/logos/wtf-records-logo.png'">
+                <div class="rec-featured-info">
+                    <h2 class="rec-featured-title">${track.title}</h2>
+                    <p class="rec-featured-artist">${BRAND} · ${LABEL}</p>
+                    <div class="rec-featured-tags">${meta}</div>
+                    <div class="rec-featured-actions">
+                        ${canPlay
+                            ? `<button class="rec-play-btn" data-id="${track.id}">▶ PLAY</button>`
+                            : hasSuno
+                                ? `<a href="${track.suno_url}" target="_blank" rel="noopener" class="rec-btn">▶ PLAY ON SUNO</a>`
+                                : `<span class="rec-btn" style="opacity:.5;cursor:default">COMING SOON</span>`
+                        }
+                        ${track.release_status === 'available'
+                            ? `<span class="rec-price-badge">49p</span>`
+                            : ''}
+                        ${hasSuno
+                            ? `<a href="${track.suno_url}" class="rec-suno-link" target="_blank" rel="noopener">↗ Suno</a>`
+                            : ''}
+                    </div>
+                    ${track.description
+                        ? `<p style="margin-top:10px;font-size:.75rem;color:#888;line-height:1.5">${track.description}</p>`
+                        : ''}
+                </div>
+            </div>
+        `;
+
+        wrap.querySelectorAll('.rec-play-btn[data-id]').forEach(btn => {
+            btn.addEventListener('click', e => {
+                e.stopPropagation();
+                playTrackById(btn.dataset.id);
+            });
+        });
+    }
+
+    // ── GRID ───────────────────────────────────────────────────
+    function renderGrid() {
+        const grid = document.getElementById('rec-grid');
         if (!grid) return;
-        const artists = data.artists || {};
-        grid.innerHTML = Object.entries(artists).map(([key, a]) => {
-            const trackItems = (a.tracks || [])
-                .map(id => data.tracks?.[id])
-                .filter(Boolean)
-                .map(t => `<li>${t.title || 'Untitled'}</li>`)
+        const tracks = filteredTracks();
+
+        if (tracks.length === 0) {
+            grid.innerHTML = '<div class="rec-empty">No tracks found.</div>';
+            return;
+        }
+
+        grid.innerHTML = tracks.map(t => {
+            const available = t.release_status === 'available';
+            const hasAudio = !!t.audio;
+            const hasSuno = !!t.suno_url;
+            const playing = queue[queueIndex]?.id === t.id && isPlaying;
+            const chips = [...(t.genres || []), ...(t.moods || [])]
+                .slice(0, 2)
+                .map(m => `<span class="rec-tag">${m.toUpperCase()}</span>`)
                 .join('');
+            const regionBadge = t.region
+                ? `<span class="rec-tag" style="border-color:#333">${t.region.toUpperCase()}</span>`
+                : '';
+
             return `
-                <div class="artist-card">
-                    <div class="artist-portrait"></div>
-                    <div class="artist-info">
-                        <h3 class="artist-name">${a.name || key}</h3>
-                        ${a.bio ? `<p class="artist-bio">${a.bio}</p>` : ''}
-                        <ul class="artist-tracks">${trackItems}</ul>
+                <div class="rec-track-card${!available ? ' coming-soon' : ''}${playing ? ' playing' : ''}"
+                     data-id="${t.id}"
+                     data-available="${available}"
+                     data-suno="${t.suno_url || ''}">
+                    <div class="rec-track-artwork-wrap">
+                        <img class="rec-track-artwork"
+                             src="${t.artwork || 'assets/logos/wtf-records-logo.png'}"
+                             alt="${t.title}"
+                             onerror="this.src='assets/logos/wtf-records-logo.png'">
+                        ${available
+                            ? '<div class="rec-track-overlay"><div class="rec-track-play-icon">▶</div></div>'
+                            : ''}
+                        ${!available
+                            ? '<span class="rec-coming-soon-badge">Coming Soon</span>'
+                            : ''}
+                        ${playing
+                            ? '<span class="rec-coming-soon-badge" style="background:var(--rec-accent);color:#fff;border-color:var(--rec-accent)">♪ Playing</span>'
+                            : ''}
+                    </div>
+                    <div class="rec-track-body">
+                        <p class="rec-track-title">${t.title}</p>
+                        <p class="rec-track-artist">${BRAND}</p>
+                        <div class="rec-track-footer">
+                            <div class="rec-track-tags">${regionBadge}${chips}</div>
+                            <span class="rec-track-price">${available ? '49p' : (hasSuno ? '↗' : '')}</span>
+                        </div>
                     </div>
                 </div>
             `;
         }).join('');
-    }
 
-    function renderListen(data) {
-        const row = document.getElementById('listen-everywhere');
-        if (!row) return;
-        const l = data.listen || {};
-        row.innerHTML = `
-            <a class="listen-btn btn" href="${l.spotify || '#'}" target="_blank" rel="noopener">Spotify</a>
-            <a class="listen-btn btn" href="${l.youtube || '#'}" target="_blank" rel="noopener">YouTube</a>
-            <a class="listen-btn btn" href="${l.suno || 'https://suno.com/@wtfrecords'}" target="_blank" rel="noopener">Suno</a>
-        `;
-    }
-
-    function initForm() {
-        const form = document.getElementById('records-email-form');
-        if (!form) return;
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = form.querySelector('input[type="email"]')?.value || '';
-            if (!email) return;
-            alert('Thanks! We will be in touch.');
-            form.reset();
+        grid.querySelectorAll('.rec-track-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const id = card.dataset.id;
+                const available = card.dataset.available === 'true';
+                const sunoUrl = card.dataset.suno;
+                if (available) {
+                    playTrackById(id);
+                } else if (sunoUrl) {
+                    window.open(sunoUrl, '_blank', 'noopener');
+                }
+            });
         });
     }
 
+    // ── PLAYLISTS ──────────────────────────────────────────────
+    function renderPlaylists() {
+        const wrap = document.getElementById('rec-playlists');
+        if (!wrap) return;
+
+        wrap.innerHTML = Object.entries(playlists).map(([key, pl]) => `
+            <div class="rec-playlist-card" data-playlist="${key}">
+                <div class="rec-playlist-icon">${pl.icon || '▶'}</div>
+                <p class="rec-playlist-title">${pl.title}</p>
+                <p class="rec-playlist-desc">${pl.description}</p>
+                <span class="rec-playlist-count">${(pl.tracks || []).length} tracks</span>
+            </div>
+        `).join('');
+
+        wrap.querySelectorAll('.rec-playlist-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const pl = playlists[card.dataset.playlist];
+                if (!pl) return;
+                const tracks = (pl.tracks || [])
+                    .map(id => catalogue.find(t => t.id === id))
+                    .filter(t => t && t.audio);
+                if (tracks.length === 0) return;
+                queue = tracks;
+                queueIndex = 0;
+                playFromQueue();
+            });
+        });
+    }
+
+    // ── PLAYER ─────────────────────────────────────────────────
+    function playTrackById(id) {
+        const track = catalogue.find(t => t.id === id);
+        if (!track || !track.audio) return;
+        const playable = filteredTracks().filter(t => t.audio);
+        const idx = playable.findIndex(t => t.id === id);
+        queue = playable;
+        queueIndex = idx >= 0 ? idx : 0;
+        playFromQueue();
+    }
+
+    function playFromQueue() {
+        if (!queue.length || queueIndex < 0) return;
+        const track = queue[queueIndex];
+        if (!track?.audio) return;
+        audio.pause();
+        audio.src = track.audio;
+        audio.load();
+        audio.play().catch(e => console.warn('Audio:', e));
+        isPlaying = true;
+        updatePlayerUI(track);
+        renderGrid();
+    }
+
+    function updatePlayerUI(track) {
+        const player = document.getElementById('wtf-player');
+        if (!player) return;
+        player.classList.add('active');
+
+        const get = id => document.getElementById(id);
+        const art = get('player-artwork');
+        const title = get('player-title');
+        const artist = get('player-artist');
+        const ppBtn = get('player-playpause');
+        const sunoLink = get('player-suno-link');
+
+        if (art) art.src = track.artwork || 'assets/logos/wtf-records-logo.png';
+        if (title) title.textContent = track.title;
+        if (artist) artist.textContent = BRAND;
+        if (ppBtn) ppBtn.textContent = '⏸';
+        if (sunoLink) {
+            if (track.suno_url) {
+                sunoLink.href = track.suno_url;
+                sunoLink.style.display = 'inline-flex';
+            } else {
+                sunoLink.style.display = 'none';
+            }
+        }
+        document.title = `▶ ${track.title} — ${LABEL}`;
+    }
+
+    function setupPlayerControls() {
+        const get = id => document.getElementById(id);
+
+        get('player-playpause')?.addEventListener('click', () => {
+            if (audio.paused) { audio.play(); isPlaying = true; }
+            else { audio.pause(); isPlaying = false; }
+        });
+
+        get('player-prev')?.addEventListener('click', () => {
+            if (queueIndex > 0) { queueIndex--; playFromQueue(); }
+        });
+
+        get('player-next')?.addEventListener('click', () => {
+            if (queueIndex < queue.length - 1) { queueIndex++; playFromQueue(); }
+        });
+
+        get('player-progress-bar')?.addEventListener('click', e => {
+            const bar = get('player-progress-bar');
+            const rect = bar.getBoundingClientRect();
+            const pct = (e.clientX - rect.left) / rect.width;
+            if (audio.duration) audio.currentTime = pct * audio.duration;
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            const elapsed = get('player-elapsed');
+            const fill = get('player-progress-fill');
+            if (elapsed) elapsed.textContent = fmtTime(audio.currentTime);
+            if (fill && audio.duration) {
+                fill.style.width = `${(audio.currentTime / audio.duration) * 100}%`;
+            }
+        });
+
+        audio.addEventListener('loadedmetadata', () => {
+            const dur = get('player-duration');
+            if (dur) dur.textContent = fmtTime(audio.duration);
+        });
+
+        audio.addEventListener('play', () => {
+            const btn = get('player-playpause');
+            if (btn) btn.textContent = '⏸';
+            isPlaying = true;
+        });
+
+        audio.addEventListener('pause', () => {
+            const btn = get('player-playpause');
+            if (btn) btn.textContent = '▶';
+            isPlaying = false;
+        });
+
+        audio.addEventListener('ended', () => {
+            if (queueIndex < queue.length - 1) {
+                queueIndex++;
+                playFromQueue();
+            } else {
+                isPlaying = false;
+                document.title = `${LABEL} — Music for a world on fire`;
+            }
+        });
+    }
+
+    function setupRadio() {
+        document.getElementById('btn-wtf-radio')?.addEventListener('click', () => {
+            const playable = catalogue.filter(t => t.audio);
+            if (!playable.length) return;
+            queue = [...playable].sort(() => Math.random() - 0.5);
+            queueIndex = 0;
+            playFromQueue();
+        });
+    }
+
+    function setupSearch() {
+        let debounce;
+        document.getElementById('rec-search')?.addEventListener('input', e => {
+            clearTimeout(debounce);
+            debounce = setTimeout(() => {
+                searchQuery = e.target.value.trim();
+                renderGrid();
+            }, 200);
+        });
+    }
+
+    // ── INIT ───────────────────────────────────────────────────
     async function init() {
         const data = await loadData();
-        renderReleases(data);
-        renderArtists(data);
-        renderListen(data);
-        initForm();
+        catalogue = data.tracks || [];
+        playlists = data.playlists || {};
+
+        renderFeatured();
+        renderNav();
+        renderGrid();
+        renderPlaylists();
+        setupPlayerControls();
+        setupRadio();
+        setupSearch();
     }
 
     if (document.readyState === 'loading') {

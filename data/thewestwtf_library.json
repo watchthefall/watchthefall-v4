@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "account": "thewestwtf",
+    "profile": "https://www.instagram.com/thewestwtf/",
+    "scraped": "2026-09-12",
+    "total": 12,
+    "reels": 12,
+    "posts": 0,
+    "note": "Initial population from profile grid (most recent ~12 reels visible without pagination). The hourly sweep queue will fill in older/new content over time.",
+    "last_sweep": "2026-09-12"
+  },
+  "reels": [
+    "https://www.instagram.com/thewestwtf/reel/DdLdvn6K2ix/",
+    "https://www.instagram.com/thewestwtf/reel/DdK2PB9qXlb/",
+    "https://www.instagram.com/thewestwtf/reel/DdKUFGKqsXI/",
+    "https://www.instagram.com/thewestwtf/reel/Dc61ufjpwMp/",
+    "https://www.instagram.com/thewestwtf/reel/Dc0Rj6vqFVa/",
+    "https://www.instagram.com/thewestwtf/reel/DbdD8DvqU9T/",
+    "https://www.instagram.com/thewestwtf/reel/DaxE4Hnqiir/",
+    "https://www.instagram.com/thewestwtf/reel/DaqZk39K32X/",
+    "https://www.instagram.com/thewestwtf/reel/DaBgoqJqs7f/",
+    "https://www.instagram.com/thewestwtf/reel/DZ-hUHnK4uh/",
+    "https://www.instagram.com/thewestwtf/reel/DWyj15XioM5/",
+    "https://www.instagram.com/thewestwtf/reel/DWqA7jRinbV/"
+  ],
+  "posts": [],
+  "all": [
+    "https://www.instagram.com/thewestwtf/reel/DdLdvn6K2ix/",
+    "https://www.instagram.com/thewestwtf/reel/DdK2PB9qXlb/",
+    "https://www.instagram.com/thewestwtf/reel/DdKUFGKqsXI/",
+    "https://www.instagram.com/thewestwtf/reel/Dc61ufjpwMp/",
+    "https://www.instagram.com/thewestwtf/reel/Dc0Rj6vqFVa/",
+    "https://www.instagram.com/thewestwtf/reel/DbdD8DvqU9T/",
+    "https://www.instagram.com/thewestwtf/reel/DaxE4Hnqiir/",
+    "https://www.instagram.com/thewestwtf/reel/DaqZk39K32X/",
+    "https://www.instagram.com/thewestwtf/reel/DaBgoqJqs7f/",
+    "https://www.instagram.com/thewestwtf/reel/DZ-hUHnK4uh/",
+    "https://www.instagram.com/thewestwtf/reel/DWyj15XioM5/",
+    "https://www.instagram.com/thewestwtf/reel/DWqA7jRinbV/"
+  ]
+}

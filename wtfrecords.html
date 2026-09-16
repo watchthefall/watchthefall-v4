@@ -2,72 +2,588 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WTF Records — Music for a world on fire</title>
-    <meta name="description" content="WTF Records: dystopian music hub by WatchTheFall.">
+    <meta name="description" content="WTF Records: the official music catalogue of WatchTheFall. Anthems and originals for a world in collapse.">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="assets/logos/wtf-logo.png">
     <link rel="stylesheet" href="styles/app.css">
-  <script src="/scripts/nav.js"></script>
+    <script src="/scripts/nav.js"></script>
+    <style>
+        /* ── WTF RECORDS APP STYLES ── */
+        :root {
+            --rec-bg: #0a0a0a;
+            --rec-card: #111111;
+            --rec-border: #222222;
+            --rec-accent: #cc0000;
+            --rec-accent-dim: rgba(204,0,0,0.15);
+            --rec-text: #f0f0f0;
+            --rec-muted: #888888;
+            --rec-player-h: 80px;
+            --rec-tag-bg: #1a1a1a;
+        }
+
+        body {
+            background: var(--rec-bg);
+            color: var(--rec-text);
+            font-family: 'Courier New', Courier, monospace;
+            padding-bottom: calc(var(--rec-player-h) + 20px);
+        }
+
+        /* ── HERO ── */
+        .rec-hero {
+            text-align: center;
+            padding: 80px 20px 40px;
+            border-bottom: 1px solid var(--rec-border);
+            position: relative;
+        }
+        .rec-hero-logo {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 0 12px rgba(204,0,0,0.5));
+        }
+        .rec-hero h1 {
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-weight: 900;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #fff;
+            margin: 0 0 4px;
+        }
+        .rec-hero-tagline {
+            font-size: 0.85rem;
+            color: var(--rec-muted);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin: 0 0 28px;
+        }
+        .rec-hero-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .rec-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 20px;
+            border: 1px solid var(--rec-border);
+            background: transparent;
+            color: var(--rec-text);
+            font-family: inherit;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .rec-btn:hover { border-color: var(--rec-accent); color: var(--rec-accent); }
+        .rec-btn-radio {
+            background: var(--rec-accent);
+            border-color: var(--rec-accent);
+            color: #fff;
+        }
+        .rec-btn-radio:hover { background: #aa0000; color: #fff; border-color: #aa0000; }
+
+        /* ── SEARCH ── */
+        .rec-search-wrap {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .rec-search {
+            width: 100%;
+            background: var(--rec-card);
+            border: 1px solid var(--rec-border);
+            color: var(--rec-text);
+            font-family: inherit;
+            font-size: 0.85rem;
+            padding: 10px 16px;
+            outline: none;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .rec-search:focus { border-color: var(--rec-accent); }
+        .rec-search::placeholder { color: var(--rec-muted); }
+
+        /* ── LAYOUT ── */
+        .rec-main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .rec-section {
+            padding: 40px 0 20px;
+            border-bottom: 1px solid var(--rec-border);
+        }
+        .rec-section:last-child { border-bottom: none; }
+        .rec-section-title {
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--rec-muted);
+            margin: 0 0 20px;
+        }
+
+        /* ── FEATURED ── */
+        .rec-featured-card {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            background: var(--rec-card);
+            border: 1px solid var(--rec-border);
+            padding: 24px;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .rec-featured-card:hover { border-color: var(--rec-accent); }
+        .rec-featured-artwork {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            background: #1a1a1a;
+            flex-shrink: 0;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .rec-featured-info { flex: 1; min-width: 0; }
+        .rec-featured-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin: 0 0 4px;
+            color: #fff;
+        }
+        .rec-featured-artist {
+            font-size: 0.75rem;
+            color: var(--rec-muted);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin: 0 0 10px;
+        }
+        .rec-featured-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+        .rec-featured-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+        .rec-play-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--rec-accent);
+            color: #fff;
+            border: none;
+            padding: 10px 22px;
+            font-family: inherit;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .rec-play-btn:hover { background: #aa0000; }
+        .rec-price-badge {
+            font-size: 0.8rem;
+            color: var(--rec-muted);
+            letter-spacing: 0.05em;
+        }
+
+        /* ── TAG FILTER ── */
+        .rec-tags-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+        .rec-tag-btn {
+            padding: 5px 12px;
+            border: 1px solid var(--rec-border);
+            background: var(--rec-tag-bg);
+            color: var(--rec-muted);
+            font-family: inherit;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .rec-tag-btn:hover, .rec-tag-btn.active {
+            border-color: var(--rec-accent);
+            color: var(--rec-accent);
+            background: var(--rec-accent-dim);
+        }
+
+        /* ── TRACK GRID ── */
+        .rec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        .rec-track-card {
+            background: var(--rec-card);
+            border: 1px solid var(--rec-border);
+            cursor: pointer;
+            transition: border-color 0.2s, transform 0.15s;
+            position: relative;
+        }
+        .rec-track-card:hover { border-color: #444; transform: translateY(-2px); }
+        .rec-track-card.playing { border-color: var(--rec-accent); }
+        .rec-track-artwork-wrap {
+            position: relative;
+            padding-top: 100%;
+            background: #111;
+            overflow: hidden;
+        }
+        .rec-track-artwork {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 16px;
+            box-sizing: border-box;
+        }
+        .rec-track-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .rec-track-card:hover .rec-track-overlay { opacity: 1; }
+        .rec-track-play-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--rec-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+        .rec-track-body { padding: 12px; }
+        .rec-track-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #fff;
+            margin: 0 0 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .rec-track-artist {
+            font-size: 0.65rem;
+            color: var(--rec-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin: 0 0 8px;
+        }
+        .rec-track-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .rec-track-tags { display: flex; gap: 4px; flex-wrap: wrap; }
+        .rec-tag {
+            font-size: 0.55rem;
+            padding: 2px 5px;
+            border: 1px solid var(--rec-border);
+            color: var(--rec-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .rec-track-price {
+            font-size: 0.7rem;
+            color: var(--rec-muted);
+            letter-spacing: 0.05em;
+            flex-shrink: 0;
+        }
+        .rec-coming-soon-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(0,0,0,0.8);
+            color: var(--rec-muted);
+            font-size: 0.55rem;
+            padding: 3px 6px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid var(--rec-border);
+        }
+        .rec-track-card.coming-soon { opacity: 0.6; }
+        .rec-track-card.coming-soon:hover { border-color: var(--rec-border); transform: none; }
+
+        /* ── PLAYLISTS ── */
+        .rec-playlists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        .rec-playlist-card {
+            background: var(--rec-card);
+            border: 1px solid var(--rec-border);
+            padding: 20px;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .rec-playlist-card:hover { border-color: var(--rec-accent); }
+        .rec-playlist-icon { font-size: 1.5rem; margin-bottom: 10px; }
+        .rec-playlist-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #fff;
+            margin: 0 0 4px;
+        }
+        .rec-playlist-desc {
+            font-size: 0.65rem;
+            color: var(--rec-muted);
+            margin: 0 0 12px;
+        }
+        .rec-playlist-count {
+            font-size: 0.65rem;
+            color: var(--rec-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ── PERSISTENT PLAYER ── */
+        #wtf-player {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: var(--rec-player-h);
+            background: #0d0d0d;
+            border-top: 1px solid var(--rec-border);
+            display: none;
+            align-items: center;
+            padding: 0 20px;
+            gap: 16px;
+            z-index: 9999;
+            box-shadow: 0 -4px 24px rgba(0,0,0,0.6);
+        }
+        #wtf-player.active { display: flex; }
+        .player-artwork {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            background: #1a1a1a;
+            flex-shrink: 0;
+            padding: 4px;
+            box-sizing: border-box;
+        }
+        .player-info { min-width: 0; flex-shrink: 0; max-width: 180px; }
+        .player-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 0 0 2px;
+        }
+        .player-artist {
+            font-size: 0.6rem;
+            color: var(--rec-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin: 0;
+        }
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+        .player-ctrl-btn {
+            background: none;
+            border: none;
+            color: var(--rec-muted);
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 4px;
+            transition: color 0.15s;
+            line-height: 1;
+        }
+        .player-ctrl-btn:hover { color: #fff; }
+        .player-ctrl-btn.play-pause {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--rec-accent);
+            color: #fff;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .player-ctrl-btn.play-pause:hover { background: #aa0000; }
+        .player-progress-wrap {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+        }
+        .player-time {
+            font-size: 0.6rem;
+            color: var(--rec-muted);
+            letter-spacing: 0.05em;
+            flex-shrink: 0;
+            width: 36px;
+            text-align: right;
+        }
+        .player-time.end { text-align: left; }
+        .player-progress {
+            flex: 1;
+            height: 3px;
+            background: var(--rec-border);
+            cursor: pointer;
+            position: relative;
+        }
+        .player-progress-fill {
+            height: 100%;
+            background: var(--rec-accent);
+            pointer-events: none;
+            transition: width 0.1s linear;
+        }
+        .player-price {
+            font-size: 0.7rem;
+            color: var(--rec-muted);
+            letter-spacing: 0.05em;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .player-price a {
+            color: var(--rec-accent);
+            text-decoration: none;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid var(--rec-accent);
+            padding: 3px 8px;
+            transition: all 0.15s;
+        }
+        .player-price a:hover { background: var(--rec-accent); color: #fff; }
+
+        /* ── SUNO LINK ── */
+        .rec-suno-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.65rem;
+            color: var(--rec-muted);
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid var(--rec-border);
+            padding: 5px 10px;
+            transition: all 0.15s;
+        }
+        .rec-suno-link:hover { border-color: var(--rec-accent); color: var(--rec-accent); }
+
+        /* ── EMPTY STATE ── */
+        .rec-empty {
+            text-align: center;
+            padding: 40px;
+            color: var(--rec-muted);
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 600px) {
+            .rec-featured-card { flex-direction: column; }
+            .rec-featured-artwork { width: 100%; height: 160px; }
+            .player-progress-wrap { display: none; }
+            .player-info { max-width: 120px; }
+            #wtf-player { gap: 10px; padding: 0 12px; }
+        }
+    </style>
 </head>
 <body>
-    <div class="video-background">
-        <video id="background-video" autoplay muted loop playsinline>
-            <source src="assets/video/ireland-homepage-animation.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay"></div>
+
+    <!-- HERO -->
+    <section class="rec-hero">
+        <img class="rec-hero-logo" src="assets/logos/wtf-records-logo.png" alt="WTF Records">
+        <h1>WTF Records</h1>
+        <p class="rec-hero-tagline">Music for a world on fire.</p>
+        <div style="max-width:440px;margin:0 auto 20px;">
+            <input type="text" class="rec-search" id="rec-search" placeholder="Search tracks, tags, regions…">
+        </div>
+        <div class="rec-hero-actions">
+            <button class="rec-btn rec-btn-radio" id="btn-wtf-radio">▶ WTF RADIO</button>
+            <a href="https://suno.com/@wtfrecords" target="_blank" rel="noopener" class="rec-btn">↗ Suno</a>
+        </div>
+    </section>
+
+    <div class="rec-main">
+
+        <!-- FEATURED -->
+        <section class="rec-section">
+            <p class="rec-section-title">Featured</p>
+            <div id="rec-featured"></div>
+        </section>
+
+        <!-- CATALOGUE -->
+        <section class="rec-section">
+            <p class="rec-section-title">All Music</p>
+            <div class="rec-tags-row" id="rec-tag-filters"></div>
+            <div class="rec-grid" id="rec-grid"></div>
+        </section>
+
+        <!-- PLAYLISTS -->
+        <section class="rec-section">
+            <p class="rec-section-title">Playlists</p>
+            <div class="rec-playlists-grid" id="rec-playlists"></div>
+        </section>
+
     </div>
 
-    
-
-    <section class="section records-hero">
-        <div class="container">
-            <div class="records-hero-inner">
-                <img class="records-logo" src="assets/logos/wtf-records-logo.png" alt="WTF Records">
-                <h1 class="records-title">WTF Records</h1>
-                <p class="records-subtitle">Music for a world on fire.</p>
+    <!-- PERSISTENT PLAYER -->
+    <div id="wtf-player">
+        <img class="player-artwork" id="player-artwork" src="assets/logos/wtf-records-logo.png" alt="">
+        <div class="player-info">
+            <p class="player-title" id="player-title">—</p>
+            <p class="player-artist" id="player-artist">WatchTheFall</p>
+        </div>
+        <div class="player-controls">
+            <button class="player-ctrl-btn" id="player-prev" title="Previous">◀◀</button>
+            <button class="player-ctrl-btn play-pause" id="player-playpause" title="Play/Pause">▶</button>
+            <button class="player-ctrl-btn" id="player-next" title="Next">▶▶</button>
+        </div>
+        <div class="player-progress-wrap">
+            <span class="player-time" id="player-elapsed">0:00</span>
+            <div class="player-progress" id="player-progress-bar">
+                <div class="player-progress-fill" id="player-progress-fill" style="width:0%"></div>
             </div>
+            <span class="player-time end" id="player-duration">0:00</span>
         </div>
-    </section>
-
-    <section class="section" id="releases">
-        <div class="container">
-            <h2 class="section-title">Latest Releases</h2>
-            <p class="section-subtitle">Curated from <a href="https://suno.com/@wtfrecords" target="_blank" rel="noopener">suno.com/@wtfrecords</a></p>
-            <div id="records-releases" class="records-grid"></div>
+        <div class="player-price">
+            <span id="player-price-label">49p</span>
+            <a href="#" id="player-suno-link" target="_blank" rel="noopener" style="display:none">↗ Suno</a>
         </div>
-    </section>
+    </div>
 
-    <section class="section" id="artists">
-        <div class="container">
-            <h2 class="section-title">Artist Universe</h2>
-            <div id="artist-universe" class="artist-grid"></div>
-        </div>
-    </section>
-
-    <section class="section" id="listen">
-        <div class="container">
-            <h2 class="section-title">Listen Everywhere</h2>
-            <div id="listen-everywhere" class="listen-row"></div>
-        </div>
-    </section>
-
-    <section class="section" id="records-signup">
-        <div class="container">
-            <h2 class="section-title">Join the Movement</h2>
-            <form id="records-email-form" class="records-form" action="#" method="post">
-                <input type="email" name="email" placeholder="Enter your email" required>
-                <button type="submit" class="btn btn-primary">Sign Up</button>
-            </form>
-            <p class="section-subtitle" style="opacity:0.7">We'll send you new releases and drops.</p>
-        </div>
-    </section>
-
+    <!-- AGE GATE MODAL -->
     <div id="age-gate-modal" class="modal" aria-hidden="true">
         <div class="modal-backdrop"></div>
         <div class="modal-dialog">
             <h3 class="modal-title">Age Verification</h3>
-            <p style="opacity:0.85; margin-bottom:1rem;">Some content may contain mature themes. Are you 18 or older?</p>
-            <div style="display:flex; gap:0.5rem;">
+            <p style="opacity:0.85;margin-bottom:1rem;">Some content may contain mature themes. Are you 18 or older?</p>
+            <div style="display:flex;gap:0.5rem;">
                 <button id="age-confirm-yes" class="btn btn-primary">Yes, I'm 18+</button>
                 <button id="age-confirm-no" class="btn btn-secondary">No</button>
             </div>
@@ -86,8 +602,7 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="wtfcreations.html">Shop</a></li>
-                        <li><a href="brandr.html">Brandr</a></li>
-                <li><a href="wtfrecords.html">WTF Records</a></li>
+                        <li><a href="wtfrecords.html">WTF Records</a></li>
                         <li><a href="philosophy.html">Philosophy</a></li>
                     </ul>
                 </div>

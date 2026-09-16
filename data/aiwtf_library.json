@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "account": "artificialintelwtf",
+    "profile": "https://www.instagram.com/artificialintelwtf/",
+    "scraped": "2026-09-12",
+    "total": 12,
+    "reels": 12,
+    "posts": 0,
+    "note": "Initial population from profile grid (most recent ~12 reels visible without pagination). The hourly sweep queue will fill in older/new content over time.",
+    "last_sweep": "2026-09-12"
+  },
+  "reels": [
+    "https://www.instagram.com/artificialintelwtf/reel/DdLlHfKKR2H/",
+    "https://www.instagram.com/artificialintelwtf/reel/DdLWnKDqbHG/",
+    "https://www.instagram.com/artificialintelwtf/reel/Dc7CJ-IMZQt/",
+    "https://www.instagram.com/artificialintelwtf/reel/DRvJmuGiF24/",
+    "https://www.instagram.com/artificialintelwtf/reel/DQjAmm4iGmA/",
+    "https://www.instagram.com/artificialintelwtf/reel/DQi_DLEiJay/",
+    "https://www.instagram.com/artificialintelwtf/reel/DNot7vgo783/",
+    "https://www.instagram.com/artificialintelwtf/reel/DNl03kTIMVG/",
+    "https://www.instagram.com/artificialintelwtf/reel/DNd6cSTIj-3/",
+    "https://www.instagram.com/artificialintelwtf/reel/DMpAnRtIz-1/",
+    "https://www.instagram.com/artificialintelwtf/reel/DMoaPsboZJG/",
+    "https://www.instagram.com/artificialintelwtf/reel/DMoZ4loo3NN/"
+  ],
+  "posts": [],
+  "all": [
+    "https://www.instagram.com/artificialintelwtf/reel/DdLlHfKKR2H/",
+    "https://www.instagram.com/artificialintelwtf/reel/DdLWnKDqbHG/",
+    "https://www.instagram.com/artificialintelwtf/reel/Dc7CJ-IMZQt/",
+    "https://www.instagram.com/artificialintelwtf/reel/DRvJmuGiF24/",
+    "https://www.instagram.com/artificialintelwtf/reel/DQjAmm4iGmA/",
+    "https://www.instagram.com/artificialintelwtf/reel/DQi_DLEiJay/",
+    "https://www.instagram.com/artificialintelwtf/reel/DNot7vgo783/",
+    "https://www.instagram.com/artificialintelwtf/reel/DNl03kTIMVG/",
+    "https://www.instagram.com/artificialintelwtf/reel/DNd6cSTIj-3/",
+    "https://www.instagram.com/artificialintelwtf/reel/DMpAnRtIz-1/",
+    "https://www.instagram.com/artificialintelwtf/reel/DMoaPsboZJG/",
+    "https://www.instagram.com/artificialintelwtf/reel/DMoZ4loo3NN/"
+  ]
+}
