@@ -4,6 +4,7 @@
     "created": "2026-09-12"
   },
   "history": [
+    { "timestamp": "2026-09-16T09:10:40Z", "account": "conceptswtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
     { "timestamp": "2026-09-16T08:10:46Z", "account": "waleswtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
     { "timestamp": "2026-09-14T04:00:00Z", "account": "scotlandwtf", "status": "SUCCESS", "videos_found": 1, "videos_added": 1, "failure_reason": null },
     { "timestamp": "2026-09-14T03:00:00Z", "account": "usamericawtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
