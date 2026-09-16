@@ -168,7 +168,10 @@
         grid.innerHTML = tracks.map(t => {
             const available = t.release_status === 'available';
             const hasAudio = !!t.audio;
+            const hasEmbed = !!t.embed_url;
             const hasSuno = !!t.suno_url;
+            // A track is "playable" if it has local audio or a Suno embed
+            const playable = hasAudio || hasEmbed;
             const playing = queue[queueIndex]?.id === t.id && isPlaying;
             const chips = [...(t.genres || []), ...(t.moods || [])]
                 .slice(0, 2)
@@ -178,8 +181,9 @@
                 ? `<span class="rec-tag" style="border-color:#333">${t.region.toUpperCase()}</span>`
                 : '';
 
+            const sunoLabel = hasEmbed && !hasAudio ? '<span style="font-size:.55rem;color:var(--rec-muted);letter-spacing:.05em">via Suno</span>' : '';
             return `
-                <div class="rec-track-card${!available ? ' coming-soon' : ''}${playing ? ' playing' : ''}"
+                <div class="rec-track-card${!available && !playable ? ' coming-soon' : ''}${playing ? ' playing' : ''}"
                      data-id="${t.id}"
                      data-available="${available}"
                      data-suno="${t.suno_url || ''}">
@@ -188,10 +192,10 @@
                              src="${t.artwork || 'assets/logos/wtf-records-logo.png'}"
                              alt="${t.title}"
                              onerror="this.src='assets/logos/wtf-records-logo.png'">
-                        ${available
+                        ${playable
                             ? '<div class="rec-track-overlay"><div class="rec-track-play-icon">▶</div></div>'
                             : ''}
-                        ${!available
+                        ${!playable && !hasSuno
                             ? '<span class="rec-coming-soon-badge">Coming Soon</span>'
                             : ''}
                         ${playing
@@ -203,7 +207,7 @@
                         <p class="rec-track-artist">${BRAND}</p>
                         <div class="rec-track-footer">
                             <div class="rec-track-tags">${regionBadge}${chips}</div>
-                            <span class="rec-track-price">${available ? '49p' : (hasSuno ? '↗' : '')}</span>
+                            <span class="rec-track-price">${available ? '49p' : ''} ${sunoLabel}</span>
                         </div>
                     </div>
                 </div>
@@ -213,12 +217,12 @@
         grid.querySelectorAll('.rec-track-card').forEach(card => {
             card.addEventListener('click', () => {
                 const id = card.dataset.id;
-                const available = card.dataset.available === 'true';
-                const sunoUrl = card.dataset.suno;
-                if (available) {
+                const track = catalogue.find(t => t.id === id);
+                if (!track) return;
+                if (track.audio || track.embed_url) {
                     playTrackById(id);
-                } else if (sunoUrl) {
-                    window.open(sunoUrl, '_blank', 'noopener');
+                } else if (track.suno_url) {
+                    window.open(track.suno_url, '_blank', 'noopener');
                 }
             });
         });
@@ -253,15 +257,74 @@
         });
     }
 
+    // ── EMBED PANEL ────────────────────────────────────────────
+    function showEmbedPanel(track) {
+        let panel = document.getElementById('wtf-embed-panel');
+        if (!panel) {
+            panel = document.createElement('div');
+            panel.id = 'wtf-embed-panel';
+            panel.style.cssText = `
+                position:fixed; bottom:0; left:0; right:0; z-index:10000;
+                background:#0d0d0d; border-top:1px solid #222;
+                display:flex; flex-direction:column;
+            `;
+            document.body.appendChild(panel);
+        }
+
+        panel.innerHTML = `
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 16px;border-bottom:1px solid #222;">
+                <span style="font-family:'Courier New',monospace;font-size:0.7rem;letter-spacing:0.1em;color:#888;text-transform:uppercase;">
+                    ${track.title} — WatchTheFall
+                </span>
+                <button onclick="document.getElementById('wtf-embed-panel').remove()"
+                        style="background:none;border:none;color:#888;cursor:pointer;font-size:1.1rem;padding:0 4px;">✕</button>
+            </div>
+            <iframe
+                src="${track.embed_url}"
+                width="100%" height="152"
+                style="border:none;display:block;"
+                allow="autoplay"
+                loading="lazy">
+            </iframe>
+        `;
+
+        // Update player bar to show track info (non-interactive for embed tracks)
+        const player = document.getElementById('wtf-player');
+        if (player) {
+            player.classList.remove('active'); // hide native player bar while embed is open
+        }
+    }
+
     // ── PLAYER ─────────────────────────────────────────────────
     function playTrackById(id) {
         const track = catalogue.find(t => t.id === id);
-        if (!track || !track.audio) return;
-        const playable = filteredTracks().filter(t => t.audio);
-        const idx = playable.findIndex(t => t.id === id);
-        queue = playable;
-        queueIndex = idx >= 0 ? idx : 0;
-        playFromQueue();
+        if (!track) return;
+
+        // If track has local audio, use native player
+        if (track.audio) {
+            const playable = filteredTracks().filter(t => t.audio);
+            const idx = playable.findIndex(t => t.id === id);
+            queue = playable;
+            queueIndex = idx >= 0 ? idx : 0;
+            // Remove embed panel if open
+            document.getElementById('wtf-embed-panel')?.remove();
+            playFromQueue();
+            return;
+        }
+
+        // If track has embed_url, show Suno embed panel
+        if (track.embed_url) {
+            audio.pause();
+            isPlaying = false;
+            showEmbedPanel(track);
+            renderGrid();
+            return;
+        }
+
+        // Fallback: open Suno in new tab
+        if (track.suno_url) {
+            window.open(track.suno_url, '_blank', 'noopener');
+        }
     }
 
     function playFromQueue() {
