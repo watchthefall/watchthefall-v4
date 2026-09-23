@@ -2,14 +2,21 @@
   "_meta": {
     "account": "canadawtf_",
     "profile": "https://www.instagram.com/canadawtf_/",
-    "scraped": "2026-09-11",
-    "total": 19,
-    "reels": 19,
+    "scraped": "2026-09-16",
+    "total": 26,
+    "reels": 26,
     "posts": 0,
-    "note": "19 posts, all reels. No photo posts. DR0nrGKipNv appears first in DOM extraction — likely pinned. featured: pinned first, then Da* → DZ* → DY* → DW* → DV* → DS* → DR* → DN* → DJ* → DI*.",
-    "last_sweep": "2026-07-14"
+    "note": "26 posts, all reels. No photo posts. DR0nrGKipNv appears first in DOM extraction — likely pinned. featured: pinned first, then Dd* → Dc* → Da* → DZ* → DY* → DW* → DV* → DS* → DR* → DN* → DJ* → DI*.",
+    "last_sweep": "2026-09-16"
   },
   "reels": [
+    "https://www.instagram.com/canadawtf_/reel/DdWUAx_qSp4/",
+    "https://www.instagram.com/canadawtf_/reel/DdVL0_LKqQZ/",
+    "https://www.instagram.com/canadawtf_/reel/DdKCxARqobU/",
+    "https://www.instagram.com/canadawtf_/reel/DcxMDUBqxHo/",
+    "https://www.instagram.com/canadawtf_/reel/DcrAGX8yQGp/",
+    "https://www.instagram.com/canadawtf_/reel/DbYY9htKxZ1/",
+    "https://www.instagram.com/canadawtf_/reel/Dawnx6qqQRK/",
     "https://www.instagram.com/canadawtf_/reel/DauVql8KU0f/",
     "https://www.instagram.com/canadawtf_/reel/DafbT05qOpC/",
     "https://www.instagram.com/canadawtf_/reel/DaCqp4cKjSA/",
@@ -33,6 +40,13 @@
   "posts": [],
   "featured": [
     "https://www.instagram.com/canadawtf_/reel/DR0nrGKipNv/",
+    "https://www.instagram.com/canadawtf_/reel/DdWUAx_qSp4/",
+    "https://www.instagram.com/canadawtf_/reel/DdVL0_LKqQZ/",
+    "https://www.instagram.com/canadawtf_/reel/DdKCxARqobU/",
+    "https://www.instagram.com/canadawtf_/reel/DcxMDUBqxHo/",
+    "https://www.instagram.com/canadawtf_/reel/DcrAGX8yQGp/",
+    "https://www.instagram.com/canadawtf_/reel/DbYY9htKxZ1/",
+    "https://www.instagram.com/canadawtf_/reel/Dawnx6qqQRK/",
     "https://www.instagram.com/canadawtf_/reel/DauVql8KU0f/",
     "https://www.instagram.com/canadawtf_/reel/DafbT05qOpC/",
     "https://www.instagram.com/canadawtf_/reel/DaCqp4cKjSA/",
@@ -52,6 +66,6 @@
     "https://www.instagram.com/canadawtf_/reel/DJA-qm7KbFF/",
     "https://www.instagram.com/canadawtf_/reel/DIcQouxKHKb/"
   ],
-  "latest": "https://www.instagram.com/canadawtf_/reel/DdKCxARqobU/",
+  "latest": "https://www.instagram.com/canadawtf_/reel/DdWUAx_qSp4/",
   "pinned": "https://www.instagram.com/canadawtf_/reel/DR0nrGKipNv/"
 }

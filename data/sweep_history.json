@@ -4,6 +4,14 @@
     "created": "2026-09-12"
   },
   "history": [
+    { "timestamp": "2026-09-16T20:09:43Z", "account": "europewtf", "status": "FAILED", "videos_found": 0, "videos_added": 0, "failure_reason": "Claude in Chrome extension not connected/reachable this run." },
+    { "timestamp": "2026-09-16T19:11:05Z", "account": "canadawtf", "status": "SUCCESS", "videos_found": 2, "videos_added": 2, "failure_reason": null },
+    { "timestamp": "2026-09-16T18:00:00Z", "account": "watchthefallwtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
+    { "timestamp": "2026-09-16T17:11:51Z", "account": "britainwtf", "status": "SUCCESS", "videos_found": 1, "videos_added": 1, "failure_reason": null },
+    { "timestamp": "2026-09-16T16:10:44Z", "account": "northernirelandwtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
+    { "timestamp": "2026-09-16T15:00:00Z", "account": "australiawtf", "status": "SUCCESS", "videos_found": 2, "videos_added": 2, "failure_reason": null },
+    { "timestamp": "2026-09-16T14:10:49Z", "account": "italywtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
+    { "timestamp": "2026-09-16T13:10:28Z", "account": "aiwtf", "status": "SUCCESS", "videos_found": 1, "videos_added": 1, "failure_reason": null },
     { "timestamp": "2026-09-16T12:10:47Z", "account": "gadgetswtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
     { "timestamp": "2026-09-16T12:00:00Z", "account": "englandwtf", "status": "SUCCESS", "videos_found": 1, "videos_added": 1, "failure_reason": null },
     { "timestamp": "2026-09-16T10:10:43Z", "account": "darkhumourwtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
