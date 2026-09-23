@@ -1,17 +1,17 @@
 {
-  "last_updated": "2026-09-12T00:00:00Z",
+  "last_updated": "2026-09-23T00:00:00Z",
   "regions": [
     {
       "region": "ScotlandWTF",
       "followers": {
         "tiktok": 0,
-        "instagram": 26100,
+        "instagram": 26200,
         "youtube": 0,
         "x": 0
       },
       "previous": {
         "tiktok": 4416,
-        "instagram": 26100,
+        "instagram": 26200,
         "youtube": 0,
         "x": 0
       },
@@ -24,13 +24,13 @@
       "region": "WatchTheFallWTF",
       "followers": {
         "tiktok": 0,
-        "instagram": 1137,
+        "instagram": 1136,
         "youtube": 0,
         "x": 0
       },
       "previous": {
         "tiktok": 569,
-        "instagram": 1139,
+        "instagram": 1136,
         "youtube": 0,
         "x": 0
       },
@@ -62,13 +62,13 @@
       "region": "USAmericaWTF",
       "followers": {
         "tiktok": 0,
-        "instagram": 4493,
+        "instagram": 4480,
         "youtube": 0,
         "x": 0
       },
       "previous": {
-        "tiktok": 29,
-        "instagram": 4493,
+        "tiktok": 0,
+        "instagram": 4483,
         "youtube": 0,
         "x": 0
       },
@@ -100,13 +100,13 @@
       "region": "BritainWTF",
       "followers": {
         "tiktok": 0,
-        "instagram": 598,
+        "instagram": 596,
         "youtube": 0,
         "x": 0
       },
       "previous": {
         "tiktok": 52,
-        "instagram": 598,
+        "instagram": 596,
         "youtube": 0,
         "x": 0
       },
@@ -119,13 +119,13 @@
       "region": "TheWestWTF",
       "followers": {
         "tiktok": 24,
-        "instagram": 734,
+        "instagram": 772,
         "youtube": 0,
         "x": 0
       },
       "previous": {
         "tiktok": 27,
-        "instagram": 733,
+        "instagram": 770,
         "youtube": 0,
         "x": 0
       },
@@ -144,7 +144,7 @@
       },
       "previous": {
         "tiktok": 213,
-        "instagram": 1223
+        "instagram": 1223,
         "youtube": 0,
         "x": 0
       },
@@ -176,13 +176,13 @@
       "region": "GermanyWTF",
       "followers": {
         "tiktok": 0,
-        "instagram": 1955,
+        "instagram": 2050,
         "youtube": 0,
         "x": 0
       },
       "previous": {
         "tiktok": 17,
-        "instagram": 1954,
+        "instagram": 1949,
         "youtube": 0,
         "x": 0
       },
@@ -195,13 +195,13 @@
       "region": "EnglandWTF",
       "followers": {
         "tiktok": 0,
-        "instagram": 89,
+        "instagram": 94,
         "youtube": 0,
         "x": 0
       },
       "previous": {
         "tiktok": 0,
-        "instagram": 60,
+        "instagram": 93,
         "youtube": 0,
         "x": 0
       },
@@ -296,7 +296,7 @@
       },
       "previous": {
         "tiktok": 0,
-        "instagram": 32,
+        "instagram": 34,
         "youtube": 0,
         "x": 0
       },
@@ -309,13 +309,13 @@
       "region": "CanadaWTF",
       "followers": {
         "tiktok": 0,
-        "instagram": 1507,
+        "instagram": 1510,
         "youtube": 0,
         "x": 0
       },
       "previous": {
         "tiktok": 0,
-        "instagram": 1507,
+        "instagram": 1508,
         "youtube": 0,
         "x": 0
       },
@@ -328,13 +328,13 @@
       "region": "SwedenWTF",
       "followers": {
         "tiktok": 0,
-        "instagram": 46,
+        "instagram": 48,
         "youtube": 0,
         "x": 0
       },
       "previous": {
         "tiktok": 0,
-        "instagram": 33,
+        "instagram": 47,
         "youtube": 0,
         "x": 0
       },
@@ -347,13 +347,13 @@
       "region": "SpainWTF",
       "followers": {
         "tiktok": 0,
-        "instagram": 1888,
+        "instagram": 1933,
         "youtube": 0,
         "x": 0
       },
       "previous": {
         "tiktok": 0,
-        "instagram": 1886,
+        "instagram": 1927,
         "youtube": 0,
         "x": 0
       },
@@ -366,13 +366,13 @@
       "region": "ItalyWTF",
       "followers": {
         "tiktok": 0,
-        "instagram": 3768,
+        "instagram": 3773,
         "youtube": 0,
         "x": 0
       },
       "previous": {
         "tiktok": 0,
-        "instagram": 3769,
+        "instagram": 3774,
         "youtube": 0,
         "x": 0
       },
@@ -385,13 +385,13 @@
       "region": "NetherlandsWTF",
       "followers": {
         "tiktok": 0,
-        "instagram": 3080,
+        "instagram": 3089,
         "youtube": 0,
         "x": 0
       },
       "previous": {
         "tiktok": 0,
-        "instagram": 3081,
+        "instagram": 3083,
         "youtube": 0,
         "x": 0
       },
@@ -404,13 +404,13 @@
       "region": "GadgetsWTF",
       "followers": {
         "tiktok": 0,
-        "instagram": 29,
+        "instagram": 30,
         "youtube": 0,
         "x": 0
       },
       "previous": {
         "tiktok": 0,
-        "instagram": 26,
+        "instagram": 29,
         "youtube": 0,
         "x": 0
       },
@@ -448,7 +448,7 @@
       },
       "previous": {
         "tiktok": 0,
-        "instagram": 19,
+        "instagram": 18,
         "youtube": 0,
         "x": 0
       },
