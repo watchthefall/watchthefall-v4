@@ -1,66 +1,904 @@
 {
   "_meta": {
-    "description": "Append-only audit log for the hourly content-sweep queue. Each entry is one sweep attempt. Newest entries first. Keep at most the most recent 500 entries — trim from the end when writing if longer.",
+    "description": "Append-only audit log for the hourly content-sweep queue. Each entry is one sweep attempt. Newest entries first. Keep at most the most recent 500 entries \u2014 trim from the end when writing if longer.",
     "created": "2026-09-12"
   },
   "history": [
-    { "timestamp": "2026-09-16T20:09:43Z", "account": "europewtf", "status": "FAILED", "videos_found": 0, "videos_added": 0, "failure_reason": "Claude in Chrome extension not connected/reachable this run." },
-    { "timestamp": "2026-09-16T19:11:05Z", "account": "canadawtf", "status": "SUCCESS", "videos_found": 2, "videos_added": 2, "failure_reason": null },
-    { "timestamp": "2026-09-16T18:00:00Z", "account": "watchthefallwtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-16T17:11:51Z", "account": "britainwtf", "status": "SUCCESS", "videos_found": 1, "videos_added": 1, "failure_reason": null },
-    { "timestamp": "2026-09-16T16:10:44Z", "account": "northernirelandwtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-16T15:00:00Z", "account": "australiawtf", "status": "SUCCESS", "videos_found": 2, "videos_added": 2, "failure_reason": null },
-    { "timestamp": "2026-09-16T14:10:49Z", "account": "italywtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-16T13:10:28Z", "account": "aiwtf", "status": "SUCCESS", "videos_found": 1, "videos_added": 1, "failure_reason": null },
-    { "timestamp": "2026-09-16T12:10:47Z", "account": "gadgetswtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-16T12:00:00Z", "account": "englandwtf", "status": "SUCCESS", "videos_found": 1, "videos_added": 1, "failure_reason": null },
-    { "timestamp": "2026-09-16T10:10:43Z", "account": "darkhumourwtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-16T09:10:40Z", "account": "conceptswtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-16T08:10:46Z", "account": "waleswtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-14T04:00:00Z", "account": "scotlandwtf", "status": "SUCCESS", "videos_found": 1, "videos_added": 1, "failure_reason": null },
-    { "timestamp": "2026-09-14T03:00:00Z", "account": "usamericawtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-14T02:00:00Z", "account": "swedenwtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-14T01:00:00Z", "account": "spainwtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-13T18:10:38Z", "account": "watchthefallwtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-14T00:20:00Z", "account": "thewestwtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-13T23:59:55Z", "account": "polandwtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-13T15:10:34Z", "account": "northernirelandwtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-13T23:56:00Z", "account": "netherlandswtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-13T13:10:13Z", "account": "italywtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-13T23:00:00Z", "account": "irelandwtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-13T22:00:00Z", "account": "germanywtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-13T10:10:16Z", "account": "gadgetswtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-13T21:00:00Z", "account": "francewtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-13T20:00:00Z", "account": "europewtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-13T07:10:18Z", "account": "englandwtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-13T06:10:27Z", "account": "darkhumourwtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-13T05:10:10Z", "account": "conceptswtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-13T19:00:00Z", "account": "canadawtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-13T18:00:00Z", "account": "britainwtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-13T15:00:00Z", "account": "australiawtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-13T13:00:00Z", "account": "aiwtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-13T00:00:00Z", "account": "scotlandwtf", "status": "SUCCESS", "videos_found": 8, "videos_added": 8, "failure_reason": null },
-    { "timestamp": "2026-09-13T00:00:00Z", "account": "waleswtf", "status": "SUCCESS", "videos_found": 1, "videos_added": 1, "failure_reason": null },
-    { "timestamp": "2026-09-12T14:00:00Z", "account": "usamericawtf", "status": "SUCCESS", "videos_found": 8, "videos_added": 7, "failure_reason": null },
-    { "timestamp": "2026-09-12T13:00:00Z", "account": "swedenwtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-12T12:00:00Z", "account": "spainwtf", "status": "SUCCESS", "videos_found": 4, "videos_added": 4, "failure_reason": null },
-    { "timestamp": "2026-09-12T00:00:00Z", "account": "polandwtf", "status": "SUCCESS", "videos_found": 1, "videos_added": 1, "failure_reason": null },
-    { "timestamp": "2026-09-12T00:00:00Z", "account": "netherlandswtf", "status": "SUCCESS", "videos_found": 4, "videos_added": 4, "failure_reason": null },
-    { "timestamp": "2026-09-12T00:00:00Z", "account": "italywtf", "status": "SUCCESS", "videos_found": 7, "videos_added": 7, "failure_reason": null },
-    { "timestamp": "2026-09-12T00:00:00Z", "account": "irelandwtf", "status": "SUCCESS", "videos_found": 8, "videos_added": 8, "failure_reason": null },
-    { "timestamp": "2026-09-12T00:00:00Z", "account": "germanywtf", "status": "SUCCESS", "videos_found": 4, "videos_added": 4, "failure_reason": null },
-    { "timestamp": "2026-09-12T00:00:00Z", "account": "francewtf", "status": "SUCCESS", "videos_found": 5, "videos_added": 5, "failure_reason": null },
-    { "timestamp": "2026-09-12T00:00:00Z", "account": "europewtf", "status": "SUCCESS", "videos_found": 8, "videos_added": 8, "failure_reason": null },
-    { "timestamp": "2026-09-12T00:00:00Z", "account": "englandwtf", "status": "SUCCESS", "videos_found": 8, "videos_added": 8, "failure_reason": null },
-    { "timestamp": "2026-09-12T00:00:00Z", "account": "canadawtf", "status": "SUCCESS", "videos_found": 5, "videos_added": 5, "failure_reason": null },
-    { "timestamp": "2026-09-12T00:00:00Z", "account": "britainwtf", "status": "SUCCESS", "videos_found": 8, "videos_added": 8, "failure_reason": null },
-    { "timestamp": "2026-09-12T00:00:00Z", "account": "australiawtf", "status": "SUCCESS", "videos_found": 7, "videos_added": 7, "failure_reason": null },
-    { "timestamp": "2026-09-12T00:00:00Z", "account": "aiwtf", "status": "SUCCESS", "videos_found": 12, "videos_added": 12, "failure_reason": null },
-    { "timestamp": "2026-09-12T00:00:00Z", "account": "conceptswtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-12T00:00:00Z", "account": "gadgetswtf", "status": "SUCCESS", "videos_found": 0, "videos_added": 0, "failure_reason": null },
-    { "timestamp": "2026-09-12T00:00:00Z", "account": "darkhumourwtf", "status": "SUCCESS", "videos_found": 12, "videos_added": 12, "failure_reason": null },
-    { "timestamp": "2026-09-12T00:00:00Z", "account": "watchthefallwtf", "status": "SUCCESS", "videos_found": 12, "videos_added": 12, "failure_reason": null },
-    { "timestamp": "2026-09-12T00:00:00Z", "account": "northernirelandwtf", "status": "SUCCESS", "videos_found": 12, "videos_added": 12, "failure_reason": null },
-    { "timestamp": "2026-09-12T00:00:00Z", "account": "thewestwtf", "status": "SUCCESS", "videos_found": 12, "videos_added": 12, "failure_reason": null }
+    {
+      "timestamp": "2026-09-23T13:12:00Z",
+      "account": "polandwtf",
+      "status": "SUCCESS",
+      "videos_found": 2,
+      "videos_added": 2,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-23T12:11:59Z",
+      "account": "netherlandswtf",
+      "status": "SUCCESS",
+      "videos_found": 2,
+      "videos_added": 2,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-23T11:11:58Z",
+      "account": "irelandwtf",
+      "status": "SUCCESS",
+      "videos_found": 1,
+      "videos_added": 1,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-23T10:11:58Z",
+      "account": "francewtf",
+      "status": "SUCCESS",
+      "videos_found": 4,
+      "videos_added": 4,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-23T09:13:50Z",
+      "account": "germanywtf",
+      "status": "SUCCESS",
+      "videos_found": 5,
+      "videos_added": 5,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-23T08:33:59Z",
+      "account": "europewtf",
+      "status": "SUCCESS",
+      "videos_found": 3,
+      "videos_added": 3,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-20T04:10:08Z",
+      "account": "canadawtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-20T13:00:00Z",
+      "account": "watchthefallwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-20T02:09:46Z",
+      "account": "britainwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-20T00:00:00Z",
+      "account": "northernirelandwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-20T00:10:21Z",
+      "account": "australiawtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-19T23:11:12Z",
+      "account": "italywtf",
+      "status": "SUCCESS",
+      "videos_found": 1,
+      "videos_added": 1,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-19T22:10:11Z",
+      "account": "aiwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-19T21:10:15Z",
+      "account": "gadgetswtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-19T20:30:00Z",
+      "account": "englandwtf",
+      "status": "SUCCESS",
+      "videos_found": 1,
+      "videos_added": 1,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-19T19:10:01Z",
+      "account": "darkhumourwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-19T18:00:00Z",
+      "account": "waleswtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-19T17:35:13Z",
+      "account": "conceptswtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-18T09:10:37Z",
+      "account": "scotlandwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-18T08:10:57Z",
+      "account": "usamericawtf",
+      "status": "SUCCESS",
+      "videos_found": 1,
+      "videos_added": 1,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-18T07:15:00Z",
+      "account": "swedenwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-18T06:10:09Z",
+      "account": "spainwtf",
+      "status": "SUCCESS",
+      "videos_found": 1,
+      "videos_added": 1,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-18T05:10:00Z",
+      "account": "thewestwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-18T04:09:45Z",
+      "account": "polandwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-18T03:09:47Z",
+      "account": "netherlandswtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-18T02:09:58Z",
+      "account": "irelandwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-18T00:00:00Z",
+      "account": "germanywtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-18T00:10:58Z",
+      "account": "francewtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-17T23:11:13Z",
+      "account": "europewtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-17T22:15:00Z",
+      "account": "canadawtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-17T21:10:54Z",
+      "account": "watchthefallwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-17T20:10:29Z",
+      "account": "britainwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-17T19:09:31Z",
+      "account": "northernirelandwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-17T18:09:34Z",
+      "account": "australiawtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-17T17:09:25Z",
+      "account": "italywtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-17T16:10:00Z",
+      "account": "aiwtf",
+      "status": "SUCCESS",
+      "videos_found": 1,
+      "videos_added": 1,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-17T15:09:30Z",
+      "account": "gadgetswtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-17T14:10:44Z",
+      "account": "englandwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-17T13:10:31Z",
+      "account": "darkhumourwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-17T12:10:45Z",
+      "account": "conceptswtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-17T11:09:35Z",
+      "account": "waleswtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-17T10:09:26Z",
+      "account": "scotlandwtf",
+      "status": "SUCCESS",
+      "videos_found": 1,
+      "videos_added": 1,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-17T09:09:28Z",
+      "account": "usamericawtf",
+      "status": "SUCCESS",
+      "videos_found": 1,
+      "videos_added": 1,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-17T09:00:00Z",
+      "account": "swedenwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-17T07:09:30Z",
+      "account": "spainwtf",
+      "status": "SUCCESS",
+      "videos_found": 2,
+      "videos_added": 2,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-17T06:09:36Z",
+      "account": "thewestwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-17T05:09:58Z",
+      "account": "polandwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-17T04:10:01Z",
+      "account": "netherlandswtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-17T02:09:36Z",
+      "account": "netherlandswtf",
+      "status": "FAILED",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": "Claude in Chrome extension not connected/reachable this run"
+    },
+    {
+      "timestamp": "2026-09-17T01:09:46Z",
+      "account": "netherlandswtf",
+      "status": "FAILED",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": "Claude in Chrome extension not connected/reachable this run"
+    },
+    {
+      "timestamp": "2026-09-17T00:10:29Z",
+      "account": "irelandwtf",
+      "status": "SUCCESS",
+      "videos_found": 1,
+      "videos_added": 1,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-16T23:10:00Z",
+      "account": "germanywtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-16T22:09:32Z",
+      "account": "francewtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-16T21:09:46Z",
+      "account": "europewtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-16T20:09:43Z",
+      "account": "europewtf",
+      "status": "FAILED",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": "Claude in Chrome extension not connected/reachable this run."
+    },
+    {
+      "timestamp": "2026-09-16T19:11:05Z",
+      "account": "canadawtf",
+      "status": "SUCCESS",
+      "videos_found": 2,
+      "videos_added": 2,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-16T18:00:00Z",
+      "account": "watchthefallwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-16T17:11:51Z",
+      "account": "britainwtf",
+      "status": "SUCCESS",
+      "videos_found": 1,
+      "videos_added": 1,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-16T16:10:44Z",
+      "account": "northernirelandwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-16T15:00:00Z",
+      "account": "australiawtf",
+      "status": "SUCCESS",
+      "videos_found": 2,
+      "videos_added": 2,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-16T14:10:49Z",
+      "account": "italywtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-16T13:10:28Z",
+      "account": "aiwtf",
+      "status": "SUCCESS",
+      "videos_found": 1,
+      "videos_added": 1,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-16T12:10:47Z",
+      "account": "gadgetswtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-16T12:00:00Z",
+      "account": "englandwtf",
+      "status": "SUCCESS",
+      "videos_found": 1,
+      "videos_added": 1,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-16T10:10:43Z",
+      "account": "darkhumourwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-16T09:10:40Z",
+      "account": "conceptswtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-16T08:10:46Z",
+      "account": "waleswtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-14T04:00:00Z",
+      "account": "scotlandwtf",
+      "status": "SUCCESS",
+      "videos_found": 1,
+      "videos_added": 1,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-14T03:00:00Z",
+      "account": "usamericawtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-14T02:00:00Z",
+      "account": "swedenwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-14T01:00:00Z",
+      "account": "spainwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-13T18:10:38Z",
+      "account": "watchthefallwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-14T00:20:00Z",
+      "account": "thewestwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-13T23:59:55Z",
+      "account": "polandwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-13T15:10:34Z",
+      "account": "northernirelandwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-13T23:56:00Z",
+      "account": "netherlandswtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-13T13:10:13Z",
+      "account": "italywtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-13T23:00:00Z",
+      "account": "irelandwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-13T22:00:00Z",
+      "account": "germanywtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-13T10:10:16Z",
+      "account": "gadgetswtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-13T21:00:00Z",
+      "account": "francewtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-13T20:00:00Z",
+      "account": "europewtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-13T07:10:18Z",
+      "account": "englandwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-13T06:10:27Z",
+      "account": "darkhumourwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-13T05:10:10Z",
+      "account": "conceptswtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-13T19:00:00Z",
+      "account": "canadawtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-13T18:00:00Z",
+      "account": "britainwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-13T15:00:00Z",
+      "account": "australiawtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-13T13:00:00Z",
+      "account": "aiwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-13T00:00:00Z",
+      "account": "scotlandwtf",
+      "status": "SUCCESS",
+      "videos_found": 8,
+      "videos_added": 8,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-13T00:00:00Z",
+      "account": "waleswtf",
+      "status": "SUCCESS",
+      "videos_found": 1,
+      "videos_added": 1,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-12T14:00:00Z",
+      "account": "usamericawtf",
+      "status": "SUCCESS",
+      "videos_found": 8,
+      "videos_added": 7,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-12T13:00:00Z",
+      "account": "swedenwtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-12T12:00:00Z",
+      "account": "spainwtf",
+      "status": "SUCCESS",
+      "videos_found": 4,
+      "videos_added": 4,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-12T00:00:00Z",
+      "account": "polandwtf",
+      "status": "SUCCESS",
+      "videos_found": 1,
+      "videos_added": 1,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-12T00:00:00Z",
+      "account": "netherlandswtf",
+      "status": "SUCCESS",
+      "videos_found": 4,
+      "videos_added": 4,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-12T00:00:00Z",
+      "account": "italywtf",
+      "status": "SUCCESS",
+      "videos_found": 7,
+      "videos_added": 7,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-12T00:00:00Z",
+      "account": "irelandwtf",
+      "status": "SUCCESS",
+      "videos_found": 8,
+      "videos_added": 8,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-12T00:00:00Z",
+      "account": "germanywtf",
+      "status": "SUCCESS",
+      "videos_found": 4,
+      "videos_added": 4,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-12T00:00:00Z",
+      "account": "francewtf",
+      "status": "SUCCESS",
+      "videos_found": 5,
+      "videos_added": 5,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-12T00:00:00Z",
+      "account": "europewtf",
+      "status": "SUCCESS",
+      "videos_found": 8,
+      "videos_added": 8,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-12T00:00:00Z",
+      "account": "englandwtf",
+      "status": "SUCCESS",
+      "videos_found": 8,
+      "videos_added": 8,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-12T00:00:00Z",
+      "account": "canadawtf",
+      "status": "SUCCESS",
+      "videos_found": 5,
+      "videos_added": 5,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-12T00:00:00Z",
+      "account": "britainwtf",
+      "status": "SUCCESS",
+      "videos_found": 8,
+      "videos_added": 8,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-12T00:00:00Z",
+      "account": "australiawtf",
+      "status": "SUCCESS",
+      "videos_found": 7,
+      "videos_added": 7,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-12T00:00:00Z",
+      "account": "aiwtf",
+      "status": "SUCCESS",
+      "videos_found": 12,
+      "videos_added": 12,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-12T00:00:00Z",
+      "account": "conceptswtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-12T00:00:00Z",
+      "account": "gadgetswtf",
+      "status": "SUCCESS",
+      "videos_found": 0,
+      "videos_added": 0,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-12T00:00:00Z",
+      "account": "darkhumourwtf",
+      "status": "SUCCESS",
+      "videos_found": 12,
+      "videos_added": 12,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-12T00:00:00Z",
+      "account": "watchthefallwtf",
+      "status": "SUCCESS",
+      "videos_found": 12,
+      "videos_added": 12,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-12T00:00:00Z",
+      "account": "northernirelandwtf",
+      "status": "SUCCESS",
+      "videos_found": 12,
+      "videos_added": 12,
+      "failure_reason": null
+    },
+    {
+      "timestamp": "2026-09-12T00:00:00Z",
+      "account": "thewestwtf",
+      "status": "SUCCESS",
+      "videos_found": 12,
+      "videos_added": 12,
+      "failure_reason": null
+    }
   ]
 }
