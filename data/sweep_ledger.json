@@ -161,12 +161,12 @@
       "active": true,
       "library": "data/polandwtf_library.json",
       "instagram_url": "https://www.instagram.com/polandwtf/",
-      "last_successful_sweep": "2026-09-18T04:09:45Z",
-      "last_attempted": "2026-09-18T04:09:45Z",
+      "last_successful_sweep": "2026-09-23T13:12:00Z",
+      "last_attempted": "2026-09-23T13:12:00Z",
       "status": "SUCCESS",
       "failure_reason": null,
-      "videos_found": 0,
-      "videos_added": 0
+      "videos_found": 2,
+      "videos_added": 2
     },
     {
       "id": "usamericawtf",

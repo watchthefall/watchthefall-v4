@@ -5,6 +5,14 @@
   },
   "history": [
     {
+      "timestamp": "2026-09-23T13:12:00Z",
+      "account": "polandwtf",
+      "status": "SUCCESS",
+      "videos_found": 2,
+      "videos_added": 2,
+      "failure_reason": null
+    },
+    {
       "timestamp": "2026-09-23T12:11:59Z",
       "account": "netherlandswtf",
       "status": "SUCCESS",
